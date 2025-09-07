@@ -1,0 +1,44 @@
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Visual Studio cache
+.vs/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Auto-generated files
+*.generated.cs
+*.g.cs
+*.g.i.cs
+*.Designer.cs
+*.AssemblyInfo.cs
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Others
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+_ReSharper*/
