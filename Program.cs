@@ -1,16 +1,27 @@
-namespace Hospital_Management;
+using System;
+using System.Windows.Forms;
+using Hospital_Management.DAL;
 
-static class Program
+namespace Hospital_Management.UI
 {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    static void Main()
+    internal static class Program
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
-        ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
-    }    
+        [STAThread]
+        static void Main()
+        {
+            // Test connection
+            if (DatabaseConnection.TestConnection())
+            {
+                MessageBox.Show("✅ Kết nối MySQL thành công!");
+            }
+            else
+            {
+                MessageBox.Show("❌ Kết nối MySQL thất bại!");
+            }
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1()); // hoặc Form1
+        }
+    }
 }
