@@ -9,19 +9,21 @@ namespace Hospital_Management.UI
         [STAThread]
         static void Main()
         {
-            // Test connection
-            if (DatabaseConnection.TestConnection())
-            {
-                MessageBox.Show("✅ Kết nối MySQL thành công!");
-            }
-            else
-            {
-                MessageBox.Show("❌ Kết nối MySQL thất bại!");
-            }
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1()); // hoặc Form1
+            Main_Layout form = new Main_Layout();
+            form.WindowState = FormWindowState.Maximized;
+            Application.Run(form); // hoặc Form1
+
+            // Test connection
+            // if (DatabaseConnection.TestConnection())
+            // {
+            //     MessageBox.Show("✅ Kết nối MySQL thành công!");
+            // }
+            // else
+            // {
+            //     MessageBox.Show("❌ Kết nối MySQL thất bại!");
+            // }
         }
     }
 }
