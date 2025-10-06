@@ -6,37 +6,52 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // bệnh án
     internal class MedicalDTO
     {
-        private string madp;
-        private string tendp;
-        private string loaidp;
+        private string maba;
+        private string socccd;
+        private string manv;
+        private string ngaytao;
+
         public MedicalDTO()
         {
-            this.madp = " ";
-            this.tendp = " ";
-            this.loaidp = " ";
+            this.maba = " ";
+            this.socccd = " ";
+            this.manv = " ";
+            this.ngaytao = " ";
         }
-        public MedicalDTO(string madp, string tendp, string loaidp)
+
+        public MedicalDTO(string maba, string socccd, string manv, string ngaytao)
         {
-            this.madp = madp;
-            this.tendp = tendp;
-            this.loaidp = loaidp;
+            this.maba = maba;
+            this.socccd = socccd;
+            this.manv = manv;
+            this.ngaytao = ngaytao;
         }
-        public string Madp
+
+        public string Maba
         {
-            get => madp;
-            set { madp = value; }
+            get => maba;
+            set { maba = value; }
         }
-        public string Tendp
+
+        public string Socccd
         {
-            get => tendp;
-            set { tendp = value; }
+            get => socccd;
+            set { socccd = value; }
         }
-        public string Loaidp
+
+        public string Manv
         {
-            get => loaidp;
-            set { loaidp = value; }
+            get => manv;
+            set { manv = value; }
+        }
+
+        public string Ngaytao
+        {
+            get => ngaytao;
+            set { ngaytao = value; }
         }
     }
 }
