@@ -1,4 +1,5 @@
 ﻿using HospitalManagerment.GUI;
+using HospitalManagerment.GUI.Login_Layout;
 using HospitalManagerment.GUI.Main_Layout;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace HospitalManagerment
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main_Layout());
+            //Application.Run(new Main_Layout());
+            Application.Run(new Login_Layout());
         }
     }
 }

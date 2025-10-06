@@ -27,8 +27,8 @@ namespace HospitalManagerment.Utils
         public static Color MenuBtnFocusBgColor = Color.FromArgb(243, 251, 249);
 
         // Font mặc định
-        public static Font MainFont = new Font("Tamoha", 18, FontStyle.Bold);
-        public static Font TextBoxFont = new Font("Roboto", 18, FontStyle.Bold);
+        public static Font MainFont = new Font("Tamoha", 12, FontStyle.Bold);
+        public static Font TextBoxFont = new Font("Roboto", 12, FontStyle.Bold);
 
     }
 }
