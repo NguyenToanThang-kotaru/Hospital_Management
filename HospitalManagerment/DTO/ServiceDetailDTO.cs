@@ -8,5 +8,28 @@ namespace HospitalManagerment.DTO
 {
     internal class ServiceDetailDTO
     {
+        private string madkdv;
+        private string madv;
+        public RegistrationDetailsDTO()
+        {
+            this.madkdv = " ";
+            this.madv = " ";
+        }
+        public RegistrationDetailsDTO(string madkdv, string madv)
+        {
+            this.madkdv = madkdv;
+            this.madv = madv;
+        }
+
+        public string Madkdv
+        {
+            get => madkdv;
+            set { madkdv = value; }
+        }
+        public string Madv
+        {
+            get => madv;
+            set { madv = value; }
+        }
     }
 }
