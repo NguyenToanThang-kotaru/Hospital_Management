@@ -8,5 +8,86 @@ namespace HospitalManagerment.DTO
 {
     internal class PatientDTO
     {
+        private string soCCCD;
+        private string tenBN;
+        private string soBHYT;
+        private string ngaySinh;
+        private string gioiTinh;
+        private string sdtBN;
+        private string diaChi;
+        private string trangThaiXoa;
+
+        public PatientDTO()
+        {
+            this.soCCCD = " ";
+            this.tenBN = " ";
+            this.soBHYT = " ";
+            this.ngaySinh = " ";
+            this.gioiTinh = " ";
+            this.sdtBN = " ";
+            this.diaChi = " ";
+            this.trangThaiXoa = " ";
+        }
+
+        public PatientDTO(string soCCCD, string tenBN, string soBHYT, string ngaySinh, string gioiTinh, string sdtBN, string diaChi,
+         string trangThaiXoa)
+        {
+            this.soCCCD = soCCCD;
+            this.tenBN = tenBN;
+            this.soBHYT = soBHYT;
+            this.ngaySinh = ngaySinh;
+            this.gioiTinh = gioiTinh;
+            this.sdtBN = sdtBN;
+            this.diaChi = diaChi;
+            this.trangThaiXoa = trangThaiXoa;
+        }
+
+        public string SoCCCD
+        {
+            get => this.soCCCD;
+            set { this.soCCCD = value; }
+        }
+
+        public string TenBN
+        {
+            get => this.tenBN;
+            set { this.tenBN = value; }
+        }
+
+        public string SoBHYT
+        {
+            get => this.soBHYT;
+            set { this.soBHYT = value; }
+        }
+
+        public string NgaySinh
+        {
+            get => this.ngaySinh;
+            set { this.ngaySinh = value; }
+        }
+
+        public string GioiTinh
+        {
+            get => this.gioiTinh;
+            set { this.gioiTinh = value; }
+        }
+
+        public string SdtBN
+        {
+            get => this.sdtBN;
+            set { this.sdtBN = value; }
+        }
+
+        public string DiaChi
+        {
+            get => this.diaChi;
+            set { this.diaChi = value; }
+        }
+
+        public string TrangThaiXoa
+        {
+            get => this.trangThaiXoa;
+            set { this.trangThaiXoa = value; }
+        }
     }
 }
