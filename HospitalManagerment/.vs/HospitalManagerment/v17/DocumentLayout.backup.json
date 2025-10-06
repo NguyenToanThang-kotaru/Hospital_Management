@@ -1,0 +1,953 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\gui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:gui\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\gui\\login.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:gui\\login.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:gui\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\gui\\mainlayout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:gui\\mainlayout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\accountbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\accountbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\departmentbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\departmentbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\diagnosebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\diagnosebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\diseasebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\diseasebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\employeebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\employeebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\healthinsurancebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\healthinsurancebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\medicalbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\medicalbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\medicinebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\medicinebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\patientbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\patientbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\permissionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\permissionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\permissiondetialbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\permissiondetialbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\prescriptionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\prescriptionbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\servicebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\servicebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\servicedetailbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\servicedetailbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\serviceregistrationbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\serviceregistrationbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\bus\\serviceregistrationdetailbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:bus\\serviceregistrationdetailbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\prescriptiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\prescriptiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\servicedetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\servicedetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\servicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\servicedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\serviceregistrationdetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\serviceregistrationdetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\serviceregistrationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\serviceregistrationdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\permissiondetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\permissiondetaildao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\permissiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\permissiondao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\patientdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\patientdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\medicinedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\medicinedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\medicaldao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\medicaldao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\healthinsurancedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\healthinsurancedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\employeedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\employeedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\diseasedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\diseasedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\diagnosedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\diagnosedao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\departmentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\departmentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dao\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\permissiondetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\permissiondetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\permissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\permissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\diseasedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\diseasedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\accountdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\diagnosedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\diagnosedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\medicinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\medicinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\prescriptiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\prescriptiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\medicaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\medicaldto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\serviceregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\serviceregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\servicedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\servicedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\serviceregistrationdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\serviceregistrationdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\healthinsurancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\healthinsurancedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\departmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\departmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\employeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\servicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\servicedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\dto\\patientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:dto\\patientdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|d:\\completed project\\csharp project\\hospitalmanagerment\\hospitalmanagerment\\utils\\consts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{659E84A0-526A-4EF5-8BB8-5D5B3A83AE10}|HospitalManagerment.csproj|solutionrelative:utils\\consts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.resx",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.resx",
+              "RelativeDocumentMoniker": "GUI\\Login.resx",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.resx",
+              "RelativeToolTip": "GUI\\Login.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-10-06T06:32:34.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.Designer.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.Designer.cs",
+              "RelativeDocumentMoniker": "GUI\\Login.Designer.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.Designer.cs",
+              "RelativeToolTip": "GUI\\Login.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:32:33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.cs",
+              "RelativeDocumentMoniker": "GUI\\Login.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.cs",
+              "RelativeToolTip": "GUI\\Login.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAlwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:32:27.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Login.cs [Design]",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.cs",
+              "RelativeDocumentMoniker": "GUI\\Login.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\Login.cs [Design]",
+              "RelativeToolTip": "GUI\\Login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:30:39.815Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:29:46.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainLayout.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\MainLayout.cs",
+              "RelativeDocumentMoniker": "GUI\\MainLayout.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\GUI\\MainLayout.cs",
+              "RelativeToolTip": "GUI\\MainLayout.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:29:39.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccountBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\AccountBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\AccountBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\AccountBUS.cs",
+              "RelativeToolTip": "BUS\\AccountBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:28:46.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DepartmentBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\DepartmentBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\DepartmentBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\DepartmentBUS.cs",
+              "RelativeToolTip": "BUS\\DepartmentBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:28:28.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DiagnoseBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\DiagnoseBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\DiagnoseBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\DiagnoseBUS.cs",
+              "RelativeToolTip": "BUS\\DiagnoseBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:27:53.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DiseaseBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\DiseaseBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\DiseaseBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\DiseaseBUS.cs",
+              "RelativeToolTip": "BUS\\DiseaseBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:27:37.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EmployeeBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\EmployeeBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\EmployeeBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\EmployeeBUS.cs",
+              "RelativeToolTip": "BUS\\EmployeeBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:27:23.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HealthInsuranceBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\HealthInsuranceBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\HealthInsuranceBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\HealthInsuranceBUS.cs",
+              "RelativeToolTip": "BUS\\HealthInsuranceBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:27:08.031Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MedicalBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\MedicalBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\MedicalBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\MedicalBUS.cs",
+              "RelativeToolTip": "BUS\\MedicalBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:26:35.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MedicineBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\MedicineBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\MedicineBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\MedicineBUS.cs",
+              "RelativeToolTip": "BUS\\MedicineBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:26:20.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PatientBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PatientBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\PatientBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PatientBUS.cs",
+              "RelativeToolTip": "BUS\\PatientBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:26:08.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "PermissionBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PermissionBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\PermissionBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PermissionBUS.cs",
+              "RelativeToolTip": "BUS\\PermissionBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:25:48.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "PermissionDetialBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PermissionDetialBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\PermissionDetialBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PermissionDetialBUS.cs",
+              "RelativeToolTip": "BUS\\PermissionDetialBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:25:38.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PrescriptionBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PrescriptionBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\PrescriptionBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\PrescriptionBUS.cs",
+              "RelativeToolTip": "BUS\\PrescriptionBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:25:12.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ServiceBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\ServiceBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceBUS.cs",
+              "RelativeToolTip": "BUS\\ServiceBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:24:43.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ServiceDetailBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceDetailBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\ServiceDetailBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceDetailBUS.cs",
+              "RelativeToolTip": "BUS\\ServiceDetailBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:24:35.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ServiceRegistrationBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceRegistrationBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\ServiceRegistrationBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceRegistrationBUS.cs",
+              "RelativeToolTip": "BUS\\ServiceRegistrationBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:24:07.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ServiceRegistrationDetailBUS.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceRegistrationDetailBUS.cs",
+              "RelativeDocumentMoniker": "BUS\\ServiceRegistrationDetailBUS.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\BUS\\ServiceRegistrationDetailBUS.cs",
+              "RelativeToolTip": "BUS\\ServiceRegistrationDetailBUS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:23:55.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PrescriptionDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PrescriptionDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\PrescriptionDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PrescriptionDAO.cs",
+              "RelativeToolTip": "DAO\\PrescriptionDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:22:08.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ServiceDetailDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceDetailDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\ServiceDetailDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceDetailDAO.cs",
+              "RelativeToolTip": "DAO\\ServiceDetailDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:21:20.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ServiceDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\ServiceDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceDAO.cs",
+              "RelativeToolTip": "DAO\\ServiceDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:21:02.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ServiceRegistrationDetailDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceRegistrationDetailDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\ServiceRegistrationDetailDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceRegistrationDetailDAO.cs",
+              "RelativeToolTip": "DAO\\ServiceRegistrationDetailDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:20:30.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ServiceRegistrationDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceRegistrationDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\ServiceRegistrationDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\ServiceRegistrationDAO.cs",
+              "RelativeToolTip": "DAO\\ServiceRegistrationDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:20:05.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "PermissionDetailDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PermissionDetailDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\PermissionDetailDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PermissionDetailDAO.cs",
+              "RelativeToolTip": "DAO\\PermissionDetailDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:19:28.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PermissionDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PermissionDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\PermissionDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PermissionDAO.cs",
+              "RelativeToolTip": "DAO\\PermissionDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:19:11.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "PatientDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PatientDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\PatientDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\PatientDAO.cs",
+              "RelativeToolTip": "DAO\\PatientDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:18:50.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "MedicineDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\MedicineDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\MedicineDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\MedicineDAO.cs",
+              "RelativeToolTip": "DAO\\MedicineDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:18:29.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "MedicalDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\MedicalDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\MedicalDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\MedicalDAO.cs",
+              "RelativeToolTip": "DAO\\MedicalDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:18:17.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "HealthInsuranceDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\HealthInsuranceDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\HealthInsuranceDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\HealthInsuranceDAO.cs",
+              "RelativeToolTip": "DAO\\HealthInsuranceDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:18:07.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EmployeeDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\EmployeeDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\EmployeeDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\EmployeeDAO.cs",
+              "RelativeToolTip": "DAO\\EmployeeDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:17:20.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DiseaseDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\DiseaseDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\DiseaseDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\DiseaseDAO.cs",
+              "RelativeToolTip": "DAO\\DiseaseDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:16:55.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "DiagnoseDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\DiagnoseDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\DiagnoseDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\DiagnoseDAO.cs",
+              "RelativeToolTip": "DAO\\DiagnoseDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:16:31.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "DepartmentDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\DepartmentDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\DepartmentDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\DepartmentDAO.cs",
+              "RelativeToolTip": "DAO\\DepartmentDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:16:01.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "AccountDAO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\AccountDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\AccountDAO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DAO\\AccountDAO.cs",
+              "RelativeToolTip": "DAO\\AccountDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:15:28.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "PermissionDetailDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PermissionDetailDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\PermissionDetailDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PermissionDetailDTO.cs",
+              "RelativeToolTip": "DTO\\PermissionDetailDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:14:19.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PermissionDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PermissionDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\PermissionDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PermissionDTO.cs",
+              "RelativeToolTip": "DTO\\PermissionDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:13:58.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "DiseaseDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\DiseaseDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\DiseaseDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\DiseaseDTO.cs",
+              "RelativeToolTip": "DTO\\DiseaseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:12:13.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "AccountDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\AccountDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\AccountDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\AccountDTO.cs",
+              "RelativeToolTip": "DTO\\AccountDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:10:35.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "DiagnoseDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\DiagnoseDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\DiagnoseDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\DiagnoseDTO.cs",
+              "RelativeToolTip": "DTO\\DiagnoseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:10:05.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "MedicineDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\MedicineDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\MedicineDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\MedicineDTO.cs",
+              "RelativeToolTip": "DTO\\MedicineDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:09:34.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "PrescriptionDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PrescriptionDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\PrescriptionDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PrescriptionDTO.cs",
+              "RelativeToolTip": "DTO\\PrescriptionDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:09:09.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "MedicalDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\MedicalDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\MedicalDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\MedicalDTO.cs",
+              "RelativeToolTip": "DTO\\MedicalDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:08:28.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "ServiceDetailDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceDetailDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ServiceDetailDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceDetailDTO.cs",
+              "RelativeToolTip": "DTO\\ServiceDetailDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:07:32.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ServiceRegistrationDetailDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceRegistrationDetailDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ServiceRegistrationDetailDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceRegistrationDetailDTO.cs",
+              "RelativeToolTip": "DTO\\ServiceRegistrationDetailDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:06:52.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ServiceRegistrationDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceRegistrationDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ServiceRegistrationDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceRegistrationDTO.cs",
+              "RelativeToolTip": "DTO\\ServiceRegistrationDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:06:07.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "HealthInsuranceDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\HealthInsuranceDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\HealthInsuranceDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\HealthInsuranceDTO.cs",
+              "RelativeToolTip": "DTO\\HealthInsuranceDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:03:53.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "DepartmentDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\DepartmentDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\DepartmentDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\DepartmentDTO.cs",
+              "RelativeToolTip": "DTO\\DepartmentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:02:33.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "EmployeeDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\EmployeeDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\EmployeeDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\EmployeeDTO.cs",
+              "RelativeToolTip": "DTO\\EmployeeDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:01:22.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "ServiceDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\ServiceDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\ServiceDTO.cs",
+              "RelativeToolTip": "DTO\\ServiceDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T06:00:24.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "PatientDTO.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PatientDTO.cs",
+              "RelativeDocumentMoniker": "DTO\\PatientDTO.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\DTO\\PatientDTO.cs",
+              "RelativeToolTip": "DTO\\PatientDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T05:59:25.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Consts.cs",
+              "DocumentMoniker": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\Utils\\Consts.cs",
+              "RelativeDocumentMoniker": "Utils\\Consts.cs",
+              "ToolTip": "D:\\Completed Project\\CSharp Project\\HospitalManagerment\\HospitalManagerment\\Utils\\Consts.cs",
+              "RelativeToolTip": "Utils\\Consts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T05:57:02.793Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
