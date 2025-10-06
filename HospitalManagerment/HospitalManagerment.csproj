@@ -106,6 +106,18 @@
     <Compile Include="GUI\Main_Layout\Main_Layout.Designer.cs">
       <DependentUpon>Main_Layout.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Pages\BenhNhan\BenhNhanPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\BenhNhan\BenhNhanPage.Designer.cs">
+      <DependentUpon>BenhNhanPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\DichVu\DichVuPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\DichVu\DichVuPage.Designer.cs">
+      <DependentUpon>DichVuPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Pages\Statistics\StatisticPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main_Layout\Main_Layout.resx">
       <DependentUpon>Main_Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\BenhNhan\BenhNhanPage.resx">
+      <DependentUpon>BenhNhanPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\DichVu\DichVuPage.resx">
+      <DependentUpon>DichVuPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Pages\Statistics\StatisticPage.resx">
       <DependentUpon>StatisticPage.cs</DependentUpon>
@@ -148,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="GUI\Component\" />
+    <Folder Include="GUI\Pages\HoSoBenhAn\" />
+    <Folder Include="GUI\Pages\NhanVien\" />
+    <Folder Include="GUI\Pages\Quyen\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

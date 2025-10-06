@@ -15,7 +15,7 @@ namespace HospitalManagerment.DTO
         private string tongchiphi;
         private string hinhthuctt;
         private string manv;
-        public CreateServiceDTO()
+        public ServiceRegistrationDTO()
         {
             this.madkdv = " ";
             this.socccd = " ";
@@ -25,7 +25,7 @@ namespace HospitalManagerment.DTO
             this.hinhthuctt = " ";
             this.manv = " ";
         }
-        public CreateServiceDTO(string madkdv, string socccd, string ngaygiotao, string trangthaidk, string tongchiphi, string hinhthuctt, string manv)
+        public ServiceRegistrationDTO(string madkdv, string socccd, string ngaygiotao, string trangthaidk, string tongchiphi, string hinhthuctt, string manv)
         {
             this.madkdv = madkdv;
             this.socccd = socccd;
