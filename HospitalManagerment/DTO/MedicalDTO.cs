@@ -11,13 +11,13 @@ namespace HospitalManagerment.DTO
         private string madp;
         private string tendp;
         private string loaidp;
-        public PharmaceuticalsDTO()
+        public MedicalDTO()
         {
             this.madp = " ";
             this.tendp = " ";
             this.loaidp = " ";
         }
-        public PharmaceuticalsDTO(string madp, string tendp, string loaidp)
+        public MedicalDTO(string madp, string tendp, string loaidp)
         {
             this.madp = madp;
             this.tendp = tendp;

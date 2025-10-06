@@ -12,14 +12,14 @@ namespace HospitalManagerment.DTO
         private string madp;
         private string soluongdp;
         private string donvidp;
-        public PrecriptionDTO()
+        public PrescriptionDTO()
         {
             this.maba = " ";
             this.madp = " ";
             this.soluongdp = " ";
             this.donvidp = " ";
         }
-        public PrecriptionDTO(string maba, string madp, string soluongdp, string donvidp)
+        public PrescriptionDTO(string maba, string madp, string soluongdp, string donvidp)
         {
             this.maba = maba;
             this.madp = madp;

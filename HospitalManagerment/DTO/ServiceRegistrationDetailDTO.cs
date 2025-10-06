@@ -10,12 +10,12 @@ namespace HospitalManagerment.DTO
     {
         private string madv;
         private string maba;
-        public UseServiceDTO()
+        public ServiceRegistrationDetailDTO()
         {
             this.madv = " ";
             this.maba = " ";
         }
-        public UseServiceDTO(string madv, string maba)
+        public ServiceRegistrationDetailDTO(string madv, string maba)
         {
             this.madv = madv;
             this.maba = maba;
