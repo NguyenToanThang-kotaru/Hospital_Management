@@ -3,6 +3,9 @@ using System.Windows.Forms;
 using HospitalManagerment.GUI.Pages.Statistics;
 using HospitalManagerment.GUI.Pages.BenhNhan;
 using HospitalManagerment.GUI.Pages.DichVu;
+using HospitalManagerment.GUI.Pages.HoSoBenhAn;
+using HospitalManagerment.GUI.Pages.NhanVien;
+using HospitalManagerment.GUI.Pages.BacSi;
 
 namespace HospitalManagerment.GUI.Main_Layout
 {
@@ -72,7 +75,7 @@ namespace HospitalManagerment.GUI.Main_Layout
         //    }
         //}
 
-        private void label2_Click(object sender, EventArgs e)
+        private void BenhNhan_Click(object sender, EventArgs e)
         {
             LoadPage(new BenhNhanPage());
         }
@@ -80,6 +83,26 @@ namespace HospitalManagerment.GUI.Main_Layout
         private void DichVuLB_Click(object sender, EventArgs e)
         {
             LoadPage(new DichVuPage());
+        }
+
+        private void HoSoBenhAnLB_Click(object sender, EventArgs e)
+        {
+            LoadPage(new HoSoBenhAnPage());
+        }
+
+        private void NhanVienLB_Click(object sender, EventArgs e)
+        {
+            LoadPage(new NhanVienPage());
+        }
+
+        private void QuyenLB_Click(object sender, EventArgs e)
+        {
+            LoadPage(new QuyenPage());
+        }
+
+        private void BacSi_LB(object sender, EventArgs e)
+        {
+            LoadPage(new BacSiPage());
         }
     }
 }

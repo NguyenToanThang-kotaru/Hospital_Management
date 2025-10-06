@@ -1,6 +1,6 @@
-﻿namespace HospitalManagerment.GUI.Pages.DichVu
+﻿namespace HospitalManagerment.GUI.Pages.BacSi
 {
-    partial class DichVuPage
+    partial class BacSiPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,24 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.TabBenhNhan = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.TabBenhNhan = new System.Windows.Forms.TabControl();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TabBenhNhan.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.TabBenhNhan.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // TabBenhNhan
+            // 
+            this.TabBenhNhan.Controls.Add(this.tabPage2);
+            this.TabBenhNhan.Controls.Add(this.tabPage1);
+            this.TabBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabBenhNhan.Location = new System.Drawing.Point(0, 0);
+            this.TabBenhNhan.Name = "TabBenhNhan";
+            this.TabBenhNhan.Padding = new System.Drawing.Point(20, 25);
+            this.TabBenhNhan.SelectedIndex = 0;
+            this.TabBenhNhan.Size = new System.Drawing.Size(1467, 530);
+            this.TabBenhNhan.TabIndex = 3;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 73);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1330, 805);
+            this.tabPage2.Size = new System.Drawing.Size(1459, 453);
             this.tabPage2.TabIndex = 5;
-            this.tabPage2.Text = "Dịch vụ";
+            this.tabPage2.Text = "Bác sĩ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
@@ -61,18 +74,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1330, 805);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1459, 453);
             this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(463, 20);
-            this.panel2.Margin = new System.Windows.Forms.Padding(20);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(847, 765);
-            this.panel2.TabIndex = 1;
             // 
             // panel1
             // 
@@ -81,39 +84,49 @@
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Margin = new System.Windows.Forms.Padding(20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 765);
+            this.panel1.Size = new System.Drawing.Size(446, 413);
             this.panel1.TabIndex = 0;
             // 
-            // TabBenhNhan
+            // panel2
             // 
-            this.TabBenhNhan.Controls.Add(this.tabPage2);
-            this.TabBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabBenhNhan.Location = new System.Drawing.Point(0, 0);
-            this.TabBenhNhan.Name = "TabBenhNhan";
-            this.TabBenhNhan.Padding = new System.Drawing.Point(20, 25);
-            this.TabBenhNhan.SelectedIndex = 0;
-            this.TabBenhNhan.Size = new System.Drawing.Size(1338, 882);
-            this.TabBenhNhan.TabIndex = 2;
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(506, 20);
+            this.panel2.Margin = new System.Windows.Forms.Padding(20);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(933, 413);
+            this.panel2.TabIndex = 1;
             // 
-            // DichVuPage
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 73);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1459, 453);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Ca làm việc";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BacSiPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.TabBenhNhan);
-            this.Name = "DichVuPage";
-            this.Size = new System.Drawing.Size(1338, 882);
+            this.Name = "BacSiPage";
+            this.Size = new System.Drawing.Size(1467, 530);
+            this.TabBenhNhan.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.TabBenhNhan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.TabControl TabBenhNhan;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabControl TabBenhNhan;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }

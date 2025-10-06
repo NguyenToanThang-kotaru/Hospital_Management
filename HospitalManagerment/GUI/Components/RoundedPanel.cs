@@ -32,35 +32,30 @@ namespace HospitalManagerment.GUI.Component
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
-                         ControlStyles.UserPaint |
-                         ControlStyles.ResizeRedraw |
-                         ControlStyles.OptimizedDoubleBuffer, true);
+                          ControlStyles.UserPaint |
+                          ControlStyles.ResizeRedraw |
+                          ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.SupportsTransparentBackColor, true);
+
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
 
-            Graphics graphics = e.Graphics;
-            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Tạo rectangle để vẽ
             Rectangle rect = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
-
-            // Vẽ background với border radius
             using (GraphicsPath path = CreateRoundedRectangle(rect, BorderRadius))
-            using (SolidBrush brush = new SolidBrush(PanelColor))
             {
-                graphics.FillPath(brush, path);
-            }
+                using (SolidBrush brush = new SolidBrush(PanelColor))
+                    e.Graphics.FillPath(brush, path);
 
-            // Vẽ border nhẹ để định hình panel
-            using (GraphicsPath path = CreateRoundedRectangle(rect, BorderRadius))
-            using (Pen pen = new Pen(Color.LightGray, 1))
-            {
-                graphics.DrawPath(pen, path);
+                using (Pen pen = new Pen(Color.LightGray, 1))
+                    e.Graphics.DrawPath(pen, path);
             }
         }
+
 
         protected override void OnResize(EventArgs e)
         {
@@ -125,6 +120,11 @@ namespace HospitalManagerment.GUI.Component
             PanelHeight = height;
             this.Size = new Size(width, height);
             this.Invalidate();
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            // Không gọi base.OnPaintBackground để tránh chớp do xóa nền
+            // Tự vẽ nền trong OnPaint() rồi
         }
     }
 }

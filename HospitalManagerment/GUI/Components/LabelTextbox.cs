@@ -24,6 +24,17 @@ namespace LayoutTest.GUIComponents
             set => txt.Text = value;
         }
 
+        private bool _isPassword = false;
+        public bool IsPassword
+        {
+            get => _isPassword;
+            set
+            {
+                _isPassword = value;
+                txt.UseSystemPasswordChar = value; 
+            }
+        }
+
         public LableTextBox()
         {
             InitializeComponent(200, 60, "Label:");

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI
+namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 {
-    public partial class Login : Form
+    public partial class HoSoBenhAnPage : UserControl
     {
-        public Login()
+        public HoSoBenhAnPage()
         {
             InitializeComponent();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

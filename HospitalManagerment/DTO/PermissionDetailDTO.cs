@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // Chi tiết quyền
     internal class PermissionDetailDTO
     {
         private string maQuyen;

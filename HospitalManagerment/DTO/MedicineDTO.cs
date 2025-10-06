@@ -8,5 +8,35 @@ namespace HospitalManagerment.DTO
 {
     internal class MedicineDTO
     {
+        private string madp;
+        private string tendp;
+        private string loaidp;
+        public MedicineDTO()
+        {
+            this.madp = " ";
+            this.tendp = " ";
+            this.loaidp = " ";
+        }
+        public MedicineDTO(string madp, string tendp, string loaidp)
+        {
+            this.madp = madp;
+            this.tendp = tendp;
+            this.loaidp = loaidp;
+        }
+        public string Madp
+        {
+            get => madp;
+            set { madp = value; }
+        }
+        public string Tendp
+        {
+            get => tendp;
+            set { tendp = value; }
+        }
+        public string Loaidp
+        {
+            get => loaidp;
+            set { loaidp = value; }
+        }
     }
 }
