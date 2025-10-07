@@ -42,36 +42,38 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.89464F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.21072F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.89464F));
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.roundedPanel1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1442, 941);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1882, 953);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // roundedPanel1
             // 
+            this.roundedPanel1.AutoSize = true;
             this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.roundedPanel1.BorderRadius = 40;
             this.roundedPanel1.Controls.Add(this.tableLayoutPanel2);
             this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.Location = new System.Drawing.Point(390, 239);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.roundedPanel1.Location = new System.Drawing.Point(555, 241);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.PanelColor = System.Drawing.Color.White;
             this.roundedPanel1.PanelHeight = 400;
             this.roundedPanel1.PanelWidth = 800;
-            this.roundedPanel1.Size = new System.Drawing.Size(660, 556);
+            this.roundedPanel1.Size = new System.Drawing.Size(730, 470);
             this.roundedPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -84,14 +86,13 @@
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(660, 556);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(730, 470);
             this.tableLayoutPanel2.TabIndex = 0;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
@@ -101,12 +102,12 @@
             this.lableTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lableTextBox1.IsPassword = false;
             this.lableTextBox1.LabelText = "Tài khoản";
-            this.lableTextBox1.Location = new System.Drawing.Point(135, 170);
-            this.lableTextBox1.Margin = new System.Windows.Forms.Padding(135, 31, 135, 6);
+            this.lableTextBox1.Location = new System.Drawing.Point(150, 142);
+            this.lableTextBox1.Margin = new System.Windows.Forms.Padding(150, 25, 150, 5);
             this.lableTextBox1.Name = "lableTextBox1";
             this.lableTextBox1.PanelHeight = 60;
             this.lableTextBox1.PanelWidth = 200;
-            this.lableTextBox1.Size = new System.Drawing.Size(390, 102);
+            this.lableTextBox1.Size = new System.Drawing.Size(430, 87);
             this.lableTextBox1.TabIndex = 0;
             this.lableTextBox1.TextValue = "";
             this.lableTextBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.lableTextBox1_Paint_1);
@@ -117,12 +118,12 @@
             this.lableTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lableTextBox2.IsPassword = true;
             this.lableTextBox2.LabelText = "Mật khẩu";
-            this.lableTextBox2.Location = new System.Drawing.Point(135, 284);
-            this.lableTextBox2.Margin = new System.Windows.Forms.Padding(135, 6, 135, 31);
+            this.lableTextBox2.Location = new System.Drawing.Point(150, 239);
+            this.lableTextBox2.Margin = new System.Windows.Forms.Padding(150, 5, 150, 25);
             this.lableTextBox2.Name = "lableTextBox2";
             this.lableTextBox2.PanelHeight = 60;
             this.lableTextBox2.PanelWidth = 200;
-            this.lableTextBox2.Size = new System.Drawing.Size(390, 102);
+            this.lableTextBox2.Size = new System.Drawing.Size(430, 87);
             this.lableTextBox2.TabIndex = 1;
             this.lableTextBox2.TextValue = "";
             this.lableTextBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.lableTextBox2_Paint);
@@ -131,11 +132,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(87, 15);
+            this.label1.Location = new System.Drawing.Point(40, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(485, 108);
+            this.label1.Size = new System.Drawing.Size(650, 53);
             this.label1.TabIndex = 2;
             this.label1.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -147,10 +148,10 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(225, 429);
-            this.button1.Margin = new System.Windows.Forms.Padding(225, 12, 225, 50);
+            this.button1.Location = new System.Drawing.Point(240, 366);
+            this.button1.Margin = new System.Windows.Forms.Padding(240, 15, 240, 45);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 77);
+            this.button1.Size = new System.Drawing.Size(250, 59);
             this.button1.TabIndex = 3;
             this.button1.Text = "ĐĂNG NHẬP";
             this.button1.UseVisualStyleBackColor = false;
@@ -158,18 +159,18 @@
             // 
             // Login_Layout
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(1442, 941);
+            this.ClientSize = new System.Drawing.Size(1882, 953);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login_Layout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Login_Layout_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.roundedPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -186,5 +187,5 @@
             private LayoutTest.GUIComponents.LableTextBox lableTextBox2;
             private System.Windows.Forms.Label label1;
             private System.Windows.Forms.Button button1;
-        }
+    }
     }
