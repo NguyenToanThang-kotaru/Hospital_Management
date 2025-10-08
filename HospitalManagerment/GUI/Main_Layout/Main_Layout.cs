@@ -124,5 +124,10 @@ namespace HospitalManagerment.GUI.Main_Layout
         {
 
         }
+
+        private void tabItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,8 +9,8 @@ namespace HospitalManagerment.GUI.Components
     internal class SidebarItem : Label
     {
         public int BorderRadius { get; set; } = 3;
-        public Color PanelBgColor { get; set; } = Consts.BgColor;
-        public Color PanelTextColor { get; set; } = Consts.FontColorA;
+        public Color LanelBgColor { get; set; } = Consts.BgColor;
+        public Color LanelTextColor { get; set; } = Consts.FontColorA;
         public Color HoverBgColor { get; set; } = Consts.MenuBtnFocusBgColor;
         public Color HoverTextColor { get; set; } = Consts.MenuBtnFocusFontColor;
         public int LabelWidth { get; set; } = 250;
@@ -24,11 +24,11 @@ namespace HospitalManagerment.GUI.Components
             Initialize();
         }
 
-        public SidebarItem(int borderRadius, Color panelBgColor, Color panelTextColor, int labelWidth, int labelHeight)
+        public SidebarItem(int borderRadius, Color lanelBgColor, Color lanelTextColor, int labelWidth, int labelHeight)
         {
             this.BorderRadius = borderRadius;
-            this.PanelBgColor = panelBgColor;
-            this.PanelTextColor = panelTextColor;
+            this.LanelBgColor = lanelBgColor;
+            this.LanelTextColor = lanelTextColor;
             this.LabelWidth = labelWidth;
             this.LabelHeight = labelHeight;
             Initialize();
@@ -39,23 +39,15 @@ namespace HospitalManagerment.GUI.Components
             this.AutoSize = false;
             this.Size = new Size(LabelWidth, LabelHeight);
             this.BackColor = Color.Transparent;
-            this.ForeColor = PanelTextColor;
+            this.ForeColor = LanelTextColor;
             this.Font = LabelFont;
             this.TextAlign = ContentAlignment.MiddleLeft;
             this.Margin = new Padding(30, 5, 30, 5);
             this.Cursor = Cursors.Hand;
 
             //  hover
-            MouseEnter += (s, e) =>
-            {
-                isHovered = true;
-                Invalidate(); // vẽ lại
-            };
-            MouseLeave += (s, e) =>
-            {
-                isHovered = false;
-                Invalidate();
-            };
+            MouseEnter += (s, e) => { isHovered = true; Invalidate(); };
+            MouseLeave += (s, e) => { isHovered = false; Invalidate(); };
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -65,7 +57,7 @@ namespace HospitalManagerment.GUI.Components
 
             using (GraphicsPath path = RoundedRect(rect, BorderRadius))
             {
-                using (SolidBrush brush = new SolidBrush(isHovered ? HoverBgColor : PanelBgColor))
+                using (SolidBrush brush = new SolidBrush(isHovered ? HoverBgColor : LanelBgColor))
                 {
                     e.Graphics.FillPath(brush, path);
                 }
@@ -76,15 +68,13 @@ namespace HospitalManagerment.GUI.Components
                 }
             }
 
-            //// Vẽ text ////
             Rectangle textRect = new Rectangle(rect.X + 15, rect.Y, rect.Width - 15, rect.Height);
-
             TextRenderer.DrawText(
                 e.Graphics,
                 Text,
                 LabelFont,
                 textRect,
-                isHovered ? HoverTextColor : PanelTextColor,
+                isHovered ? HoverTextColor : LanelTextColor,
                 TextFormatFlags.VerticalCenter | TextFormatFlags.Left
             );
         }

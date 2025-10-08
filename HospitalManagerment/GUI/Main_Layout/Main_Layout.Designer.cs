@@ -32,14 +32,14 @@
             this.Tittle = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.sidebarItem1 = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.sidebarItem2 = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.sidebarItem3 = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.sidebarItem4 = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.sidebarItem5 = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.sidebarItem6 = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.sidebarItem7 = new HospitalManagerment.GUI.Components.SidebarItem();
             this.MainContent = new System.Windows.Forms.Panel();
+            this.DashboardItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.BenhNhanItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.HoSoBenhAnItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.DichVuItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.BacSiItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.NhanVienItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.QuyenItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.Header.SuspendLayout();
             this.SideBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -82,174 +82,18 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem1);
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem2);
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem3);
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem4);
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem5);
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem6);
-            this.flowLayoutPanel1.Controls.Add(this.sidebarItem7);
+            this.flowLayoutPanel1.Controls.Add(this.DashboardItem);
+            this.flowLayoutPanel1.Controls.Add(this.BenhNhanItem);
+            this.flowLayoutPanel1.Controls.Add(this.HoSoBenhAnItem);
+            this.flowLayoutPanel1.Controls.Add(this.DichVuItem);
+            this.flowLayoutPanel1.Controls.Add(this.BacSiItem);
+            this.flowLayoutPanel1.Controls.Add(this.NhanVienItem);
+            this.flowLayoutPanel1.Controls.Add(this.QuyenItem);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 873);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // sidebarItem1
-            // 
-            this.sidebarItem1.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem1.BorderRadius = 20;
-            this.sidebarItem1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sidebarItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem1.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem1.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem1.LabelHeight = 50;
-            this.sidebarItem1.LabelWidth = 250;
-            this.sidebarItem1.Location = new System.Drawing.Point(30, 10);
-            this.sidebarItem1.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem1.Name = "sidebarItem1";
-            this.sidebarItem1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem1.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem1.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem1.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem1.TabIndex = 0;
-            this.sidebarItem1.Text = "Dashboard";
-            this.sidebarItem1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sidebarItem1.Click += new System.EventHandler(this.sidebarItem1_Click_2);
-            // 
-            // sidebarItem2
-            // 
-            this.sidebarItem2.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem2.BorderRadius = 20;
-            this.sidebarItem2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.sidebarItem2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem2.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem2.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem2.LabelHeight = 50;
-            this.sidebarItem2.LabelWidth = 250;
-            this.sidebarItem2.Location = new System.Drawing.Point(30, 80);
-            this.sidebarItem2.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem2.Name = "sidebarItem2";
-            this.sidebarItem2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem2.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem2.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem2.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem2.TabIndex = 1;
-            this.sidebarItem2.Text = "Bệnh nhân";
-            this.sidebarItem2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // sidebarItem3
-            // 
-            this.sidebarItem3.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem3.BorderRadius = 20;
-            this.sidebarItem3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.sidebarItem3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem3.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem3.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem3.LabelHeight = 50;
-            this.sidebarItem3.LabelWidth = 250;
-            this.sidebarItem3.Location = new System.Drawing.Point(30, 150);
-            this.sidebarItem3.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem3.Name = "sidebarItem3";
-            this.sidebarItem3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem3.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem3.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem3.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem3.TabIndex = 2;
-            this.sidebarItem3.Text = "Hồ sơ bệnh án";
-            this.sidebarItem3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // sidebarItem4
-            // 
-            this.sidebarItem4.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem4.BorderRadius = 20;
-            this.sidebarItem4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.sidebarItem4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem4.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem4.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem4.LabelHeight = 50;
-            this.sidebarItem4.LabelWidth = 250;
-            this.sidebarItem4.Location = new System.Drawing.Point(30, 220);
-            this.sidebarItem4.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem4.Name = "sidebarItem4";
-            this.sidebarItem4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem4.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem4.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem4.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem4.TabIndex = 3;
-            this.sidebarItem4.Text = "Dịch vụ";
-            this.sidebarItem4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.sidebarItem4.Click += new System.EventHandler(this.sidebarItem4_Click);
-            // 
-            // sidebarItem5
-            // 
-            this.sidebarItem5.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem5.BorderRadius = 20;
-            this.sidebarItem5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.sidebarItem5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem5.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem5.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem5.LabelHeight = 50;
-            this.sidebarItem5.LabelWidth = 250;
-            this.sidebarItem5.Location = new System.Drawing.Point(30, 290);
-            this.sidebarItem5.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem5.Name = "sidebarItem5";
-            this.sidebarItem5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem5.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem5.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem5.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem5.TabIndex = 4;
-            this.sidebarItem5.Text = "Bác sĩ";
-            this.sidebarItem5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // sidebarItem6
-            // 
-            this.sidebarItem6.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem6.BorderRadius = 20;
-            this.sidebarItem6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.sidebarItem6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem6.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem6.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem6.LabelHeight = 50;
-            this.sidebarItem6.LabelWidth = 250;
-            this.sidebarItem6.Location = new System.Drawing.Point(30, 360);
-            this.sidebarItem6.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem6.Name = "sidebarItem6";
-            this.sidebarItem6.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem6.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem6.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem6.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem6.TabIndex = 5;
-            this.sidebarItem6.Text = "Nhân viên";
-            this.sidebarItem6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // sidebarItem7
-            // 
-            this.sidebarItem7.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarItem7.BorderRadius = 20;
-            this.sidebarItem7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sidebarItem7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.sidebarItem7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem7.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.sidebarItem7.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.sidebarItem7.LabelHeight = 50;
-            this.sidebarItem7.LabelWidth = 250;
-            this.sidebarItem7.Location = new System.Drawing.Point(30, 430);
-            this.sidebarItem7.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.sidebarItem7.Name = "sidebarItem7";
-            this.sidebarItem7.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.sidebarItem7.PanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.sidebarItem7.PanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.sidebarItem7.Size = new System.Drawing.Size(250, 50);
-            this.sidebarItem7.TabIndex = 6;
-            this.sidebarItem7.Text = "Quyền";
-            this.sidebarItem7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainContent
             // 
@@ -260,6 +104,169 @@
             this.MainContent.Size = new System.Drawing.Size(1572, 873);
             this.MainContent.TabIndex = 2;
             this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
+            // 
+            // DashboardItem
+            // 
+            this.DashboardItem.BackColor = System.Drawing.Color.Transparent;
+            this.DashboardItem.BorderRadius = 20;
+            this.DashboardItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DashboardItem.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DashboardItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.DashboardItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.DashboardItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.DashboardItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.DashboardItem.LabelHeight = 50;
+            this.DashboardItem.LabelWidth = 250;
+            this.DashboardItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DashboardItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.DashboardItem.Location = new System.Drawing.Point(30, 10);
+            this.DashboardItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.DashboardItem.Name = "DashboardItem";
+            this.DashboardItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.DashboardItem.Size = new System.Drawing.Size(250, 50);
+            this.DashboardItem.TabIndex = 0;
+            this.DashboardItem.Text = "Dashboard";
+            this.DashboardItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DashboardItem.Click += new System.EventHandler(this.sidebarItem1_Click_2);
+            // 
+            // BenhNhanItem
+            // 
+            this.BenhNhanItem.BackColor = System.Drawing.Color.Transparent;
+            this.BenhNhanItem.BorderRadius = 20;
+            this.BenhNhanItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BenhNhanItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.BenhNhanItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.BenhNhanItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.BenhNhanItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.BenhNhanItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.BenhNhanItem.LabelHeight = 50;
+            this.BenhNhanItem.LabelWidth = 250;
+            this.BenhNhanItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BenhNhanItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.BenhNhanItem.Location = new System.Drawing.Point(30, 80);
+            this.BenhNhanItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.BenhNhanItem.Name = "BenhNhanItem";
+            this.BenhNhanItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BenhNhanItem.Size = new System.Drawing.Size(250, 50);
+            this.BenhNhanItem.TabIndex = 1;
+            this.BenhNhanItem.Text = "Bệnh nhân";
+            this.BenhNhanItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // HoSoBenhAnItem
+            // 
+            this.HoSoBenhAnItem.BackColor = System.Drawing.Color.Transparent;
+            this.HoSoBenhAnItem.BorderRadius = 20;
+            this.HoSoBenhAnItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HoSoBenhAnItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.HoSoBenhAnItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.HoSoBenhAnItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.HoSoBenhAnItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.HoSoBenhAnItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.HoSoBenhAnItem.LabelHeight = 50;
+            this.HoSoBenhAnItem.LabelWidth = 250;
+            this.HoSoBenhAnItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.HoSoBenhAnItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.HoSoBenhAnItem.Location = new System.Drawing.Point(30, 150);
+            this.HoSoBenhAnItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.HoSoBenhAnItem.Name = "HoSoBenhAnItem";
+            this.HoSoBenhAnItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.HoSoBenhAnItem.Size = new System.Drawing.Size(250, 50);
+            this.HoSoBenhAnItem.TabIndex = 2;
+            this.HoSoBenhAnItem.Text = "Hồ sơ bệnh án";
+            this.HoSoBenhAnItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // DichVuItem
+            // 
+            this.DichVuItem.BackColor = System.Drawing.Color.Transparent;
+            this.DichVuItem.BorderRadius = 20;
+            this.DichVuItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DichVuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DichVuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.DichVuItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.DichVuItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.DichVuItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.DichVuItem.LabelHeight = 50;
+            this.DichVuItem.LabelWidth = 250;
+            this.DichVuItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DichVuItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.DichVuItem.Location = new System.Drawing.Point(30, 220);
+            this.DichVuItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.DichVuItem.Name = "DichVuItem";
+            this.DichVuItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.DichVuItem.Size = new System.Drawing.Size(250, 50);
+            this.DichVuItem.TabIndex = 3;
+            this.DichVuItem.Text = "Dịch vụ";
+            this.DichVuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DichVuItem.Click += new System.EventHandler(this.sidebarItem4_Click);
+            // 
+            // BacSiItem
+            // 
+            this.BacSiItem.BackColor = System.Drawing.Color.Transparent;
+            this.BacSiItem.BorderRadius = 20;
+            this.BacSiItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BacSiItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.BacSiItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.BacSiItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.BacSiItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.BacSiItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.BacSiItem.LabelHeight = 50;
+            this.BacSiItem.LabelWidth = 250;
+            this.BacSiItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BacSiItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.BacSiItem.Location = new System.Drawing.Point(30, 290);
+            this.BacSiItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.BacSiItem.Name = "BacSiItem";
+            this.BacSiItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BacSiItem.Size = new System.Drawing.Size(250, 50);
+            this.BacSiItem.TabIndex = 4;
+            this.BacSiItem.Text = "Bác sĩ";
+            this.BacSiItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NhanVienItem
+            // 
+            this.NhanVienItem.BackColor = System.Drawing.Color.Transparent;
+            this.NhanVienItem.BorderRadius = 20;
+            this.NhanVienItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NhanVienItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.NhanVienItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.NhanVienItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.NhanVienItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.NhanVienItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.NhanVienItem.LabelHeight = 50;
+            this.NhanVienItem.LabelWidth = 250;
+            this.NhanVienItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.NhanVienItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.NhanVienItem.Location = new System.Drawing.Point(30, 360);
+            this.NhanVienItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.NhanVienItem.Name = "NhanVienItem";
+            this.NhanVienItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.NhanVienItem.Size = new System.Drawing.Size(250, 50);
+            this.NhanVienItem.TabIndex = 5;
+            this.NhanVienItem.Text = "Nhân viên";
+            this.NhanVienItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // QuyenItem
+            // 
+            this.QuyenItem.BackColor = System.Drawing.Color.Transparent;
+            this.QuyenItem.BorderRadius = 20;
+            this.QuyenItem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QuyenItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.QuyenItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.QuyenItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
+            this.QuyenItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.QuyenItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
+            this.QuyenItem.LabelHeight = 50;
+            this.QuyenItem.LabelWidth = 250;
+            this.QuyenItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.QuyenItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.QuyenItem.Location = new System.Drawing.Point(30, 430);
+            this.QuyenItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.QuyenItem.Name = "QuyenItem";
+            this.QuyenItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.QuyenItem.Size = new System.Drawing.Size(250, 50);
+            this.QuyenItem.TabIndex = 6;
+            this.QuyenItem.Text = "Quyền";
+            this.QuyenItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Main_Layout
             // 
@@ -289,12 +296,12 @@
         private System.Windows.Forms.Panel MainContent;
         private System.Windows.Forms.Label Tittle;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Components.SidebarItem sidebarItem1;
-        private Components.SidebarItem sidebarItem2;
-        private Components.SidebarItem sidebarItem3;
-        private Components.SidebarItem sidebarItem4;
-        private Components.SidebarItem sidebarItem5;
-        private Components.SidebarItem sidebarItem6;
-        private Components.SidebarItem sidebarItem7;
+        private Components.SidebarItem DashboardItem;
+        private Components.SidebarItem BenhNhanItem;
+        private Components.SidebarItem HoSoBenhAnItem;
+        private Components.SidebarItem DichVuItem;
+        private Components.SidebarItem BacSiItem;
+        private Components.SidebarItem NhanVienItem;
+        private Components.SidebarItem QuyenItem;
     }
 }
