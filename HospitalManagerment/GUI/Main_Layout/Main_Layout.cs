@@ -104,5 +104,25 @@ namespace HospitalManagerment.GUI.Main_Layout
         {
             LoadPage(new BacSiPage());
         }
+
+        private void sidebarItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebarItem1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebarItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sidebarItem1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,13 +10,13 @@ namespace HospitalManagerment.Utils
     public static class Consts
     {
         // Màu background
-        public static Color BgColor = Color.FromArgb(255, 255, 255);
-        public static Color FormBgColor = Color.FromArgb(248, 248, 248);
-        public static Color HeaderBgColor = Color.FromArgb(21, 77, 146);
+        public static Color BgColor = Color.FromArgb(255, 255, 255); // trắng
+        public static Color FormBgColor = Color.FromArgb(248, 248, 248);  // xám nhạt
+        public static Color HeaderBgColor = Color.FromArgb(21, 77, 146); // xanh
 
         // Màu chữ
-        public static Color FontColorA = Color.FromArgb(125, 125, 125);
-        public static Color FontColorB = Color.FromArgb(52, 211, 153);
+        public static Color FontColorA = Color.FromArgb(125, 125, 125); // xám 
+        public static Color FontColorB = Color.FromArgb(52, 211, 153);  // xanh lá dạ quang
 
         // Màu table
         public static Color TblHeaderColor = Color.FromArgb(247, 255, 254);

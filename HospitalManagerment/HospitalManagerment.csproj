@@ -153,6 +153,9 @@
     <Compile Include="GUI\Components\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\Components\SidebarItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Login_Layout\Login_Layout.cs">
       <SubType>Form</SubType>
     </Compile>
