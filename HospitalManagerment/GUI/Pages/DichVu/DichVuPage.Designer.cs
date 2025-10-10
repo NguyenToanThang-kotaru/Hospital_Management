@@ -35,13 +35,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.roundedPanel2 = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.roundedPanel3 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControlDesign1.SuspendLayout();
             this.tabPageDichVu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlDesign1
@@ -77,6 +81,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.roundedPanel1);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(50);
             // 
             // splitContainer1.Panel2
             // 
@@ -89,16 +94,18 @@
             // 
             this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
             this.roundedPanel1.BorderRadius = 40;
+            this.roundedPanel1.Controls.Add(this.tableLayoutPanel2);
             this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.Location = new System.Drawing.Point(0, 0);
-            this.roundedPanel1.MarginBottom = 50;
-            this.roundedPanel1.MarginLeft = 50;
-            this.roundedPanel1.MarginRight = 50;
-            this.roundedPanel1.MarginTop = 50;
+            this.roundedPanel1.Location = new System.Drawing.Point(50, 50);
+            this.roundedPanel1.MarginBottom = 0;
+            this.roundedPanel1.MarginLeft = 0;
+            this.roundedPanel1.MarginRight = 0;
+            this.roundedPanel1.MarginTop = 0;
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedPanel1.Size = new System.Drawing.Size(600, 761);
+            this.roundedPanel1.Size = new System.Drawing.Size(500, 661);
             this.roundedPanel1.TabIndex = 0;
+            this.roundedPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel1_Paint);
             // 
             // tableLayoutPanel1
             // 
@@ -148,6 +155,36 @@
             this.roundedPanel3.Size = new System.Drawing.Size(976, 588);
             this.roundedPanel3.TabIndex = 1;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(500, 661);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(50, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(400, 82);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Dịch vụ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // DichVuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -162,7 +199,10 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.roundedPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -176,5 +216,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Component.RoundedPanel roundedPanel2;
         private Component.RoundedPanel roundedPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -41,5 +41,10 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
 
         }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
