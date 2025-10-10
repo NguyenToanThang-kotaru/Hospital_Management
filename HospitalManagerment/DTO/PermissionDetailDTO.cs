@@ -9,40 +9,49 @@ namespace HospitalManagerment.DTO
     // Chi tiết quyền
     internal class PermissionDetailDTO
     {
-        private string maquyen;
-        private string macd;
-        private string mahd;
+        private string maQuyen;
+        private string maCN;
+        private string maHD;
+        private string trangThaiKichHoat;
 
         public PermissionDetailDTO()
         {
-            this.maquyen = " ";
-            this.macd = " ";
-            this.mahd = " ";
+            maQuyen = string.Empty;
+            maHD = string.Empty;
+            maCN = string.Empty;
+            trangThaiKichHoat = "1";
         }
 
-        public PermissionDetailDTO(string maquyen, string macd, string mahd)
+        public PermissionDetailDTO(string maQuyen, string maHD, string maCN, string trangThaiKichHoat = "1")
         {
-            this.maquyen = maquyen;
-            this.macd = macd;
-            this.mahd = mahd;
+            this.maQuyen = maQuyen;           
+            this.maHD = maHD;
+            this.maCN = maCN;
+            this.trangThaiKichHoat = trangThaiKichHoat;
         }
 
-        public string Maquyen
+        public string MaQuyen
         {
-            get => maquyen;
-            set { maquyen = value; }
+            get => maQuyen;
+            set => maQuyen = value;
         }
 
-        public string Macd
+        public string MaCN
         {
-            get => macd;
-            set { macd = value; }
+            get => maCN;
+            set => maCN = value;
         }
 
-        public string Mahd
+        public string MaHD
         {
-            get => mahd;
-            set { mahd = value; }
+            get => maHD;
+            set => maHD = value;
+        }
+        
+        public string TrangThaiKichHoat
+        {
+            get => trangThaiKichHoat;
+            set => trangThaiKichHoat = value;
         }
     }
 }

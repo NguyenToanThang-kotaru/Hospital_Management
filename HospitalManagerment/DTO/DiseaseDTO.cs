@@ -6,42 +6,53 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // Bệnh
     internal class DiseaseDTO
     {
-        private string mabenh;
-        private string tenbenh;
-        private string motabenh;
+        private string maBenh;
+        private string tenBenh;
+        private string moTaBenh;
+        private string trangThaiXoa;
 
         public DiseaseDTO()
         {
-            this.mabenh = " ";
-            this.tenbenh = " ";
-            this.motabenh = " ";
+            maBenh = string.Empty;
+            tenBenh = string.Empty;
+            moTaBenh = string.Empty;
+            trangThaiXoa = "0";
         }
 
-        public DiseaseDTO(string mabenh, string tenbenh, string motabenh)
+        public DiseaseDTO(string maBenh, string tenBenh, string moTaBenh, string trangThaiXoa = "0")
         {
-            this.mabenh = mabenh;
-            this.tenbenh = tenbenh;
-            this.motabenh = motabenh;
+            this.maBenh = maBenh;
+            this.tenBenh = tenBenh;
+            this.moTaBenh = moTaBenh;
+            this.trangThaiXoa = trangThaiXoa;
         }
 
-        public string Mabenh
+        public string MaBenh
         {
-            get => mabenh;
-            set { mabenh = value; }
+            get => maBenh;
+            set => maBenh = value;
         }
 
-        public string Tenbenh
+        public string TenBenh
         {
-            get => tenbenh;
-            set { tenbenh = value; }
+            get => tenBenh;
+            set => tenBenh = value;
         }
 
-        public string Motabenh
+        public string MoTaBenh
         {
-            get => motabenh;
-            set { motabenh = value; }
+            get => moTaBenh;
+            set => moTaBenh = value;
         }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
+        }
+
     }
 }
