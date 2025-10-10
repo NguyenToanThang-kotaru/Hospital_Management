@@ -2,6 +2,7 @@
 using HospitalManagerment.DAO;
 using System;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace HospitalManagerment.BUS
 {
@@ -59,6 +60,11 @@ namespace HospitalManagerment.BUS
             }
 
             return true;
+        }
+
+        public List<AccountDTO> GetAllAccount()
+        {
+            return accountDAO.GetAllAccount();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagerment.DAO
@@ -38,30 +39,41 @@ namespace HospitalManagerment.DAO
             return result;
         }
 
-        public bool getAllAccount(out String errorMessage)
+        public List<AccountDTO> GetAllAccount()
         {
-            bool result = false;
-            using (MySqlConnection conn = DatabaseConnection.GetConnection())
+            List<AccountDTO> accounts = new List<AccountDTO>();
+
+            try
             {
-                conn.Open();
-                string query = "SELECT * FROM tai_khoan WHERE TenDangNhap=@username AND MatKhau=@password";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    cmd.Parameters.AddWithValue("@username", account.TenDangNhap);
-                    cmd.Parameters.AddWithValue("@password", account.MatKhau);
+                    conn.Open();
+                    string query = "SELECT * FROM tai_khoan WHERE TrangThaiXoa = 0";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (reader.HasRows)
+                        while (reader.Read())
                         {
-                            errorMessage = "Đăng nhập thành công!";
-                            return true;
-
+                            accounts.Add(new AccountDTO
+                            {
+                                TenDangNhap = reader["TenDangNhap"].ToString(),
+                                MatKhau = reader["MatKhau"].ToString(),
+                                MaQuyen = reader["MaQuyen"].ToString(),
+                                MaNV = reader["MaNV"].ToString(),
+                            });
                         }
                     }
                 }
             }
-            errorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
-            return result;
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách tài khoản: " + ex.Message);
+            }
+
+            return accounts;
         }
+
+
     }
 }
