@@ -31,5 +31,10 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
 
         }
+
+        private void tabPageTaiKhoan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

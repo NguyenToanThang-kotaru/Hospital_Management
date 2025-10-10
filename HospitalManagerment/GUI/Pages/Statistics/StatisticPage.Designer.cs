@@ -28,33 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabControlDesign1 = new HospitalManagerment.GUI.Components.TabControlDesign();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControlDesign1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // tabControlDesign1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(565, 279);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 64);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hello";
+            this.tabControlDesign1.Controls.Add(this.tabPage1);
+            this.tabControlDesign1.Controls.Add(this.tabPage2);
+            this.tabControlDesign1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlDesign1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControlDesign1.ItemSize = new System.Drawing.Size(200, 45);
+            this.tabControlDesign1.Location = new System.Drawing.Point(0, 0);
+            this.tabControlDesign1.Name = "tabControlDesign1";
+            this.tabControlDesign1.SelectedIndex = 0;
+            this.tabControlDesign1.Size = new System.Drawing.Size(1600, 820);
+            this.tabControlDesign1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControlDesign1.TabIndex = 0;
             // 
-            // UserControl1
+            // tabPage1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Location = new System.Drawing.Point(4, 49);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1592, 767);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Location = new System.Drawing.Point(4, 49);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1592, 767);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            // 
+            // StatisticPage
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(1395, 893);
+            this.Controls.Add(this.tabControlDesign1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "StatisticPage";
+            this.Size = new System.Drawing.Size(1600, 820);
+            this.tabControlDesign1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private Components.TabControlDesign tabControlDesign1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
