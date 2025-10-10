@@ -69,8 +69,6 @@
             this.roundedPanel1.Location = new System.Drawing.Point(567, 241);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.PanelColor = System.Drawing.Color.White;
-            this.roundedPanel1.PanelHeight = 400;
-            this.roundedPanel1.PanelWidth = 800;
             this.roundedPanel1.Size = new System.Drawing.Size(746, 470);
             this.roundedPanel1.TabIndex = 0;
             // 

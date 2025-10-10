@@ -32,14 +32,13 @@
             this.Tittle = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.MainContent = new System.Windows.Forms.Panel();
             this.DashboardItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.BenhNhanItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.HoSoBenhAnItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.DichVuItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.BacSiItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.NhanVienItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.QuyenItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.MainContent = new System.Windows.Forms.Panel();
             this.Header.SuspendLayout();
             this.SideBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -86,7 +85,6 @@
             this.flowLayoutPanel1.Controls.Add(this.BenhNhanItem);
             this.flowLayoutPanel1.Controls.Add(this.HoSoBenhAnItem);
             this.flowLayoutPanel1.Controls.Add(this.DichVuItem);
-            this.flowLayoutPanel1.Controls.Add(this.BacSiItem);
             this.flowLayoutPanel1.Controls.Add(this.NhanVienItem);
             this.flowLayoutPanel1.Controls.Add(this.QuyenItem);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -94,16 +92,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 873);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // MainContent
-            // 
-            this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContent.Location = new System.Drawing.Point(310, 80);
-            this.MainContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MainContent.Name = "MainContent";
-            this.MainContent.Size = new System.Drawing.Size(1572, 873);
-            this.MainContent.TabIndex = 2;
-            this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
             // 
             // DashboardItem
             // 
@@ -127,7 +115,7 @@
             this.DashboardItem.TabIndex = 0;
             this.DashboardItem.Text = "Dashboard";
             this.DashboardItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DashboardItem.Click += new System.EventHandler(this.sidebarItem1_Click_2);
+            this.DashboardItem.Click += new System.EventHandler(this.Dashboard_Click);
             // 
             // BenhNhanItem
             // 
@@ -151,6 +139,7 @@
             this.BenhNhanItem.TabIndex = 1;
             this.BenhNhanItem.Text = "Bệnh nhân";
             this.BenhNhanItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BenhNhanItem.Click += new System.EventHandler(this.BenhNhanItem_Click);
             // 
             // HoSoBenhAnItem
             // 
@@ -174,6 +163,7 @@
             this.HoSoBenhAnItem.TabIndex = 2;
             this.HoSoBenhAnItem.Text = "Hồ sơ bệnh án";
             this.HoSoBenhAnItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HoSoBenhAnItem.Click += new System.EventHandler(this.HoSoBenhAnItem_Click);
             // 
             // DichVuItem
             // 
@@ -197,30 +187,7 @@
             this.DichVuItem.TabIndex = 3;
             this.DichVuItem.Text = "Dịch vụ";
             this.DichVuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DichVuItem.Click += new System.EventHandler(this.sidebarItem4_Click);
-            // 
-            // BacSiItem
-            // 
-            this.BacSiItem.BackColor = System.Drawing.Color.Transparent;
-            this.BacSiItem.BorderRadius = 20;
-            this.BacSiItem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BacSiItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.BacSiItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.BacSiItem.HoverBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(251)))), ((int)(((byte)(249)))));
-            this.BacSiItem.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.BacSiItem.LabelFont = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
-            this.BacSiItem.LabelHeight = 50;
-            this.BacSiItem.LabelWidth = 250;
-            this.BacSiItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.BacSiItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.BacSiItem.Location = new System.Drawing.Point(30, 290);
-            this.BacSiItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
-            this.BacSiItem.Name = "BacSiItem";
-            this.BacSiItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BacSiItem.Size = new System.Drawing.Size(250, 50);
-            this.BacSiItem.TabIndex = 4;
-            this.BacSiItem.Text = "Bác sĩ";
-            this.BacSiItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DichVuItem.Click += new System.EventHandler(this.DichVu_Click);
             // 
             // NhanVienItem
             // 
@@ -236,7 +203,7 @@
             this.NhanVienItem.LabelWidth = 250;
             this.NhanVienItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.NhanVienItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.NhanVienItem.Location = new System.Drawing.Point(30, 360);
+            this.NhanVienItem.Location = new System.Drawing.Point(30, 290);
             this.NhanVienItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
             this.NhanVienItem.Name = "NhanVienItem";
             this.NhanVienItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -244,6 +211,7 @@
             this.NhanVienItem.TabIndex = 5;
             this.NhanVienItem.Text = "Nhân viên";
             this.NhanVienItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NhanVienItem.Click += new System.EventHandler(this.NhanVien_Click);
             // 
             // QuyenItem
             // 
@@ -259,7 +227,7 @@
             this.QuyenItem.LabelWidth = 250;
             this.QuyenItem.LanelBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.QuyenItem.LanelTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.QuyenItem.Location = new System.Drawing.Point(30, 430);
+            this.QuyenItem.Location = new System.Drawing.Point(30, 360);
             this.QuyenItem.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
             this.QuyenItem.Name = "QuyenItem";
             this.QuyenItem.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -267,6 +235,17 @@
             this.QuyenItem.TabIndex = 6;
             this.QuyenItem.Text = "Quyền";
             this.QuyenItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.QuyenItem.Click += new System.EventHandler(this.Quyen_Click);
+            // 
+            // MainContent
+            // 
+            this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainContent.Location = new System.Drawing.Point(310, 80);
+            this.MainContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainContent.Name = "MainContent";
+            this.MainContent.Size = new System.Drawing.Size(1572, 873);
+            this.MainContent.TabIndex = 2;
+            this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
             // 
             // Main_Layout
             // 
@@ -300,7 +279,6 @@
         private Components.SidebarItem BenhNhanItem;
         private Components.SidebarItem HoSoBenhAnItem;
         private Components.SidebarItem DichVuItem;
-        private Components.SidebarItem BacSiItem;
         private Components.SidebarItem NhanVienItem;
         private Components.SidebarItem QuyenItem;
     }

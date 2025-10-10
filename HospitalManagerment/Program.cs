@@ -25,8 +25,8 @@ namespace HospitalManagerment
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Main_Layout());
-            Application.Run(new Login_Layout());
+            Application.Run(new Main_Layout());
+            //Application.Run(new Login_Layout());
         }
     }
 }
