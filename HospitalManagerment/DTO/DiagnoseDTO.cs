@@ -9,49 +9,49 @@ namespace HospitalManagerment.DTO
     // Chẩn đoán
     internal class DiagnoseDTO
     {
-        private string maba;
-        private string mabenh;
-        private string ngaychandoan;
-        private string ketquadieutri;
+        private string maBA;
+        private string maBenh;
+        private string ngayChanDoan;
+        private string ketQuaDieuTri;
 
         public DiagnoseDTO()
         {
-            this.maba = " ";
-            this.mabenh = " ";
-            this.ngaychandoan = " ";
-            this.ketquadieutri = " ";
+            maBA = string.Empty;
+            maBenh = string.Empty;
+            ngayChanDoan = string.Empty;
+            ketQuaDieuTri = string.Empty;
         }
 
-        public DiagnoseDTO(string maba, string mabenh, string ngaychandoan, string ketquadieutri)
+        public DiagnoseDTO(string maBA, string maBenh, string ngayChanDoan, string ketQuaDieuTri)
         {
-            this.maba = maba;
-            this.mabenh = mabenh;
-            this.ngaychandoan = ngaychandoan;
-            this.ketquadieutri = ketquadieutri;
+            this.maBA = maBA;
+            this.maBenh = maBenh;   
+            this.ngayChanDoan = ngayChanDoan;
+            this.ketQuaDieuTri = ketQuaDieuTri;
         }
 
-        public string Maba
+        public string MaBA
         {
-            get => maba;
-            set { maba = value; }
+            get => maBA;
+            set => maBA = value;
         }
 
-        public string Mabenh
+        public string MaBenh
         {
-            get => mabenh;
-            set { mabenh = value; }
+            get => maBenh;
+            set => maBenh = value;
         }
 
-        public string Ngaychandoan
+        public string NgayChanDoan
         {
-            get => ngaychandoan;
-            set { ngaychandoan = value; }
+            get => ngayChanDoan;
+            set => ngayChanDoan = value;
         }
 
-        public string Ketquadieutri
+        public string KetQuaDieuTri
         {
-            get => ketquadieutri;
-            set { ketquadieutri = value; }
+            get => ketQuaDieuTri;
+            set => ketQuaDieuTri = value;
         }
     }
 }

@@ -9,31 +9,40 @@ namespace HospitalManagerment.DTO
     // Quyền
     internal class PermissionDTO
     {
-        private string maquyen;
-        private string tenquyen;
+        private string maQuyen;
+        private string tenQuyen;
+        private string trangThaiXoa; 
 
         public PermissionDTO()
         {
-            this.maquyen = " ";
-            this.tenquyen = " ";
+            maQuyen = string.Empty;
+            tenQuyen = string.Empty;
+            trangThaiXoa = "0"; 
         }
 
-        public PermissionDTO(string maquyen, string tenquyen)
+        public PermissionDTO(string maQuyen, string tenQuyen, string trangThaiXoa = "0")
         {
-            this.maquyen = maquyen;
-            this.tenquyen = tenquyen;
+            this.maQuyen = maQuyen;
+            this.tenQuyen = tenQuyen;
+            this.trangThaiXoa = trangThaiXoa;
         }
 
-        public string Maquyen
+        public string MaQuyen
         {
-            get => maquyen;
-            set { maquyen = value; }
+            get => maQuyen;
+            set => maQuyen = value;
         }
 
-        public string Tenquyen
+        public string TenQuyen
         {
-            get => tenquyen;
-            set { tenquyen = value; }
+            get => tenQuyen;
+            set => tenQuyen = value;
+        }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
         }
     }
 }
