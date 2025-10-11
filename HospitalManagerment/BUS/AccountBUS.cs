@@ -1,5 +1,6 @@
 ﻿using HospitalManagerment.DTO;
 using HospitalManagerment.DAO;
+using HospitalManagerment.Utils;
 using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace HospitalManagerment.BUS
             }
 
             // Gọi DAO để kiểm tra database
-            return accountDAO.login(account, out errorMessage);
+            return accountDAO.Login(account, out errorMessage);
         }
 
         // Hàm validation
@@ -33,13 +34,13 @@ namespace HospitalManagerment.BUS
         {
             errorMessage = "";
 
-            if (string.IsNullOrWhiteSpace(account.TenDangNhap))
+            if (Validators.IsEmpty(account.TenDangNhap))
             {
                 errorMessage = "Tên đăng nhập không được để trống!";
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(account.MatKhau))
+            if (Validators.IsEmpty(account.MatKhau))
             {
                 errorMessage = "Mật khẩu không được để trống!";
                 return false;
