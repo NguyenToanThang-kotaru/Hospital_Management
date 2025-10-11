@@ -9,40 +9,49 @@ namespace HospitalManagerment.DTO
     // Khoa
     internal class DepartmentDTO
     {
-        private string makhoa;
-        private string tenkhoa;
-        private string soluong;
+        private string maKhoa;
+        private string tenKhoa;
+        private string soLuong;
+        private string trangThaiXoa;
 
         public DepartmentDTO()
         {
-            this.makhoa = " ";
-            this.tenkhoa = " ";
-            this.soluong = " ";
+            maKhoa = string.Empty;
+            tenKhoa = string.Empty;
+            soLuong = string.Empty;
+            trangThaiXoa = "0";
         }
 
-        public DepartmentDTO(string makhoa, string tenkhoa, string soluong)
+        public DepartmentDTO(string maKhoa, string tenKhoa, string soLuong, string trangThaiXoa = "0")
         {
-            this.makhoa = makhoa;
-            this.tenkhoa = tenkhoa;
-            this.soluong = soluong;
+            this.maKhoa = maKhoa;
+            this.tenKhoa = tenKhoa;
+            this.soLuong = soLuong;
+            this.trangThaiXoa = trangThaiXoa;
         }
 
-        public string Makhoa
+        public string MaKhoa
         {
-            get => makhoa;
-            set { makhoa = value; }
+            get => maKhoa;
+            set => maKhoa = value;
         }
 
-        public string Tenkhoa
+        public string TenKhoa
         {
-            get => tenkhoa;
-            set { tenkhoa = value; }
+            get => tenKhoa;
+            set => tenKhoa = value;
         }
 
-        public string Soluong
+        public string SoLuong
         {
-            get => soluong;
-            set { soluong = value; }
+            get => soLuong;
+            set => soLuong = value;
+        }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
         }
     }
 }

@@ -71,9 +71,7 @@
             this.roundedPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.PanelColor = System.Drawing.Color.White;
-            this.roundedPanel1.PanelHeight = 400;
-            this.roundedPanel1.PanelWidth = 800;
-            this.roundedPanel1.Size = new System.Drawing.Size(763, 577);
+            this.roundedPanel1.Size = new System.Drawing.Size(746, 470);
             this.roundedPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2

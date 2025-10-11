@@ -6,52 +6,61 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
-    // bệnh án
+    // Bệnh án
     internal class MedicalDTO
     {
-        private string maba;
-        private string socccd;
-        private string manv;
-        private string ngaytao;
+        private string maBA;
+        private string soCCCD;
+        private string maNV;
+        private string ngayTao;
+        private string trangThaiXoa; 
 
         public MedicalDTO()
         {
-            this.maba = " ";
-            this.socccd = " ";
-            this.manv = " ";
-            this.ngaytao = " ";
+            maBA = string.Empty;
+            soCCCD = string.Empty;
+            maNV = string.Empty;
+            ngayTao = string.Empty;
+            trangThaiXoa = "0";
         }
 
-        public MedicalDTO(string maba, string socccd, string manv, string ngaytao)
+        public MedicalDTO(string maBA, string soCCCD, string maNV, string ngayTao, string trangThaiXoa = "0")
         {
-            this.maba = maba;
-            this.socccd = socccd;
-            this.manv = manv;
-            this.ngaytao = ngaytao;
+            this.maBA = maBA;
+            this.soCCCD = soCCCD;
+            this.maNV = maNV;
+            this.ngayTao = ngayTao;
+            this.trangThaiXoa = trangThaiXoa;
         }
 
-        public string Maba
+        public string MaBA
         {
-            get => maba;
-            set { maba = value; }
+            get => maBA;
+            set => maBA = value;
         }
 
-        public string Socccd
+        public string SoCCCD
         {
-            get => socccd;
-            set { socccd = value; }
+            get => soCCCD;
+            set => soCCCD = value;
         }
 
-        public string Manv
+        public string MaNV
         {
-            get => manv;
-            set { manv = value; }
+            get => maNV;
+            set => maNV = value;
         }
 
-        public string Ngaytao
+        public string NgayTao
         {
-            get => ngaytao;
-            set { ngaytao = value; }
+            get => ngayTao;
+            set => ngayTao = value;
+        }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
         }
     }
 }

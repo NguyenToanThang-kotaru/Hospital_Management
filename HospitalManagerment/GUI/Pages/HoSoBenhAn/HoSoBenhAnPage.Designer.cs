@@ -28,203 +28,564 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TabBenhNhan = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabControlDesign1 = new HospitalManagerment.GUI.Components.TabControlDesign();
+            this.tabPageDanhSach = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.roundedPanel1 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.roundedPanel2 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tabPageBenhAn = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.roundedPanel3 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.roundedPanel4 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPageBenh = new System.Windows.Forms.TabPage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.roundedPanel5 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.roundedPanel7 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.roundedPanel8 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tabPageDuocPham = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.roundedPanel6 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.TabBenhNhan.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.roundedPanel9 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.roundedPanel10 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabControlDesign1.SuspendLayout();
+            this.tabPageDanhSach.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPageBenhAn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.roundedPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.roundedPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tabPageBenh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.roundedPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tabPageDuocPham.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.roundedPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TabBenhNhan
+            // tabControlDesign1
             // 
-            this.TabBenhNhan.Controls.Add(this.tabPage2);
-            this.TabBenhNhan.Controls.Add(this.tabPage1);
-            this.TabBenhNhan.Controls.Add(this.tabPage3);
-            this.TabBenhNhan.Controls.Add(this.tabPage4);
-            this.TabBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabBenhNhan.Location = new System.Drawing.Point(0, 0);
-            this.TabBenhNhan.Name = "TabBenhNhan";
-            this.TabBenhNhan.Padding = new System.Drawing.Point(20, 25);
-            this.TabBenhNhan.SelectedIndex = 0;
-            this.TabBenhNhan.Size = new System.Drawing.Size(1262, 951);
-            this.TabBenhNhan.TabIndex = 4;
+            this.tabControlDesign1.Controls.Add(this.tabPageDanhSach);
+            this.tabControlDesign1.Controls.Add(this.tabPageBenhAn);
+            this.tabControlDesign1.Controls.Add(this.tabPageBenh);
+            this.tabControlDesign1.Controls.Add(this.tabPageDuocPham);
+            this.tabControlDesign1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlDesign1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabControlDesign1.ItemSize = new System.Drawing.Size(200, 45);
+            this.tabControlDesign1.Location = new System.Drawing.Point(0, 0);
+            this.tabControlDesign1.Name = "tabControlDesign1";
+            this.tabControlDesign1.Padding = new System.Drawing.Point(3, 3);
+            this.tabControlDesign1.SelectedIndex = 0;
+            this.tabControlDesign1.Size = new System.Drawing.Size(1600, 820);
+            this.tabControlDesign1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControlDesign1.TabIndex = 0;
+            this.tabControlDesign1.SelectedIndexChanged += new System.EventHandler(this.tabControlDesign1_SelectedIndexChanged);
             // 
-            // tabPage2
+            // tabPageDanhSach
             // 
-            this.tabPage2.Controls.Add(this.tableLayoutPanel1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 73);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1254, 874);
-            this.tabPage2.TabIndex = 5;
-            this.tabPage2.Text = "Bệnh án";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.35815F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.64185F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1254, 874);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.tabPageDanhSach.BackColor = System.Drawing.Color.White;
+            this.tabPageDanhSach.Controls.Add(this.panel1);
+            this.tabPageDanhSach.Location = new System.Drawing.Point(4, 49);
+            this.tabPageDanhSach.Name = "tabPageDanhSach";
+            this.tabPageDanhSach.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDanhSach.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageDanhSach.TabIndex = 0;
+            this.tabPageDanhSach.Text = "Danh sách hồ sơ";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(20, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(20);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Margin = new System.Windows.Forms.Padding(50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 834);
+            this.panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.panel1.Size = new System.Drawing.Size(1586, 761);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // tableLayoutPanel1
             // 
-            this.panel2.BackColor = System.Drawing.Color.Yellow;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(438, 20);
-            this.panel2.Margin = new System.Windows.Forms.Padding(20);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(796, 834);
-            this.panel2.TabIndex = 1;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel2, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1486, 661);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tabPage1
+            // roundedPanel1
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 73);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1254, 874);
-            this.tabPage1.TabIndex = 6;
-            this.tabPage1.Text = "Bệnh";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.BorderRadius = 40;
+            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel1.Location = new System.Drawing.Point(3, 69);
+            this.roundedPanel1.MarginBottom = 0;
+            this.roundedPanel1.MarginLeft = 0;
+            this.roundedPanel1.MarginRight = 0;
+            this.roundedPanel1.MarginTop = 30;
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel1.Size = new System.Drawing.Size(1480, 589);
+            this.roundedPanel1.TabIndex = 0;
             // 
-            // tabPage3
+            // roundedPanel2
             // 
-            this.tabPage3.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 73);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1254, 874);
-            this.tabPage3.TabIndex = 7;
-            this.tabPage3.Text = "Dược phẩm";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel2.BorderRadius = 40;
+            this.roundedPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel2.Location = new System.Drawing.Point(3, 3);
+            this.roundedPanel2.MarginBottom = 20;
+            this.roundedPanel2.MarginLeft = 0;
+            this.roundedPanel2.MarginRight = 0;
+            this.roundedPanel2.MarginTop = 0;
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel2.Size = new System.Drawing.Size(1480, 60);
+            this.roundedPanel2.TabIndex = 1;
+            this.roundedPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel2_Paint);
             // 
-            // tabPage4
+            // tabPageBenhAn
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 73);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1254, 874);
-            this.tabPage4.TabIndex = 8;
-            this.tabPage4.Text = "Danh sách";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPageBenhAn.BackColor = System.Drawing.Color.White;
+            this.tabPageBenhAn.Controls.Add(this.splitContainer1);
+            this.tabPageBenhAn.Location = new System.Drawing.Point(4, 49);
+            this.tabPageBenhAn.Name = "tabPageBenhAn";
+            this.tabPageBenhAn.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBenhAn.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageBenhAn.TabIndex = 1;
+            this.tabPageBenhAn.Text = "Bệnh án";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.roundedPanel3);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(50);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.roundedPanel4);
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(50);
+            this.splitContainer1.Size = new System.Drawing.Size(1586, 761);
+            this.splitContainer1.SplitterDistance = 600;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // roundedPanel3
+            // 
+            this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel3.BorderRadius = 40;
+            this.roundedPanel3.Controls.Add(this.tableLayoutPanel4);
+            this.roundedPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel3.Location = new System.Drawing.Point(50, 50);
+            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.roundedPanel3.MarginBottom = 0;
+            this.roundedPanel3.MarginLeft = 0;
+            this.roundedPanel3.MarginRight = 0;
+            this.roundedPanel3.MarginTop = 0;
+            this.roundedPanel3.Name = "roundedPanel3";
+            this.roundedPanel3.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel3.Size = new System.Drawing.Size(500, 661);
+            this.roundedPanel3.TabIndex = 0;
+            this.roundedPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel3_Paint);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(500, 661);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.label1.Location = new System.Drawing.Point(50, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(400, 82);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Hồ sơ bệnh án";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundedPanel4
+            // 
+            this.roundedPanel4.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel4.BorderRadius = 40;
+            this.roundedPanel4.Controls.Add(this.tableLayoutPanel5);
+            this.roundedPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel4.Location = new System.Drawing.Point(50, 50);
+            this.roundedPanel4.MarginBottom = 0;
+            this.roundedPanel4.MarginLeft = 0;
+            this.roundedPanel4.MarginRight = 0;
+            this.roundedPanel4.MarginTop = 0;
+            this.roundedPanel4.Name = "roundedPanel4";
+            this.roundedPanel4.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel4.Size = new System.Drawing.Size(882, 661);
+            this.roundedPanel4.TabIndex = 0;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(882, 661);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.label2.Location = new System.Drawing.Point(50, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(782, 82);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Bệnh án";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabPageBenh
+            // 
+            this.tabPageBenh.BackColor = System.Drawing.Color.White;
+            this.tabPageBenh.Controls.Add(this.splitContainer2);
+            this.tabPageBenh.Location = new System.Drawing.Point(4, 49);
+            this.tabPageBenh.Name = "tabPageBenh";
+            this.tabPageBenh.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageBenh.TabIndex = 2;
+            this.tabPageBenh.Text = "Bệnh";
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.roundedPanel5);
+            this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(50);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
+            this.splitContainer2.Size = new System.Drawing.Size(1592, 767);
+            this.splitContainer2.SplitterDistance = 600;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // roundedPanel5
+            // 
+            this.roundedPanel5.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel5.BorderRadius = 40;
+            this.roundedPanel5.Controls.Add(this.tableLayoutPanel6);
+            this.roundedPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel5.Location = new System.Drawing.Point(50, 50);
+            this.roundedPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.roundedPanel5.MarginBottom = 0;
+            this.roundedPanel5.MarginLeft = 0;
+            this.roundedPanel5.MarginRight = 0;
+            this.roundedPanel5.MarginTop = 0;
+            this.roundedPanel5.Name = "roundedPanel5";
+            this.roundedPanel5.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel5.Size = new System.Drawing.Size(500, 667);
+            this.roundedPanel5.TabIndex = 0;
+            this.roundedPanel5.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel5_Paint);
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(500, 667);
+            this.tableLayoutPanel6.TabIndex = 0;
+            this.tableLayoutPanel6.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel6_Paint);
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.35815F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.64185F));
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.roundedPanel7, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.roundedPanel8, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(50);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1254, 874);
-            this.tableLayoutPanel2.TabIndex = 3;
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(988, 767);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // panel3
+            // roundedPanel7
             // 
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(20, 20);
-            this.panel3.Margin = new System.Windows.Forms.Padding(20);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(378, 834);
-            this.panel3.TabIndex = 0;
+            this.roundedPanel7.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel7.BorderRadius = 40;
+            this.roundedPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel7.Location = new System.Drawing.Point(3, 119);
+            this.roundedPanel7.MarginBottom = 0;
+            this.roundedPanel7.MarginLeft = 50;
+            this.roundedPanel7.MarginRight = 50;
+            this.roundedPanel7.MarginTop = 30;
+            this.roundedPanel7.Name = "roundedPanel7";
+            this.roundedPanel7.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel7.Size = new System.Drawing.Size(982, 594);
+            this.roundedPanel7.TabIndex = 0;
             // 
-            // panel4
+            // roundedPanel8
             // 
-            this.panel4.BackColor = System.Drawing.Color.Aqua;
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(438, 20);
-            this.panel4.Margin = new System.Windows.Forms.Padding(20);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(796, 834);
-            this.panel4.TabIndex = 1;
+            this.roundedPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel8.BorderRadius = 40;
+            this.roundedPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel8.Location = new System.Drawing.Point(3, 53);
+            this.roundedPanel8.MarginBottom = 20;
+            this.roundedPanel8.MarginLeft = 50;
+            this.roundedPanel8.MarginRight = 50;
+            this.roundedPanel8.MarginTop = 0;
+            this.roundedPanel8.Name = "roundedPanel8";
+            this.roundedPanel8.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel8.Size = new System.Drawing.Size(982, 60);
+            this.roundedPanel8.TabIndex = 1;
+            // 
+            // tabPageDuocPham
+            // 
+            this.tabPageDuocPham.BackColor = System.Drawing.Color.White;
+            this.tabPageDuocPham.Controls.Add(this.splitContainer3);
+            this.tabPageDuocPham.Location = new System.Drawing.Point(4, 49);
+            this.tabPageDuocPham.Name = "tabPageDuocPham";
+            this.tabPageDuocPham.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageDuocPham.TabIndex = 3;
+            this.tabPageDuocPham.Text = "Dược phẩm";
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.roundedPanel6);
+            this.splitContainer3.Panel1.Padding = new System.Windows.Forms.Padding(50);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutPanel3);
+            this.splitContainer3.Size = new System.Drawing.Size(1592, 767);
+            this.splitContainer3.SplitterDistance = 600;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // roundedPanel6
+            // 
+            this.roundedPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel6.BorderRadius = 40;
+            this.roundedPanel6.Controls.Add(this.tableLayoutPanel7);
+            this.roundedPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel6.Location = new System.Drawing.Point(50, 50);
+            this.roundedPanel6.MarginBottom = 0;
+            this.roundedPanel6.MarginLeft = 0;
+            this.roundedPanel6.MarginRight = 0;
+            this.roundedPanel6.MarginTop = 0;
+            this.roundedPanel6.Name = "roundedPanel6";
+            this.roundedPanel6.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel6.Size = new System.Drawing.Size(500, 667);
+            this.roundedPanel6.TabIndex = 0;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 3;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(500, 667);
+            this.tableLayoutPanel7.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.35815F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.64185F));
-            this.tableLayoutPanel3.Controls.Add(this.panel5, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel6, 1, 0);
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.roundedPanel9, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.roundedPanel10, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1254, 874);
-            this.tableLayoutPanel3.TabIndex = 3;
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(988, 767);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // panel5
+            // roundedPanel9
             // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(20, 20);
-            this.panel5.Margin = new System.Windows.Forms.Padding(20);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(378, 834);
-            this.panel5.TabIndex = 0;
+            this.roundedPanel9.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel9.BorderRadius = 40;
+            this.roundedPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel9.Location = new System.Drawing.Point(3, 119);
+            this.roundedPanel9.MarginBottom = 0;
+            this.roundedPanel9.MarginLeft = 50;
+            this.roundedPanel9.MarginRight = 50;
+            this.roundedPanel9.MarginTop = 30;
+            this.roundedPanel9.Name = "roundedPanel9";
+            this.roundedPanel9.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel9.Size = new System.Drawing.Size(982, 594);
+            this.roundedPanel9.TabIndex = 0;
             // 
-            // panel6
+            // roundedPanel10
             // 
-            this.panel6.BackColor = System.Drawing.Color.Blue;
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(438, 20);
-            this.panel6.Margin = new System.Windows.Forms.Padding(20);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(796, 834);
-            this.panel6.TabIndex = 1;
+            this.roundedPanel10.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel10.BorderRadius = 40;
+            this.roundedPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedPanel10.Location = new System.Drawing.Point(3, 53);
+            this.roundedPanel10.MarginBottom = 20;
+            this.roundedPanel10.MarginLeft = 50;
+            this.roundedPanel10.MarginRight = 50;
+            this.roundedPanel10.MarginTop = 0;
+            this.roundedPanel10.Name = "roundedPanel10";
+            this.roundedPanel10.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedPanel10.Size = new System.Drawing.Size(982, 60);
+            this.roundedPanel10.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.label3.Location = new System.Drawing.Point(50, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(400, 83);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Bệnh";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.label4.Location = new System.Drawing.Point(50, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(400, 83);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Dược phẩm";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // HoSoBenhAnPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.TabBenhNhan);
+            this.Controls.Add(this.tabControlDesign1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HoSoBenhAnPage";
-            this.Size = new System.Drawing.Size(1262, 951);
-            this.TabBenhNhan.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(1600, 820);
+            this.tabControlDesign1.ResumeLayout(false);
+            this.tabPageDanhSach.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
+            this.tabPageBenhAn.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.roundedPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.roundedPanel4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tabPageBenh.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.roundedPanel5.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tabPageDuocPham.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.roundedPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -232,19 +593,35 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl TabBenhNhan;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private Components.TabControlDesign tabControlDesign1;
+        private System.Windows.Forms.TabPage tabPageDanhSach;
+        private System.Windows.Forms.TabPage tabPageBenhAn;
+        private System.Windows.Forms.TabPage tabPageBenh;
+        private System.Windows.Forms.TabPage tabPageDuocPham;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private Component.RoundedPanel roundedPanel3;
+        private Component.RoundedPanel roundedPanel4;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private Component.RoundedPanel roundedPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private Component.RoundedPanel roundedPanel6;
+        private Component.RoundedPanel roundedPanel7;
+        private Component.RoundedPanel roundedPanel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
+        private Component.RoundedPanel roundedPanel9;
+        private Component.RoundedPanel roundedPanel10;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Component.RoundedPanel roundedPanel1;
+        private Component.RoundedPanel roundedPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -5,7 +5,6 @@ using HospitalManagerment.GUI.Pages.BenhNhan;
 using HospitalManagerment.GUI.Pages.DichVu;
 using HospitalManagerment.GUI.Pages.HoSoBenhAn;
 using HospitalManagerment.GUI.Pages.NhanVien;
-using HospitalManagerment.GUI.Pages.BacSi;
 
 namespace HospitalManagerment.GUI.Main_Layout
 {
@@ -75,59 +74,34 @@ namespace HospitalManagerment.GUI.Main_Layout
         //    }
         //}
 
-        private void BenhNhan_Click(object sender, EventArgs e)
+        private void Dashboard_Click(object sender, EventArgs e)
+        {
+            LoadPage(new StatisticPage());
+        }
+
+        private void BenhNhanItem_Click(object sender, EventArgs e)
         {
             LoadPage(new BenhNhanPage());
         }
 
-        private void DichVuLB_Click(object sender, EventArgs e)
-        {
-            LoadPage(new DichVuPage());
-        }
-
-        private void HoSoBenhAnLB_Click(object sender, EventArgs e)
+        private void HoSoBenhAnItem_Click(object sender, EventArgs e)
         {
             LoadPage(new HoSoBenhAnPage());
         }
 
-        private void NhanVienLB_Click(object sender, EventArgs e)
+        private void DichVu_Click(object sender, EventArgs e)
+        {
+            LoadPage(new DichVuPage());
+        }
+
+        private void NhanVien_Click(object sender, EventArgs e)
         {
             LoadPage(new NhanVienPage());
         }
 
-        private void QuyenLB_Click(object sender, EventArgs e)
+        private void Quyen_Click(object sender, EventArgs e)
         {
             LoadPage(new QuyenPage());
-        }
-
-        private void BacSi_LB(object sender, EventArgs e)
-        {
-            LoadPage(new BacSiPage());
-        }
-
-        private void sidebarItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sidebarItem1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sidebarItem4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sidebarItem1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabItem1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -9,26 +9,39 @@ namespace HospitalManagerment.GUI.Component
     {
         public int BorderRadius { get; set; } = 40;
         public Color PanelColor { get; set; } = Color.White;
-        public int PanelWidth { get; set; } = 800;
-        public int PanelHeight { get; set; } = 400;
+
+        // Thêm các thuộc tính margin
+        public int MarginLeft { get; set; } = 0;
+        public int MarginTop { get; set; } = 0;
+        public int MarginRight { get; set; } = 0;
+        public int MarginBottom { get; set; } = 0;
 
         public RoundedPanel()
         {
             InitializePanel();
         }
 
-        public RoundedPanel(int borderRadius, Color panelColor, int panelWidth, int panelHeight)
+        public RoundedPanel(int borderRadius, Color panelColor)
         {
             BorderRadius = borderRadius;
             PanelColor = panelColor;
-            PanelWidth = panelWidth;
-            PanelHeight = panelHeight;
+            InitializePanel();
+        }
+
+        // Constructor mới với margin
+        public RoundedPanel(int borderRadius, Color panelColor, int marginLeft, int marginTop, int marginRight, int marginBottom)
+        {
+            BorderRadius = borderRadius;
+            PanelColor = panelColor;
+            MarginLeft = marginLeft;
+            MarginTop = marginTop;
+            MarginRight = marginRight;
+            MarginBottom = marginBottom;
             InitializePanel();
         }
 
         private void InitializePanel()
         {
-            this.Size = new Size(PanelWidth, PanelHeight);
             this.BackColor = Color.Transparent;
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
@@ -36,7 +49,6 @@ namespace HospitalManagerment.GUI.Component
                           ControlStyles.ResizeRedraw |
                           ControlStyles.OptimizedDoubleBuffer |
                           ControlStyles.SupportsTransparentBackColor, true);
-
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -45,7 +57,14 @@ namespace HospitalManagerment.GUI.Component
 
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Rectangle rect = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
+            // Tính toán kích thước thực tế với margin
+            Rectangle rect = new Rectangle(
+                MarginLeft,
+                MarginTop,
+                this.Width - 1 - MarginLeft - MarginRight,
+                this.Height - 1 - MarginTop - MarginBottom
+            );
+
             using (GraphicsPath path = CreateRoundedRectangle(rect, BorderRadius))
             {
                 using (SolidBrush brush = new SolidBrush(PanelColor))
@@ -55,7 +74,6 @@ namespace HospitalManagerment.GUI.Component
                     e.Graphics.DrawPath(pen, path);
             }
         }
-
 
         protected override void OnResize(EventArgs e)
         {
@@ -73,10 +91,12 @@ namespace HospitalManagerment.GUI.Component
                 return path;
             }
 
-            // Đảm bảo radius không quá lớn
-            int actualRadius = Math.Min(radius, Math.Min(rect.Width, rect.Height) / 2);
+            int diameter = radius * 2;
 
-            int diameter = actualRadius * 2;
+            // Đảm bảo đường kính không lớn hơn kích thước hình chữ nhật
+            if (diameter > rect.Width) diameter = rect.Width;
+            if (diameter > rect.Height) diameter = rect.Height;
+
             Rectangle arcRect = new Rectangle(rect.Location, new Size(diameter, diameter));
 
             path.AddArc(arcRect, 180, 90);
@@ -94,37 +114,36 @@ namespace HospitalManagerment.GUI.Component
             return path;
         }
 
-        // Cập nhật kích thước panel khi thuộc tính thay đổi
-        protected virtual void OnPanelSizeChanged()
-        {
-            this.Size = new Size(PanelWidth, PanelHeight);
-            this.Invalidate();
-        }
-
-        // Override các setter để cập nhật giao diện khi thuộc tính thay đổi
+        // Phương thức để thiết lập border radius
         public void SetBorderRadius(int radius)
         {
             BorderRadius = radius;
             this.Invalidate();
         }
 
-        public void SetPanelColor(Color color)
+        // Các phương thức mới để thiết lập margin
+        public void SetMargin(int left, int top, int right, int bottom)
         {
-            PanelColor = color;
+            MarginLeft = left;
+            MarginTop = top;
+            MarginRight = right;
+            MarginBottom = bottom;
             this.Invalidate();
         }
 
-        public void SetPanelSize(int width, int height)
+        
+        // Property để lấy kích thước nội dung thực tế (trừ margin)
+        public Rectangle ContentRectangle
         {
-            PanelWidth = width;
-            PanelHeight = height;
-            this.Size = new Size(width, height);
-            this.Invalidate();
-        }
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            // Không gọi base.OnPaintBackground để tránh chớp do xóa nền
-            // Tự vẽ nền trong OnPaint() rồi
+            get
+            {
+                return new Rectangle(
+                    MarginLeft,
+                    MarginTop,
+                    this.Width - MarginLeft - MarginRight,
+                    this.Height - MarginTop - MarginBottom
+                );
+            }
         }
     }
 }

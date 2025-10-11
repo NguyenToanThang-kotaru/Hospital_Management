@@ -16,5 +16,35 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             InitializeComponent();
         }
+
+        private void tabControlDesign1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void roundedPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void roundedPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void roundedPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
