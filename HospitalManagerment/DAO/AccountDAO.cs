@@ -13,9 +13,8 @@ namespace HospitalManagerment.DAO
 {
     internal class AccountDAO
     {
-        public bool login(AccountDTO account, out String errorMessage)
+        public bool Login(AccountDTO account, out String errorMessage)
         {
-            bool result = false;
             using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 conn.Open();
@@ -36,7 +35,7 @@ namespace HospitalManagerment.DAO
                 }
             }
             errorMessage = "Tên đăng nhập hoặc mật khẩu không đúng!";
-            return result;
+            return false;
         }
 
         public List<AccountDTO> GetAllAccount()
