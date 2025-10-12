@@ -24,7 +24,7 @@ namespace HospitalManagerment.GUI.Components
             this.DrawMode = TabDrawMode.OwnerDrawFixed;
 
             _tabFont = new Font("Roboto", 12f, FontStyle.Bold);
-  
+
         }
 
         protected override void OnDrawItem(DrawItemEventArgs e)
