@@ -66,5 +66,15 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         {
 
         }
+
+        private void lableTextBox2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lableTextBox1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

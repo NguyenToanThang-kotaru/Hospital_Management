@@ -64,8 +64,6 @@ namespace LayoutTest.GUIComponents
             txt = new TextBox();
             txt.Font = Consts.TextBoxFont;
             txt.Dock = DockStyle.Fill;
-            txt.Margin = new Padding(3, 0, 3, 3);
-            txt.Padding = new Padding(10, 0, 0, 0);
             txt.BorderStyle = BorderStyle.FixedSingle;
             txt.BackColor = Color.White;
             txt.ForeColor = Consts.FontColorA;

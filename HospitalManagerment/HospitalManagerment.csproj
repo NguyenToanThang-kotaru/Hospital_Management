@@ -147,6 +147,9 @@
     <Compile Include="DTO\ServiceDTO.cs" />
     <Compile Include="DTO\ServiceRegistrationDetailDTO.cs" />
     <Compile Include="DTO\ServiceRegistrationDTO.cs" />
+    <Compile Include="GUI\Components\LabelCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Components\LabelTextbox.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalManagerment.Utils;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -7,39 +8,36 @@ namespace HospitalManagerment.GUI.Component
 {
     internal class RoundedLabel : Label
     {
-        public int BorderRadius { get; set; } = 40;
+        public int BorderRadius { get; set; } = 20;
         public Color PanelColor { get; set; } = Color.White;
         public int MarginLeft { get; set; } = 0;
         public int MarginTop { get; set; } = 0;
         public int MarginRight { get; set; } = 0;
         public int MarginBottom { get; set; } = 0;
+        public int PanelWidth { get; set; } = 160;
+        public int PanelHeight { get; set; } = 45;
 
         public RoundedLabel()
         {
-            InitializeLabel();
+            InitializeLabel(160,45,"Chuc Nang");
         }
 
-        public RoundedLabel(int borderRadius, Color panelColor)
+        public RoundedLabel(int PanelWidth, int PanelHeight, string LabelText)
         {
-            BorderRadius = borderRadius;
-            PanelColor = panelColor;
-            InitializeLabel();
+            InitializeLabel(160, 45, "Chuc Nang");
         }
-
-        public RoundedLabel(int borderRadius, Color panelColor, int marginLeft, int marginTop, int marginRight, int marginBottom)
+        private void InitializeLabel(int width, int height, string labelText)
         {
-            BorderRadius = borderRadius;
-            PanelColor = panelColor;
-            MarginLeft = marginLeft;
-            MarginTop = marginTop;
-            MarginRight = marginRight;
-            MarginBottom = marginBottom;
-            InitializeLabel();
-        }
-
-        private void InitializeLabel()
-        {
+            this.PanelWidth = width;
+            this.PanelHeight = height;
+            this.AutoSize = false;
+            this.Size = new Size(width, height);
             this.BackColor = Color.Transparent;
+
+            this.Font = Consts.TextBoxFont;
+            this.Text = labelText;
+            
+
             this.DoubleBuffered = true;
             this.TextAlign = ContentAlignment.MiddleCenter;
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
@@ -53,7 +51,12 @@ namespace HospitalManagerment.GUI.Component
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Rectangle rect = new Rectangle( MarginLeft, MarginTop, this.Width - 1 - MarginLeft - MarginRight,  this.Height - 1 - MarginTop - MarginBottom );
+            Rectangle rect = new Rectangle(
+                MarginLeft,
+                MarginTop,
+                this.Width - 1 - MarginLeft - MarginRight,
+                this.Height - 1 - MarginTop - MarginBottom
+            );
 
             using (GraphicsPath path = CreateRoundedRectangle(rect, BorderRadius))
             using (SolidBrush brush = new SolidBrush(PanelColor))
@@ -61,7 +64,6 @@ namespace HospitalManagerment.GUI.Component
                 e.Graphics.FillPath(brush, path);
             }
 
-            // Vẽ chữ canh giữa
             TextRenderer.DrawText(
                 e.Graphics,
                 this.Text,
@@ -70,7 +72,6 @@ namespace HospitalManagerment.GUI.Component
                 this.ForeColor,
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
             );
-            //base.OnPaint(e);
         }
 
         protected override void OnResize(EventArgs e)
@@ -102,7 +103,6 @@ namespace HospitalManagerment.GUI.Component
             return path;
         }
 
-
         public void SetBorderRadius(int radius)
         {
             BorderRadius = radius;
@@ -117,6 +117,7 @@ namespace HospitalManagerment.GUI.Component
             MarginBottom = bottom;
             this.Invalidate();
         }
+
         public Rectangle ContentRectangle
         {
             get

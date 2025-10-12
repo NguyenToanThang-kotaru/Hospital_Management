@@ -21,5 +21,10 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
 
         }
+
+        private void lableTextBox1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
