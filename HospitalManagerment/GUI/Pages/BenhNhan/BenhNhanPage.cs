@@ -51,5 +51,20 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         {
 
         }
+
+        private void lableTextBox1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CheckBoxCoBHYT_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lableTextBox7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

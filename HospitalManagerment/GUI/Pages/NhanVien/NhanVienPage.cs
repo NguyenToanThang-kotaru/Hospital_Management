@@ -21,5 +21,10 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
 
         }
+
+        private void roundedPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

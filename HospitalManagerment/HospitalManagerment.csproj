@@ -150,6 +150,9 @@
     <Compile Include="GUI\Components\LabelTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\Components\RoundedLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Components\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
