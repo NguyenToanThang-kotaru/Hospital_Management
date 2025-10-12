@@ -153,5 +153,94 @@ namespace HospitalManagerment.DAO
             return patients;
         }
 
+        public bool UpdatePatient(PatientDTO patient, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    DatabaseConnection.Open(conn);
+
+                    string query = @"UPDATE benh_nhan
+                             SET TenBN = @TenBN,
+                                 SoBHYT = @SoBHYT,
+                                 NgaySinh = @NgaySinh,
+                                 GioiTinh = @GioiTinh,
+                                 SdtBN = @SdtBN,
+                                 DiaChi = @DiaChi
+                             WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SoCCCD", patient.SoCCCD);
+                        cmd.Parameters.AddWithValue("@TenBN", patient.TenBN);
+                        cmd.Parameters.AddWithValue("@SoBHYT", patient.SoBHYT ?? "");
+                        cmd.Parameters.AddWithValue("@NgaySinh", patient.NgaySinh);
+                        cmd.Parameters.AddWithValue("@GioiTinh", patient.GioiTinh);
+                        cmd.Parameters.AddWithValue("@SdtBN", patient.SdtBN);
+                        cmd.Parameters.AddWithValue("@DiaChi", patient.DiaChi);
+
+                        int rows = cmd.ExecuteNonQuery();
+                        DatabaseConnection.Close(conn);
+
+                        if (rows > 0)
+                            return true;
+                        else
+                        {
+                            errorMessage = "Không tìm thấy bệnh nhân hoặc không thể cập nhật!";
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                errorMessage = $"Lỗi cơ sở dữ liệu: {ex.Message}";
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Đã xảy ra lỗi: {ex.Message}";
+                return false;
+            }
+        }
+
+        public bool DeletePatient(string soCCCD, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    DatabaseConnection.Open(conn);
+
+                    string query = "UPDATE benh_nhan SET TrangThaiXoa = 1 WHERE SoCCCD = @SoCCCD";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SoCCCD", soCCCD);
+
+                        int rows = cmd.ExecuteNonQuery();
+                        DatabaseConnection.Close(conn);
+
+                        return rows > 0;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                errorMessage = $"Lỗi cơ sở dữ liệu: {ex.Message}";
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Đã xảy ra lỗi: {ex.Message}";
+                return false;
+            }
+        }
+
     }
 }

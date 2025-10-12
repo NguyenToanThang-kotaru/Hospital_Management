@@ -3,6 +3,7 @@ using HospitalManagerment.DTO;
 using HospitalManagerment.Utils;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace HospitalManagerment.BUS
 {
@@ -14,19 +15,9 @@ namespace HospitalManagerment.BUS
         {
             patientDAO = new PatientDAO();
         }
-
-        public bool InsertPatient(PatientDTO patient, out string errorMessage)
-        {
-            if (!ValidatePatient(patient, out errorMessage))
-                return false;
-
-            return patientDAO.InsertPatient(patient, out errorMessage);
-        }
-
-        private bool ValidatePatient(PatientDTO patient, out string errorMessage)
+        private bool ValidateInsertPatient(PatientDTO patient, out string errorMessage)
         {
             errorMessage = "";
-
             // --- Kiểm tra CCCD ---
             if (Validators.IsEmpty(patient.SoCCCD))
             {
@@ -43,6 +34,11 @@ namespace HospitalManagerment.BUS
                 errorMessage = "Số CCCD này đã tồn tại trong hệ thống";
                 return false;
             }
+            return this.ValidateUpdatePatient(patient, out errorMessage);
+        }
+        private bool ValidateUpdatePatient(PatientDTO patient, out string errorMessage)
+        {
+            errorMessage = "";
 
             // --- Kiểm tra tên bệnh nhân ---
             if (Validators.IsEmpty(patient.TenBN))
@@ -124,6 +120,41 @@ namespace HospitalManagerment.BUS
                 errorMessage = $"Lỗi khi tìm kiếm bệnh nhân: {ex.Message}";
                 return new List<PatientDTO>();
             }
+        }
+
+        public bool InsertPatient(PatientDTO patient, out string errorMessage)
+        {
+            if (!ValidateInsertPatient(patient, out errorMessage))
+                return false;
+
+            return patientDAO.InsertPatient(patient, out errorMessage);
+        }
+
+        public bool UpdatePatient(PatientDTO patient, out string errorMessage)
+        {
+            if (!ValidateUpdatePatient(patient, out errorMessage))
+                return false;
+
+            return patientDAO.UpdatePatient(patient, out errorMessage);
+        }
+
+        public bool DeletePatient(string soCCCD, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            DialogResult confirm = MessageBox.Show(
+                   "Bạn có chắc chắn muốn xóa bệnh nhân này không?",
+                   "Xác nhận xóa",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Warning
+               );
+
+            if (confirm == DialogResult.No)
+            {
+                Console.WriteLine("Hủy thao tác xóa bệnh nhân.");
+                return false;
+            }
+
+            return patientDAO.DeletePatient(soCCCD, out errorMessage);
         }
     }
 }
