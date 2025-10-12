@@ -1,38 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace HospitalManagerment.DAO
 {
-    internal class DatabaseConnection
+    internal static class DatabaseConnection
     {
+        private static readonly string connectionString =
+            "server=localhost;port=3306;database=hospital;uid=root;password=;SslMode=none;";
 
-            private static string connectionString = "server=localhost;port=3306;database=hospital;uid=root;password=;SslMode=none;";
-            private static MySqlConnection connection;
+        public static MySqlConnection GetConnection()
+        {
+            return new MySqlConnection(connectionString);
+        }
 
-            // Lấy kết nối
-            public static MySqlConnection GetConnection()
-            {
-                if (connection == null)
-                    connection = new MySqlConnection(connectionString);
-                return connection;
-            }
+        public static void Open(MySqlConnection conn)
+        {
+            if (conn.State != System.Data.ConnectionState.Open)
+                conn.Open();
+        }
 
-            // Mở kết nối
-            public static void Open()
-            {
-                if (connection.State != System.Data.ConnectionState.Open)
-                    connection.Open();
-            }
-
-            // Đóng kết nối
-            public static void Close()
-            {
-                if (connection.State != System.Data.ConnectionState.Closed)
-                    connection.Close();
-            }
+        public static void Close(MySqlConnection conn)
+        {
+            if (conn.State != System.Data.ConnectionState.Closed)
+                conn.Close();
+        }
     }
 }

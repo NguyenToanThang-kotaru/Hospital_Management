@@ -159,9 +159,6 @@
     <Compile Include="GUI\Components\SidebarItem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GUI\Components\TabControlDesign.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="GUI\Components\TabItem.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -176,6 +173,10 @@
     </Compile>
     <Compile Include="GUI\Main_Layout\Main_Layout.Designer.cs">
       <DependentUpon>Main_Layout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\BacSi\BacSiPage.cs" />
+    <Compile Include="GUI\Pages\BacSi\BacSiPage.Designer.cs">
+      <DependentUpon>BacSiPage.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Pages\BenhNhan\BenhNhanPage.cs">
       <SubType>UserControl</SubType>
@@ -224,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Main_Layout\Main_Layout.resx">
       <DependentUpon>Main_Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\BacSi\BacSiPage.resx">
+      <DependentUpon>BacSiPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Pages\BenhNhan\BenhNhanPage.resx">
       <DependentUpon>BenhNhanPage.cs</DependentUpon>
