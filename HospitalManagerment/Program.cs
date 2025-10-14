@@ -10,28 +10,28 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagerment
-{
-    internal static class Program
-    {
-        [DllImport("user32.dll")]
-        private static extern bool SetProcessDPIAware();
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            // Kích hoạt DPI aware
-            SetProcessDPIAware();
+//namespace HospitalManagerment
+//{
+//    internal static class Program
+//    {
+//        [DllImport("user32.dll")]
+//        private static extern bool SetProcessDPIAware();
+//        /// <summary>
+//        /// The main entry point for the application.
+//        /// </summary>
+//        [STAThread]
+//        static void Main()
+//        {
+//            // Kích hoạt DPI aware
+//            SetProcessDPIAware();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Layout());
-            //Application.Run(new Main_Layout());
-        }
-    }
-}
+//            Application.EnableVisualStyles();
+//            Application.SetCompatibleTextRenderingDefault(false);
+//            Application.Run(new Login_Layout());
+//            //Application.Run(new Main_Layout());
+//        }
+//    }
+//}
 
 
 //namespace TestBUS
@@ -73,40 +73,45 @@ namespace HospitalManagerment
 
 
 
-//class Program
-//{
-//    static void Main()
-//    {
-//        PatientBUS bus = new PatientBUS();
+class Program
+{
+    static void Main()
+    {
+        PatientBUS bus = new PatientBUS();
 
-//        //var patient = new PatientDTO
-//        //{
-//        //    SoCCCD = "001234567892",
-//        //    TenBN = "Nguyen Van C",
-//        //    SoBHYT = "",
-//        //    NgaySinh = "2000-5-20",
-//        //    GioiTinh = "Nam",
-//        //    SdtBN = "0912345678",
-//        //    DiaChi = "123 Đường ABC",
-//        //    TrangThaiXoa = "1",
-//        //};
+        //var patient = new PatientDTO
+        //{
+        //    SoCCCD = "001234567899",
+        //    TenBN = "Nguyen Van Cao",
+        //    SoBHYT = "",
+        //    NgaySinh = "2000-5-20",
+        //    GioiTinh = "Nam",
+        //    SdtBN = "0912345678",
+        //    DiaChi = "123 Đường ABC",
+        //    TrangThaiXoa = "0",
+        //};
 
-//        //if (bus.InsertPatient(patient, out string error))
-//        //    Console.WriteLine("✅ Thêm bệnh nhân thành công!");
-//        //else
-//        //    Console.WriteLine($"❌ Lỗi: {error}");
+        //if (bus.InsertPatient(patient, out string error))
+        //    Console.WriteLine("✅ Thêm bệnh nhân thành công!");
+        //else
+        //    Console.WriteLine($"❌ Lỗi: {error}");
 
-//        List<PatientDTO> patients = bus.SearchPatient("Nguyen", out string errorMessage);
-//        if (patients.Count == 0)
-//        {
-//            Console.WriteLine("Không tìm thấy bệnh nhân nào!");
-//        }
-//        else
-//        {
-//            foreach (var p in patients)
-//            {
-//                Console.WriteLine($"CCCD: {p.SoCCCD}, Tên: {p.TenBN}, Ngày sinh: {p.NgaySinh}, Giới tính: {p.GioiTinh}, SĐT: {p.SdtBN}, Địa chỉ: {p.DiaChi}");
-//            }
-//        }
-//    }
-//}
+        List<PatientDTO> patients = bus.SearchPatient("Nguyen", out string errorMessage);
+        if (patients.Count == 0)
+        {
+            Console.WriteLine("Không tìm thấy bệnh nhân nào!");
+        }
+        else
+        {
+            foreach (var p in patients)
+            {
+                Console.WriteLine($"CCCD: {p.SoCCCD}, Tên: {p.TenBN}, Ngày sinh: {p.NgaySinh}, Giới tính: {p.GioiTinh}, SĐT: {p.SdtBN}, Địa chỉ: {p.DiaChi}");
+            }
+        }
+        //if (bus.DeletePatient("001234567892", out string errorMessage))
+        //    Console.WriteLine("Xoa benh nhan thanh cong");
+        //else
+        //    Console.WriteLine($"❌ Lỗi: {errorMessage}");
+
+    }
+}
