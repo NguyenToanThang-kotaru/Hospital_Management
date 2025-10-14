@@ -26,5 +26,10 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
 
         }
+
+        private void roundedPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
