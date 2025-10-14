@@ -59,7 +59,7 @@ namespace HospitalManagerment.DAO
             {
                 MessageBox.Show("Lỗi khi cập nhật bệnh: " + ex.Message);
             }
-            return 0;
+            return 0;   
         }
 
         public int DeleteDisease(string maBenh)
@@ -154,7 +154,7 @@ namespace HospitalManagerment.DAO
             return null;
         }
 
-        public string GetNextDiseaseID()
+        public string GetNextDiseaseId()
         {
             string sql = "SELECT MaBenh FROM benh ORDER BY MaBenh DESC LIMIT 1";
             try
