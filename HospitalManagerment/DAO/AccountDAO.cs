@@ -18,7 +18,7 @@ namespace HospitalManagerment.DAO
             using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 conn.Open();
-                string query = "SELECT * FROM tai_khoan WHERE TenDangNhap=@username AND MatKhau=@password";
+                string query = "SELECT * FROM taikhoan WHERE TenDangNhap=@username AND MatKhau=@password";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", account.TenDangNhap);
@@ -47,7 +47,7 @@ namespace HospitalManagerment.DAO
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     conn.Open();
-                    string query = "SELECT * FROM tai_khoan WHERE TrangThaiXoa = 0";
+                    string query = "SELECT * FROM taikhoan WHERE TrangThaiXoa = 0";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (MySqlDataReader reader = cmd.ExecuteReader())
