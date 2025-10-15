@@ -190,7 +190,7 @@ namespace HospitalManagerment.DAO
         public List<DiseaseDTO> SearchDiseaseByName(string keyword)
         {
             List<DiseaseDTO> list = new List<DiseaseDTO>();
-            string sql = "SELECT * FROM benh WHERE TenBenh LIKE @keyword AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM benh WHERE TenBenh LIKE CONCAT('%', @keyword, '%') AND TrangThaiXoa = '0'";
 
             try
             {
@@ -198,7 +198,7 @@ namespace HospitalManagerment.DAO
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                        cmd.Parameters.AddWithValue("@keyword", keyword);
 
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
