@@ -6,21 +6,23 @@ using System.Windows.Forms;
 
 namespace HospitalManagerment.DAO
 {
-    internal class DepartmentDAO
+    internal class ServiceDesignationDAO
     {
-        public int AddDepartment(DepartmentDTO obj)
+        public int AddServiceDesignation(ServiceDesignationDTO obj)
         {
-            string sql = "INSERT INTO khoa (MaKhoa, TenKhoa, SoLuong, TrangThaiXoa) " +
-                         "VALUES (@MaKhoa, @TenKhoa, @SoLuong, @TrangThaiXoa)";
+            string sql = "INSERT INTO phieuchidinh (MaPCD, SoCCCD, MaNV, MaDV, NgayGioTaoPhieu, TrangThaiXoa) " +
+                         "VALUES (@MaPCD, @SoCCCD, @MaNV, @MaDV, @NgayGioTaoPhieu, @TrangThaiXoa)";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaKhoa", obj.MaKhoa);
-                        cmd.Parameters.AddWithValue("@TenKhoa", obj.TenKhoa);
-                        cmd.Parameters.AddWithValue("@SoLuong", obj.SoLuong);
+                        cmd.Parameters.AddWithValue("@MaPCD", obj.MaPCD);
+                        cmd.Parameters.AddWithValue("@SoCCCD", obj.SoCCCD);
+                        cmd.Parameters.AddWithValue("@MaNV", obj.MaNV);
+                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
+                        cmd.Parameters.AddWithValue("@NgayGioTaoPhieu", obj.NgayGioTaoPhieu);
                         cmd.Parameters.AddWithValue("@TrangThaiXoa", obj.TrangThaiXoa);
 
                         conn.Open();
@@ -30,24 +32,27 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm khoa: " + ex.Message);
+                MessageBox.Show("Lỗi khi thêm phiếu chỉ định: " + ex.Message);
             }
             return 0;
         }
 
-        public int UpdateDepartment(DepartmentDTO obj)
+        public int UpdateServiceDesignation(ServiceDesignationDTO obj)
         {
-            string sql = "UPDATE khoa SET TenKhoa = @TenKhoa, SoLuong = @SoLuong, TrangThaiXoa = @TrangThaiXoa " +
-                         "WHERE MaKhoa = @MaKhoa";
+            string sql = "UPDATE phieuchidinh SET SoCCCD = @SoCCCD, MaNV = @MaNV, MaDV = @MaDV, " +
+                         "NgayGioTaoPhieu = @NgayGioTaoPhieu, TrangThaiXoa = @TrangThaiXoa " +
+                         "WHERE MaPCD = @MaPCD";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaKhoa", obj.MaKhoa);
-                        cmd.Parameters.AddWithValue("@TenKhoa", obj.TenKhoa);
-                        cmd.Parameters.AddWithValue("@SoLuong", obj.SoLuong);
+                        cmd.Parameters.AddWithValue("@MaPCD", obj.MaPCD);
+                        cmd.Parameters.AddWithValue("@SoCCCD", obj.SoCCCD);
+                        cmd.Parameters.AddWithValue("@MaNV", obj.MaNV);
+                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
+                        cmd.Parameters.AddWithValue("@NgayGioTaoPhieu", obj.NgayGioTaoPhieu);
                         cmd.Parameters.AddWithValue("@TrangThaiXoa", obj.TrangThaiXoa);
 
                         conn.Open();
@@ -57,21 +62,21 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi cập nhật khoa: " + ex.Message);
+                MessageBox.Show("Lỗi khi cập nhật phiếu chỉ định: " + ex.Message);
             }
             return 0;
         }
 
-        public int DeleteDepartment(string maKhoa)
+        public int DeleteServiceDesignation(string maPCD)
         {
-            string sql = "UPDATE khoa SET TrangThaiXoa = '1' WHERE MaKhoa = @MaKhoa";
+            string sql = "UPDATE phieuchidinh SET TrangThaiXoa = '1' WHERE MaPCD = @MaPCD";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaKhoa", maKhoa);
+                        cmd.Parameters.AddWithValue("@MaPCD", maPCD);
 
                         conn.Open();
                         return cmd.ExecuteNonQuery();
@@ -80,15 +85,15 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa khoa: " + ex.Message);
+                MessageBox.Show("Lỗi khi xóa phiếu chỉ định: " + ex.Message);
             }
             return 0;
         }
 
-        public List<DepartmentDTO> GetAllDepartment()
+        public List<ServiceDesignationDTO> GetAllServiceDesignation()
         {
-            List<DepartmentDTO> list = new List<DepartmentDTO>();
-            string sql = "SELECT * FROM khoa WHERE TrangThaiXoa = '0'";
+            List<ServiceDesignationDTO> list = new List<ServiceDesignationDTO>();
+            string sql = "SELECT * FROM phieuchidinh WHERE TrangThaiXoa = '0'";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -100,11 +105,13 @@ namespace HospitalManagerment.DAO
                         {
                             while (reader.Read())
                             {
-                                list.Add(new DepartmentDTO
+                                list.Add(new ServiceDesignationDTO
                                 {
-                                    MaKhoa = reader["MaKhoa"].ToString(),
-                                    TenKhoa = reader["TenKhoa"].ToString(),
-                                    SoLuong = reader["SoLuong"].ToString(),
+                                    MaPCD = reader["MaPCD"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    MaNV = reader["MaNV"].ToString(),
+                                    MaDV = reader["MaDV"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
                                     TrangThaiXoa = reader["TrangThaiXoa"].ToString()
                                 });
                             }
@@ -114,32 +121,34 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lấy danh sách khoa: " + ex.Message);
+                MessageBox.Show("Lỗi khi lấy danh sách phiếu chỉ định: " + ex.Message);
             }
             return list;
         }
 
-        public DepartmentDTO GetDepartmentById(string maKhoa)
+        public ServiceDesignationDTO GetServiceDesignationById(string maPCD)
         {
-            string sql = "SELECT * FROM khoa WHERE MaKhoa = @MaKhoa AND TrangThaiXoa = '0'";
+            string sql = "SELECT * FROM phieuchidinh WHERE MaPCD = @MaPCD AND TrangThaiXoa = '0'";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaKhoa", maKhoa);
+                        cmd.Parameters.AddWithValue("@MaPCD", maPCD);
 
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                return new DepartmentDTO
+                                return new ServiceDesignationDTO
                                 {
-                                    MaKhoa = reader["MaKhoa"].ToString(),
-                                    TenKhoa = reader["TenKhoa"].ToString(),
-                                    SoLuong = reader["SoLuong"].ToString(),
+                                    MaPCD = reader["MaPCD"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    MaNV = reader["MaNV"].ToString(),
+                                    MaDV = reader["MaDV"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
                                     TrangThaiXoa = reader["TrangThaiXoa"].ToString()
                                 };
                             }
@@ -149,14 +158,14 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lấy thông tin khoa: " + ex.Message);
+                MessageBox.Show("Lỗi khi lấy thông tin phiếu chỉ định: " + ex.Message);
             }
             return null;
         }
 
-        public string GetNextDepartmentId()
+        public string GetNextServiceDesignationId()
         {
-            string sql = "SELECT MaKhoa FROM khoa ORDER BY MaKhoa DESC LIMIT 1";
+            string sql = "SELECT MaPCD FROM phieuchidinh ORDER BY MaPCD DESC LIMIT 1";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -171,13 +180,13 @@ namespace HospitalManagerment.DAO
                             string lastID = result.ToString();
                             int number = 0;
 
-                            if (lastID.StartsWith("KHOA") && lastID.Length > 4)
+                            if (lastID.StartsWith("PCD") && lastID.Length > 3)
                             {
-                                string numberPart = lastID.Substring(4);
+                                string numberPart = lastID.Substring(3);
                                 if (int.TryParse(numberPart, out number))
                                 {
                                     number++;
-                                    return "KHOA" + number.ToString("D4");
+                                    return "PCD" + number.ToString("D6");
                                 }
                             }
                         }
@@ -186,15 +195,15 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lấy mã khoa tiếp theo: " + ex.Message);
+                MessageBox.Show("Lỗi khi lấy mã phiếu chỉ định tiếp theo: " + ex.Message);
             }
-            return "KHOA0001";
+            return "PCD000001";
         }
 
-        public List<DepartmentDTO> SearchDepartmentByName(string keyword)
+        public List<ServiceDesignationDTO> SearchServiceDesignationByCustomer(string soCCCD)
         {
-            List<DepartmentDTO> list = new List<DepartmentDTO>();
-            string sql = "SELECT * FROM khoa WHERE TenKhoa LIKE CONCAT('%', @keyword, '%') AND TrangThaiXoa = '0'";
+            List<ServiceDesignationDTO> list = new List<ServiceDesignationDTO>();
+            string sql = "SELECT * FROM phieuchidinh WHERE SoCCCD LIKE CONCAT('%', @SoCCCD, '%') AND TrangThaiXoa = '0'";
 
             try
             {
@@ -202,18 +211,20 @@ namespace HospitalManagerment.DAO
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@keyword", keyword);
+                        cmd.Parameters.AddWithValue("@SoCCCD", soCCCD);
 
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                list.Add(new DepartmentDTO
+                                list.Add(new ServiceDesignationDTO
                                 {
-                                    MaKhoa = reader["MaKhoa"].ToString(),
-                                    TenKhoa = reader["TenKhoa"].ToString(),
-                                    SoLuong = reader["SoLuong"].ToString(),
+                                    MaPCD = reader["MaPCD"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    MaNV = reader["MaNV"].ToString(),
+                                    MaDV = reader["MaDV"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
                                     TrangThaiXoa = reader["TrangThaiXoa"].ToString()
                                 });
                             }
@@ -223,7 +234,7 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm khoa: " + ex.Message);
+                MessageBox.Show("Lỗi khi tìm kiếm phiếu chỉ định: " + ex.Message);
             }
             return list;
         }

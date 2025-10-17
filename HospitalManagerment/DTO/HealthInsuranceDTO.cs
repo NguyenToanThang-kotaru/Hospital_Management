@@ -11,6 +11,7 @@ namespace HospitalManagerment.DTO
         private string soBHYT;
         private string ngayCap;
         private string ngayHetHan;
+        private string noiDangKi;
         private string mucHuong;
         private string trangThaiXoa;
 
@@ -19,15 +20,17 @@ namespace HospitalManagerment.DTO
             this.soBHYT = " ";
             this.ngayCap = " ";
             this.ngayHetHan = " ";
+            this.noiDangKi = " ";
             this.mucHuong = " ";
             this.trangThaiXoa = " ";
         }
 
-        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string mucHuong, string trangThaiXoa)
+        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string noiDangKy, string mucHuong, string trangThaiXoa)
         {
             this.soBHYT = soBHYT;
             this.ngayCap = ngayCap;
             this.ngayHetHan = ngayHetHan;
+            this.noiDangKi = noiDangKy;
             this.mucHuong = mucHuong;
             this.trangThaiXoa = trangThaiXoa;
         }
@@ -48,6 +51,12 @@ namespace HospitalManagerment.DTO
         {
             get => this.ngayHetHan;
             set { this.ngayHetHan = value; }
+        }
+
+        public string NoiDangKi
+        {
+            get => this.noiDangKi;
+            set { this.noiDangKi = value; }
         }
 
         public string MucHuong

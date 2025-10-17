@@ -48,16 +48,16 @@ namespace LayoutTest.GUIComponents
 
             lbl = new Label();
             lbl.Text = labelText;
-            lbl.Font = Consts.TextBoxFont;
+            lbl.Font = new Font("Roboto", 14, FontStyle.Bold);
             lbl.AutoSize = false;
             lbl.TextAlign = ContentAlignment.MiddleLeft;
             lbl.Dock = DockStyle.Top;
-            lbl.Height = Math.Max(45, height / 3);
+            lbl.Height = Math.Max(40, height / 3);
             lbl.ForeColor = Consts.FontColorA;
 
             comboBox = new ComboBox();
             comboBox.Dock = DockStyle.Fill;
-            comboBox.Font = Consts.TextBoxFont;
+            comboBox.Font = new Font("Roboto", 14, FontStyle.Bold);
             comboBox.ForeColor = Consts.FontColorA;
             comboBox.BackColor = Color.White;
             comboBox.FlatStyle = FlatStyle.Standard;
