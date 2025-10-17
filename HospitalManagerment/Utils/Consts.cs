@@ -91,5 +91,19 @@ namespace HospitalManagerment.Utils
                    gender.Equals("Nu", StringComparison.OrdinalIgnoreCase) ||
                    gender.Equals("Nữ", StringComparison.OrdinalIgnoreCase);
         }
+
+        public static bool CheckEmpty(string value, string fieldName, out string errorMessage, string customMessage = null)
+        {
+            if (Validators.IsEmpty(value))
+            {
+                errorMessage = !string.IsNullOrEmpty(customMessage)
+                    ? customMessage
+                    : $"Vui lòng nhập {fieldName}!";
+                return false;
+            }
+
+            errorMessage = string.Empty;
+            return true;
+        }
     }
 }

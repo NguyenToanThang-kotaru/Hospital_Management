@@ -77,41 +77,37 @@ class Program
 {
     static void Main()
     {
-        PatientBUS bus = new PatientBUS();
-
-        //var patient = new PatientDTO
-        //{
-        //    SoCCCD = "001234567899",
-        //    TenBN = "Nguyen Van Cao",
-        //    SoBHYT = "",
-        //    NgaySinh = "2000-5-20",
-        //    GioiTinh = "Nam",
-        //    SdtBN = "0912345678",
-        //    DiaChi = "123 Đường ABC",
-        //    TrangThaiXoa = "0",
-        //};
-
-        //if (bus.InsertPatient(patient, out string error))
-        //    Console.WriteLine("✅ Thêm bệnh nhân thành công!");
-        //else
-        //    Console.WriteLine($"❌ Lỗi: {error}");
-
-        List<PatientDTO> patients = bus.SearchPatient("Nguyen", out string errorMessage);
-        if (patients.Count == 0)
+        string errorMessage;
+        bool chkHasBHYT = true;
+        var patient = new PatientDTO
         {
-            Console.WriteLine("Không tìm thấy bệnh nhân nào!");
-        }
-        else
+            SoCCCD = "075204007856",
+            TenBN = "Trần Thị Hồng",
+            NgaySinh = "1995-09-14",
+            GioiTinh = "Nữ",
+            SdtBN = "0905123456",
+            DiaChi = "P. Linh Trung, TP. Thủ Đức",
+        };
+
+        HealthInsuranceDTO bhyt = null;
+
+        if (chkHasBHYT)
         {
-            foreach (var p in patients)
+            bhyt = new HealthInsuranceDTO
             {
-                Console.WriteLine($"CCCD: {p.SoCCCD}, Tên: {p.TenBN}, Ngày sinh: {p.NgaySinh}, Giới tính: {p.GioiTinh}, SĐT: {p.SdtBN}, Địa chỉ: {p.DiaChi}");
-            }
+                SoBHYT = "DN9876543210",
+                NgayCap = "2022-02-01",
+                NgayHetHan = "2027-02-01",
+                MucHuong = "90%",
+                NoiDangKi = "Bệnh viện ĐH Y Dược TP.HCM"
+            };
         }
-        //if (bus.DeletePatient("001234567892", out string errorMessage))
-        //    Console.WriteLine("Xoa benh nhan thanh cong");
-        //else
-        //    Console.WriteLine($"❌ Lỗi: {errorMessage}");
+
+        var service = new PatientWithHIBUS();
+        if (service.AddPatientWithOptionalBHYT(patient, bhyt, out errorMessage))
+            MessageBox.Show("Thêm bệnh nhân thành công!");
+        else
+            MessageBox.Show("Lỗi: " + errorMessage);
 
     }
 }

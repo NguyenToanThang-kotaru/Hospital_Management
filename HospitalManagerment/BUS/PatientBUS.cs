@@ -19,11 +19,7 @@ namespace HospitalManagerment.BUS
         {
             errorMessage = "";
             // --- Kiểm tra CCCD ---
-            if (Validators.IsEmpty(patient.SoCCCD))
-            {
-                errorMessage = "Vui lòng nhập số CCCD";
-                return false;
-            }
+            if (!Validators.CheckEmpty(patient.SoCCCD, "số CCCD", out errorMessage)) return false;
             else if (!Validators.IsValidCCCD(patient.SoCCCD))
             {
                 errorMessage = "CCCD phải gồm đúng 12 chữ số";
@@ -41,26 +37,8 @@ namespace HospitalManagerment.BUS
             errorMessage = "";
 
             // --- Kiểm tra tên bệnh nhân ---
-            if (Validators.IsEmpty(patient.TenBN))
-            {
-                errorMessage = "Vui lòng nhập tên bệnh nhân";
-                return false;
-            }
-
-            // --- Kiểm tra số BHYT (nếu có) ---
-            if (!Validators.IsEmpty(patient.SoBHYT))
-            {
-                if (!Validators.IsValidBHYT(patient.SoBHYT))
-                {
-                    errorMessage = "Số BHYT không hợp lệ (VD: DN19512345)";
-                    return false;
-                }
-                else if (patientDAO.IsDuplicateBHYT(patient.SoBHYT))
-                {
-                    errorMessage = "Số BHYT này đã tồn tại trong hệ thống";
-                    return false;
-                }
-            }
+            if (!Validators.CheckEmpty(patient.TenBN, "tên bệnh nhân", out errorMessage)) return false;
+        
 
             // --- Kiểm tra ngày sinh ---
             if (!Validators.IsValidDate(patient.NgaySinh.ToString()))
@@ -70,9 +48,8 @@ namespace HospitalManagerment.BUS
             }
 
             // --- Kiểm tra giới tính ---
-            if (Validators.IsEmpty(patient.GioiTinh))
+            if (!Validators.CheckEmpty(patient.GioiTinh,"", out errorMessage, "Vui lòng chọn giới tính."))
             {
-                errorMessage = "Vui lòng chọn giới tính";
                 return false;
             }
 
@@ -84,11 +61,7 @@ namespace HospitalManagerment.BUS
             }
 
             // --- Kiểm tra địa chỉ ---
-            if (Validators.IsEmpty(patient.DiaChi))
-            {
-                errorMessage = "Vui lòng nhập địa chỉ";
-                return false;
-            }
+            if (!Validators.CheckEmpty(patient.DiaChi, "địa chỉ", out errorMessage)) return false;
 
             return true;
         }
@@ -106,7 +79,7 @@ namespace HospitalManagerment.BUS
                 }
 
                 // Gọi xuống DAO để lấy danh sách bệnh nhân phù hợp
-                var result = patientDAO.SearchPatient(keyword);
+                var result = patientDAO.SearchPatientBy(keyword);
 
                 if (result.Count == 0)
                 {
@@ -122,12 +95,22 @@ namespace HospitalManagerment.BUS
             }
         }
 
-        public bool InsertPatient(PatientDTO patient, out string errorMessage)
+        public List<PatientDTO> GetAllPatients()
+        {
+            return patientDAO.GetAllPatients();
+        }
+
+        public PatientDTO GetPatientById(string soCCCD, out string errorMessage)
+        {
+           return patientDAO.GetPatientById(soCCCD, out errorMessage);
+        }
+
+        public bool AddPatient(PatientDTO patient, out string errorMessage)
         {
             if (!ValidateInsertPatient(patient, out errorMessage))
                 return false;
 
-            return patientDAO.InsertPatient(patient, out errorMessage);
+            return patientDAO.AddPatient(patient, out errorMessage);
         }
 
         public bool UpdatePatient(PatientDTO patient, out string errorMessage)
