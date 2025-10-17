@@ -15,7 +15,7 @@ namespace HospitalManagerment.DAO
             using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
                 DatabaseConnection.Open(conn);
-                string query = "SELECT COUNT(*) FROM benh_nhan WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0";
+                string query = "SELECT COUNT(*) FROM benhnhan WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -32,7 +32,7 @@ namespace HospitalManagerment.DAO
             {
                 DatabaseConnection.Open(conn);
 
-                string query = "SELECT COUNT(*) FROM benh_nhan WHERE SoBHYT = @SoBHYT AND TrangThaiXoa = 0";
+                string query = "SELECT COUNT(*) FROM benhnhan WHERE SoBHYT = @SoBHYT AND TrangThaiXoa = 0";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -54,7 +54,7 @@ namespace HospitalManagerment.DAO
                 {
                     DatabaseConnection.Open(conn);
 
-                    string query = @"INSERT INTO benh_nhan
+                    string query = @"INSERT INTO benhnhan
                                     (SoCCCD, TenBN, SoBHYT, NgaySinh, GioiTinh, SdtBN, DiaChi, TrangThaiXoa)
                                      VALUES (@SoCCCD, @TenBN, @SoBHYT, @NgaySinh, @GioiTinh, @SdtBN, @DiaChi, 0)";
 
@@ -106,7 +106,7 @@ namespace HospitalManagerment.DAO
 
                     string query = @"
                     SELECT SoCCCD, TenBN, SoBHYT, NgaySinh, GioiTinh, SdtBN, DiaChi
-                    FROM benh_nhan
+                    FROM benhnhan
                     WHERE TrangThaiXoa = 0
                       AND (
                             TenBN LIKE CONCAT('%', @Keyword, '%')
@@ -163,7 +163,7 @@ namespace HospitalManagerment.DAO
                 {
                     DatabaseConnection.Open(conn);
 
-                    string query = @"UPDATE benh_nhan
+                    string query = @"UPDATE benhnhan
                              SET TenBN = @TenBN,
                                  SoBHYT = @SoBHYT,
                                  NgaySinh = @NgaySinh,
@@ -217,7 +217,7 @@ namespace HospitalManagerment.DAO
                 {
                     DatabaseConnection.Open(conn);
 
-                    string query = "UPDATE benh_nhan SET TrangThaiXoa = 1 WHERE SoCCCD = @SoCCCD";
+                    string query = "UPDATE benhnhan SET TrangThaiXoa = 1 WHERE SoCCCD = @SoCCCD";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
