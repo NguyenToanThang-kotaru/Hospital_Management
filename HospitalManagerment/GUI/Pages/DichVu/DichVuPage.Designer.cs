@@ -34,11 +34,6 @@
             this.pnlDichVu = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtMaDichVu = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTxtTenDichVu = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTxtGiaDichVu = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblCbbBaoHiemChiTra = new LayoutTest.GUIComponents.LableComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblXacNhanDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.lblHuyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -53,13 +48,16 @@
             this.lblXacNhanChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.lblHuyChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtMaChiDinhDichVu = new LayoutTest.GUIComponents.LableTextBox();
-            this.txtSoCCCDBenhNhan = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTenBenhNhan = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.roundedPanel1 = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.roundedPanel5 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.lableTextBox1 = new LayoutTest.GUIComponents.LableTextBox();
+            this.lableTextBox2 = new LayoutTest.GUIComponents.LableTextBox();
+            this.lableTextBox3 = new LayoutTest.GUIComponents.LableTextBox();
+            this.lableComboBox1 = new LayoutTest.GUIComponents.LableComboBox();
+            this.lableTextBox4 = new LayoutTest.GUIComponents.LableTextBox();
+            this.lableTextBox5 = new LayoutTest.GUIComponents.LableTextBox();
+            this.lableTextBox6 = new LayoutTest.GUIComponents.LableTextBox();
             this.tabControlDichVu.SuspendLayout();
             this.tabPageDichVu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -68,7 +66,6 @@
             this.splitContainer1.SuspendLayout();
             this.pnlDichVu.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPageChiDinhDichVu.SuspendLayout();
@@ -79,7 +76,6 @@
             this.roundedPanel4.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,16 +125,18 @@
             // 
             // pnlDichVu
             // 
-            this.pnlDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDichVu.BackColor = System.Drawing.Color.White;
             this.pnlDichVu.BorderRadius = 40;
             this.pnlDichVu.Controls.Add(this.tableLayoutPanel2);
             this.pnlDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDichVu.Location = new System.Drawing.Point(50, 50);
+            this.pnlDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.pnlDichVu.MarginBottom = 0;
             this.pnlDichVu.MarginLeft = 0;
             this.pnlDichVu.MarginRight = 0;
             this.pnlDichVu.MarginTop = 0;
             this.pnlDichVu.Name = "pnlDichVu";
+            this.pnlDichVu.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.pnlDichVu.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.pnlDichVu.Size = new System.Drawing.Size(502, 667);
             this.pnlDichVu.TabIndex = 0;
@@ -146,20 +144,29 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.lableComboBox1, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.lableTextBox3, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lableTextBox2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lableTextBox1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 7);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 8;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(502, 667);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(402, 667);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -168,97 +175,13 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.label1.Location = new System.Drawing.Point(50, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(402, 83);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dịch vụ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.lblTxtMaDichVu, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblTxtTenDichVu, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.lblTxtGiaDichVu, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.lblCbbBaoHiemChiTra, 1, 3);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 83);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 6;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(502, 500);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // lblTxtMaDichVu
-            // 
-            this.lblTxtMaDichVu.BackColor = System.Drawing.Color.Transparent;
-            this.lblTxtMaDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtMaDichVu.IsPassword = false;
-            this.lblTxtMaDichVu.LabelText = "Mã dịch vụ";
-            this.lblTxtMaDichVu.Location = new System.Drawing.Point(50, 0);
-            this.lblTxtMaDichVu.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtMaDichVu.Name = "lblTxtMaDichVu";
-            this.lblTxtMaDichVu.PanelHeight = 60;
-            this.lblTxtMaDichVu.PanelWidth = 200;
-            this.lblTxtMaDichVu.Size = new System.Drawing.Size(402, 83);
-            this.lblTxtMaDichVu.TabIndex = 0;
-            this.lblTxtMaDichVu.TextValue = "";
-            this.lblTxtMaDichVu.Paint += new System.Windows.Forms.PaintEventHandler(this.lableTextBox1_Paint);
-            // 
-            // lblTxtTenDichVu
-            // 
-            this.lblTxtTenDichVu.BackColor = System.Drawing.Color.Transparent;
-            this.lblTxtTenDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtTenDichVu.IsPassword = false;
-            this.lblTxtTenDichVu.LabelText = "Tên dịch vụ";
-            this.lblTxtTenDichVu.Location = new System.Drawing.Point(50, 83);
-            this.lblTxtTenDichVu.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtTenDichVu.Name = "lblTxtTenDichVu";
-            this.lblTxtTenDichVu.PanelHeight = 60;
-            this.lblTxtTenDichVu.PanelWidth = 200;
-            this.lblTxtTenDichVu.Size = new System.Drawing.Size(402, 83);
-            this.lblTxtTenDichVu.TabIndex = 1;
-            this.lblTxtTenDichVu.TextValue = "";
-            // 
-            // lblTxtGiaDichVu
-            // 
-            this.lblTxtGiaDichVu.BackColor = System.Drawing.Color.Transparent;
-            this.lblTxtGiaDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtGiaDichVu.IsPassword = false;
-            this.lblTxtGiaDichVu.LabelText = "Giá dịch vụ";
-            this.lblTxtGiaDichVu.Location = new System.Drawing.Point(50, 166);
-            this.lblTxtGiaDichVu.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtGiaDichVu.Name = "lblTxtGiaDichVu";
-            this.lblTxtGiaDichVu.PanelHeight = 60;
-            this.lblTxtGiaDichVu.PanelWidth = 200;
-            this.lblTxtGiaDichVu.Size = new System.Drawing.Size(402, 83);
-            this.lblTxtGiaDichVu.TabIndex = 2;
-            this.lblTxtGiaDichVu.TextValue = "";
-            // 
-            // lblCbbBaoHiemChiTra
-            // 
-            this.lblCbbBaoHiemChiTra.BackColor = System.Drawing.Color.Transparent;
-            this.lblCbbBaoHiemChiTra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCbbBaoHiemChiTra.LabelText = "Bảo hiểm chi trả";
-            this.lblCbbBaoHiemChiTra.Location = new System.Drawing.Point(50, 249);
-            this.lblCbbBaoHiemChiTra.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCbbBaoHiemChiTra.Name = "lblCbbBaoHiemChiTra";
-            this.lblCbbBaoHiemChiTra.PanelHeight = 100;
-            this.lblCbbBaoHiemChiTra.PanelWidth = 200;
-            this.lblCbbBaoHiemChiTra.Size = new System.Drawing.Size(402, 83);
-            this.lblCbbBaoHiemChiTra.TabIndex = 3;
-            this.lblCbbBaoHiemChiTra.TextValue = "";
             // 
             // flowLayoutPanel1
             // 
@@ -266,11 +189,11 @@
             this.flowLayoutPanel1.Controls.Add(this.lblHuyDichVu);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 583);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 581);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(50, 10, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(502, 84);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(402, 86);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // lblXacNhanDichVu
@@ -279,7 +202,7 @@
             this.lblXacNhanDichVu.BorderRadius = 20;
             this.lblXacNhanDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.lblXacNhanDichVu.ForeColor = System.Drawing.Color.White;
-            this.lblXacNhanDichVu.Location = new System.Drawing.Point(292, 10);
+            this.lblXacNhanDichVu.Location = new System.Drawing.Point(242, 10);
             this.lblXacNhanDichVu.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblXacNhanDichVu.MarginBottom = 0;
             this.lblXacNhanDichVu.MarginLeft = 0;
@@ -300,7 +223,7 @@
             this.lblHuyDichVu.BorderRadius = 20;
             this.lblHuyDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.lblHuyDichVu.ForeColor = System.Drawing.Color.White;
-            this.lblHuyDichVu.Location = new System.Drawing.Point(112, 10);
+            this.lblHuyDichVu.Location = new System.Drawing.Point(62, 10);
             this.lblHuyDichVu.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.lblHuyDichVu.MarginBottom = 0;
             this.lblHuyDichVu.MarginLeft = 0;
@@ -401,11 +324,13 @@
             this.roundedPanel4.Controls.Add(this.tableLayoutPanel4);
             this.roundedPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundedPanel4.Location = new System.Drawing.Point(50, 50);
+            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.roundedPanel4.MarginBottom = 0;
             this.roundedPanel4.MarginLeft = 0;
             this.roundedPanel4.MarginRight = 0;
             this.roundedPanel4.MarginTop = 0;
             this.roundedPanel4.Name = "roundedPanel4";
+            this.roundedPanel4.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.roundedPanel4.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.roundedPanel4.Size = new System.Drawing.Size(500, 667);
             this.roundedPanel4.TabIndex = 0;
@@ -414,18 +339,24 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.lableTextBox6, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.lableTextBox5, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.lableTextBox4, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(50, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowCount = 8;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(500, 667);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(400, 667);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -434,11 +365,11 @@
             this.flowLayoutPanel2.Controls.Add(this.lblHuyChiDinhDichVu);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 583);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 581);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(50, 10, 0, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(500, 84);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(400, 86);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // lblXacNhanChiDinhDichVu
@@ -447,7 +378,7 @@
             this.lblXacNhanChiDinhDichVu.BorderRadius = 20;
             this.lblXacNhanChiDinhDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.lblXacNhanChiDinhDichVu.ForeColor = System.Drawing.Color.White;
-            this.lblXacNhanChiDinhDichVu.Location = new System.Drawing.Point(290, 10);
+            this.lblXacNhanChiDinhDichVu.Location = new System.Drawing.Point(190, 10);
             this.lblXacNhanChiDinhDichVu.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblXacNhanChiDinhDichVu.MarginBottom = 0;
             this.lblXacNhanChiDinhDichVu.MarginLeft = 0;
@@ -468,7 +399,7 @@
             this.lblHuyChiDinhDichVu.BorderRadius = 20;
             this.lblHuyChiDinhDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.lblHuyChiDinhDichVu.ForeColor = System.Drawing.Color.White;
-            this.lblHuyChiDinhDichVu.Location = new System.Drawing.Point(110, 10);
+            this.lblHuyChiDinhDichVu.Location = new System.Drawing.Point(10, 10);
             this.lblHuyChiDinhDichVu.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.lblHuyChiDinhDichVu.MarginBottom = 0;
             this.lblHuyChiDinhDichVu.MarginLeft = 0;
@@ -489,81 +420,13 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.label2.Location = new System.Drawing.Point(50, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(400, 83);
             this.label2.TabIndex = 1;
             this.label2.Text = "Chỉ định dịch vụ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.lblTxtMaChiDinhDichVu, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtSoCCCDBenhNhan, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lblTenBenhNhan, 1, 2);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 83);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 6;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(500, 500);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // lblTxtMaChiDinhDichVu
-            // 
-            this.lblTxtMaChiDinhDichVu.BackColor = System.Drawing.Color.Transparent;
-            this.lblTxtMaChiDinhDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtMaChiDinhDichVu.IsPassword = false;
-            this.lblTxtMaChiDinhDichVu.LabelText = "Mã chỉ định dịch vụ";
-            this.lblTxtMaChiDinhDichVu.Location = new System.Drawing.Point(50, 0);
-            this.lblTxtMaChiDinhDichVu.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtMaChiDinhDichVu.Name = "lblTxtMaChiDinhDichVu";
-            this.lblTxtMaChiDinhDichVu.PanelHeight = 60;
-            this.lblTxtMaChiDinhDichVu.PanelWidth = 200;
-            this.lblTxtMaChiDinhDichVu.Size = new System.Drawing.Size(400, 83);
-            this.lblTxtMaChiDinhDichVu.TabIndex = 0;
-            this.lblTxtMaChiDinhDichVu.TextValue = "";
-            // 
-            // txtSoCCCDBenhNhan
-            // 
-            this.txtSoCCCDBenhNhan.BackColor = System.Drawing.Color.Transparent;
-            this.txtSoCCCDBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSoCCCDBenhNhan.IsPassword = false;
-            this.txtSoCCCDBenhNhan.LabelText = "Số CCCD bệnh nhân";
-            this.txtSoCCCDBenhNhan.Location = new System.Drawing.Point(50, 83);
-            this.txtSoCCCDBenhNhan.Margin = new System.Windows.Forms.Padding(0);
-            this.txtSoCCCDBenhNhan.Name = "txtSoCCCDBenhNhan";
-            this.txtSoCCCDBenhNhan.PanelHeight = 60;
-            this.txtSoCCCDBenhNhan.PanelWidth = 200;
-            this.txtSoCCCDBenhNhan.Size = new System.Drawing.Size(400, 83);
-            this.txtSoCCCDBenhNhan.TabIndex = 1;
-            this.txtSoCCCDBenhNhan.TextValue = "";
-            // 
-            // lblTenBenhNhan
-            // 
-            this.lblTenBenhNhan.BackColor = System.Drawing.Color.Transparent;
-            this.lblTenBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTenBenhNhan.IsPassword = false;
-            this.lblTenBenhNhan.LabelText = "Tên bệnh nhân";
-            this.lblTenBenhNhan.Location = new System.Drawing.Point(50, 166);
-            this.lblTenBenhNhan.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTenBenhNhan.Name = "lblTenBenhNhan";
-            this.lblTenBenhNhan.PanelHeight = 60;
-            this.lblTenBenhNhan.PanelWidth = 200;
-            this.lblTenBenhNhan.Size = new System.Drawing.Size(400, 83);
-            this.lblTenBenhNhan.TabIndex = 2;
-            this.lblTenBenhNhan.TextValue = "";
             // 
             // tableLayoutPanel6
             // 
@@ -614,6 +477,110 @@
             this.roundedPanel5.Size = new System.Drawing.Size(888, 66);
             this.roundedPanel5.TabIndex = 1;
             // 
+            // lableTextBox1
+            // 
+            this.lableTextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.lableTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableTextBox1.IsPassword = false;
+            this.lableTextBox1.LabelText = "Mã dịch vụ";
+            this.lableTextBox1.Location = new System.Drawing.Point(0, 83);
+            this.lableTextBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.lableTextBox1.Name = "lableTextBox1";
+            this.lableTextBox1.PanelHeight = 60;
+            this.lableTextBox1.PanelWidth = 200;
+            this.lableTextBox1.Size = new System.Drawing.Size(402, 83);
+            this.lableTextBox1.TabIndex = 3;
+            this.lableTextBox1.TextValue = "";
+            // 
+            // lableTextBox2
+            // 
+            this.lableTextBox2.BackColor = System.Drawing.Color.Transparent;
+            this.lableTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableTextBox2.IsPassword = false;
+            this.lableTextBox2.LabelText = "Tên dịch vụ";
+            this.lableTextBox2.Location = new System.Drawing.Point(0, 166);
+            this.lableTextBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.lableTextBox2.Name = "lableTextBox2";
+            this.lableTextBox2.PanelHeight = 60;
+            this.lableTextBox2.PanelWidth = 200;
+            this.lableTextBox2.Size = new System.Drawing.Size(402, 83);
+            this.lableTextBox2.TabIndex = 4;
+            this.lableTextBox2.TextValue = "";
+            // 
+            // lableTextBox3
+            // 
+            this.lableTextBox3.BackColor = System.Drawing.Color.Transparent;
+            this.lableTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableTextBox3.IsPassword = false;
+            this.lableTextBox3.LabelText = "Giá dịch vụ";
+            this.lableTextBox3.Location = new System.Drawing.Point(0, 249);
+            this.lableTextBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.lableTextBox3.Name = "lableTextBox3";
+            this.lableTextBox3.PanelHeight = 60;
+            this.lableTextBox3.PanelWidth = 200;
+            this.lableTextBox3.Size = new System.Drawing.Size(402, 83);
+            this.lableTextBox3.TabIndex = 5;
+            this.lableTextBox3.TextValue = "";
+            // 
+            // lableComboBox1
+            // 
+            this.lableComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.lableComboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableComboBox1.LabelText = "Bảo hiểm chi trả";
+            this.lableComboBox1.Location = new System.Drawing.Point(0, 332);
+            this.lableComboBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.lableComboBox1.Name = "lableComboBox1";
+            this.lableComboBox1.PanelHeight = 100;
+            this.lableComboBox1.PanelWidth = 200;
+            this.lableComboBox1.Size = new System.Drawing.Size(402, 83);
+            this.lableComboBox1.TabIndex = 6;
+            this.lableComboBox1.TextValue = "";
+            // 
+            // lableTextBox4
+            // 
+            this.lableTextBox4.BackColor = System.Drawing.Color.Transparent;
+            this.lableTextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableTextBox4.IsPassword = false;
+            this.lableTextBox4.LabelText = "Số CCCD bệnh nhân";
+            this.lableTextBox4.Location = new System.Drawing.Point(0, 166);
+            this.lableTextBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.lableTextBox4.Name = "lableTextBox4";
+            this.lableTextBox4.PanelHeight = 60;
+            this.lableTextBox4.PanelWidth = 200;
+            this.lableTextBox4.Size = new System.Drawing.Size(400, 83);
+            this.lableTextBox4.TabIndex = 4;
+            this.lableTextBox4.TextValue = "";
+            // 
+            // lableTextBox5
+            // 
+            this.lableTextBox5.BackColor = System.Drawing.Color.Transparent;
+            this.lableTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableTextBox5.IsPassword = false;
+            this.lableTextBox5.LabelText = "Tên bệnh nhân";
+            this.lableTextBox5.Location = new System.Drawing.Point(0, 249);
+            this.lableTextBox5.Margin = new System.Windows.Forms.Padding(0);
+            this.lableTextBox5.Name = "lableTextBox5";
+            this.lableTextBox5.PanelHeight = 60;
+            this.lableTextBox5.PanelWidth = 200;
+            this.lableTextBox5.Size = new System.Drawing.Size(400, 83);
+            this.lableTextBox5.TabIndex = 5;
+            this.lableTextBox5.TextValue = "";
+            // 
+            // lableTextBox6
+            // 
+            this.lableTextBox6.BackColor = System.Drawing.Color.Transparent;
+            this.lableTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lableTextBox6.IsPassword = false;
+            this.lableTextBox6.LabelText = "Mã chỉ định dịch vụ";
+            this.lableTextBox6.Location = new System.Drawing.Point(0, 83);
+            this.lableTextBox6.Margin = new System.Windows.Forms.Padding(0);
+            this.lableTextBox6.Name = "lableTextBox6";
+            this.lableTextBox6.PanelHeight = 60;
+            this.lableTextBox6.PanelWidth = 200;
+            this.lableTextBox6.Size = new System.Drawing.Size(400, 83);
+            this.lableTextBox6.TabIndex = 6;
+            this.lableTextBox6.TextValue = "";
+            // 
             // DichVuPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -631,7 +598,6 @@
             this.pnlDichVu.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabPageChiDinhDichVu.ResumeLayout(false);
@@ -643,7 +609,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -659,11 +624,6 @@
         private Component.RoundedPanel roundedPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtMaDichVu;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtTenDichVu;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtGiaDichVu;
-        private LayoutTest.GUIComponents.LableComboBox lblCbbBaoHiemChiTra;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Component.RoundedLabel lblHuyDichVu;
         private Component.RoundedLabel lblXacNhanDichVu;
@@ -672,16 +632,19 @@
         private Component.RoundedPanel roundedPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Component.RoundedLabel lblXacNhanChiDinhDichVu;
         private Component.RoundedLabel lblHuyChiDinhDichVu;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtMaChiDinhDichVu;
-        private LayoutTest.GUIComponents.LableTextBox txtSoCCCDBenhNhan;
-        private LayoutTest.GUIComponents.LableTextBox lblTenBenhNhan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private Component.RoundedPanel roundedPanel1;
         private Component.RoundedPanel roundedPanel5;
         private Component.RoundedPanel roundedPanel3;
+        private LayoutTest.GUIComponents.LableComboBox lableComboBox1;
+        private LayoutTest.GUIComponents.LableTextBox lableTextBox3;
+        private LayoutTest.GUIComponents.LableTextBox lableTextBox2;
+        private LayoutTest.GUIComponents.LableTextBox lableTextBox1;
+        private LayoutTest.GUIComponents.LableTextBox lableTextBox6;
+        private LayoutTest.GUIComponents.LableTextBox lableTextBox5;
+        private LayoutTest.GUIComponents.LableTextBox lableTextBox4;
     }
 }

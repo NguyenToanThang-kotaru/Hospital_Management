@@ -26,5 +26,10 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
