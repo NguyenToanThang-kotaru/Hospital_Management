@@ -73,6 +73,52 @@ namespace HospitalManagerment.DAO
             return accounts;
         }
 
+        public bool AddAccount(AccountDTO account, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+
+                    string query = @"INSERT INTO taikhoan 
+                            (TenDangNhap, MatKhau, MaQuyen, MaNV, TrangThaiXoa)
+                             VALUES (@TenDangNhap, @MatKhau, @MaQuyen, @MaNV, @TrangThaiXoa)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TenDangNhap", account.TenDangNhap);
+                        cmd.Parameters.AddWithValue("@MatKhau", account.MatKhau);
+                        cmd.Parameters.AddWithValue("@MaQuyen", account.MaQuyen);
+                        cmd.Parameters.AddWithValue("@MaNV", account.MaNV);
+                        cmd.Parameters.AddWithValue("@TrangThaiXoa", "0");
+
+                        int rows = cmd.ExecuteNonQuery();
+
+                        if (rows > 0)
+                            return true;
+                        else
+                        {
+                            errorMessage = "Không thể thêm tài khoản vào cơ sở dữ liệu!";
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                errorMessage = $"Lỗi cơ sở dữ liệu: {ex.Message}";
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Đã xảy ra lỗi: {ex.Message}";
+                return false;
+            }
+        }
+
 
     }
 }
