@@ -6,45 +6,46 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    //Đơn thuốc
     internal class PrescriptionDTO
     {
-        private string maba;
-        private string madp;
-        private string soluongdp;
-        private string donvidp;
+        private string maBA;
+        private string maDP;
+        private string soLuongDP;
+        private string donViDP;
         public PrescriptionDTO()
         {
-            this.maba = " ";
-            this.madp = " ";
-            this.soluongdp = " ";
-            this.donvidp = " ";
+            this.maBA = " ";
+            this.maDP = " ";
+            this.soLuongDP = " ";
+            this.donViDP = " ";
         }
-        public PrescriptionDTO(string maba, string madp, string soluongdp, string donvidp)
+        public PrescriptionDTO(string maBA, string maDP, string soLuongDP, string donViDP)
         {
-            this.maba = maba;
-            this.madp = madp;
-            this.soluongdp = soluongdp;
-            this.donvidp = donvidp;
+            this.maBA = maBA;
+            this.maDP = maDP;
+            this.soLuongDP = soLuongDP;
+            this.donViDP = donViDP;
         }
-        public string Maba
+        public string MaBA
         {
-            get => maba;
-            set { maba = value; }
+            get => maBA;
+            set { maBA = value; }
         }
-        public string Madp
+        public string MaDP
         {
-            get => madp;
-            set { madp = value; }
+            get => maDP;
+            set { maDP = value; }
         }
-        public string Soluongdp
+        public string SoLuongDP
         {
-            get => soluongdp;
-            set { soluongdp = value; }
+            get => soLuongDP;
+            set { soLuongDP = value; }
         }
-        public string Donvidp
+        public string DonViDP
         {
-            get => donvidp;
-            set { donvidp = value; }
+            get => donViDP;
+            set { donViDP = value; }
         }
     }
 }

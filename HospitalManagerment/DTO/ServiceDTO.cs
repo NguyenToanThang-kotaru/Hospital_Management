@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    //Dịch vụ
     internal class ServiceDTO
     {
         private string maDV;

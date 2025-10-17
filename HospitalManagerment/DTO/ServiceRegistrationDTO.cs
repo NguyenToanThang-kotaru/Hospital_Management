@@ -6,69 +6,70 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    //Đăng ký dịch vụ
     internal class ServiceRegistrationDTO
     {
-        private string madkdv;
-        private string socccd;
-        private string ngaygiotao;
-        private string trangthaidk;
-        private string tongchiphi;
-        private string hinhthuctt;
-        private string manv;
+        private string maDKDV;
+        private string soCCCD;
+        private string ngayGioTao;
+        private string trangThaiDK;
+        private string tongChiPhi;
+        private string hinhThucTT;
+        private string maNV;
         public ServiceRegistrationDTO()
         {
-            this.madkdv = " ";
-            this.socccd = " ";
-            this.ngaygiotao = " ";
-            this.trangthaidk = " ";
-            this.tongchiphi = " ";
-            this.hinhthuctt = " ";
-            this.manv = " ";
+            this.maDKDV = " ";
+            this.soCCCD = " ";
+            this.ngaGioTao = " ";
+            this.trangThaiDK = " ";
+            this.tongChiPhi = " ";
+            this.hinhThucTT = " ";
+            this.maNV = " ";
         }
-        public ServiceRegistrationDTO(string madkdv, string socccd, string ngaygiotao, string trangthaidk, string tongchiphi, string hinhthuctt, string manv)
+        public ServiceRegistrationDTO(string maDKDV, string soCCCD, string ngayGioTao, string trangThaiDK, string tongChiPhi, string hinhThucTT, string maNV)
         {
-            this.madkdv = madkdv;
-            this.socccd = socccd;
-            this.ngaygiotao = ngaygiotao;
-            this.trangthaidk = trangthaidk;
-            this.tongchiphi = tongchiphi;
-            this.hinhthuctt = hinhthuctt;
-            this.manv = manv;
+            this.maDKDV = maDKDV;
+            this.soCCCD = soCCCD;
+            this.ngayGioTao = ngayGioTao;
+            this.trangThaiDK = trangThaiDK;
+            this.tongChiPhi = tongChiPhi;
+            this.hinhThucTT = hinhThucTT;
+            this.maNV = maNV;
         }
-        public string Madkdv
+        public string MaDKDV
         {
-            get => madkdv;
-            set { madkdv = value; }
+            get => maDKDV;
+            set { maDKDV = value; }
         }
-        public string Socccd
+        public string SoCCCD
         {
-            get => socccd;
-            set { socccd = value; }
+            get => soCCCD;
+            set { soCCCD = value; }
         }
-        public string Ngaygiotao
+        public string NgayGioTao
         {
-            get => ngaygiotao;
-            set { ngaygiotao = value; }
+            get => ngayGioTao;
+            set { ngayGioTao = value; }
         }
-        public string Trangthaidk
+        public string TrangThaiDK
         {
-            get => trangthaidk;
-            set { trangthaidk = value; }
+            get => trangThaiDK;
+            set { trangThaiDK = value; }
         }
-        public string Tongchiphi
+        public string TongChiPhi
         {
-            get => tongchiphi;
-            set { tongchiphi = value; }
+            get => tongChiPhi;
+            set { tongChiPhi = value; }
         }
-        public string Hinhthuctt
+        public string HinhThucTT
         {
-            get => hinhthuctt;
-            set { hinhthuctt = value; }
+            get => hinhThucTT;
+            set { hinhThucTT = value; }
         }
-        public string Manv
+        public string MaNV
         {
-            get => manv;
-            set { manv = value; }
+            get => maNV;
+            set { maNV = value; }
         }
     }
 }
