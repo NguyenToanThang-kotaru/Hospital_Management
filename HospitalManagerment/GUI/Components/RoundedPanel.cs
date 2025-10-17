@@ -16,95 +16,74 @@ namespace HospitalManagerment.GUI.Component
 
         public RoundedPanel()
         {
-            this.DoubleBuffered = true; // bật double buffer
-            this.ResizeRedraw = true;
-            this.BackColor = Color.Transparent;
+            DoubleBuffered = true;
+            ResizeRedraw = true;
+            BackColor = Color.Transparent;
 
-            // Tối ưu render
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
-                          ControlStyles.AllPaintingInWmPaint |
-                          ControlStyles.UserPaint |
-                          ControlStyles.SupportsTransparentBackColor, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.OptimizedDoubleBuffer |
+                     ControlStyles.UserPaint |
+                     ControlStyles.SupportsTransparentBackColor, true);
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            base.OnPaint(e);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            Rectangle rect = new Rectangle(
-                MarginLeft,
-                MarginTop,
-                this.Width - 1 - MarginLeft - MarginRight,
-                this.Height - 1 - MarginTop - MarginBottom
-            );
+            float x = MarginLeft;
+            float y = MarginTop;
+            float width = this.Width - 1 - MarginLeft - MarginRight;
+            float height = this.Height - 1 - MarginTop - MarginBottom;
 
-            using (GraphicsPath path = CreateRoundedRectangle(rect, BorderRadius))
+            float radius = Math.Max(0, Math.Min(BorderRadius, Math.Min(width, height) / 2));
+            float d = radius * 2;
+
+            using (GraphicsPath path = new GraphicsPath())
             {
+                path.AddArc(x, y, d, d, 180, 90);                         
+                path.AddArc(x + width - d, y, d, d, 270, 90);             
+                path.AddArc(x + width - d, y + height - d, d, d, 0, 90);   
+                path.AddArc(x, y + height - d, d, d, 90, 90);             
+                path.CloseFigure();
+
                 using (SolidBrush brush = new SolidBrush(PanelColor))
                     e.Graphics.FillPath(brush, path);
 
-                using (Pen pen = new Pen(Color.LightGray, 1))
-                    e.Graphics.DrawPath(pen, path);
+                //using (Pen pen = new Pen(Color.LightGray, 1))
+                //    e.Graphics.DrawPath(pen, path);
             }
-            //base.OnPaint(e);
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            this.Invalidate();
+            Invalidate();
         }
 
-        private GraphicsPath CreateRoundedRectangle(Rectangle rect, int radius)
-        {
-            GraphicsPath path = new GraphicsPath();
-
-            if (radius <= 0)
-            {
-                path.AddRectangle(rect);
-                return path;
-            }
-
-            int diameter = Math.Min(radius * 2, Math.Min(rect.Width, rect.Height));
-
-            path.AddArc(rect.Left, rect.Top, diameter, diameter, 180, 90);                          
-            path.AddArc(rect.Right - diameter, rect.Top, diameter, diameter, 270, 90);              
-            path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);  
-            path.AddArc(rect.Left, rect.Bottom - diameter, diameter, diameter, 90, 90); 
-
-            path.CloseFigure();
-            return path;
-        }
-
-        // Phương thức để thiết lập border radius
         public void SetBorderRadius(int radius)
         {
             BorderRadius = radius;
-            this.Invalidate();
+            Invalidate();
         }
 
-        // Các phương thức mới để thiết lập margin
         public void SetMargin(int left, int top, int right, int bottom)
         {
             MarginLeft = left;
             MarginTop = top;
             MarginRight = right;
             MarginBottom = bottom;
-            this.Invalidate();
+            Invalidate();
         }
 
-        // Property để lấy kích thước nội dung thực tế (trừ margin)
-        public Rectangle ContentRectangle
+        public (float X, float Y, float Width, float Height) GetContentArea()
         {
-            get
-            {
-                return new Rectangle(
-                    MarginLeft,
-                    MarginTop,
-                    this.Width - MarginLeft - MarginRight,
-                    this.Height - MarginTop - MarginBottom
-                );
-            }
+            return (
+                MarginLeft,
+                MarginTop,
+                this.Width - MarginLeft - MarginRight,
+                this.Height - MarginTop - MarginBottom
+            );
         }
     }
 }

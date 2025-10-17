@@ -8,38 +8,38 @@ namespace HospitalManagerment.DTO
 {
     internal class ServiceDTO
     {
-        private string madv;
-        private string tendv;
-        private string giadv;
+        private string maDV;
+        private string tenDV;
+        private string giaDV;
         private string BHYTtra;
         public ServiceDTO()
         {
-            this.madv = " ";
-            this.tendv = " ";
-            this.giadv = " ";
+            this.maDV = " ";
+            this.tenDV = " ";
+            this.giaDV = " ";
             this.BHYTtra = " ";
         }
-        public ServiceDTO(string madv, string tendv, string giadv, string BHYTtra)
+        public ServiceDTO(string maDV, string tenDV, string giaDV, string BHYTtra)
         {
-            this.madv = madv;
-            this.tendv = tendv;
-            this.giadv = giadv;
+            this.maDV = maDV;
+            this.tenDV = tenDV;
+            this.giaDV = giaDV;
             this.BHYTtra = BHYTtra;
         }
-        public string Madv
+        public string MaDV
         {
-            get => madv;
-            set { madv = value; }
+            get => maDV;
+            set { maDV = value; }
         }
-        public string Tendv
+        public string TenDV
         {
-            get => tendv;
-            set { tendv = value; }
+            get => tenDV;
+            set { tenDV = value; }
         }
-        public string Giadv
+        public string GiaDV
         {
-            get => giadv;
-            set { giadv = value; }
+            get => giaDV;
+            set { giaDV = value; }
         }
         public string BHYTTra
         {
