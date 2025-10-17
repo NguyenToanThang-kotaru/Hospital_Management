@@ -71,12 +71,14 @@
             this.pnlLogin.MarginRight = 0;
             this.pnlLogin.MarginTop = 0;
             this.pnlLogin.Name = "pnlLogin";
+            this.pnlLogin.Padding = new System.Windows.Forms.Padding(40, 0, 40, 0);
             this.pnlLogin.PanelColor = System.Drawing.Color.White;
             this.pnlLogin.Size = new System.Drawing.Size(678, 416);
             this.pnlLogin.TabIndex = 0;
             // 
             // tableLayoutPanel
             // 
+            this.tableLayoutPanel.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.Controls.Add(this.lblTxtTaiKhoan, 0, 1);
@@ -84,43 +86,43 @@
             this.tableLayoutPanel.Controls.Add(this.lblHeader, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.btnLogin, 0, 3);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(40, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 4;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(678, 416);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(598, 416);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // lblTxtTaiKhoan
             // 
-            this.lblTxtTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.lblTxtTaiKhoan.BackColor = System.Drawing.Color.White;
             this.lblTxtTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTxtTaiKhoan.IsPassword = false;
             this.lblTxtTaiKhoan.LabelText = "Tài khoản";
-            this.lblTxtTaiKhoan.Location = new System.Drawing.Point(150, 129);
-            this.lblTxtTaiKhoan.Margin = new System.Windows.Forms.Padding(150, 25, 150, 5);
+            this.lblTxtTaiKhoan.Location = new System.Drawing.Point(100, 129);
+            this.lblTxtTaiKhoan.Margin = new System.Windows.Forms.Padding(100, 25, 100, 5);
             this.lblTxtTaiKhoan.Name = "lblTxtTaiKhoan";
             this.lblTxtTaiKhoan.PanelHeight = 60;
             this.lblTxtTaiKhoan.PanelWidth = 200;
-            this.lblTxtTaiKhoan.Size = new System.Drawing.Size(378, 74);
+            this.lblTxtTaiKhoan.Size = new System.Drawing.Size(398, 74);
             this.lblTxtTaiKhoan.TabIndex = 0;
             this.lblTxtTaiKhoan.TextValue = "";
             // 
             // lblTxtMatKhau
             // 
-            this.lblTxtMatKhau.BackColor = System.Drawing.Color.Transparent;
+            this.lblTxtMatKhau.BackColor = System.Drawing.Color.White;
             this.lblTxtMatKhau.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTxtMatKhau.IsPassword = true;
             this.lblTxtMatKhau.LabelText = "Mật khẩu";
-            this.lblTxtMatKhau.Location = new System.Drawing.Point(150, 213);
-            this.lblTxtMatKhau.Margin = new System.Windows.Forms.Padding(150, 5, 150, 25);
+            this.lblTxtMatKhau.Location = new System.Drawing.Point(100, 213);
+            this.lblTxtMatKhau.Margin = new System.Windows.Forms.Padding(100, 5, 100, 25);
             this.lblTxtMatKhau.Name = "lblTxtMatKhau";
             this.lblTxtMatKhau.PanelHeight = 60;
             this.lblTxtMatKhau.PanelWidth = 200;
-            this.lblTxtMatKhau.Size = new System.Drawing.Size(378, 74);
+            this.lblTxtMatKhau.Size = new System.Drawing.Size(398, 74);
             this.lblTxtMatKhau.TabIndex = 1;
             this.lblTxtMatKhau.TextValue = "";
             // 
@@ -128,11 +130,11 @@
             // 
             this.lblHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeader.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblHeader.Location = new System.Drawing.Point(43, 28);
+            this.lblHeader.Location = new System.Drawing.Point(26, 29);
             this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(591, 48);
+            this.lblHeader.Size = new System.Drawing.Size(546, 45);
             this.lblHeader.TabIndex = 2;
             this.lblHeader.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
             this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,8 +145,8 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnLogin.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(240, 327);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(240, 15, 240, 45);
+            this.btnLogin.Location = new System.Drawing.Point(200, 327);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(200, 15, 200, 45);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(198, 44);
             this.btnLogin.TabIndex = 3;
