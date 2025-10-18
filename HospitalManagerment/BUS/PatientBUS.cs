@@ -105,20 +105,27 @@ namespace HospitalManagerment.BUS
            return patientDAO.GetPatientById(soCCCD, out errorMessage);
         }
 
-        public bool AddPatient(PatientDTO patient, out string errorMessage)
+        public bool AddPatient(PatientDTO patient, HealthInsuranceDTO bhyt, out string errorMessage)
         {
             if (!ValidateInsertPatient(patient, out errorMessage))
                 return false;
+            HealthInsuranceBUS bhytBUS = new HealthInsuranceBUS();
+            if (bhyt != null)
+            {
+                if (!bhytBUS.AddHealthInsurance(bhyt, out errorMessage))
+                    return false;
 
+                patient.SoBHYT = bhyt.SoBHYT;
+            }
             return patientDAO.AddPatient(patient, out errorMessage);
         }
 
-        public bool UpdatePatient(PatientDTO patient, out string errorMessage)
+        public bool UpdatePatient(PatientDTO patient, string oldSoCCCD,  out string errorMessage)
         {
             if (!ValidateUpdatePatient(patient, out errorMessage))
                 return false;
 
-            return patientDAO.UpdatePatient(patient, out errorMessage);
+            return patientDAO.UpdatePatient(patient, oldSoCCCD, out errorMessage);
         }
 
         public bool DeletePatient(string soCCCD, out string errorMessage)

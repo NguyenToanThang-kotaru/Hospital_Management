@@ -17,11 +17,22 @@ namespace HospitalManagerment.BUS
         {
             healthInsuranceDAO = new HealthInsuranceDAO();
         }
+        public string TinhMucHuongTuSoBHYT(string soBHYT)
+        {
+            char kyTuThu3 = soBHYT[2];
+            if (kyTuThu3 == '1' || kyTuThu3 == '4')
+                return "100%";
+            else if (kyTuThu3 == '2')
+                return "95%";
+            else if (kyTuThu3 == '3')
+                return "80%";
+            else
+                return "-1";
+        }
         private bool ValidateHealthInsurance(HealthInsuranceDTO healthInsurance, out string errorMessage)
         {
             errorMessage = "";
 
-            // --- Kiểm tra số BHYT (nếu có) ---
             if (!Validators.IsEmpty(healthInsurance.SoBHYT))
             {
                 if (!Validators.IsValidBHYT(healthInsurance.SoBHYT))
@@ -36,26 +47,24 @@ namespace HospitalManagerment.BUS
                 }
             }
 
-            // --- Kiểm tra ngày cấp ---
             if (!Validators.IsValidDate(healthInsurance.NgayCap.ToString()))
             {
                 errorMessage = "Ngày cấp không hợp lệ";
                 return false;
             }
 
-            // --- Kiểm tra ngày hết hạn ---
             if (!Validators.IsValidDate(healthInsurance.NgayCap.ToString()))
             {
                 errorMessage = "Ngày hết hạn không hợp lệ";
                 return false;
             }
 
-            // --- Kiểm tra SĐT ---
-            if (!Validators.CheckEmpty(healthInsurance.NoiDangKi, "nơi đang ký", out errorMessage)) return false;
 
-            // --- Kiểm tra địa chỉ ---
-            if (!Validators.CheckEmpty(healthInsurance.MucHuong, "mức hưởng", out errorMessage)) return false;
-
+            if (healthInsurance.MucHuong == "-1")
+            {
+                errorMessage = "Số BHYT không hợp lệ. Vui lòng kiểm tra lại!";
+                return false;
+            }
             return true;
         }
 
@@ -66,6 +75,20 @@ namespace HospitalManagerment.BUS
                 return false;
             }
             return healthInsuranceDAO.AddHealthInsurance(healthInsurance, out errorMessage);
+        }
+
+        public bool UpdateHealthInsurance(HealthInsuranceDTO healthInsurance, out string errorMessage)
+        {
+            if (!ValidateHealthInsurance(healthInsurance, out errorMessage))
+            {
+                return false;
+            }
+            return healthInsuranceDAO.UpdateHealthInsurance(healthInsurance, out errorMessage);
+        }
+
+        public bool DeleteHealthInsurance(string soBHYT, out string errorMessage)
+        {
+            return healthInsuranceDAO.DeleteHealthInsurance(soBHYT, out errorMessage);
         }
     }
 }

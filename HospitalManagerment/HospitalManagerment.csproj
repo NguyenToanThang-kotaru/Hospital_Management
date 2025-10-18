@@ -107,7 +107,6 @@
     <Compile Include="BUS\HealthInsuranceBUS.cs" />
     <Compile Include="BUS\MedicalBUS.cs" />
     <Compile Include="BUS\MedicineBUS.cs" />
-    <Compile Include="BUS\PatientWithHIBUS.cs" />
     <Compile Include="BUS\PatientBUS.cs" />
     <Compile Include="BUS\PermissionBUS.cs" />
     <Compile Include="BUS\PermissionDetialBUS.cs" />

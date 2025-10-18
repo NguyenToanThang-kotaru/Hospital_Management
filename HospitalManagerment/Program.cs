@@ -79,35 +79,41 @@ class Program
     {
         string errorMessage;
         bool chkHasBHYT = true;
+
+        // --- Tạo bệnh nhân ---
         var patient = new PatientDTO
         {
-            SoCCCD = "075204007856",
-            TenBN = "Trần Thị Hồng",
-            NgaySinh = "1995-09-14",
-            GioiTinh = "Nữ",
-            SdtBN = "0905123456",
-            DiaChi = "P. Linh Trung, TP. Thủ Đức",
+            SoCCCD = "079105008934",
+            TenBN = "Phạm Quốc Bảo",
+            NgaySinh = "2001-03-10",
+            GioiTinh = "Nam",
+            SdtBN = "0978123987",
+            DiaChi = "P. Tân Hưng, Q.7, TP.HCM",
         };
 
         HealthInsuranceDTO bhyt = null;
 
+        // --- Nếu có BHYT ---
         if (chkHasBHYT)
         {
+            string soBHYT = "DN38765432"; // ký tự thứ 3 = 3 → 80%
+            HealthInsuranceBUS bhytBus = new HealthInsuranceBUS();
+            string mucHuong = bhytBus.TinhMucHuongTuSoBHYT(soBHYT);
+
             bhyt = new HealthInsuranceDTO
             {
-                SoBHYT = "DN9876543210",
-                NgayCap = "2022-02-01",
-                NgayHetHan = "2027-02-01",
-                MucHuong = "90%",
-                NoiDangKi = "Bệnh viện ĐH Y Dược TP.HCM"
+                SoBHYT = soBHYT,
+                NgayCap = "2021-07-20",
+                NgayHetHan = "2026-07-20",
+                MucHuong = mucHuong,
             };
         }
 
-        var service = new PatientWithHIBUS();
-        if (service.AddPatientWithOptionalBHYT(patient, bhyt, out errorMessage))
-            MessageBox.Show("Thêm bệnh nhân thành công!");
+        // --- Gọi BUS để thêm bệnh nhân + (tùy chọn) BHYT ---
+        var service = new PatientBUS();
+        if (service.AddPatient(patient, bhyt, out errorMessage))
+            MessageBox.Show("✅ Thêm bệnh nhân thành công!");
         else
-            MessageBox.Show("Lỗi: " + errorMessage);
-
+            MessageBox.Show("❌ Lỗi: " + errorMessage);
     }
 }
