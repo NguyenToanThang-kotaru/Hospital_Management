@@ -45,7 +45,7 @@ namespace HospitalManagerment.DAO
                         cmd.Parameters.AddWithValue("@SoBHYT", bhyt.SoBHYT);
                         cmd.Parameters.AddWithValue("@NgayCap", bhyt.NgayCap);
                         cmd.Parameters.AddWithValue("@NgayHetHan", bhyt.NgayHetHan);
-                        cmd.Parameters.AddWithValue("@NoiDangKi", bhyt.NoiDangKi);
+                        //cmd.Parameters.AddWithValue("@NoiDangKi", bhyt.NoiDangKi);
                         cmd.Parameters.AddWithValue("@MucHuong", bhyt.MucHuong);
 
 
