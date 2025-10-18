@@ -202,12 +202,6 @@
     <Compile Include="GUI\Pages\HoSoBenhAn\HoSoBenhAnPage.Designer.cs">
       <DependentUpon>HoSoBenhAnPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Pages\NhanVienBackup\NhanVienPage.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\Pages\NhanVienBackup\NhanVienPage.Designer.cs">
-      <DependentUpon>NhanVienPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Pages\NhanVien\NhanVienPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,9 +240,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Pages\HoSoBenhAn\HoSoBenhAnPage.resx">
       <DependentUpon>HoSoBenhAnPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Pages\NhanVienBackup\NhanVienPage.resx">
-      <DependentUpon>NhanVienPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Pages\NhanVien\NhanVienPage.resx">
       <DependentUpon>NhanVienPage.cs</DependentUpon>

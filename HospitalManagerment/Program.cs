@@ -10,28 +10,28 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//namespace HospitalManagerment
-//{
-//    internal static class Program
-//    {
-//        [DllImport("user32.dll")]
-//        private static extern bool SetProcessDPIAware();
-//        /// <summary>
-//        /// The main entry point for the application.
-//        /// </summary>
-//        [STAThread]
-//        static void Main()
-//        {
-//            // Kích hoạt DPI aware
-//            SetProcessDPIAware();
+namespace HospitalManagerment
+{
+    internal static class Program
+    {
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // Kích hoạt DPI aware
+            SetProcessDPIAware();
 
-//            Application.EnableVisualStyles();
-//            Application.SetCompatibleTextRenderingDefault(false);
-//            Application.Run(new Login_Layout());
-//            //Application.Run(new Main_Layout());
-//        }
-//    }
-//}
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Login_Layout());
+            //Application.Run(new Main_Layout());
+        }
+    }
+}
 
 
 //namespace TestBUS
@@ -73,41 +73,41 @@ using System.Windows.Forms;
 
 
 
-class Program
-{
-    static void Main()
-    {
-        string errorMessage;
-        bool chkHasBHYT = true;
-        var patient = new PatientDTO
-        {
-            SoCCCD = "075204007856",
-            TenBN = "Trần Thị Hồng",
-            NgaySinh = "1995-09-14",
-            GioiTinh = "Nữ",
-            SdtBN = "0905123456",
-            DiaChi = "P. Linh Trung, TP. Thủ Đức",
-        };
+//class Program
+//{
+//    static void Main()
+//    {
+//        string errorMessage;
+//        bool chkHasBHYT = true;
+//        var patient = new PatientDTO
+//        {
+//            SoCCCD = "075204007856",
+//            TenBN = "Trần Thị Hồng",
+//            NgaySinh = "1995-09-14",
+//            GioiTinh = "Nữ",
+//            SdtBN = "0905123456",
+//            DiaChi = "P. Linh Trung, TP. Thủ Đức",
+//        };
 
-        HealthInsuranceDTO bhyt = null;
+//        HealthInsuranceDTO bhyt = null;
 
-        if (chkHasBHYT)
-        {
-            bhyt = new HealthInsuranceDTO
-            {
-                SoBHYT = "DN9876543210",
-                NgayCap = "2022-02-01",
-                NgayHetHan = "2027-02-01",
-                MucHuong = "90%",
-                NoiDangKi = "Bệnh viện ĐH Y Dược TP.HCM"
-            };
-        }
+//        if (chkHasBHYT)
+//        {
+//            bhyt = new HealthInsuranceDTO
+//            {
+//                SoBHYT = "DN9876543210",
+//                NgayCap = "2022-02-01",
+//                NgayHetHan = "2027-02-01",
+//                MucHuong = "90%",
+//                NoiDangKi = "Bệnh viện ĐH Y Dược TP.HCM"
+//            };
+//        }
 
-        var service = new PatientWithHIBUS();
-        if (service.AddPatientWithOptionalBHYT(patient, bhyt, out errorMessage))
-            MessageBox.Show("Thêm bệnh nhân thành công!");
-        else
-            MessageBox.Show("Lỗi: " + errorMessage);
+//        var service = new PatientWithHIBUS();
+//        if (service.AddPatientWithOptionalBHYT(patient, bhyt, out errorMessage))
+//            MessageBox.Show("Thêm bệnh nhân thành công!");
+//        else
+//            MessageBox.Show("Lỗi: " + errorMessage);
 
-    }
-}
+//    }
+//}
