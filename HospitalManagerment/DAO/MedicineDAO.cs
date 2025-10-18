@@ -114,5 +114,105 @@ namespace HospitalManagerment.DAO
             }
             return medicines;
         }
+
+        public MedicineDTO GetMedicineById(string maDP)
+        {
+            string query = "SELECT * FROM duocpham WHERE MaDP = @MaDP AND TrangThaiXoa = 0";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDP", maDP);
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                medicine = new MedicineDTO
+                                {
+                                    MaDP = reader.GetString("MaDP"),
+                                    TenDP = reader.GetString("TenDP"),
+                                    LoaiDP = reader.GetString("LoaiDP")
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy dược phẩm: " + ex.Message);
+            }
+            return null;
+        }
+
+        public string GetNextMedicineId()
+        {
+            string query = "SELECT MaDP FROM duocpham ORDER BY MaDP DESC LIMIT 1";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            string lastId = result.ToString();
+                            int numericPart = int.Parse(lastId.Substring(2));
+                            numericPart++;
+                            return "DP" + numericPart.ToString("D6");
+                        }
+                        else
+                        {
+                            return "DP000001";
+                        }
+                    }       
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy mã dược phẩm tiếp theo: " + ex.Message);
+            }
+            return "DP000001";
+        }
+
+        public List<MedicineDTO> SearchMedicinesByName(string maDP)
+        {
+            List<MedicineDTO> medicines = new List<MedicineDTO>();
+            string sql = "SELECT * FROM duocpham WHERE MaDP LIKE CONCAT('%', @MaDP, '%') AND TrangThaiXoa = 0";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDP", maDP);
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                MedicineDTO medicine = new MedicineDTO
+                                {
+                                    MaDP = reader.GetString("MaDP"),
+                                    TenDP = reader.GetString("TenDP"),
+                                    LoaiDP = reader.GetString("LoaiDP")
+                                };
+                                medicines.Add(medicine);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm dược phẩm: " + ex.Message);
+            }
+            return medicines;
+        }
     }
 }
