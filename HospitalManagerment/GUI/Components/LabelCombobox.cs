@@ -66,62 +66,10 @@ namespace LayoutTest.GUIComponents
             this.Controls.Add(comboBox);
             this.Controls.Add(lbl);
         }
-
-        public void SetLabelFont(Font font)
+        public ComboBox GetComboBox()
         {
-            lbl.Font = font;
+            return comboBox;
         }
 
-        public void SetComboBoxFont(Font font)
-        {
-            comboBox.Font = font;
-        }
-
-        public void SetLabelColor(Color color)
-        {
-            lbl.ForeColor = color;
-        }
-
-        public void SetComboBoxBackColor(Color color)
-        {
-            comboBox.BackColor = color;
-        }
-
-        public void SetComboBoxForeColor(Color color)
-        {
-            comboBox.ForeColor = color;
-        }
-
-        public void SetItems(params string[] items)
-        {
-            comboBox.Items.Clear();
-            comboBox.Items.AddRange(items);
-        }
-
-        public void AddItem(string item)
-        {
-            comboBox.Items.Add(item);
-        }
-
-        public void ClearItems()
-        {
-            comboBox.Items.Clear();
-        }
-
-        public string GetSelectedItem()
-        {
-            return comboBox.SelectedItem?.ToString() ?? string.Empty;
-        }
-
-        public int GetSelectedIndex()
-        {
-            return comboBox.SelectedIndex;
-        }
-
-        public void SetSelectedIndex(int index)
-        {
-            if (index >= 0 && index < comboBox.Items.Count)
-                comboBox.SelectedIndex = index;
-        }
     }
 }

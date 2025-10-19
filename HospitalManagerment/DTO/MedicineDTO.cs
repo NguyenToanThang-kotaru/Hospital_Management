@@ -1,42 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // Thuốc
     internal class MedicineDTO
     {
-        private string madp;
-        private string tendp;
-        private string loaidp;
+        private string maDP;
+        private string tenDP;
+        private string loaiDP;
+        private string trangThaiXoa;
+
         public MedicineDTO()
         {
-            this.madp = " ";
-            this.tendp = " ";
-            this.loaidp = " ";
+            this.maDP = string.Empty;
+            this.tenDP = string.Empty;
+            this.loaiDP = string.Empty;
+            this.trangThaiXoa = "0";
         }
-        public MedicineDTO(string madp, string tendp, string loaidp)
+
+        public MedicineDTO(string maDP, string tenDP, string loaiDP, string trangThaiXoa = "0")
         {
-            this.madp = madp;
-            this.tendp = tendp;
-            this.loaidp = loaidp;
+            this.maDP = maDP;
+            this.tenDP = tenDP;
+            this.loaiDP = loaiDP;
+            this.trangThaiXoa = trangThaiXoa;
         }
-        public string Madp
+
+        public string MaDP
         {
-            get => madp;
-            set { madp = value; }
+            get => maDP;
+            set => maDP = value;
         }
-        public string Tendp
+
+        public string TenDP
         {
-            get => tendp;
-            set { tendp = value; }
+            get => tenDP;
+            set => tenDP = value;
         }
-        public string Loaidp
+
+        public string LoaiDP
         {
-            get => loaidp;
-            set { loaidp = value; }
+            get => loaiDP;
+            set => loaiDP = value;
+        }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
         }
     }
 }

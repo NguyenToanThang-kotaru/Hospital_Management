@@ -18,17 +18,16 @@ namespace HospitalManagerment.DTO
 
         public EmployeeDTO()
         {
-            this.maNV = " ";
-            this.tenNV = " ";
-            this.sdtNV = " ";
-            this.chucVu = " ";
-            this.vaiTro = " ";
-            this.maKhoa = " ";
-            this.trangThaiXoa = " ";
+            this.maNV = "";
+            this.tenNV = "";
+            this.sdtNV = "";
+            this.chucVu = "";
+            this.vaiTro = "";
+            this.maKhoa = "";
+            this.trangThaiXoa = "0";
         }
 
-        public EmployeeDTO(string maNV, string tenNV, string sdtNV, string chucVu, string vaiTro, string maKhoa,
-         string trangThaiXoa)
+        public EmployeeDTO(string maNV, string tenNV, string sdtNV, string chucVu, string vaiTro, string maKhoa, string trangThaiXoa = "0")
         {
             this.maNV = maNV;
             this.tenNV = tenNV;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // bảo hiểm y tế
     internal class HealthInsuranceDTO
     {
         private string soBHYT;
@@ -16,14 +17,14 @@ namespace HospitalManagerment.DTO
 
         public HealthInsuranceDTO()
         {
-            this.soBHYT = " ";
-            this.ngayCap = " ";
-            this.ngayHetHan = " ";
-            this.mucHuong = " ";
-            this.trangThaiXoa = " ";
+            this.soBHYT = "";
+            this.ngayCap = "";
+            this.ngayHetHan = "";
+            this.mucHuong = "";
+            this.trangThaiXoa = "0";
         }
 
-        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string mucHuong, string trangThaiXoa)
+        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string mucHuong, string trangThaiXoa = "0")
         {
             this.soBHYT = soBHYT;
             this.ngayCap = ngayCap;
