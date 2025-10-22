@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
-    //Chi tiết đăng ký
+    // chi tiết đăng ký
     internal class ServiceRegistrationDetailDTO
     {
         private string maDKDV;
         private string maDV;
         public ServiceRegistrationDetailDTO()
         {
-            this.maDKDV = " ";
-            this.maDV = " ";
+            this.maDKDV = string.Empty;
+            this.maDV = string.Empty;
         }
         public ServiceRegistrationDetailDTO(string maDKDV, string maDV)
         {
             this.maDKDV = maDKDV;
-            this.maDV = maDV;
-        }
+            this.maDV = maDV;        }
 
         public string MaDKDV
         {

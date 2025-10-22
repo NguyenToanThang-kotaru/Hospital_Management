@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
-    //Chi tiết dịch vụ
+    // chi tiết dịch vụ
     internal class ServiceDetailDTO
     {
         private string maDV;
         private string maBA;
         public ServiceDetailDTO()
         {
-            this.maDV = " ";
-            this.maBA = " ";
+            this.maDV = string.Empty;
+            this.maBA = string.Empty;
         }
         public ServiceDetailDTO(string maDV, string maBA)
         {

@@ -6,31 +6,29 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // bảo hiểm y tế
     internal class HealthInsuranceDTO
     {
         private string soBHYT;
         private string ngayCap;
         private string ngayHetHan;
-        private string noiDangKi;
         private string mucHuong;
         private string trangThaiXoa;
 
         public HealthInsuranceDTO()
         {
-            this.soBHYT = " ";
-            this.ngayCap = " ";
-            this.ngayHetHan = " ";
-            this.noiDangKi = " ";
-            this.mucHuong = " ";
-            this.trangThaiXoa = " ";
+            this.soBHYT = "";
+            this.ngayCap = "";
+            this.ngayHetHan = "";
+            this.mucHuong = "";
+            this.trangThaiXoa = "0";
         }
 
-        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string noiDangKy, string mucHuong, string trangThaiXoa)
+        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string mucHuong, string trangThaiXoa = "0")
         {
             this.soBHYT = soBHYT;
             this.ngayCap = ngayCap;
             this.ngayHetHan = ngayHetHan;
-            this.noiDangKi = noiDangKy;
             this.mucHuong = mucHuong;
             this.trangThaiXoa = trangThaiXoa;
         }
@@ -51,12 +49,6 @@ namespace HospitalManagerment.DTO
         {
             get => this.ngayHetHan;
             set { this.ngayHetHan = value; }
-        }
-
-        public string NoiDangKi
-        {
-            get => this.noiDangKi;
-            set { this.noiDangKi = value; }
         }
 
         public string MucHuong

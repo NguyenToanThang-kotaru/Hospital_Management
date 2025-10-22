@@ -40,9 +40,20 @@
             this.lblTxtSoDienThoai = new LayoutTest.GUIComponents.LableTextBox();
             this.lblCbcGioiTinh = new LayoutTest.GUIComponents.LableComboBox();
             this.lblTxtDiaChi = new LayoutTest.GUIComponents.LableTextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.roundedLabel1 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.roundedLabel2 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.checkCoBHYT = new System.Windows.Forms.CheckBox();
             this.panelBaoHiemYTe = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTxtTiLeChiTra = new LayoutTest.GUIComponents.LableTextBox();
+            this.lblTxtNgayHetHan = new LayoutTest.GUIComponents.LableTextBox();
+            this.lblTxtNgayCap = new LayoutTest.GUIComponents.LableTextBox();
+            this.lblTxtSoBHYT = new LayoutTest.GUIComponents.LableTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.roundedLabel3 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.roundedLabel4 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.tabPageDangKyDichVu = new System.Windows.Forms.TabPage();
             this.roundedPanel3 = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -67,17 +78,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.roundedPanel4 = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.roundedPanel5 = new HospitalManagerment.GUI.Component.RoundedPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.roundedLabel1 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel2 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.lblTxtSoBHYT = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTxtNgayCap = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTxtNgayHetHan = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTxtTiLeChiTra = new LayoutTest.GUIComponents.LableTextBox();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.roundedLabel3 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel4 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.checkCoBHYT = new System.Windows.Forms.CheckBox();
             this.tabControlBenhNhan.SuspendLayout();
             this.tabPageBenhNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBenhNhan)).BeginInit();
@@ -86,8 +86,10 @@
             this.splitContainerBenhNhan.SuspendLayout();
             this.panelBenhNhan.SuspendLayout();
             this.tableLayoutFormBenhNhan.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panelBaoHiemYTe.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.tabPageDangKyDichVu.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -97,8 +99,6 @@
             this.tabPageDanhSach.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlBenhNhan
@@ -287,6 +287,7 @@
             this.lblCbcGioiTinh.Size = new System.Drawing.Size(327, 83);
             this.lblCbcGioiTinh.TabIndex = 6;
             this.lblCbcGioiTinh.TextValue = "";
+            this.lblCbcGioiTinh.Paint += new System.Windows.Forms.PaintEventHandler(this.lblCbcGioiTinh_Paint);
             // 
             // lblTxtDiaChi
             // 
@@ -303,6 +304,75 @@
             this.lblTxtDiaChi.Size = new System.Drawing.Size(703, 83);
             this.lblTxtDiaChi.TabIndex = 7;
             this.lblTxtDiaChi.TextValue = "";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.tableLayoutFormBenhNhan.SetColumnSpan(this.flowLayoutPanel1, 3);
+            this.flowLayoutPanel1.Controls.Add(this.roundedLabel1);
+            this.flowLayoutPanel1.Controls.Add(this.roundedLabel2);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 581);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(703, 86);
+            this.flowLayoutPanel1.TabIndex = 8;
+            // 
+            // roundedLabel1
+            // 
+            this.roundedLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedLabel1.BorderRadius = 20;
+            this.roundedLabel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel1.ForeColor = System.Drawing.Color.White;
+            this.roundedLabel1.Location = new System.Drawing.Point(543, 10);
+            this.roundedLabel1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.roundedLabel1.MarginBottom = 0;
+            this.roundedLabel1.MarginLeft = 0;
+            this.roundedLabel1.MarginRight = 0;
+            this.roundedLabel1.MarginTop = 0;
+            this.roundedLabel1.Name = "roundedLabel1";
+            this.roundedLabel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.roundedLabel1.PanelHeight = 50;
+            this.roundedLabel1.PanelWidth = 180;
+            this.roundedLabel1.Size = new System.Drawing.Size(160, 45);
+            this.roundedLabel1.TabIndex = 2;
+            this.roundedLabel1.Text = "Xác nhận";
+            this.roundedLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roundedLabel2
+            // 
+            this.roundedLabel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedLabel2.BorderRadius = 20;
+            this.roundedLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel2.ForeColor = System.Drawing.Color.White;
+            this.roundedLabel2.Location = new System.Drawing.Point(363, 10);
+            this.roundedLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.roundedLabel2.MarginBottom = 0;
+            this.roundedLabel2.MarginLeft = 0;
+            this.roundedLabel2.MarginRight = 0;
+            this.roundedLabel2.MarginTop = 0;
+            this.roundedLabel2.Name = "roundedLabel2";
+            this.roundedLabel2.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
+            this.roundedLabel2.PanelHeight = 50;
+            this.roundedLabel2.PanelWidth = 180;
+            this.roundedLabel2.Size = new System.Drawing.Size(160, 45);
+            this.roundedLabel2.TabIndex = 3;
+            this.roundedLabel2.Text = "Hủy";
+            this.roundedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkCoBHYT
+            // 
+            this.tableLayoutFormBenhNhan.SetColumnSpan(this.checkCoBHYT, 3);
+            this.checkCoBHYT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkCoBHYT.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkCoBHYT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.checkCoBHYT.Location = new System.Drawing.Point(3, 418);
+            this.checkCoBHYT.Name = "checkCoBHYT";
+            this.checkCoBHYT.Size = new System.Drawing.Size(697, 77);
+            this.checkCoBHYT.TabIndex = 9;
+            this.checkCoBHYT.Text = "Có bảo hiểm y tế";
+            this.checkCoBHYT.UseVisualStyleBackColor = true;
             // 
             // panelBaoHiemYTe
             // 
@@ -348,6 +418,66 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(485, 667);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // lblTxtTiLeChiTra
+            // 
+            this.lblTxtTiLeChiTra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTxtTiLeChiTra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTxtTiLeChiTra.IsPassword = false;
+            this.lblTxtTiLeChiTra.LabelText = "Tỉ lệ chi trả";
+            this.lblTxtTiLeChiTra.Location = new System.Drawing.Point(0, 332);
+            this.lblTxtTiLeChiTra.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTxtTiLeChiTra.Name = "lblTxtTiLeChiTra";
+            this.lblTxtTiLeChiTra.PanelHeight = 80;
+            this.lblTxtTiLeChiTra.PanelWidth = 200;
+            this.lblTxtTiLeChiTra.Size = new System.Drawing.Size(485, 83);
+            this.lblTxtTiLeChiTra.TabIndex = 5;
+            this.lblTxtTiLeChiTra.TextValue = "";
+            // 
+            // lblTxtNgayHetHan
+            // 
+            this.lblTxtNgayHetHan.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTxtNgayHetHan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTxtNgayHetHan.IsPassword = false;
+            this.lblTxtNgayHetHan.LabelText = "Ngày hết hạn";
+            this.lblTxtNgayHetHan.Location = new System.Drawing.Point(0, 249);
+            this.lblTxtNgayHetHan.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTxtNgayHetHan.Name = "lblTxtNgayHetHan";
+            this.lblTxtNgayHetHan.PanelHeight = 80;
+            this.lblTxtNgayHetHan.PanelWidth = 200;
+            this.lblTxtNgayHetHan.Size = new System.Drawing.Size(485, 83);
+            this.lblTxtNgayHetHan.TabIndex = 4;
+            this.lblTxtNgayHetHan.TextValue = "";
+            // 
+            // lblTxtNgayCap
+            // 
+            this.lblTxtNgayCap.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTxtNgayCap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTxtNgayCap.IsPassword = false;
+            this.lblTxtNgayCap.LabelText = "Ngày cấp";
+            this.lblTxtNgayCap.Location = new System.Drawing.Point(0, 166);
+            this.lblTxtNgayCap.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTxtNgayCap.Name = "lblTxtNgayCap";
+            this.lblTxtNgayCap.PanelHeight = 80;
+            this.lblTxtNgayCap.PanelWidth = 200;
+            this.lblTxtNgayCap.Size = new System.Drawing.Size(485, 83);
+            this.lblTxtNgayCap.TabIndex = 3;
+            this.lblTxtNgayCap.TextValue = "";
+            // 
+            // lblTxtSoBHYT
+            // 
+            this.lblTxtSoBHYT.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblTxtSoBHYT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTxtSoBHYT.IsPassword = false;
+            this.lblTxtSoBHYT.LabelText = "Số bảo hiểm y tế";
+            this.lblTxtSoBHYT.Location = new System.Drawing.Point(0, 83);
+            this.lblTxtSoBHYT.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTxtSoBHYT.Name = "lblTxtSoBHYT";
+            this.lblTxtSoBHYT.PanelHeight = 80;
+            this.lblTxtSoBHYT.PanelWidth = 200;
+            this.lblTxtSoBHYT.Size = new System.Drawing.Size(485, 83);
+            this.lblTxtSoBHYT.TabIndex = 2;
+            this.lblTxtSoBHYT.TextValue = "";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -361,6 +491,61 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Bảo hiểm y tế";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.roundedLabel3);
+            this.flowLayoutPanel3.Controls.Add(this.roundedLabel4);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 581);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 86);
+            this.flowLayoutPanel3.TabIndex = 6;
+            // 
+            // roundedLabel3
+            // 
+            this.roundedLabel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedLabel3.BorderRadius = 20;
+            this.roundedLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel3.ForeColor = System.Drawing.Color.White;
+            this.roundedLabel3.Location = new System.Drawing.Point(325, 10);
+            this.roundedLabel3.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.roundedLabel3.MarginBottom = 0;
+            this.roundedLabel3.MarginLeft = 0;
+            this.roundedLabel3.MarginRight = 0;
+            this.roundedLabel3.MarginTop = 0;
+            this.roundedLabel3.Name = "roundedLabel3";
+            this.roundedLabel3.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.roundedLabel3.PanelHeight = 50;
+            this.roundedLabel3.PanelWidth = 180;
+            this.roundedLabel3.Size = new System.Drawing.Size(160, 45);
+            this.roundedLabel3.TabIndex = 3;
+            this.roundedLabel3.Text = "Xác nhận";
+            this.roundedLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roundedLabel4
+            // 
+            this.roundedLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.roundedLabel4.BorderRadius = 20;
+            this.roundedLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel4.ForeColor = System.Drawing.Color.White;
+            this.roundedLabel4.Location = new System.Drawing.Point(145, 10);
+            this.roundedLabel4.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.roundedLabel4.MarginBottom = 0;
+            this.roundedLabel4.MarginLeft = 0;
+            this.roundedLabel4.MarginRight = 0;
+            this.roundedLabel4.MarginTop = 0;
+            this.roundedLabel4.Name = "roundedLabel4";
+            this.roundedLabel4.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
+            this.roundedLabel4.PanelHeight = 50;
+            this.roundedLabel4.PanelWidth = 180;
+            this.roundedLabel4.Size = new System.Drawing.Size(160, 45);
+            this.roundedLabel4.TabIndex = 4;
+            this.roundedLabel4.Text = "Hủy";
+            this.roundedLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabPageDangKyDichVu
             // 
@@ -470,7 +655,6 @@
             this.lblTxtMaDKDV.Size = new System.Drawing.Size(516, 83);
             this.lblTxtMaDKDV.TabIndex = 0;
             this.lblTxtMaDKDV.TextValue = "";
-            this.lblTxtMaDKDV.Paint += new System.Windows.Forms.PaintEventHandler(this.lableTextBox1_Paint_1);
             // 
             // lblTxtSoCCCDBenhNhan
             // 
@@ -560,6 +744,7 @@
             this.lblCbbHinhThucThanhToan.Size = new System.Drawing.Size(516, 85);
             this.lblCbbHinhThucThanhToan.TabIndex = 8;
             this.lblCbbHinhThucThanhToan.TextValue = "";
+            this.lblCbbHinhThucThanhToan.Paint += new System.Windows.Forms.PaintEventHandler(this.lblCbbHinhThucThanhToan_Paint);
             // 
             // lblCbbTrangThaiDangKy
             // 
@@ -574,6 +759,7 @@
             this.lblCbbTrangThaiDangKy.Size = new System.Drawing.Size(776, 83);
             this.lblCbbTrangThaiDangKy.TabIndex = 9;
             this.lblCbbTrangThaiDangKy.TextValue = "";
+            this.lblCbbTrangThaiDangKy.Paint += new System.Windows.Forms.PaintEventHandler(this.lblCbbTrangThaiDangKy_Paint);
             // 
             // tableLayoutPanel7
             // 
@@ -739,190 +925,6 @@
             this.roundedPanel5.Size = new System.Drawing.Size(1492, 601);
             this.roundedPanel5.TabIndex = 1;
             // 
-            // flowLayoutPanel1
-            // 
-            this.tableLayoutFormBenhNhan.SetColumnSpan(this.flowLayoutPanel1, 3);
-            this.flowLayoutPanel1.Controls.Add(this.roundedLabel1);
-            this.flowLayoutPanel1.Controls.Add(this.roundedLabel2);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 581);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(703, 86);
-            this.flowLayoutPanel1.TabIndex = 8;
-            // 
-            // roundedLabel1
-            // 
-            this.roundedLabel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedLabel1.BorderRadius = 20;
-            this.roundedLabel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel1.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel1.Location = new System.Drawing.Point(543, 10);
-            this.roundedLabel1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.roundedLabel1.MarginBottom = 0;
-            this.roundedLabel1.MarginLeft = 0;
-            this.roundedLabel1.MarginRight = 0;
-            this.roundedLabel1.MarginTop = 0;
-            this.roundedLabel1.Name = "roundedLabel1";
-            this.roundedLabel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel1.PanelHeight = 50;
-            this.roundedLabel1.PanelWidth = 180;
-            this.roundedLabel1.Size = new System.Drawing.Size(160, 45);
-            this.roundedLabel1.TabIndex = 2;
-            this.roundedLabel1.Text = "Xác nhận";
-            this.roundedLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // roundedLabel2
-            // 
-            this.roundedLabel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedLabel2.BorderRadius = 20;
-            this.roundedLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel2.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel2.Location = new System.Drawing.Point(363, 10);
-            this.roundedLabel2.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.roundedLabel2.MarginBottom = 0;
-            this.roundedLabel2.MarginLeft = 0;
-            this.roundedLabel2.MarginRight = 0;
-            this.roundedLabel2.MarginTop = 0;
-            this.roundedLabel2.Name = "roundedLabel2";
-            this.roundedLabel2.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
-            this.roundedLabel2.PanelHeight = 50;
-            this.roundedLabel2.PanelWidth = 180;
-            this.roundedLabel2.Size = new System.Drawing.Size(160, 45);
-            this.roundedLabel2.TabIndex = 3;
-            this.roundedLabel2.Text = "Hủy";
-            this.roundedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTxtSoBHYT
-            // 
-            this.lblTxtSoBHYT.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtSoBHYT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtSoBHYT.IsPassword = false;
-            this.lblTxtSoBHYT.LabelText = "Số bảo hiểm y tế";
-            this.lblTxtSoBHYT.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtSoBHYT.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtSoBHYT.Name = "lblTxtSoBHYT";
-            this.lblTxtSoBHYT.PanelHeight = 80;
-            this.lblTxtSoBHYT.PanelWidth = 200;
-            this.lblTxtSoBHYT.Size = new System.Drawing.Size(485, 83);
-            this.lblTxtSoBHYT.TabIndex = 2;
-            this.lblTxtSoBHYT.TextValue = "";
-            // 
-            // lblTxtNgayCap
-            // 
-            this.lblTxtNgayCap.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtNgayCap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtNgayCap.IsPassword = false;
-            this.lblTxtNgayCap.LabelText = "Ngày cấp";
-            this.lblTxtNgayCap.Location = new System.Drawing.Point(0, 166);
-            this.lblTxtNgayCap.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtNgayCap.Name = "lblTxtNgayCap";
-            this.lblTxtNgayCap.PanelHeight = 80;
-            this.lblTxtNgayCap.PanelWidth = 200;
-            this.lblTxtNgayCap.Size = new System.Drawing.Size(485, 83);
-            this.lblTxtNgayCap.TabIndex = 3;
-            this.lblTxtNgayCap.TextValue = "";
-            // 
-            // lblTxtNgayHetHan
-            // 
-            this.lblTxtNgayHetHan.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtNgayHetHan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtNgayHetHan.IsPassword = false;
-            this.lblTxtNgayHetHan.LabelText = "Ngày hết hạn";
-            this.lblTxtNgayHetHan.Location = new System.Drawing.Point(0, 249);
-            this.lblTxtNgayHetHan.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtNgayHetHan.Name = "lblTxtNgayHetHan";
-            this.lblTxtNgayHetHan.PanelHeight = 80;
-            this.lblTxtNgayHetHan.PanelWidth = 200;
-            this.lblTxtNgayHetHan.Size = new System.Drawing.Size(485, 83);
-            this.lblTxtNgayHetHan.TabIndex = 4;
-            this.lblTxtNgayHetHan.TextValue = "";
-            // 
-            // lblTxtTiLeChiTra
-            // 
-            this.lblTxtTiLeChiTra.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtTiLeChiTra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtTiLeChiTra.IsPassword = false;
-            this.lblTxtTiLeChiTra.LabelText = "Tỉ lệ chi trả";
-            this.lblTxtTiLeChiTra.Location = new System.Drawing.Point(0, 332);
-            this.lblTxtTiLeChiTra.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtTiLeChiTra.Name = "lblTxtTiLeChiTra";
-            this.lblTxtTiLeChiTra.PanelHeight = 80;
-            this.lblTxtTiLeChiTra.PanelWidth = 200;
-            this.lblTxtTiLeChiTra.Size = new System.Drawing.Size(485, 83);
-            this.lblTxtTiLeChiTra.TabIndex = 5;
-            this.lblTxtTiLeChiTra.TextValue = "";
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.roundedLabel3);
-            this.flowLayoutPanel3.Controls.Add(this.roundedLabel4);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 581);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 86);
-            this.flowLayoutPanel3.TabIndex = 6;
-            // 
-            // roundedLabel3
-            // 
-            this.roundedLabel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedLabel3.BorderRadius = 20;
-            this.roundedLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel3.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel3.Location = new System.Drawing.Point(325, 10);
-            this.roundedLabel3.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.roundedLabel3.MarginBottom = 0;
-            this.roundedLabel3.MarginLeft = 0;
-            this.roundedLabel3.MarginRight = 0;
-            this.roundedLabel3.MarginTop = 0;
-            this.roundedLabel3.Name = "roundedLabel3";
-            this.roundedLabel3.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel3.PanelHeight = 50;
-            this.roundedLabel3.PanelWidth = 180;
-            this.roundedLabel3.Size = new System.Drawing.Size(160, 45);
-            this.roundedLabel3.TabIndex = 3;
-            this.roundedLabel3.Text = "Xác nhận";
-            this.roundedLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // roundedLabel4
-            // 
-            this.roundedLabel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedLabel4.BorderRadius = 20;
-            this.roundedLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel4.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel4.Location = new System.Drawing.Point(145, 10);
-            this.roundedLabel4.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.roundedLabel4.MarginBottom = 0;
-            this.roundedLabel4.MarginLeft = 0;
-            this.roundedLabel4.MarginRight = 0;
-            this.roundedLabel4.MarginTop = 0;
-            this.roundedLabel4.Name = "roundedLabel4";
-            this.roundedLabel4.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
-            this.roundedLabel4.PanelHeight = 50;
-            this.roundedLabel4.PanelWidth = 180;
-            this.roundedLabel4.Size = new System.Drawing.Size(160, 45);
-            this.roundedLabel4.TabIndex = 4;
-            this.roundedLabel4.Text = "Hủy";
-            this.roundedLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // checkCoBHYT
-            // 
-            this.tableLayoutFormBenhNhan.SetColumnSpan(this.checkCoBHYT, 3);
-            this.checkCoBHYT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkCoBHYT.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkCoBHYT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.checkCoBHYT.Location = new System.Drawing.Point(3, 418);
-            this.checkCoBHYT.Name = "checkCoBHYT";
-            this.checkCoBHYT.Size = new System.Drawing.Size(697, 77);
-            this.checkCoBHYT.TabIndex = 9;
-            this.checkCoBHYT.Text = "Có bảo hiểm y tế";
-            this.checkCoBHYT.UseVisualStyleBackColor = true;
-            // 
             // BenhNhanPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -940,9 +942,11 @@
             this.panelBenhNhan.ResumeLayout(false);
             this.tableLayoutFormBenhNhan.ResumeLayout(false);
             this.tableLayoutFormBenhNhan.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panelBaoHiemYTe.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.tabPageDangKyDichVu.ResumeLayout(false);
             this.roundedPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -953,8 +957,6 @@
             this.tabPageDanhSach.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

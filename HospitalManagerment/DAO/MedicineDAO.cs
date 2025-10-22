@@ -10,28 +10,27 @@ namespace HospitalManagerment.DAO
     {
         public int AddMedicine(MedicineDTO obj)
         {
-            string query = "INSERT INTO duocpham (MaDP, TenDP, LoaiDP, TrangThaiXoa) " +
+            string sql = "INSERT INTO duocpham (MaDP, TenDP, LoaiDP, TrangThaiXoa) " +
                            "VALUES (@MaDP, @TenDP, @LoaiDP, 0)";
-            using (MySqlConnection conn = new MySqlConnection(ConnectionString.Connection))
+            try
             {
-                try
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaDP", obj.MaDP);
                         cmd.Parameters.AddWithValue("@TenDP", obj.TenDP);
                         cmd.Parameters.AddWithValue("@LoaiDP", obj.LoaiDP);
-
                         conn.Open();
                         return cmd.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm dược phẩm: " + ex.Message);
-                }
-                return 0;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm dược phẩm: " + ex.Message);
+            }
+            return 0;
         }
 
         public int UpdateMedicine(MedicineDTO obj)
@@ -130,7 +129,7 @@ namespace HospitalManagerment.DAO
                         {
                             if (reader.Read())
                             {
-                                medicine = new MedicineDTO
+                                return new MedicineDTO
                                 {
                                     MaDP = reader.GetString("MaDP"),
                                     TenDP = reader.GetString("TenDP"),
@@ -170,7 +169,7 @@ namespace HospitalManagerment.DAO
                         {
                             return "DP000001";
                         }
-                    }       
+                    }
                 }
             }
             catch (Exception ex)
@@ -188,7 +187,7 @@ namespace HospitalManagerment.DAO
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaDP", maDP);
                         conn.Open();

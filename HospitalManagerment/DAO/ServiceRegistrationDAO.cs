@@ -1,9 +1,12 @@
 ﻿using HospitalManagerment.DTO;
+using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HospitalManagerment.DAO
 {
@@ -13,30 +16,29 @@ namespace HospitalManagerment.DAO
         {
             string sql = "INSERT INTO dangkidichvu (MaDKDV, SoCCCD, NgayGioTaoPhieu, TrangThaiDangKy, TongChiPhi, HinhThucThanhToan, MaNV, TrangThaiXoa) " +
                            "VALUES (@MaDKDV, @SoCCCD, @NgayGioTaoPhieu, @TrangThaiDangKy, @TongChiPhi, @HinhThucThanhToan, @MaNV, 0)";
-            using (MySqlConnection conn = new MySqlConnection(ConnectionString.Connection))
+            try
             {
-                try
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaDKDV", obj.MaDKDV);
                         cmd.Parameters.AddWithValue("@SoCCCD", obj.SoCCCD);
-                        cmd.Parameters.AddWithValue("@NgayGioTaoPhieu", obj.NgayGioTao);
-                        cmd.Parameters.AddWithValue("@TrangThaiDangKy", obj.TrangThaiDK);
+                        cmd.Parameters.AddWithValue("@NgayGioTaoPhieu", obj.NgayGioTaoPhieu);
+                        cmd.Parameters.AddWithValue("@TrangThaiDangKy", obj.TrangThaiDangKy);
                         cmd.Parameters.AddWithValue("@TongChiPhi", obj.TongChiPhi);
-                        cmd.Parameters.AddWithValue("@HinhThucThanhToan", obj.HinhThucTT);
+                        cmd.Parameters.AddWithValue("@HinhThucThanhToan", obj.HinhThucThanhToan);
                         cmd.Parameters.AddWithValue("@MaNV", obj.MaNV);
-
                         conn.Open();
                         return cmd.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm đăng ký dịch vụ: " + ex.Message);
-                }
-                return 0;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm đăng ký dịch vụ: " + ex.Message);
+            }
+            return 0;
         }
 
         public int UpdateServiceRegistration(ServiceRegistrationDTO obj)
@@ -51,10 +53,10 @@ namespace HospitalManagerment.DAO
                     {
                         cmd.Parameters.AddWithValue("@MaDKDV", obj.MaDKDV);
                         cmd.Parameters.AddWithValue("@SoCCCD", obj.SoCCCD);
-                        cmd.Parameters.AddWithValue("@NgayGioTaoPhieu", obj.NgayGioTao);
-                        cmd.Parameters.AddWithValue("@TrangThaiDangKy", obj.TrangThaiDK);
+                        cmd.Parameters.AddWithValue("@NgayGioTaoPhieu", obj.NgayGioTaoPhieu);
+                        cmd.Parameters.AddWithValue("@TrangThaiDangKy", obj.TrangThaiDangKy);
                         cmd.Parameters.AddWithValue("@TongChiPhi", obj.TongChiPhi);
-                        cmd.Parameters.AddWithValue("@HinhThucThanhToan", obj.HinhThucTT);
+                        cmd.Parameters.AddWithValue("@HinhThucThanhToan", obj.HinhThucThanhToan);
                         cmd.Parameters.AddWithValue("@MaNV", obj.MaNV);
                         conn.Open();
                         return cmd.ExecuteNonQuery();
@@ -92,7 +94,7 @@ namespace HospitalManagerment.DAO
 
         public List<ServiceRegistrationDTO> GetAllServiceRegistration()
         {
-            List<ServiceRegistrationDTO> serviceregistrations = new List<ServiceRegistrationDTO>();
+            List<ServiceRegistrationDTO> list = new List<ServiceRegistrationDTO>();
             string sql = "SELECT * FROM dangkydichvu WHERE TrangThaiXoa = 0";
             try
             {
@@ -105,18 +107,17 @@ namespace HospitalManagerment.DAO
                         {
                             while (reader.Read())
                             {
-                                ServiceRegistrationDTO serviceregistration = new ServiceRegistrationDTO
+                                list.Add(new ServiceRegistrationDTO
                                 {
                                     MaDKDV = reader.GetString("MaDKDV"),
                                     SoCCCD = reader.GetString("SoCCCD"),
-                                    NgayGioTao = reader.GetString("NgayGioTaoPhieu"),
-                                    TrangThaiDK = reader.GetString("TrangThaiDangKy"),
+                                    NgayGioTaoPhieu = reader.GetString("NgayGioTaoPhieu"),
+                                    TrangThaiDangKy = reader.GetString("TrangThaiDangKy"),
                                     TongChiPhi = reader.GetString("TongChiPhi"),
-                                    HinhThucTT = reader.GetString("HinhThucThanhToan"),
+                                    HinhThucThanhToan = reader.GetString("HinhThucThanhToan"),
                                     MaNV = reader.GetString("MaNV")
 
-                                };
-                                serviceregistrations.Add(serviceregistration);
+                                });
                             }
                         }
                     }
@@ -126,7 +127,7 @@ namespace HospitalManagerment.DAO
             {
                 MessageBox.Show("Lỗi khi lấy danh sách đăng ký dịch vụ: " + ex.Message);
             }
-            return serviceregistrations;
+            return list;
         }
 
         public ServiceRegistrationDTO GetServiceRegistrationById(string maDKDV)
@@ -144,14 +145,14 @@ namespace HospitalManagerment.DAO
                         {
                             if (reader.Read())
                             {
-                                serviceregistration = new ServiceRegistrationDTO
+                                return new ServiceRegistrationDTO
                                 {
                                     MaDKDV = reader.GetString("MaDKDV"),
                                     SoCCCD = reader.GetString("SoCCCD"),
-                                    NgayGioTao = reader.GetString("NgayGioTaoPhieu"),
-                                    TrangThaiDK = reader.GetString("TrangThaiDangKy"),
+                                    NgayGioTaoPhieu = reader.GetString("NgayGioTaoPhieu"),
+                                    TrangThaiDangKy = reader.GetString("TrangThaiDangKy"),
                                     TongChiPhi = reader.GetString("TongChiPhi"),
-                                    HinhThucTT = reader.GetString("HinhThucThanhToan"),
+                                    HinhThucThanhToan = reader.GetString("HinhThucThanhToan"),
                                     MaNV = reader.GetString("MaNV")
                                 };
                             }
@@ -205,31 +206,30 @@ namespace HospitalManagerment.DAO
 
         public List<ServiceRegistrationDTO> SearchServiceRegistrationByName(string maDKDV)
         {
-            List<ServiceRegistrationDTO> serviceregistrations = new List<ServiceRegistrationDTO>();
+            List<ServiceRegistrationDTO> list = new List<ServiceRegistrationDTO>();
             string sql = "SELECT * FROM dangkydichvu WHERE MaDKDV LIKE CONCAT('%', @MaDKDV, '%') AND TrangThaiXoa = 0";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaDKDV", maDV);
+                        cmd.Parameters.AddWithValue("@MaDKDV", maDKDV);
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                ServiceRegistrationDTO serviceregistration = new ServiceRegistrationDTO
+                                list.Add(new ServiceRegistrationDTO
                                 {
                                     MaDKDV = reader.GetString("MaDKDV"),
                                     SoCCCD = reader.GetString("SoCCCD"),
-                                    NgayGioTao = reader.GetString("NgayGioTaoPhieu"),
-                                    TrangThaiDK = reader.GetString("TrangThaiDangKy"),
+                                    NgayGioTaoPhieu = reader.GetString("NgayGioTaoPhieu"),
+                                    TrangThaiDangKy = reader.GetString("TrangThaiDangKy"),
                                     TongChiPhi = reader.GetString("TongChiPhi"),
-                                    HinhThucTT = reader.GetString("HinhThucThanhToan"),
+                                    HinhThucThanhToan = reader.GetString("HinhThucThanhToan"),
                                     MaNV = reader.GetString("MaNV")
-                                };
-                                serviceregistrations.Add(serviceregistration);
+                                });
                             }
                         }
                     }
@@ -239,7 +239,7 @@ namespace HospitalManagerment.DAO
             {
                 MessageBox.Show("Lỗi khi tìm kiếm đăng ký dịch vụ: " + ex.Message);
             }
-            return serviceregistrations;
+            return list;
         }
     }
 }

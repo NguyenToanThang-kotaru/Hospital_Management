@@ -8,17 +8,17 @@ namespace HospitalManagerment.DAO
 {
     internal class ServiceDAO
     {
-        public int AddService(DTO.ServiceDTO obj)
+        public int AddService(ServiceDTO obj)
         {
             string sql = "INSERT INTO dichvu (MaDV, TenDV, GiaDV, DuocBHYTChiTra, TrangThaiXoa) " +
                            "VALUES (@MaDV, @TenDV, @GiaDV, @DuocBHYTChiTra, 0)";
-            using (MySqlConnection conn = new MySqlConnection(ConnectionString.Connection))
+            try
             {
-                try
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV;
+                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
                         cmd.Parameters.AddWithValue("@TenDV", obj.TenDV);
                         cmd.Parameters.AddWithValue("@GiaDV", obj.GiaDV);
                         cmd.Parameters.AddWithValue("@DuocBHYTChiTra", obj.BHYTTra);
@@ -27,14 +27,13 @@ namespace HospitalManagerment.DAO
                         return cmd.ExecuteNonQuery();
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm dịch vụ: " + ex.Message);
-                }
-                return 0;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm khoa: " + ex.Message);
+            }
+            return 0;
         }
-
         public int UpdateService(ServiceDTO obj)
         {
             string sql = "UPDATE dichvu SET TenDV = @TenDV, GiaDV = @GiaDV, DuocBHYTChiTra = @DuocBHYTChiTra" +
@@ -45,7 +44,7 @@ namespace HospitalManagerment.DAO
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV;
+                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
                         cmd.Parameters.AddWithValue("@TenDV", obj.TenDV);
                         cmd.Parameters.AddWithValue("@GiaDV", obj.GiaDV);
                         cmd.Parameters.AddWithValue("@DuocBHYTChiTra", obj.BHYTTra);
@@ -133,7 +132,7 @@ namespace HospitalManagerment.DAO
                         {
                             if (reader.Read())
                             {
-                                service = new ServiceDTO
+                                return new ServiceDTO
                                 {
                                     MaDV = reader.GetString("MaDV"),
                                     GiaDV = reader.GetString("GiaDV"),
@@ -191,7 +190,7 @@ namespace HospitalManagerment.DAO
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaDV", maDV);
                         conn.Open();

@@ -1,25 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
-    //Đơn thuốc
+    // Đơn thuốc
     internal class PrescriptionDTO
     {
         private string maBA;
         private string maDP;
         private string soLuongDP;
         private string donViDP;
+
         public PrescriptionDTO()
         {
-            this.maBA = " ";
-            this.maDP = " ";
-            this.soLuongDP = " ";
-            this.donViDP = " ";
+            this.maBA = string.Empty;
+            this.maDP = string.Empty;
+            this.soLuongDP = string.Empty;
+            this.donViDP = string.Empty;
         }
+
         public PrescriptionDTO(string maBA, string maDP, string soLuongDP, string donViDP)
         {
             this.maBA = maBA;
@@ -27,25 +25,29 @@ namespace HospitalManagerment.DTO
             this.soLuongDP = soLuongDP;
             this.donViDP = donViDP;
         }
+
         public string MaBA
         {
             get => maBA;
-            set { maBA = value; }
+            set => maBA = value;
         }
+
         public string MaDP
         {
             get => maDP;
-            set { maDP = value; }
+            set => maDP = value;
         }
+
         public string SoLuongDP
         {
             get => soLuongDP;
-            set { soLuongDP = value; }
+            set => soLuongDP = value;
         }
+
         public string DonViDP
         {
             get => donViDP;
-            set { donViDP = value; }
+            set => donViDP = value;
         }
     }
 }
