@@ -12,24 +12,24 @@ using System.Windows.Forms;
 
 namespace HospitalManagerment
 {
-    internal static class Program
-    {
-        [DllImport("user32.dll")]
-        private static extern bool SetProcessDPIAware();
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            // Kích hoạt DPI aware
-            SetProcessDPIAware();
+   internal static class Program
+   {
+       [DllImport("user32.dll")]
+       private static extern bool SetProcessDPIAware();
+       /// <summary>
+       /// The main entry point for the application.
+       /// </summary>
+       [STAThread]
+       static void Main()
+       {
+           // Kích hoạt DPI aware
+           SetProcessDPIAware();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Layout());
-            //Application.Run(new Main_Layout());
-        }
-    }
+           Application.EnableVisualStyles();
+           Application.SetCompatibleTextRenderingDefault(false);
+           Application.Run(new Login_Layout());
+           //Application.Run(new Main_Layout());
+       }
+   }
 }
 

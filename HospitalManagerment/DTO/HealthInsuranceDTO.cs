@@ -24,7 +24,8 @@ namespace HospitalManagerment.DTO
             this.trangThaiXoa = "0";
         }
 
-        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string mucHuong, string trangThaiXoa = "0")
+
+        public HealthInsuranceDTO(string soBHYT, string ngayCap, string ngayHetHan, string noiDangKy, string mucHuong, string trangThaiXoa)
         {
             this.soBHYT = soBHYT;
             this.ngayCap = ngayCap;

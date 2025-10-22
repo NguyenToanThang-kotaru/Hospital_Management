@@ -234,7 +234,7 @@ namespace HospitalManagerment.DAO
         }
 
 
-        public bool UpdatePatient(PatientDTO patient, out string errorMessage)
+        public bool UpdatePatient(PatientDTO patient, string oldSoCCCD, out string errorMessage)
         {
             errorMessage = string.Empty;
 
@@ -245,23 +245,25 @@ namespace HospitalManagerment.DAO
                     DatabaseConnection.Open(conn);
 
                     string query = @"UPDATE benhnhan
-                             SET TenBN = @TenBN,
+                             SET SoCCCD = @NewSoCCCD,
+                                 TenBN = @TenBN,
                                  SoBHYT = @SoBHYT,
                                  NgaySinh = @NgaySinh,
                                  GioiTinh = @GioiTinh,
                                  SdtBN = @SdtBN,
                                  DiaChi = @DiaChi
-                             WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0";
+                             WHERE SoCCCD = @OldSoCCCD AND TrangThaiXoa = 0";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@SoCCCD", patient.SoCCCD);
+                        cmd.Parameters.AddWithValue("@NewSoCCCD", patient.SoCCCD);
                         cmd.Parameters.AddWithValue("@TenBN", patient.TenBN);
                         cmd.Parameters.AddWithValue("@SoBHYT", patient.SoBHYT ?? "");
                         cmd.Parameters.AddWithValue("@NgaySinh", patient.NgaySinh);
                         cmd.Parameters.AddWithValue("@GioiTinh", patient.GioiTinh);
                         cmd.Parameters.AddWithValue("@SdtBN", patient.SdtBN);
                         cmd.Parameters.AddWithValue("@DiaChi", patient.DiaChi);
+                        cmd.Parameters.AddWithValue("@OldSoCCCD", oldSoCCCD);
 
                         int rows = cmd.ExecuteNonQuery();
                         DatabaseConnection.Close(conn);
