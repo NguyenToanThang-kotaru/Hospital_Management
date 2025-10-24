@@ -54,7 +54,7 @@ namespace LayoutTest.GUIComponents
 
             lbl = new Label();
             lbl.Text = labelText;
-            lbl.Font = new Font("Roboto", 14, FontStyle.Bold);
+            lbl.Font = Consts.TextBoxFont;
             lbl.AutoSize = false;
             lbl.TextAlign = ContentAlignment.MiddleLeft;
             lbl.Dock = DockStyle.Top;
@@ -62,7 +62,7 @@ namespace LayoutTest.GUIComponents
             lbl.ForeColor = Consts.FontColorA;
 
             txt = new TextBox();
-            txt.Font = new Font("Roboto", 14, FontStyle.Bold);
+            txt.Font = Consts.TextBoxFont;
             txt.Dock = DockStyle.Fill;
             txt.BorderStyle = BorderStyle.FixedSingle;
             txt.BackColor = Color.White;

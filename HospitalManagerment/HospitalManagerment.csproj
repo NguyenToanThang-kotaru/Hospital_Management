@@ -163,6 +163,9 @@
     <Compile Include="GUI\Components\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\Components\SearchBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Components\SidebarItem.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -273,5 +276,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
