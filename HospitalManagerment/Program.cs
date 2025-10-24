@@ -12,7 +12,10 @@ using System.Windows.Forms;
 
 namespace HospitalManagerment
 {
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
    internal static class Program
    {
        [DllImport("user32.dll")]
