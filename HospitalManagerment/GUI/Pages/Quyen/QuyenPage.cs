@@ -85,10 +85,16 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             dgvAccounts.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
-            // ✅ Tăng chiều cao header
-            dgvAccounts.ColumnHeadersHeight = 40;
+            // Tăng chiều cao header + canh giữa đẹp hơn
+            dgvAccounts.ColumnHeadersHeight = 45;
             dgvAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
+            dgvAccounts.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccounts.ColumnHeadersDefaultCellStyle.Padding = new Padding(0, 8, 0, 8);
+            // Xoá toàn bộ border
+            dgvAccounts.BorderStyle = BorderStyle.None; // bỏ khung ngoài
+            dgvAccounts.CellBorderStyle = DataGridViewCellBorderStyle.None; // bỏ đường giữa các ô
+            dgvAccounts.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None; // bỏ border header
+            dgvAccounts.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None; // bỏ border đầu dòng
             // Định nghĩa cột
             dgvAccounts.Columns.Add(new DataGridViewTextBoxColumn()
             {
