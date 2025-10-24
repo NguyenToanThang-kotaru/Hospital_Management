@@ -6,45 +6,55 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // dịch vụ
     internal class ServiceDTO
     {
-        private string madv;
-        private string tendv;
-        private string giadv;
+        private string maDV;
+        private string tenDV;
+        private string giaDV;
         private string BHYTtra;
+        private string trangThaiXoa;
         public ServiceDTO()
         {
-            this.madv = " ";
-            this.tendv = " ";
-            this.giadv = " ";
-            this.BHYTtra = " ";
+            this.maDV = string.Empty;
+            this.tenDV = string.Empty;
+            this.giaDV = string.Empty;
+            this.BHYTtra = string.Empty;
+            this.trangThaiXoa = "0";
         }
-        public ServiceDTO(string madv, string tendv, string giadv, string BHYTtra)
+        public ServiceDTO(string maDV, string tenDV, string giaDV, string BHYTtra, string trangThaiXoa = "0")
         {
-            this.madv = madv;
-            this.tendv = tendv;
-            this.giadv = giadv;
+            this.maDV = maDV;
+            this.tenDV = tenDV;
+            this.giaDV = giaDV;
             this.BHYTtra = BHYTtra;
+            this.trangThaiXoa = trangThaiXoa;
         }
-        public string Madv
+        public string MaDV
         {
-            get => madv;
-            set { madv = value; }
+            get => maDV;
+            set => maDV = value;
         }
-        public string Tendv
+        public string TenDV
         {
-            get => tendv;
-            set { tendv = value; }
+            get => tenDV;
+            set => tenDV = value;
         }
-        public string Giadv
+        public string GiaDV
         {
-            get => giadv;
-            set { giadv = value; }
+            get => giaDV;
+            set => giaDV = value; 
         }
         public string BHYTTra
         {
             get => BHYTtra;
-            set { BHYTtra = value; }
+            set => BHYTtra = value; 
+        }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
         }
     }
 }

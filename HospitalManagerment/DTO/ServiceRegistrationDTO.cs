@@ -1,74 +1,89 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // đăng ký dịch vụ
     internal class ServiceRegistrationDTO
     {
-        private string madkdv;
-        private string socccd;
-        private string ngaygiotao;
-        private string trangthaidk;
-        private string tongchiphi;
-        private string hinhthuctt;
-        private string manv;
+        private string maDKDV;
+        private string soCCCD;
+        private string ngayGioTaoPhieu;
+        private string trangThaiDangKy;
+        private string tongChiPhi;
+        private string hinhThucThanhToan;
+        private string maNV;
+        private string trangThaiXoa;
+
         public ServiceRegistrationDTO()
         {
-            this.madkdv = " ";
-            this.socccd = " ";
-            this.ngaygiotao = " ";
-            this.trangthaidk = " ";
-            this.tongchiphi = " ";
-            this.hinhthuctt = " ";
-            this.manv = " ";
+            this.maDKDV = string.Empty;
+            this.soCCCD = string.Empty;
+            this.ngayGioTaoPhieu = string.Empty;
+            this.trangThaiDangKy = string.Empty;
+            this.tongChiPhi = string.Empty;
+            this.hinhThucThanhToan = string.Empty;
+            this.maNV = string.Empty;
+            this.trangThaiXoa = "0";
         }
-        public ServiceRegistrationDTO(string madkdv, string socccd, string ngaygiotao, string trangthaidk, string tongchiphi, string hinhthuctt, string manv)
+
+        public ServiceRegistrationDTO( string maDKDV, string soCCCD, string ngayGioTaoPhieu, string trangThaiDangKy, string tongChiPhi, string hinhThucThanhToan, string maNV, string trangThaiXoa = "0")
         {
-            this.madkdv = madkdv;
-            this.socccd = socccd;
-            this.ngaygiotao = ngaygiotao;
-            this.trangthaidk = trangthaidk;
-            this.tongchiphi = tongchiphi;
-            this.hinhthuctt = hinhthuctt;
-            this.manv = manv;
+            this.maDKDV = maDKDV;
+            this.soCCCD = soCCCD;
+            this.ngayGioTaoPhieu = ngayGioTaoPhieu;
+            this.trangThaiDangKy = trangThaiDangKy;
+            this.tongChiPhi = tongChiPhi;
+            this.hinhThucThanhToan = hinhThucThanhToan;
+            this.maNV = maNV;
+            this.trangThaiXoa = trangThaiXoa;
         }
-        public string Madkdv
+
+        public string MaDKDV
         {
-            get => madkdv;
-            set { madkdv = value; }
+            get => maDKDV;
+            set => maDKDV = value;
         }
-        public string Socccd
+
+        public string SoCCCD
         {
-            get => socccd;
-            set { socccd = value; }
+            get => soCCCD;
+            set => soCCCD = value;
         }
-        public string Ngaygiotao
+
+        public string NgayGioTaoPhieu
         {
-            get => ngaygiotao;
-            set { ngaygiotao = value; }
+            get => ngayGioTaoPhieu;
+            set => ngayGioTaoPhieu = value;
         }
-        public string Trangthaidk
+
+        public string TrangThaiDangKy
         {
-            get => trangthaidk;
-            set { trangthaidk = value; }
+            get => trangThaiDangKy;
+            set => trangThaiDangKy = value;
         }
-        public string Tongchiphi
+
+        public string TongChiPhi
         {
-            get => tongchiphi;
-            set { tongchiphi = value; }
+            get => tongChiPhi;
+            set => tongChiPhi = value;
         }
-        public string Hinhthuctt
+
+        public string HinhThucThanhToan
         {
-            get => hinhthuctt;
-            set { hinhthuctt = value; }
+            get => hinhThucThanhToan;
+            set => hinhThucThanhToan = value;
         }
-        public string Manv
+
+        public string MaNV
         {
-            get => manv;
-            set { manv = value; }
+            get => maNV;
+            set => maNV = value;
+        }
+
+        public string TrangThaiXoa
+        {
+            get => trangThaiXoa;
+            set => trangThaiXoa = value;
         }
     }
 }

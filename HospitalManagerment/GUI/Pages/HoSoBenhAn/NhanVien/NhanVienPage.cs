@@ -8,26 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Pages.DichVu
+namespace HospitalManagerment.GUI.Pages.NhanVien
 {
-    public partial class DichVuPage : UserControl
+    public partial class NhanVienPage : UserControl
     {
-        public DichVuPage()
+        public NhanVienPage()
         {
             InitializeComponent();
         }
 
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lableTextBox1_Paint(object sender, PaintEventArgs e)
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void roundedPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

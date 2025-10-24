@@ -8,11 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>HospitalManagerment</RootNamespace>
     <AssemblyName>HospitalManagerment</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -112,6 +111,7 @@
     <Compile Include="BUS\PermissionDetialBUS.cs" />
     <Compile Include="BUS\PrescriptionBUS.cs" />
     <Compile Include="BUS\ServiceBUS.cs" />
+    <Compile Include="BUS\ServiceDesignationBUS.cs" />
     <Compile Include="BUS\ServiceDetailBUS.cs" />
     <Compile Include="BUS\ServiceRegistrationBUS.cs" />
     <Compile Include="BUS\ServiceRegistrationDetailBUS.cs" />
@@ -130,6 +130,7 @@
     <Compile Include="DAO\PermissionDetailDAO.cs" />
     <Compile Include="DAO\PrescriptionDAO.cs" />
     <Compile Include="DAO\ServiceDAO.cs" />
+    <Compile Include="DAO\ServiceDesignationDAO.cs" />
     <Compile Include="DAO\ServiceDetailDAO.cs" />
     <Compile Include="DAO\ServiceRegistrationDAO.cs" />
     <Compile Include="DAO\ServiceRegistrationDetailDAO.cs" />
@@ -145,11 +146,18 @@
     <Compile Include="DTO\PermissionDTO.cs" />
     <Compile Include="DTO\PermissionDetailDTO.cs" />
     <Compile Include="DTO\PrescriptionDTO.cs" />
+    <Compile Include="DTO\ServiceDesignationDTO.cs" />
     <Compile Include="DTO\ServiceDetailDTO.cs" />
     <Compile Include="DTO\ServiceDTO.cs" />
     <Compile Include="DTO\ServiceRegistrationDetailDTO.cs" />
     <Compile Include="DTO\ServiceRegistrationDTO.cs" />
+    <Compile Include="GUI\Components\LabelCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Components\LabelTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Components\RoundedLabel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\Components\RoundedPanel.cs">
@@ -265,6 +273,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

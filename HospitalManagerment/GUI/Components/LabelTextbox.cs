@@ -37,7 +37,7 @@ namespace LayoutTest.GUIComponents
 
         public LableTextBox()
         {
-            InitializeComponent(200, 60, "Label:");
+            InitializeComponent(200, 80, "Label:");
         }
 
         public LableTextBox(int PanelWidth, int PanelHeight, string LabelText)
@@ -54,18 +54,16 @@ namespace LayoutTest.GUIComponents
 
             lbl = new Label();
             lbl.Text = labelText;
-            lbl.Font = Consts.TextBoxFont;
+            lbl.Font = new Font("Roboto", 14, FontStyle.Bold);
             lbl.AutoSize = false;
             lbl.TextAlign = ContentAlignment.MiddleLeft;
             lbl.Dock = DockStyle.Top;
-            lbl.Height = Math.Max(45, height / 3); 
+            lbl.Height = Math.Max(40, height / 3); 
             lbl.ForeColor = Consts.FontColorA;
 
             txt = new TextBox();
-            txt.Font = Consts.TextBoxFont;
+            txt.Font = new Font("Roboto", 14, FontStyle.Bold);
             txt.Dock = DockStyle.Fill;
-            txt.Margin = new Padding(3, 0, 3, 3);
-            txt.Padding = new Padding(10, 0, 0, 0);
             txt.BorderStyle = BorderStyle.FixedSingle;
             txt.BackColor = Color.White;
             txt.ForeColor = Consts.FontColorA;

@@ -16,14 +16,14 @@ namespace HospitalManagerment.DTO
 
         public AccountDTO()
         {
-            this.tenDangNhap = " ";
-            this.matKhau = " ";
-            this.maQuyen = " ";
-            this.maNV = " ";
-            this.trangThaiXoa = " ";
+            this.tenDangNhap = "";
+            this.matKhau = "";
+            this.maQuyen = "";
+            this.maNV = "";
+            this.trangThaiXoa = "0";
         }
 
-        public AccountDTO(string tenDangNhap, string matKhau, string maQuyen, string maNV, string trangThaiXoa)
+        public AccountDTO(string tenDangNhap, string matKhau, string maQuyen, string maNV, string trangThaiXoa = "0")
         {
             this.tenDangNhap = tenDangNhap;
             this.matKhau = matKhau;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HospitalManagerment.DTO
 {
+    // bệnh nhân
     internal class PatientDTO
     {
         private string soCCCD;
@@ -19,18 +20,17 @@ namespace HospitalManagerment.DTO
 
         public PatientDTO()
         {
-            this.soCCCD = " ";
-            this.tenBN = " ";
-            this.soBHYT = " ";
-            this.ngaySinh = " ";
-            this.gioiTinh = " ";
-            this.sdtBN = " ";
-            this.diaChi = " ";
-            this.trangThaiXoa = " ";
+            this.soCCCD = string.Empty;
+            this.tenBN = string.Empty;
+            this.soBHYT = string.Empty;
+            this.ngaySinh = string.Empty;
+            this.gioiTinh = string.Empty;
+            this.sdtBN = string.Empty;
+            this.diaChi = string.Empty;
+            this.trangThaiXoa = "0";
         }
 
-        public PatientDTO(string soCCCD, string tenBN, string soBHYT, string ngaySinh, string gioiTinh, string sdtBN, string diaChi,
-         string trangThaiXoa)
+        public PatientDTO(string soCCCD, string tenBN, string soBHYT, string ngaySinh, string gioiTinh, string sdtBN, string diaChi, string trangThaiXoa = "0")
         {
             this.soCCCD = soCCCD;
             this.tenBN = tenBN;

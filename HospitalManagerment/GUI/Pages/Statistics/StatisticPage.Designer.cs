@@ -84,7 +84,7 @@
         #endregion
 
         private Components.TabControlDesign tabControlDesign1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
