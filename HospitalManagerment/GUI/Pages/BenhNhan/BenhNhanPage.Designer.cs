@@ -76,8 +76,12 @@
             this.tabPageDanhSach = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedPanel4 = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.roundedPanel5 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
+            this.roundedLabel5 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.roundedLabel6 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.roundedLabel7 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.tabControlBenhNhan.SuspendLayout();
             this.tabPageBenhNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBenhNhan)).BeginInit();
@@ -99,6 +103,7 @@
             this.tabPageDanhSach.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlBenhNhan
@@ -117,6 +122,7 @@
             this.tabControlBenhNhan.Size = new System.Drawing.Size(1600, 820);
             this.tabControlBenhNhan.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlBenhNhan.TabIndex = 0;
+            this.tabControlBenhNhan.SelectedIndexChanged += new System.EventHandler(this.tabControlBenhNhan_SelectedIndexChanged);
             // 
             // tabPageBenhNhan
             // 
@@ -872,6 +878,7 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50);
             this.panel1.Size = new System.Drawing.Size(1592, 767);
@@ -882,8 +889,8 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.roundedPanel4, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.roundedPanel5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -892,22 +899,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1492, 667);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // roundedPanel4
-            // 
-            this.roundedPanel4.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel4.BorderRadius = 40;
-            this.roundedPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel4.Location = new System.Drawing.Point(0, 0);
-            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedPanel4.MarginBottom = 20;
-            this.roundedPanel4.MarginLeft = 0;
-            this.roundedPanel4.MarginRight = 0;
-            this.roundedPanel4.MarginTop = 0;
-            this.roundedPanel4.Name = "roundedPanel4";
-            this.roundedPanel4.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedPanel4.Size = new System.Drawing.Size(1492, 66);
-            this.roundedPanel4.TabIndex = 0;
             // 
             // roundedPanel5
             // 
@@ -924,6 +915,99 @@
             this.roundedPanel5.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.roundedPanel5.Size = new System.Drawing.Size(1492, 601);
             this.roundedPanel5.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 4;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.Controls.Add(this.roundedLabel7, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.roundedLabel6, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.searchBar1, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.roundedLabel5, 3, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(0, 0, 0, 20);
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1492, 66);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // searchBar1
+            // 
+            this.searchBar1.BackColor = System.Drawing.Color.Transparent;
+            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBar1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.searchBar1.Location = new System.Drawing.Point(0, 0);
+            this.searchBar1.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBar1.Name = "searchBar1";
+            this.searchBar1.SearchText = "";
+            this.searchBar1.Size = new System.Drawing.Size(820, 46);
+            this.searchBar1.TabIndex = 0;
+            // 
+            // roundedLabel5
+            // 
+            this.roundedLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.roundedLabel5.BorderRadius = 20;
+            this.roundedLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedLabel5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel5.Location = new System.Drawing.Point(1269, 0);
+            this.roundedLabel5.MarginBottom = 0;
+            this.roundedLabel5.MarginLeft = 0;
+            this.roundedLabel5.MarginRight = 0;
+            this.roundedLabel5.MarginTop = 0;
+            this.roundedLabel5.Name = "roundedLabel5";
+            this.roundedLabel5.PanelColor = System.Drawing.Color.White;
+            this.roundedLabel5.PanelHeight = 45;
+            this.roundedLabel5.PanelWidth = 160;
+            this.roundedLabel5.Size = new System.Drawing.Size(220, 46);
+            this.roundedLabel5.TabIndex = 1;
+            this.roundedLabel5.Text = "roundedLabel5";
+            this.roundedLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roundedLabel6
+            // 
+            this.roundedLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.roundedLabel6.BorderRadius = 20;
+            this.roundedLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel6.Location = new System.Drawing.Point(823, 0);
+            this.roundedLabel6.MarginBottom = 0;
+            this.roundedLabel6.MarginLeft = 0;
+            this.roundedLabel6.MarginRight = 0;
+            this.roundedLabel6.MarginTop = 0;
+            this.roundedLabel6.Name = "roundedLabel6";
+            this.roundedLabel6.PanelColor = System.Drawing.Color.White;
+            this.roundedLabel6.PanelHeight = 45;
+            this.roundedLabel6.PanelWidth = 160;
+            this.roundedLabel6.Size = new System.Drawing.Size(217, 46);
+            this.roundedLabel6.TabIndex = 2;
+            this.roundedLabel6.Text = "roundedLabel6";
+            this.roundedLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // roundedLabel7
+            // 
+            this.roundedLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.roundedLabel7.BorderRadius = 20;
+            this.roundedLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.roundedLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.roundedLabel7.Location = new System.Drawing.Point(1046, 0);
+            this.roundedLabel7.MarginBottom = 0;
+            this.roundedLabel7.MarginLeft = 0;
+            this.roundedLabel7.MarginRight = 0;
+            this.roundedLabel7.MarginTop = 0;
+            this.roundedLabel7.Name = "roundedLabel7";
+            this.roundedLabel7.PanelColor = System.Drawing.Color.White;
+            this.roundedLabel7.PanelHeight = 45;
+            this.roundedLabel7.PanelWidth = 160;
+            this.roundedLabel7.Size = new System.Drawing.Size(217, 46);
+            this.roundedLabel7.TabIndex = 3;
+            this.roundedLabel7.Text = "roundedLabel7";
+            this.roundedLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BenhNhanPage
             // 
@@ -957,6 +1041,7 @@
             this.tabPageDanhSach.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -973,7 +1058,6 @@
         private Component.RoundedPanel roundedPanel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Component.RoundedPanel roundedPanel4;
         private Component.RoundedPanel roundedPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutFormBenhNhan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -1013,5 +1097,10 @@
         private Component.RoundedLabel roundedLabel3;
         private Component.RoundedLabel roundedLabel4;
         private System.Windows.Forms.CheckBox checkCoBHYT;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private Component.RoundedLabel roundedLabel7;
+        private Component.RoundedLabel roundedLabel6;
+        private Components.SearchBar searchBar1;
+        private Component.RoundedLabel roundedLabel5;
     }
 }

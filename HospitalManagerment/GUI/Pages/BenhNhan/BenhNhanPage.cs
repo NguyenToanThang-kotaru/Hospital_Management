@@ -126,5 +126,30 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 };
             }
         }
+
+        private void roundedPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void roundedPanel4_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void searchBar1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchBar1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabControlBenhNhan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
