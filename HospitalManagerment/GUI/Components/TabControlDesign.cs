@@ -23,7 +23,7 @@ namespace HospitalManagerment.GUI.Components
             this.ItemSize = new Size(FIXED_TAB_WIDTH, TAB_HEIGHT);
             this.DrawMode = TabDrawMode.OwnerDrawFixed;
 
-            _tabFont = new Font("Roboto", 12f, FontStyle.Bold);
+            _tabFont = new Font("Roboto", 11, FontStyle.Bold);
 
         }
 

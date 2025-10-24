@@ -151,5 +151,10 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         {
 
         }
+
+        private void roundedPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

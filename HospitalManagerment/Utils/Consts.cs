@@ -32,7 +32,7 @@ namespace HospitalManagerment.Utils
 
         // Font mặc định
         public static Font MainFont = new Font("Tamoha", 12, FontStyle.Bold);
-        public static Font TextBoxFont = new Font("Roboto", 12, FontStyle.Bold);
+        public static Font TextBoxFont = new Font("Roboto", 13, FontStyle.Bold);
 
     }
 

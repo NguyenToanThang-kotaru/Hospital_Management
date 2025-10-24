@@ -32,13 +32,13 @@
             this.Tittle = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.MainContent = new System.Windows.Forms.Panel();
             this.DashboardItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.BenhNhanItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.HoSoBenhAnItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.DichVuItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.NhanVienItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.QuyenItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.MainContent = new System.Windows.Forms.Panel();
             this.Header.SuspendLayout();
             this.SideBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -52,7 +52,7 @@
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1882, 80);
+            this.Header.Size = new System.Drawing.Size(1682, 80);
             this.Header.TabIndex = 0;
             // 
             // Tittle
@@ -92,6 +92,16 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 873);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // MainContent
+            // 
+            this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainContent.Location = new System.Drawing.Point(310, 80);
+            this.MainContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainContent.Name = "MainContent";
+            this.MainContent.Size = new System.Drawing.Size(1372, 873);
+            this.MainContent.TabIndex = 2;
+            this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
             // 
             // DashboardItem
             // 
@@ -237,29 +247,19 @@
             this.QuyenItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.QuyenItem.Click += new System.EventHandler(this.Quyen_Click);
             // 
-            // MainContent
-            // 
-            this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContent.Location = new System.Drawing.Point(310, 80);
-            this.MainContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MainContent.Name = "MainContent";
-            this.MainContent.Size = new System.Drawing.Size(1572, 873);
-            this.MainContent.TabIndex = 2;
-            this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
-            // 
             // Main_Layout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(1882, 953);
+            this.ClientSize = new System.Drawing.Size(1682, 953);
             this.Controls.Add(this.MainContent);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.Header);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main_Layout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hospital Management";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.SideBar.ResumeLayout(false);

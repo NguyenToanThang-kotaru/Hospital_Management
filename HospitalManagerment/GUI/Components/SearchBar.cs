@@ -46,7 +46,7 @@ namespace HospitalManagerment.GUI.Components
 
             this.Controls.Add(txtSearch);
             this.Controls.Add(picSearchIcon);
-            this.Size = new Size(300, 40);
+            this.Size = new Size(500, 40);
             this.BackColor = Color.Transparent;
         }
 
