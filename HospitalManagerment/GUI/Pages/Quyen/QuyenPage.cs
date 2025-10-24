@@ -51,9 +51,9 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             // Khởi tạo DataGridView
             dgvAccounts = new DataGridView
             {
-                Dock = DockStyle.Fill,
+                Dock = DockStyle.Fill,                
                 AutoGenerateColumns = false,
-                BackgroundColor = System.Drawing.Color.White,
+                BackgroundColor = Color.White,
                 AllowUserToAddRows = false,
                 AllowUserToDeleteRows = false,
                 ReadOnly = true,
@@ -61,6 +61,33 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 SelectionMode = DataGridViewSelectionMode.FullRowSelect,
                 RowHeadersVisible = false
             };
+
+            // --- Tùy chỉnh giao diện cơ bản ---
+            dgvAccounts.EnableHeadersVisualStyles = false;
+            dgvAccounts.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(45, 85, 155);
+            dgvAccounts.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvAccounts.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvAccounts.DefaultCellStyle.Font = new Font("Segoe UI", 10);
+            dgvAccounts.DefaultCellStyle.ForeColor = Color.Black;
+            dgvAccounts.DefaultCellStyle.BackColor = Color.White;
+            dgvAccounts.DefaultCellStyle.SelectionBackColor = Color.FromArgb(200, 220, 255);
+            dgvAccounts.DefaultCellStyle.SelectionForeColor = Color.Black;
+            dgvAccounts.GridColor = Color.FromArgb(230, 230, 230);
+            dgvAccounts.BorderStyle = BorderStyle.FixedSingle;
+            dgvAccounts.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvAccounts.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvAccounts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAccounts.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+
+            
+            dgvAccounts.AllowUserToResizeColumns = false;
+            dgvAccounts.AllowUserToResizeRows = false;
+            dgvAccounts.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgvAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            // ✅ Tăng chiều cao header
+            dgvAccounts.ColumnHeadersHeight = 40;
+            dgvAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
             // Định nghĩa cột
             dgvAccounts.Columns.Add(new DataGridViewTextBoxColumn()
