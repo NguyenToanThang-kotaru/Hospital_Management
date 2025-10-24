@@ -180,7 +180,7 @@ namespace HospitalManagerment.DAO
                 return null;
             }
         }
-        public bool AddPatient(PatientDTO patient, out string errorMessage, HealthInsuranceDTO healthInsurance = null)
+        public bool AddPatient(PatientDTO patient, out string errorMessage)
         {
             errorMessage = string.Empty;
 
@@ -258,12 +258,15 @@ namespace HospitalManagerment.DAO
                     {
                         cmd.Parameters.AddWithValue("@NewSoCCCD", patient.SoCCCD);
                         cmd.Parameters.AddWithValue("@TenBN", patient.TenBN);
-                        cmd.Parameters.AddWithValue("@SoBHYT", patient.SoBHYT ?? "");
                         cmd.Parameters.AddWithValue("@NgaySinh", patient.NgaySinh);
                         cmd.Parameters.AddWithValue("@GioiTinh", patient.GioiTinh);
                         cmd.Parameters.AddWithValue("@SdtBN", patient.SdtBN);
                         cmd.Parameters.AddWithValue("@DiaChi", patient.DiaChi);
                         cmd.Parameters.AddWithValue("@OldSoCCCD", oldSoCCCD);
+                        if (string.IsNullOrEmpty(patient.SoBHYT))
+                            cmd.Parameters.AddWithValue("@SoBHYT", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@SoBHYT", patient.SoBHYT);
 
                         int rows = cmd.ExecuteNonQuery();
                         DatabaseConnection.Close(conn);

@@ -125,6 +125,7 @@
     <Compile Include="DAO\MedicalDAO.cs" />
     <Compile Include="DAO\MedicineDAO.cs" />
     <Compile Include="DAO\PatientDAO.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="DAO\PermissionDAO.cs" />
     <Compile Include="DAO\PermissionDetailDAO.cs" />
     <Compile Include="DAO\PrescriptionDAO.cs" />

@@ -13,7 +13,7 @@ namespace HospitalManagerment.DAO
 {
     internal class AccountDAO
     {
-        public bool Login(AccountDTO account, out String errorMessage)
+        public bool Login(AccountDTO account, out string errorMessage)
         {
             using (MySqlConnection conn = DatabaseConnection.GetConnection())
             {
@@ -22,14 +22,14 @@ namespace HospitalManagerment.DAO
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@username", account.TenDangNhap);
-                    cmd.Parameters.AddWithValue("@password", account.MatKhau); 
+                    cmd.Parameters.AddWithValue("@password", account.MatKhau);
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.HasRows)
                         {
                             errorMessage = "Đăng nhập thành công!";
                             return true;
-                            
+
                         }
                     }
                 }
@@ -70,6 +70,48 @@ namespace HospitalManagerment.DAO
                 MessageBox.Show("Lỗi khi lấy danh sách tài khoản: " + ex.Message);
             }
 
+            return accounts;
+        }
+
+        public List<AccountDTO> SearchAccountBy(string keyword, out string errorMessage)
+        {
+            List<AccountDTO> accounts = new List<AccountDTO>();
+            errorMessage = string.Empty;
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM taikhoan 
+                                     WHERE (TenDangNhap LIKE @keyword OR MaNV LIKE @keyword) 
+                                     AND TrangThaiXoa = 0";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                accounts.Add(new AccountDTO
+                                {
+                                    TenDangNhap = reader["TenDangNhap"].ToString(),
+                                    MatKhau = reader["MatKhau"].ToString(),
+                                    MaQuyen = reader["MaQuyen"].ToString(),
+                                    MaNV = reader["MaNV"].ToString(),
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                errorMessage = $"Lỗi cơ sở dữ liệu: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Đã xảy ra lỗi: {ex.Message}";
+            }
             return accounts;
         }
 
@@ -119,6 +161,81 @@ namespace HospitalManagerment.DAO
             }
         }
 
+        public bool UpdateAccount(AccountDTO account, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"UPDATE taikhoan 
+                                     SET MatKhau = @MatKhau, MaQuyen = @MaQuyen, MaNV = @MaNV
+                                     WHERE TenDangNhap = @TenDangNhap AND TrangThaiXoa = 0";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MatKhau", account.MatKhau);
+                        cmd.Parameters.AddWithValue("@MaQuyen", account.MaQuyen);
+                        cmd.Parameters.AddWithValue("@MaNV", account.MaNV);
+                        cmd.Parameters.AddWithValue("@TenDangNhap", account.TenDangNhap);
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                            return true;
+                        else
+                        {
+                            errorMessage = "Không thể cập nhật tài khoản trong cơ sở dữ liệu!";
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                errorMessage = $"Lỗi cơ sở dữ liệu: {ex.Message}";
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Đã xảy ra lỗi: {ex.Message}";
+                return false;
+            }
+        }
 
+        public bool DeleteAccount(string username, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"UPDATE taikhoan 
+                                     SET TrangThaiXoa = 1
+                                     WHERE TenDangNhap = @TenDangNhap AND TrangThaiXoa = 0";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TenDangNhap", username);
+                        int rows = cmd.ExecuteNonQuery();
+                        if (rows > 0)
+                            return true;
+                        else
+                        {
+                            errorMessage = "Không thể xóa tài khoản trong cơ sở dữ liệu!";
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                errorMessage = $"Lỗi cơ sở dữ liệu: {ex.Message}";
+                return false;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Đã xảy ra lỗi: {ex.Message}";
+                return false;
+            }
+        }
     }
 }

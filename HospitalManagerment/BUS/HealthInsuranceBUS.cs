@@ -27,7 +27,7 @@ namespace HospitalManagerment.BUS
             else if (kyTuThu3 == '3')
                 return "80%";
             else
-                return "-1";
+                return "null";
         }
         private bool ValidateHealthInsurance(HealthInsuranceDTO healthInsurance, out string errorMessage)
         {
@@ -60,12 +60,17 @@ namespace HospitalManagerment.BUS
             }
 
 
-            if (healthInsurance.MucHuong == "-1")
+            if (healthInsurance.MucHuong == "null")
             {
                 errorMessage = "Số BHYT không hợp lệ. Vui lòng kiểm tra lại!";
                 return false;
             }
             return true;
+        }
+
+        public HealthInsuranceDTO GetHealthInsuranceByID(string soBHYT, out string errorMessage)
+        {
+            return healthInsuranceDAO.GetHealthInsuranceById(soBHYT, out errorMessage);
         }
 
         public bool AddHealthInsurance(HealthInsuranceDTO healthInsurance, out string errorMessage)

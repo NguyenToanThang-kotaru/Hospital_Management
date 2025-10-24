@@ -120,13 +120,72 @@ namespace HospitalManagerment.BUS
             return patientDAO.AddPatient(patient, out errorMessage);
         }
 
-        public bool UpdatePatient(PatientDTO patient, string oldSoCCCD,  out string errorMessage)
+        public bool UpdatePatient(PatientDTO patient, HealthInsuranceDTO bhyt, string oldSoCCCD, out string errorMessage)
         {
+            errorMessage = string.Empty;
+
+            //Validate thông tin bệnh nhân ---
             if (!ValidateUpdatePatient(patient, out errorMessage))
                 return false;
 
-            return patientDAO.UpdatePatient(patient, oldSoCCCD, out errorMessage);
+            //Lấy thông tin bệnh nhân hiện tại để xác định trạng thái BHYT ---
+            var oldPatient = patientDAO.GetPatientById(oldSoCCCD, out string getMsg);
+            if (oldPatient == null)
+            {
+                errorMessage = "Không tìm thấy bệnh nhân để cập nhật!";
+                return false;
+            }
+
+            HealthInsuranceBUS bhytBUS = new HealthInsuranceBUS();
+
+            //Xử lý logic liên quan đến BHYT
+            try
+            {
+                if (bhyt != null)
+                {
+                    // 🧠 Nếu bệnh nhân đã có BHYT trước đó → cập nhật lại BHYT
+                    if (!string.IsNullOrEmpty(oldPatient.SoBHYT))
+                    {
+                        // Nếu thay đổi số BHYT → cần check trùng
+                        if (bhyt.SoBHYT != oldPatient.SoBHYT)
+                        {
+                            // Thêm mới BHYT khác (trường hợp đổi thẻ)
+                            if (!bhytBUS.AddHealthInsurance(bhyt, out errorMessage))
+                                return false;
+                        }
+                        else
+                        {
+                            // Cập nhật lại thông tin thẻ cũ
+                            if (!bhytBUS.UpdateHealthInsurance(bhyt, out errorMessage))
+                                return false;
+                        }
+                    }
+                    else
+                    {
+                        //Nếu trước đó chưa có BHYT → thêm mới
+                        if (!bhytBUS.AddHealthInsurance(bhyt, out errorMessage))
+                            return false;
+                    }
+
+                    patient.SoBHYT = bhyt.SoBHYT; // Gán lại mã BHYT
+                }
+                else
+                {
+                    //Nếu người dùng không nhập gì cho BHYT, thì giữ nguyên
+                    patient.SoBHYT = oldPatient.SoBHYT;
+                }
+
+                bool result = patientDAO.UpdatePatient(patient, oldSoCCCD, out errorMessage);
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                errorMessage = $"Lỗi khi cập nhật bệnh nhân: {ex.Message}";
+                return false;
+            }
         }
+
 
         public bool DeletePatient(string soCCCD, out string errorMessage)
         {
