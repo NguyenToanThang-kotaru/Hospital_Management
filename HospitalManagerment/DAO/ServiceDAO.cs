@@ -34,6 +34,7 @@ namespace HospitalManagerment.DAO
             }
             return 0;
         }
+
         public int UpdateService(ServiceDTO obj)
         {
             string sql = "UPDATE dichvu SET TenDV = @TenDV, GiaDV = @GiaDV, DuocBHYTChiTra = @DuocBHYTChiTra" +
