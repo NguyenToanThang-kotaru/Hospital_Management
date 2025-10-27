@@ -47,7 +47,7 @@
             this.roundedLabel4 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.roundedLabel8 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.searchBar2 = new HospitalManagerment.GUI.Components.SearchBar();
-            this.roundedPanel6 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.khoaPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageNhanVien = new System.Windows.Forms.TabPage();
             this.splitContainerNhanVien = new System.Windows.Forms.SplitContainer();
             this.pnlNhanVien = new HospitalManagerment.GUI.Component.RoundedPanel();
@@ -68,7 +68,7 @@
             this.roundedLabel5 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.roundedLabel6 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
-            this.roundedPanel3 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.nhanVienPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabControlDesign1 = new HospitalManagerment.GUI.Components.TabControlDesign();
             this.tabPageKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -314,7 +314,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.roundedPanel6, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.khoaPanel, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 50);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -428,21 +428,21 @@
             this.searchBar2.Size = new System.Drawing.Size(476, 36);
             this.searchBar2.TabIndex = 0;
             // 
-            // roundedPanel6
+            // khoaPanel
             // 
-            this.roundedPanel6.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel6.BorderRadius = 40;
-            this.roundedPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel6.Location = new System.Drawing.Point(0, 66);
-            this.roundedPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedPanel6.MarginBottom = 0;
-            this.roundedPanel6.MarginLeft = 0;
-            this.roundedPanel6.MarginRight = 0;
-            this.roundedPanel6.MarginTop = 30;
-            this.roundedPanel6.Name = "roundedPanel6";
-            this.roundedPanel6.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedPanel6.Size = new System.Drawing.Size(886, 601);
-            this.roundedPanel6.TabIndex = 1;
+            this.khoaPanel.BackColor = System.Drawing.Color.Transparent;
+            this.khoaPanel.BorderRadius = 40;
+            this.khoaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khoaPanel.Location = new System.Drawing.Point(0, 66);
+            this.khoaPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.khoaPanel.MarginBottom = 0;
+            this.khoaPanel.MarginLeft = 0;
+            this.khoaPanel.MarginRight = 0;
+            this.khoaPanel.MarginTop = 30;
+            this.khoaPanel.Name = "khoaPanel";
+            this.khoaPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.khoaPanel.Size = new System.Drawing.Size(886, 601);
+            this.khoaPanel.TabIndex = 1;
             // 
             // tabPageNhanVien
             // 
@@ -465,7 +465,6 @@
             // 
             this.splitContainerNhanVien.Panel1.Controls.Add(this.pnlNhanVien);
             this.splitContainerNhanVien.Panel1.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainerNhanVien.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainerNhanVien.Panel2
             // 
@@ -688,7 +687,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.roundedPanel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.nhanVienPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -802,21 +801,21 @@
             this.searchBar1.Size = new System.Drawing.Size(476, 36);
             this.searchBar1.TabIndex = 0;
             // 
-            // roundedPanel3
+            // nhanVienPanel
             // 
-            this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel3.BorderRadius = 40;
-            this.roundedPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel3.Location = new System.Drawing.Point(0, 66);
-            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedPanel3.MarginBottom = 0;
-            this.roundedPanel3.MarginLeft = 0;
-            this.roundedPanel3.MarginRight = 0;
-            this.roundedPanel3.MarginTop = 30;
-            this.roundedPanel3.Name = "roundedPanel3";
-            this.roundedPanel3.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedPanel3.Size = new System.Drawing.Size(886, 601);
-            this.roundedPanel3.TabIndex = 1;
+            this.nhanVienPanel.BackColor = System.Drawing.Color.Transparent;
+            this.nhanVienPanel.BorderRadius = 40;
+            this.nhanVienPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nhanVienPanel.Location = new System.Drawing.Point(0, 66);
+            this.nhanVienPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.nhanVienPanel.MarginBottom = 0;
+            this.nhanVienPanel.MarginLeft = 0;
+            this.nhanVienPanel.MarginRight = 0;
+            this.nhanVienPanel.MarginTop = 30;
+            this.nhanVienPanel.Name = "nhanVienPanel";
+            this.nhanVienPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.nhanVienPanel.Size = new System.Drawing.Size(886, 601);
+            this.nhanVienPanel.TabIndex = 1;
             // 
             // tabControlDesign1
             // 
@@ -843,6 +842,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NhanVienPage";
             this.Size = new System.Drawing.Size(1600, 820);
+            this.Load += new System.EventHandler(this.NhanVienPage_Load);
             this.tabPageKhoa.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -892,7 +892,7 @@
         private Component.RoundedLabel roundedLabel4;
         private Component.RoundedLabel roundedLabel8;
         private Components.SearchBar searchBar2;
-        private Component.RoundedPanel roundedPanel6;
+        private Component.RoundedPanel khoaPanel;
         private System.Windows.Forms.TabPage tabPageNhanVien;
         private System.Windows.Forms.SplitContainer splitContainerNhanVien;
         private Component.RoundedPanel pnlNhanVien;
@@ -913,7 +913,7 @@
         private Component.RoundedLabel roundedLabel5;
         private Component.RoundedLabel roundedLabel6;
         private Components.SearchBar searchBar1;
-        private Component.RoundedPanel roundedPanel3;
+        private Component.RoundedPanel nhanVienPanel;
         private Components.TabControlDesign tabControlDesign1;
     }
 }
