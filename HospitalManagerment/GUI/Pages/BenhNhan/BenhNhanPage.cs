@@ -1,68 +1,61 @@
-﻿using System;
+﻿using HospitalManagerment.BUS;
+using HospitalManagerment.DTO;
+using HospitalManagerment.GUI.Component.TableDataGridView;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Pages.BenhNhan
 {
     public partial class BenhNhanPage : UserControl
     {
+        private TableDataGridView tablePatient;
+        private PatientBUS patientBUS;
         public BenhNhanPage()
         {
             InitializeComponent();
+            tablePatient = new TableDataGridView();
+            patientBUS = new PatientBUS();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void BenhNhanPage_Load(object sender, EventArgs e)
         {
-
+            LoadPatientToTable();
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        private void LoadPatientToTable()
         {
-
+            tablePatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tablePatient.DataSource = ToDataTable(patientBUS.GetAllPatients());
+            benhNhanPanel.Controls.Add(tablePatient);
+        }
+        private DataTable ToDataTable<T>(List<T> data)
+        {
+            DataTable table = new DataTable();
+            var properties = typeof(T).GetProperties();
+            foreach (var prop in properties)
+            {
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+            foreach (var item in data)
+            {
+                var row = table.NewRow();
+                foreach (var prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
+                }
+                table.Rows.Add(row);
+            }
+            return table;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void comboBoxGioiTinhLoad(object sender, PaintEventArgs e)
         {
+            ComboBox cb = comboBoxGioiTinh.GetComboBox();
 
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint_2(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void CheckBoxCoBHYT_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCbcGioiTinh_Paint(object sender, PaintEventArgs e)
-        {
-            ComboBox cb = lblCbcGioiTinh.GetComboBox();
-
-            if (cb.Items.Count == 0) 
+            if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Nam");
                 cb.Items.Add("Nữ");
@@ -73,7 +66,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                     if (ev.Index < 0) return;
 
                     string text = cb.Items[ev.Index].ToString();
-                    Color textColor = Color.FromArgb(125,125,125);
+                    Color textColor = Color.FromArgb(125, 125, 125);
                     ev.DrawBackground();
                     ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
                     ev.DrawFocusRectangle();
@@ -81,9 +74,9 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
-        private void lblCbbTrangThaiDangKy_Paint(object sender, PaintEventArgs e)
+        private void comboBoxTrangThaiDangKyLoad(object sender, PaintEventArgs e)
         {
-            ComboBox cb = lblCbbTrangThaiDangKy.GetComboBox();
+            ComboBox cb = comboBoxTranhThaiDangKi.GetComboBox();
 
             if (cb.Items.Count == 0)
             {
@@ -104,9 +97,9 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
-        private void lblCbbHinhThucThanhToan_Paint(object sender, PaintEventArgs e)
+        private void comboBoxHinhThucThanhToanLoad(object sender, PaintEventArgs e)
         {
-            ComboBox cb = lblCbbHinhThucThanhToan.GetComboBox();
+            ComboBox cb = comboBoxHinhThucThanhToan.GetComboBox();
 
             if (cb.Items.Count == 0)
             {
@@ -125,36 +118,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                     ev.DrawFocusRectangle();
                 };
             }
-        }
-
-        private void roundedPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void roundedPanel4_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void searchBar1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchBar1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabControlBenhNhan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roundedPanel5_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

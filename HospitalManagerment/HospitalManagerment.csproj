@@ -175,6 +175,9 @@
     <Compile Include="GUI\Components\TabItem.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\Components\TableDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GUI\Login_Layout\Login_Layout.cs">
       <SubType>Form</SubType>
     </Compile>

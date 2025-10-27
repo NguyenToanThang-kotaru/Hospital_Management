@@ -30,8 +30,8 @@
         {
             this.tabControlDesign1 = new HospitalManagerment.GUI.Components.TabControlDesign();
             this.tabPageTaiKhoan = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pnlTaiKhoan = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.splitContainerTaiKhoan = new System.Windows.Forms.SplitContainer();
+            this.taiKhoanForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTxtTenDangNhap = new LayoutTest.GUIComponents.LableTextBox();
             this.lableComboBox2 = new LayoutTest.GUIComponents.LableComboBox();
@@ -50,7 +50,7 @@
             this.taiKhoanPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageQuyen = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.pnlPhanQuyen = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.quyenForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lableTextBox3 = new LayoutTest.GUIComponents.LableTextBox();
             this.lblTxtMaQuyen = new LayoutTest.GUIComponents.LableTextBox();
@@ -68,11 +68,11 @@
             this.quyenPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabControlDesign1.SuspendLayout();
             this.tabPageTaiKhoan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.pnlTaiKhoan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTaiKhoan)).BeginInit();
+            this.splitContainerTaiKhoan.Panel1.SuspendLayout();
+            this.splitContainerTaiKhoan.Panel2.SuspendLayout();
+            this.splitContainerTaiKhoan.SuspendLayout();
+            this.taiKhoanForm.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -82,7 +82,7 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.pnlPhanQuyen.SuspendLayout();
+            this.quyenForm.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -107,50 +107,50 @@
             // tabPageTaiKhoan
             // 
             this.tabPageTaiKhoan.BackColor = System.Drawing.Color.White;
-            this.tabPageTaiKhoan.Controls.Add(this.splitContainer1);
+            this.tabPageTaiKhoan.Controls.Add(this.splitContainerTaiKhoan);
             this.tabPageTaiKhoan.Location = new System.Drawing.Point(4, 49);
             this.tabPageTaiKhoan.Name = "tabPageTaiKhoan";
             this.tabPageTaiKhoan.Size = new System.Drawing.Size(1592, 767);
             this.tabPageTaiKhoan.TabIndex = 0;
             this.tabPageTaiKhoan.Text = "Tài khoản";
             // 
-            // splitContainer1
+            // splitContainerTaiKhoan
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainerTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTaiKhoan.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
+            this.splitContainerTaiKhoan.Name = "splitContainerTaiKhoan";
             // 
-            // splitContainer1.Panel1
+            // splitContainerTaiKhoan.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.pnlTaiKhoan);
-            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.splitContainerTaiKhoan.Panel1.Controls.Add(this.taiKhoanForm);
+            this.splitContainerTaiKhoan.Panel1.Padding = new System.Windows.Forms.Padding(50);
             // 
-            // splitContainer1.Panel2
+            // splitContainerTaiKhoan.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainer1.Size = new System.Drawing.Size(1592, 767);
-            this.splitContainer1.SplitterDistance = 601;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContainerTaiKhoan.Panel2.Controls.Add(this.tableLayoutPanel2);
+            this.splitContainerTaiKhoan.Panel2.Padding = new System.Windows.Forms.Padding(50);
+            this.splitContainerTaiKhoan.Size = new System.Drawing.Size(1592, 767);
+            this.splitContainerTaiKhoan.SplitterDistance = 630;
+            this.splitContainerTaiKhoan.TabIndex = 0;
             // 
-            // pnlTaiKhoan
+            // taiKhoanForm
             // 
-            this.pnlTaiKhoan.BackColor = System.Drawing.Color.White;
-            this.pnlTaiKhoan.BorderRadius = 40;
-            this.pnlTaiKhoan.Controls.Add(this.tableLayoutPanel3);
-            this.pnlTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTaiKhoan.Location = new System.Drawing.Point(50, 50);
-            this.pnlTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlTaiKhoan.MarginBottom = 0;
-            this.pnlTaiKhoan.MarginLeft = 0;
-            this.pnlTaiKhoan.MarginRight = 0;
-            this.pnlTaiKhoan.MarginTop = 0;
-            this.pnlTaiKhoan.Name = "pnlTaiKhoan";
-            this.pnlTaiKhoan.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.pnlTaiKhoan.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlTaiKhoan.Size = new System.Drawing.Size(501, 667);
-            this.pnlTaiKhoan.TabIndex = 0;
+            this.taiKhoanForm.BackColor = System.Drawing.Color.White;
+            this.taiKhoanForm.BorderRadius = 40;
+            this.taiKhoanForm.Controls.Add(this.tableLayoutPanel3);
+            this.taiKhoanForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.taiKhoanForm.Location = new System.Drawing.Point(50, 50);
+            this.taiKhoanForm.Margin = new System.Windows.Forms.Padding(0);
+            this.taiKhoanForm.MarginBottom = 0;
+            this.taiKhoanForm.MarginLeft = 0;
+            this.taiKhoanForm.MarginRight = 0;
+            this.taiKhoanForm.MarginTop = 0;
+            this.taiKhoanForm.Name = "taiKhoanForm";
+            this.taiKhoanForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.taiKhoanForm.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.taiKhoanForm.Size = new System.Drawing.Size(530, 667);
+            this.taiKhoanForm.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -176,7 +176,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(401, 667);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(430, 667);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // lblTxtTenDangNhap
@@ -190,7 +190,7 @@
             this.lblTxtTenDangNhap.Name = "lblTxtTenDangNhap";
             this.lblTxtTenDangNhap.PanelHeight = 60;
             this.lblTxtTenDangNhap.PanelWidth = 200;
-            this.lblTxtTenDangNhap.Size = new System.Drawing.Size(401, 83);
+            this.lblTxtTenDangNhap.Size = new System.Drawing.Size(430, 83);
             this.lblTxtTenDangNhap.TabIndex = 8;
             this.lblTxtTenDangNhap.TextValue = "";
             // 
@@ -204,7 +204,7 @@
             this.lableComboBox2.Name = "lableComboBox2";
             this.lableComboBox2.PanelHeight = 100;
             this.lableComboBox2.PanelWidth = 200;
-            this.lableComboBox2.Size = new System.Drawing.Size(401, 83);
+            this.lableComboBox2.Size = new System.Drawing.Size(430, 83);
             this.lableComboBox2.TabIndex = 7;
             this.lableComboBox2.TextValue = "";
             // 
@@ -218,7 +218,7 @@
             this.lableComboBox1.Name = "lableComboBox1";
             this.lableComboBox1.PanelHeight = 100;
             this.lableComboBox1.PanelWidth = 200;
-            this.lableComboBox1.Size = new System.Drawing.Size(401, 83);
+            this.lableComboBox1.Size = new System.Drawing.Size(430, 83);
             this.lableComboBox1.TabIndex = 6;
             this.lableComboBox1.TextValue = "";
             // 
@@ -233,7 +233,7 @@
             this.lableTextBox1.Name = "lableTextBox1";
             this.lableTextBox1.PanelHeight = 60;
             this.lableTextBox1.PanelWidth = 200;
-            this.lableTextBox1.Size = new System.Drawing.Size(401, 83);
+            this.lableTextBox1.Size = new System.Drawing.Size(430, 83);
             this.lableTextBox1.TabIndex = 5;
             this.lableTextBox1.TextValue = "";
             // 
@@ -248,7 +248,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(401, 86);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(430, 86);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
             // lblXacNhanBenhNhan
@@ -257,7 +257,7 @@
             this.lblXacNhanBenhNhan.BorderRadius = 20;
             this.lblXacNhanBenhNhan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.lblXacNhanBenhNhan.ForeColor = System.Drawing.Color.White;
-            this.lblXacNhanBenhNhan.Location = new System.Drawing.Point(261, 10);
+            this.lblXacNhanBenhNhan.Location = new System.Drawing.Point(290, 10);
             this.lblXacNhanBenhNhan.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.lblXacNhanBenhNhan.MarginBottom = 0;
             this.lblXacNhanBenhNhan.MarginLeft = 0;
@@ -278,7 +278,7 @@
             this.lblHuyBenhNhan.BorderRadius = 20;
             this.lblHuyBenhNhan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.lblHuyBenhNhan.ForeColor = System.Drawing.Color.White;
-            this.lblHuyBenhNhan.Location = new System.Drawing.Point(101, 10);
+            this.lblHuyBenhNhan.Location = new System.Drawing.Point(130, 10);
             this.lblHuyBenhNhan.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.lblHuyBenhNhan.MarginBottom = 0;
             this.lblHuyBenhNhan.MarginLeft = 0;
@@ -303,7 +303,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(401, 83);
+            this.label1.Size = new System.Drawing.Size(430, 83);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tài khoản";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -322,7 +322,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(887, 667);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(858, 667);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -346,7 +346,7 @@
             this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(887, 66);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(858, 66);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // roundedLabel7
@@ -356,7 +356,7 @@
             this.roundedLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundedLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.roundedLabel7.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel7.Location = new System.Drawing.Point(767, 0);
+            this.roundedLabel7.Location = new System.Drawing.Point(738, 0);
             this.roundedLabel7.Margin = new System.Windows.Forms.Padding(0);
             this.roundedLabel7.MarginBottom = 0;
             this.roundedLabel7.MarginLeft = 0;
@@ -378,7 +378,7 @@
             this.roundedLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundedLabel5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.roundedLabel5.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel5.Location = new System.Drawing.Point(637, 0);
+            this.roundedLabel5.Location = new System.Drawing.Point(608, 0);
             this.roundedLabel5.Margin = new System.Windows.Forms.Padding(0);
             this.roundedLabel5.MarginBottom = 0;
             this.roundedLabel5.MarginLeft = 0;
@@ -400,7 +400,7 @@
             this.roundedLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundedLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.roundedLabel6.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel6.Location = new System.Drawing.Point(507, 0);
+            this.roundedLabel6.Location = new System.Drawing.Point(478, 0);
             this.roundedLabel6.Margin = new System.Windows.Forms.Padding(0);
             this.roundedLabel6.MarginBottom = 0;
             this.roundedLabel6.MarginLeft = 0;
@@ -424,7 +424,7 @@
             this.searchBar1.Margin = new System.Windows.Forms.Padding(0);
             this.searchBar1.Name = "searchBar1";
             this.searchBar1.SearchText = "";
-            this.searchBar1.Size = new System.Drawing.Size(477, 36);
+            this.searchBar1.Size = new System.Drawing.Size(448, 36);
             this.searchBar1.TabIndex = 0;
             // 
             // taiKhoanPanel
@@ -440,7 +440,7 @@
             this.taiKhoanPanel.MarginTop = 10;
             this.taiKhoanPanel.Name = "taiKhoanPanel";
             this.taiKhoanPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.taiKhoanPanel.Size = new System.Drawing.Size(887, 601);
+            this.taiKhoanPanel.Size = new System.Drawing.Size(858, 601);
             this.taiKhoanPanel.TabIndex = 1;
             // 
             // tabPageQuyen
@@ -461,7 +461,7 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.pnlPhanQuyen);
+            this.splitContainer2.Panel1.Controls.Add(this.quyenForm);
             this.splitContainer2.Panel1.Padding = new System.Windows.Forms.Padding(50);
             // 
             // splitContainer2.Panel2
@@ -472,22 +472,22 @@
             this.splitContainer2.SplitterDistance = 1002;
             this.splitContainer2.TabIndex = 0;
             // 
-            // pnlPhanQuyen
+            // quyenForm
             // 
-            this.pnlPhanQuyen.BackColor = System.Drawing.Color.White;
-            this.pnlPhanQuyen.BorderRadius = 40;
-            this.pnlPhanQuyen.Controls.Add(this.tableLayoutPanel4);
-            this.pnlPhanQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPhanQuyen.Location = new System.Drawing.Point(50, 50);
-            this.pnlPhanQuyen.MarginBottom = 0;
-            this.pnlPhanQuyen.MarginLeft = 0;
-            this.pnlPhanQuyen.MarginRight = 0;
-            this.pnlPhanQuyen.MarginTop = 0;
-            this.pnlPhanQuyen.Name = "pnlPhanQuyen";
-            this.pnlPhanQuyen.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.pnlPhanQuyen.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.pnlPhanQuyen.Size = new System.Drawing.Size(902, 667);
-            this.pnlPhanQuyen.TabIndex = 0;
+            this.quyenForm.BackColor = System.Drawing.Color.White;
+            this.quyenForm.BorderRadius = 40;
+            this.quyenForm.Controls.Add(this.tableLayoutPanel4);
+            this.quyenForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.quyenForm.Location = new System.Drawing.Point(50, 50);
+            this.quyenForm.MarginBottom = 0;
+            this.quyenForm.MarginLeft = 0;
+            this.quyenForm.MarginRight = 0;
+            this.quyenForm.MarginTop = 0;
+            this.quyenForm.Name = "quyenForm";
+            this.quyenForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.quyenForm.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.quyenForm.Size = new System.Drawing.Size(902, 667);
+            this.quyenForm.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -779,11 +779,11 @@
             this.Load += new System.EventHandler(this.QuyenPage_Load);
             this.tabControlDesign1.ResumeLayout(false);
             this.tabPageTaiKhoan.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.pnlTaiKhoan.ResumeLayout(false);
+            this.splitContainerTaiKhoan.Panel1.ResumeLayout(false);
+            this.splitContainerTaiKhoan.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTaiKhoan)).EndInit();
+            this.splitContainerTaiKhoan.ResumeLayout(false);
+            this.taiKhoanForm.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -794,7 +794,7 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.pnlPhanQuyen.ResumeLayout(false);
+            this.quyenForm.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -810,11 +810,11 @@
         private Components.TabControlDesign tabControlDesign1;
         private System.Windows.Forms.TabPage tabPageTaiKhoan;
         private System.Windows.Forms.TabPage tabPageQuyen;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private Component.RoundedPanel pnlTaiKhoan;
+        private System.Windows.Forms.SplitContainer splitContainerTaiKhoan;
+        private Component.RoundedPanel taiKhoanForm;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private Component.RoundedPanel pnlPhanQuyen;
+        private Component.RoundedPanel quyenForm;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Component.RoundedPanel quyenPanel;
         private Component.RoundedPanel taiKhoanPanel;

@@ -1,144 +1,48 @@
 ﻿using HospitalManagerment.BUS;
 using HospitalManagerment.DTO;
-using HospitalManagerment.Utils;
+using HospitalManagerment.GUI.Component.TableDataGridView;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Pages.DichVu
 {
     public partial class DichVuPage : UserControl
     {
-        private DataGridView tableService;
+        private TableDataGridView tableService;        
+        private TableDataGridView tableServiceDesignation;
         private ServiceBUS serviceBUS;
-        private DataGridView tableServiceDesignation;
         private ServiceDesignationBUS serviceDesignationBUS;
         public DichVuPage()
         {
             InitializeComponent();
+            tableService = new TableDataGridView();
+            tableServiceDesignation = new TableDataGridView();
             serviceBUS = new ServiceBUS();
             serviceDesignationBUS = new ServiceDesignationBUS();
         }
 
         private void DichVuPage_Load(object sender, EventArgs e)
         {
-            LoadServicesToGrid();
-            LoadServiceDesignationsToGrid();
+            LoadServiceToTable();
+            LoadServiceDesignationToTable();
         }
 
-        private void LoadServicesToGrid()
+        private void LoadServiceToTable()
         {
-            // Khởi tạo DataGridView
-            tableService = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AutoGenerateColumns = true, // Để DataTable tự sinh cột
-                BackgroundColor = Color.White,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                BorderStyle = BorderStyle.None,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                RowHeadersVisible = false,
-
-                // Tăng chiều cao header + canh giữa đẹp hơn
-                EnableHeadersVisualStyles = false,
-                ColumnHeadersDefaultCellStyle = {
-                    BackColor = Color.FromArgb(247, 255, 254),
-                    ForeColor = Consts.FontColorA,
-                    Font = new Font("Roboto", 10, FontStyle.Bold),
-                    Alignment = DataGridViewContentAlignment.MiddleCenter,
-                    Padding = new Padding(0, 5, 0, 5),
-                    SelectionBackColor = Color.FromArgb(247, 255, 254)
-                },
-                DefaultCellStyle = {
-                    Font = new Font("Roboto", 10),
-                    ForeColor = Color.Black,
-                    BackColor = Color.White,
-                    SelectionForeColor = Color.Black
-                },
-                GridColor = Color.FromArgb(230, 230, 230),
-                CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
-                ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                AllowUserToResizeColumns = false,
-                AllowUserToResizeRows = false,
-                RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing,
-                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-                ColumnHeadersHeight = 45,
-                RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-            };
-
             tableService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-            dichVuPanel.Controls.Clear();
+            tableService.DataSource = ToDataTable(serviceBUS.GetAllService());
             dichVuPanel.Controls.Add(tableService);
-
-            // Gọi BUS để lấy dữ liệu dưới dạng List
-            List<ServiceDTO> list = serviceBUS.GetAllService();
-            // Chuyển List sang DataTable rồi bind lên DataGridView
-            DataTable dataService = ToDataTable(list);
-            tableService.DataSource = dataService;
         }
 
-        private void LoadServiceDesignationsToGrid()
+        private void LoadServiceDesignationToTable()
         {
-            // Khởi tạo DataGridView
-            tableServiceDesignation = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AutoGenerateColumns = true, // Để DataTable tự sinh cột
-                BackgroundColor = Color.White,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                BorderStyle = BorderStyle.None,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                RowHeadersVisible = false,
-
-                // Tăng chiều cao header + canh giữa đẹp hơn
-                EnableHeadersVisualStyles = false,
-                ColumnHeadersDefaultCellStyle = {
-                    BackColor = Color.FromArgb(247, 255, 254),
-                    ForeColor = Consts.FontColorA,
-                    Font = new Font("Roboto", 10, FontStyle.Bold),
-                    Alignment = DataGridViewContentAlignment.MiddleCenter,
-                    Padding = new Padding(0, 5, 0, 5),
-                    SelectionBackColor = Color.FromArgb(247, 255, 254)
-                },
-                DefaultCellStyle = {
-                    Font = new Font("Roboto", 10),
-                    ForeColor = Color.Black,
-                    BackColor = Color.White,
-                    SelectionForeColor = Color.Black
-                },
-                GridColor = Color.FromArgb(230, 230, 230),
-                CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
-                ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                AllowUserToResizeColumns = false,
-                AllowUserToResizeRows = false,
-                RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing,
-                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-                ColumnHeadersHeight = 45,
-                RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-            };
-
             tableServiceDesignation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-            chiDinhDichVuPanel.Controls.Clear();
+            tableServiceDesignation.DataSource = ToDataTable(serviceDesignationBUS.GetAllServiceDesignation());
             chiDinhDichVuPanel.Controls.Add(tableServiceDesignation);
-
-            // Gọi BUS để lấy dữ liệu dưới dạng List
-            List<ServiceDesignationDTO> list = serviceDesignationBUS.GetAllServiceDesignation();
-            // Chuyển List sang DataTable rồi bind lên DataGridView
-            DataTable dataServiceDesignation = ToDataTable(list);
-            tableServiceDesignation.DataSource = dataServiceDesignation;
         }
 
-        // Hàm chuyển List sang DataTable
         private DataTable ToDataTable<T>(List<T> data)
         {
             DataTable table = new DataTable();
@@ -157,11 +61,6 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 table.Rows.Add(row);
             }
             return table;
-        }
-
-        private void tabControlDichVu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

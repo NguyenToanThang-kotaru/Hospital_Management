@@ -1,6 +1,6 @@
 ﻿using HospitalManagerment.BUS;
 using HospitalManagerment.DTO;
-using HospitalManagerment.Utils;
+using HospitalManagerment.GUI.Component.TableDataGridView;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,137 +11,41 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
 {
     public partial class NhanVienPage : UserControl
     {
-        private DataGridView dgvEmployee;
-        private DataGridView dgvDepartment;
+        private TableDataGridView tableEmployee;
+        private TableDataGridView tableDepartment;
         private EmployeeBUS employeeBUS;
         private DepartmentBUS departmentBUS;
 
         public NhanVienPage()
         {
             InitializeComponent();
+            tableEmployee = new TableDataGridView();
+            tableDepartment = new TableDataGridView();
             employeeBUS = new EmployeeBUS();
             departmentBUS = new DepartmentBUS();
         }
 
         private void NhanVienPage_Load(object sender, EventArgs e)
         {
-            //LoadEmployeeToGrid();
-            LoadDepartmentToGrid();
+            //LoadEmployeeToTable();
+            LoadDepartmentToTable();
         }
 
-        //private void LoadEmployeeToGrid()
+        //private void LoadEmployeeToTable()
         //{
-        //    // Khởi tạo DataGridView
-        //    dgvEmployee = new DataGridView
-        //    {
-        //        Dock = DockStyle.Fill,
-        //        AutoGenerateColumns = true, // Để DataTable tự sinh cột
-        //        BackgroundColor = Color.White,
-        //        AllowUserToAddRows = false,
-        //        AllowUserToDeleteRows = false,
-        //        ReadOnly = true,
-        //        BorderStyle = BorderStyle.None,
-        //        SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-        //        RowHeadersVisible = false,
+        //    tableEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+        //    tableEmployee.DataSource = ToDataTable(employeeBUS.GetAllEmployees());
 
-        //        // Tăng chiều cao header + canh giữa đẹp hơn
-        //        EnableHeadersVisualStyles = false,
-        //        ColumnHeadersDefaultCellStyle = {
-        //            BackColor = Color.FromArgb(247, 255, 254),
-        //            ForeColor = Consts.FontColorA,
-        //            Font = new Font("Roboto", 10, FontStyle.Bold),
-        //            Alignment = DataGridViewContentAlignment.MiddleCenter,
-        //            Padding = new Padding(0, 5, 0, 5),
-        //            SelectionBackColor = Color.FromArgb(247, 255, 254)
-        //        },
-        //        DefaultCellStyle = {
-        //            Font = new Font("Roboto", 10),
-        //            ForeColor = Color.Black,
-        //            BackColor = Color.White,
-        //            SelectionForeColor = Color.Black
-        //        },
-        //        GridColor = Color.FromArgb(230, 230, 230),
-        //        CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
-        //        ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-        //        AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-        //        AlternatingRowsDefaultCellStyle = { BackColor = Color.FromArgb(247, 255, 254), },
-        //        AllowUserToResizeColumns = false,
-        //        AllowUserToResizeRows = false,
-        //        RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing,
-        //        ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-        //        ColumnHeadersHeight = 45,
-        //        RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-        //    };
-
-        //    dgvEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-        //    nhanVienPanel.Controls.Clear();
-        //    nhanVienPanel.Controls.Add(dgvEmployee);
-
-        //    // Gọi BUS để lấy dữ liệu dưới dạng List
-        //    List<EmployeeDTO> list = employeeBUS.GetAllEmployees();
-        //    // Chuyển List sang DataTable rồi bind lên DataGridView
-        //    DataTable accountsTable = ToDataTable(list);
-        //    dgvEmployee.DataSource = accountsTable;
+        //    nhanVienPanel.Controls.Add(tableEmployee);
         //}
 
-        private void LoadDepartmentToGrid()
+        private void LoadDepartmentToTable ()
         {
-            // Khởi tạo DataGridView
-            dgvDepartment = new DataGridView
-            {
-                Dock = DockStyle.Fill,
-                AutoGenerateColumns = true, // Để DataTable tự sinh cột
-                BackgroundColor = Color.White,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                BorderStyle = BorderStyle.None,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                RowHeadersVisible = false,
-
-                // Tăng chiều cao header + canh giữa đẹp hơn
-                EnableHeadersVisualStyles = false,
-                ColumnHeadersDefaultCellStyle = {
-                    BackColor = Color.FromArgb(247, 255, 254),
-                    ForeColor = Consts.FontColorA,
-                    Font = new Font("Roboto", 10, FontStyle.Bold),
-                    Alignment = DataGridViewContentAlignment.MiddleCenter,
-                    Padding = new Padding(0, 5, 0, 5),
-                    SelectionBackColor = Color.FromArgb(247, 255, 254)
-                },
-                DefaultCellStyle = {
-                    Font = new Font("Roboto", 10),
-                    ForeColor = Color.Black,
-                    BackColor = Color.White,
-                    SelectionForeColor = Color.Black
-                },
-                GridColor = Color.FromArgb(230, 230, 230),
-                CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal,
-                ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-                AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill,
-                AlternatingRowsDefaultCellStyle = { BackColor = Color.FromArgb(247, 255, 254), },
-                AllowUserToResizeColumns = false,
-                AllowUserToResizeRows = false,
-                RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing,
-                ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing,
-                ColumnHeadersHeight = 45,
-                RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None,
-            };
-
-            dgvDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-
-            khoaPanel.Controls.Clear();
-            khoaPanel.Controls.Add(dgvDepartment);
-
-            // Gọi BUS để lấy dữ liệu dưới dạng List
-            List<DepartmentDTO> list = departmentBUS.GetAllDepartment();
-            // Chuyển List sang DataTable rồi bind lên DataGridView
-            DataTable permissionTable = ToDataTable(list);
-            dgvDepartment.DataSource = permissionTable;
+            tableDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableDepartment.DataSource = ToDataTable(departmentBUS.GetAllDepartment());
+            khoaPanel.Controls.Add(tableDepartment);
         }
 
-        // Hàm chuyển List sang DataTable
         private DataTable ToDataTable<T>(List<T> data)
         {
             DataTable table = new DataTable();
@@ -161,9 +65,9 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             }
             return table;
         }
-        private void lblCbcChucVu_Paint(object sender, PaintEventArgs e)
+        private void comboBoxChucVuLoad(object sender, PaintEventArgs e)
         {
-            ComboBox cb = lblCbcChucVu.GetComboBox();
+            ComboBox cb = comboBoxChucVu.GetComboBox();
             if (cb.Items.Count == 0) 
             {
                 cb.Items.Add("Trưởng khoa");
@@ -187,9 +91,9 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             }
         }
 
-        private void lblCbcVaiTro_Paint(object sender, PaintEventArgs e)
+        private void comboBoxVaiTroLoad(object sender, PaintEventArgs e)
         {
-            ComboBox cb = lblCbcVaiTro.GetComboBox();
+            ComboBox cb = comboBoxVaiTro.GetComboBox();
             if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Quản trị viên");
@@ -215,35 +119,11 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             }
         }
 
-        private void lblCbcKhoa_Paint(object sender, PaintEventArgs e)
+
+        private void comboBoxKhoaLoad(object sender, PaintEventArgs e)
         {
-            ComboBox cb = lblCbcKhoa.GetComboBox();
-            if (cb.Items.Count == 0)
-            {
-                cb.Items.Add("Khoa hành chính");       // Vai trò khác bác sĩ
-                cb.Items.Add("Khoa khám bệnh (ngoại trú)"); // Nơi tiếp nhận ban đầu
-                cb.Items.Add("Khoa nội");              
-                cb.Items.Add("Khoa ngoại");           
-                cb.Items.Add("Khoa nhi");              
-                cb.Items.Add("Khoa sản");            
-                cb.Items.Add("Khoa truyền nhiễm");    
-                cb.Items.Add("Khoa cận lâm sàng");  
 
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
-            }
         }
 
-        
     }
 }
