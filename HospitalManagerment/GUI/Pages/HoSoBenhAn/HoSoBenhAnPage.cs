@@ -94,5 +94,99 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 };
             }
         }
+
+        // sự kiện tabPageDanhSach
+        private void buttonSuaHoSoBenhAnClick(object sender, EventArgs e)
+        {
+
+        }
+        
+        //sự kiện tabPageBenhAn
+        private void buttonThemBenhAnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaBenhAnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonChonChanDoanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonChonDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemDonThuocClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonHuyBenhAnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanBenhAnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiện tabPageBenh
+        private void buttonHuyBenhClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanBenhClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemBenhClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaBenhClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaBenhClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiện tabPageDuocPham
+        private void buttonHuyDuocPhamClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanDuocPhamClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemDuocPhamClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaDuocPhamClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaDuocPhamClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

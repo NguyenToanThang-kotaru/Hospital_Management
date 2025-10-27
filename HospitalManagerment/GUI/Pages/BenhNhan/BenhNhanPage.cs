@@ -119,5 +119,54 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 };
             }
         }
+
+        // sự kiện tabPageBenhNhan
+        private void checkBoxCoBHYTCheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void buttonHuyBenhNhanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiện tabPageDangKyDichVu
+        private void buttonChonDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+        private void buttonHuyDangKyDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanDangKyDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiện tabPageDanhSach
+        private void buttonThemBenhNhanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaBenhNhanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaBenhNhanClick(object sender, EventArgs e)
+        {
+
+        }
+        //  
+
+
     }
 }

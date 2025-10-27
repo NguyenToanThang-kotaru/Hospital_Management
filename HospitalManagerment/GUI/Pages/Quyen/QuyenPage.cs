@@ -62,5 +62,58 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             }
             return table;
         }
+
+
+        // sự kiện tabPageTaiKhoan
+        private void buttonHuyTaiKhoanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanTaiKhoanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemTaiKhoanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaTaiKhoanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaTaiKhoanClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiện tabPageQuyen
+        private void buttonHuyQuyenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanQuyenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemQuyenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaQuyenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaQuyenClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

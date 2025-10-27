@@ -125,5 +125,56 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
 
         }
 
+        // sự kiện tabPageNhanVien
+        private void buttonHuyNhanVienClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanNhanVienClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemNhanVienClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaNhanVienClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaNhanVienClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiện tabPageKhoa
+        private void buttonHuyKhoaClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanKhoaClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttnThemKhoaClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaKhoaClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaKhoaClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

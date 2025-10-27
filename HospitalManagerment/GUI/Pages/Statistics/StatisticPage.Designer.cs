@@ -44,7 +44,7 @@
             this.tabControlDesign1.Location = new System.Drawing.Point(0, 0);
             this.tabControlDesign1.Name = "tabControlDesign1";
             this.tabControlDesign1.SelectedIndex = 0;
-            this.tabControlDesign1.Size = new System.Drawing.Size(1600, 820);
+            this.tabControlDesign1.Size = new System.Drawing.Size(1400, 820);
             this.tabControlDesign1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlDesign1.TabIndex = 0;
             // 
@@ -53,10 +53,9 @@
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Location = new System.Drawing.Point(4, 49);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1592, 767);
+            this.tabPage1.Size = new System.Drawing.Size(1392, 767);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Thống kê";
             // 
             // tabPage2
             // 
@@ -64,7 +63,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 49);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1592, 767);
+            this.tabPage2.Size = new System.Drawing.Size(1392, 767);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
@@ -73,9 +72,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControlDesign1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "StatisticPage";
-            this.Size = new System.Drawing.Size(1600, 820);
+            this.Size = new System.Drawing.Size(1400, 820);
             this.tabControlDesign1.ResumeLayout(false);
             this.ResumeLayout(false);
 

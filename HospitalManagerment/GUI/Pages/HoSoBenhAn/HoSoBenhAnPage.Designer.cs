@@ -33,18 +33,21 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedLabel7 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel5 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel6 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonSuaHoSoBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
             this.hoSoBenhAnPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageBenhAn = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.hoSoBenhAnForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblThemBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.lblTxtSoCCCD = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonSuaBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonThemBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lableTextBox1 = new LayoutTest.GUIComponents.LableTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,19 +55,28 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lblTxtMaBenhAn = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonThemDonThuoc = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonChonDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonChonChanDoan = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.label8 = new System.Windows.Forms.Label();
             this.lableTextBox3 = new LayoutTest.GUIComponents.LableTextBox();
             this.lableTextBox2 = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblXacNhanBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.lblHuyBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonHuyBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPageBenh = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -74,14 +86,14 @@
             this.lableTextBox5 = new LayoutTest.GUIComponents.LableTextBox();
             this.lableTextBox4 = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblXacNhanBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.lblHuyBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonHuyBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedLabel1 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel2 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel3 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXoaBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonSuaBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonThemBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.searchBar2 = new HospitalManagerment.GUI.Components.SearchBar();
             this.benhPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageDuocPham = new System.Windows.Forms.TabPage();
@@ -92,14 +104,14 @@
             this.comboBoxLoaiDuocPham = new LayoutTest.GUIComponents.LableComboBox();
             this.lableTextBox6 = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblXacNhanDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.lblHuyDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonHuyDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedLabel4 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel8 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel9 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXoaDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonSuaDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonThemDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.searchBar3 = new HospitalManagerment.GUI.Components.SearchBar();
             this.duocPhamPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabControlDesign1.SuspendLayout();
@@ -115,11 +127,20 @@
             this.hoSoBenhAnForm.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
             this.benhAnForm.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel15.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
+            this.tableLayoutPanel14.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel13.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabPageBenh.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -156,7 +177,7 @@
             this.tabControlDesign1.Name = "tabControlDesign1";
             this.tabControlDesign1.Padding = new System.Drawing.Point(3, 3);
             this.tabControlDesign1.SelectedIndex = 0;
-            this.tabControlDesign1.Size = new System.Drawing.Size(1600, 820);
+            this.tabControlDesign1.Size = new System.Drawing.Size(1400, 820);
             this.tabControlDesign1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlDesign1.TabIndex = 0;
             // 
@@ -166,7 +187,7 @@
             this.tabPageDanhSach.Controls.Add(this.panel1);
             this.tabPageDanhSach.Location = new System.Drawing.Point(4, 49);
             this.tabPageDanhSach.Name = "tabPageDanhSach";
-            this.tabPageDanhSach.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageDanhSach.Size = new System.Drawing.Size(1392, 767);
             this.tabPageDanhSach.TabIndex = 0;
             this.tabPageDanhSach.Text = "Danh sách hồ sơ";
             // 
@@ -178,7 +199,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(50);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50);
-            this.panel1.Size = new System.Drawing.Size(1592, 767);
+            this.panel1.Size = new System.Drawing.Size(1392, 767);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -194,22 +215,20 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1492, 667);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1292, 667);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel9
             // 
-            this.tableLayoutPanel9.ColumnCount = 7;
+            this.tableLayoutPanel9.ColumnCount = 3;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel9.Controls.Add(this.roundedLabel7, 6, 0);
-            this.tableLayoutPanel9.Controls.Add(this.roundedLabel5, 4, 0);
-            this.tableLayoutPanel9.Controls.Add(this.roundedLabel6, 2, 0);
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Controls.Add(this.buttonSuaHoSoBenhAn, 2, 0);
             this.tableLayoutPanel9.Controls.Add(this.searchBar1, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
@@ -218,85 +237,42 @@
             this.tableLayoutPanel9.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1492, 66);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(1292, 66);
             this.tableLayoutPanel9.TabIndex = 3;
             // 
-            // roundedLabel7
+            // buttonSuaHoSoBenhAn
             // 
-            this.roundedLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel7.BorderRadius = 20;
-            this.roundedLabel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel7.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel7.Location = new System.Drawing.Point(1372, 0);
-            this.roundedLabel7.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel7.MarginBottom = 0;
-            this.roundedLabel7.MarginLeft = 0;
-            this.roundedLabel7.MarginRight = 0;
-            this.roundedLabel7.MarginTop = 0;
-            this.roundedLabel7.Name = "roundedLabel7";
-            this.roundedLabel7.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel7.PanelHeight = 45;
-            this.roundedLabel7.PanelWidth = 160;
-            this.roundedLabel7.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel7.TabIndex = 4;
-            this.roundedLabel7.Text = "XÓA";
-            this.roundedLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // roundedLabel5
-            // 
-            this.roundedLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel5.BorderRadius = 20;
-            this.roundedLabel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel5.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel5.Location = new System.Drawing.Point(1242, 0);
-            this.roundedLabel5.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel5.MarginBottom = 0;
-            this.roundedLabel5.MarginLeft = 0;
-            this.roundedLabel5.MarginRight = 0;
-            this.roundedLabel5.MarginTop = 0;
-            this.roundedLabel5.Name = "roundedLabel5";
-            this.roundedLabel5.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel5.PanelHeight = 45;
-            this.roundedLabel5.PanelWidth = 160;
-            this.roundedLabel5.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel5.TabIndex = 3;
-            this.roundedLabel5.Text = "SỬA";
-            this.roundedLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // roundedLabel6
-            // 
-            this.roundedLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel6.BorderRadius = 20;
-            this.roundedLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel6.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel6.Location = new System.Drawing.Point(1112, 0);
-            this.roundedLabel6.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel6.MarginBottom = 0;
-            this.roundedLabel6.MarginLeft = 0;
-            this.roundedLabel6.MarginRight = 0;
-            this.roundedLabel6.MarginTop = 0;
-            this.roundedLabel6.Name = "roundedLabel6";
-            this.roundedLabel6.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel6.PanelHeight = 45;
-            this.roundedLabel6.PanelWidth = 160;
-            this.roundedLabel6.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel6.TabIndex = 2;
-            this.roundedLabel6.Text = "THÊM";
-            this.roundedLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaHoSoBenhAn.BackColor = System.Drawing.Color.White;
+            this.buttonSuaHoSoBenhAn.BorderRadius = 20;
+            this.buttonSuaHoSoBenhAn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSuaHoSoBenhAn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaHoSoBenhAn.ForeColor = System.Drawing.Color.White;
+            this.buttonSuaHoSoBenhAn.Location = new System.Drawing.Point(1172, 0);
+            this.buttonSuaHoSoBenhAn.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSuaHoSoBenhAn.MarginBottom = 0;
+            this.buttonSuaHoSoBenhAn.MarginLeft = 0;
+            this.buttonSuaHoSoBenhAn.MarginRight = 0;
+            this.buttonSuaHoSoBenhAn.MarginTop = 0;
+            this.buttonSuaHoSoBenhAn.Name = "buttonSuaHoSoBenhAn";
+            this.buttonSuaHoSoBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonSuaHoSoBenhAn.PanelHeight = 45;
+            this.buttonSuaHoSoBenhAn.PanelWidth = 160;
+            this.buttonSuaHoSoBenhAn.Size = new System.Drawing.Size(120, 36);
+            this.buttonSuaHoSoBenhAn.TabIndex = 3;
+            this.buttonSuaHoSoBenhAn.Text = "SỬA";
+            this.buttonSuaHoSoBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaHoSoBenhAn.Click += new System.EventHandler(this.buttonSuaHoSoBenhAnClick);
             // 
             // searchBar1
             // 
-            this.searchBar1.BackColor = System.Drawing.Color.Transparent;
+            this.searchBar1.BackColor = System.Drawing.Color.White;
             this.searchBar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchBar1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.searchBar1.Location = new System.Drawing.Point(0, 0);
             this.searchBar1.Margin = new System.Windows.Forms.Padding(0);
             this.searchBar1.Name = "searchBar1";
             this.searchBar1.SearchText = "";
-            this.searchBar1.Size = new System.Drawing.Size(1082, 36);
+            this.searchBar1.Size = new System.Drawing.Size(1142, 36);
             this.searchBar1.TabIndex = 0;
             // 
             // hoSoBenhAnPanel
@@ -312,7 +288,7 @@
             this.hoSoBenhAnPanel.MarginTop = 30;
             this.hoSoBenhAnPanel.Name = "hoSoBenhAnPanel";
             this.hoSoBenhAnPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.hoSoBenhAnPanel.Size = new System.Drawing.Size(1492, 601);
+            this.hoSoBenhAnPanel.Size = new System.Drawing.Size(1292, 601);
             this.hoSoBenhAnPanel.TabIndex = 0;
             // 
             // tabPageBenhAn
@@ -321,7 +297,7 @@
             this.tabPageBenhAn.Controls.Add(this.splitContainer1);
             this.tabPageBenhAn.Location = new System.Drawing.Point(4, 49);
             this.tabPageBenhAn.Name = "tabPageBenhAn";
-            this.tabPageBenhAn.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageBenhAn.Size = new System.Drawing.Size(1392, 767);
             this.tabPageBenhAn.TabIndex = 1;
             this.tabPageBenhAn.Text = "Bệnh án";
             // 
@@ -341,8 +317,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.benhAnForm);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainer1.Size = new System.Drawing.Size(1592, 767);
-            this.splitContainer1.SplitterDistance = 630;
+            this.splitContainer1.Size = new System.Drawing.Size(1392, 767);
+            this.splitContainer1.SplitterDistance = 524;
             this.splitContainer1.TabIndex = 0;
             // 
             // hoSoBenhAnForm
@@ -360,7 +336,7 @@
             this.hoSoBenhAnForm.Name = "hoSoBenhAnForm";
             this.hoSoBenhAnForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.hoSoBenhAnForm.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.hoSoBenhAnForm.Size = new System.Drawing.Size(530, 667);
+            this.hoSoBenhAnForm.Size = new System.Drawing.Size(424, 667);
             this.hoSoBenhAnForm.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -368,7 +344,6 @@
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.lblThemBenhAn, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.lblTxtSoCCCD, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel16, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.lableTextBox1, 0, 2);
@@ -385,30 +360,8 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(430, 667);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(324, 667);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // lblThemBenhAn
-            // 
-            this.lblThemBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblThemBenhAn.BorderRadius = 20;
-            this.lblThemBenhAn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblThemBenhAn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblThemBenhAn.ForeColor = System.Drawing.Color.White;
-            this.lblThemBenhAn.Location = new System.Drawing.Point(0, 581);
-            this.lblThemBenhAn.Margin = new System.Windows.Forms.Padding(0);
-            this.lblThemBenhAn.MarginBottom = 0;
-            this.lblThemBenhAn.MarginLeft = 0;
-            this.lblThemBenhAn.MarginRight = 0;
-            this.lblThemBenhAn.MarginTop = 10;
-            this.lblThemBenhAn.Name = "lblThemBenhAn";
-            this.lblThemBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.lblThemBenhAn.PanelHeight = 50;
-            this.lblThemBenhAn.PanelWidth = 400;
-            this.lblThemBenhAn.Size = new System.Drawing.Size(430, 45);
-            this.lblThemBenhAn.TabIndex = 7;
-            this.lblThemBenhAn.Text = "Thêm bênh án mới cho hồ sơ";
-            this.lblThemBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTxtSoCCCD
             // 
@@ -421,7 +374,7 @@
             this.lblTxtSoCCCD.Name = "lblTxtSoCCCD";
             this.lblTxtSoCCCD.PanelHeight = 60;
             this.lblTxtSoCCCD.PanelWidth = 200;
-            this.lblTxtSoCCCD.Size = new System.Drawing.Size(430, 83);
+            this.lblTxtSoCCCD.Size = new System.Drawing.Size(324, 83);
             this.lblTxtSoCCCD.TabIndex = 6;
             this.lblTxtSoCCCD.TextValue = "";
             // 
@@ -430,6 +383,7 @@
             this.tableLayoutPanel16.ColumnCount = 1;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel18, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.panel6, 0, 1);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 249);
@@ -439,8 +393,108 @@
             this.tableLayoutPanel4.SetRowSpan(this.tableLayoutPanel16, 4);
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(430, 332);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(324, 332);
             this.tableLayoutPanel16.TabIndex = 5;
+            // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 3;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel18.Controls.Add(this.flowLayoutPanel8, 2, 0);
+            this.tableLayoutPanel18.Controls.Add(this.flowLayoutPanel7, 1, 0);
+            this.tableLayoutPanel18.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(324, 45);
+            this.tableLayoutPanel18.TabIndex = 4;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.Controls.Add(this.buttonSuaBenhAn);
+            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(243, 0);
+            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(81, 45);
+            this.flowLayoutPanel8.TabIndex = 16;
+            // 
+            // buttonSuaBenhAn
+            // 
+            this.buttonSuaBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonSuaBenhAn.BorderRadius = 20;
+            this.buttonSuaBenhAn.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuaBenhAn.ForeColor = System.Drawing.Color.White;
+            this.buttonSuaBenhAn.Location = new System.Drawing.Point(11, 5);
+            this.buttonSuaBenhAn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.buttonSuaBenhAn.MarginBottom = 0;
+            this.buttonSuaBenhAn.MarginLeft = 0;
+            this.buttonSuaBenhAn.MarginRight = 0;
+            this.buttonSuaBenhAn.MarginTop = 0;
+            this.buttonSuaBenhAn.Name = "buttonSuaBenhAn";
+            this.buttonSuaBenhAn.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.buttonSuaBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonSuaBenhAn.PanelHeight = 45;
+            this.buttonSuaBenhAn.PanelWidth = 160;
+            this.buttonSuaBenhAn.Size = new System.Drawing.Size(70, 30);
+            this.buttonSuaBenhAn.TabIndex = 1;
+            this.buttonSuaBenhAn.Text = "SỬA";
+            this.buttonSuaBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaBenhAn.Click += new System.EventHandler(this.buttonSuaBenhAnClick);
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.Controls.Add(this.buttonThemBenhAn);
+            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(162, 0);
+            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(81, 45);
+            this.flowLayoutPanel7.TabIndex = 15;
+            // 
+            // buttonThemBenhAn
+            // 
+            this.buttonThemBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonThemBenhAn.BorderRadius = 20;
+            this.buttonThemBenhAn.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThemBenhAn.ForeColor = System.Drawing.Color.White;
+            this.buttonThemBenhAn.Location = new System.Drawing.Point(11, 5);
+            this.buttonThemBenhAn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.buttonThemBenhAn.MarginBottom = 0;
+            this.buttonThemBenhAn.MarginLeft = 0;
+            this.buttonThemBenhAn.MarginRight = 0;
+            this.buttonThemBenhAn.MarginTop = 0;
+            this.buttonThemBenhAn.Name = "buttonThemBenhAn";
+            this.buttonThemBenhAn.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.buttonThemBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonThemBenhAn.PanelHeight = 45;
+            this.buttonThemBenhAn.PanelWidth = 160;
+            this.buttonThemBenhAn.Size = new System.Drawing.Size(70, 30);
+            this.buttonThemBenhAn.TabIndex = 0;
+            this.buttonThemBenhAn.Text = "THÊM";
+            this.buttonThemBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemBenhAn.Click += new System.EventHandler(this.buttonThemBenhAnClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Roboto", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(162, 45);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Bệnh án";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel6
             // 
@@ -449,7 +503,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 45);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(430, 287);
+            this.panel6.Size = new System.Drawing.Size(324, 287);
             this.panel6.TabIndex = 0;
             // 
             // lableTextBox1
@@ -463,7 +517,7 @@
             this.lableTextBox1.Name = "lableTextBox1";
             this.lableTextBox1.PanelHeight = 60;
             this.lableTextBox1.PanelWidth = 200;
-            this.lableTextBox1.Size = new System.Drawing.Size(430, 83);
+            this.lableTextBox1.Size = new System.Drawing.Size(324, 83);
             this.lableTextBox1.TabIndex = 4;
             this.lableTextBox1.TextValue = "";
             // 
@@ -476,7 +530,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(430, 83);
+            this.label1.Size = new System.Drawing.Size(324, 83);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hồ sơ bệnh án";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -495,7 +549,7 @@
             this.benhAnForm.Name = "benhAnForm";
             this.benhAnForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.benhAnForm.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.benhAnForm.Size = new System.Drawing.Size(858, 667);
+            this.benhAnForm.Size = new System.Drawing.Size(764, 667);
             this.benhAnForm.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -526,7 +580,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(758, 667);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(664, 667);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // lblTxtMaBenhAn
@@ -540,7 +594,7 @@
             this.lblTxtMaBenhAn.Name = "lblTxtMaBenhAn";
             this.lblTxtMaBenhAn.PanelHeight = 60;
             this.lblTxtMaBenhAn.PanelWidth = 200;
-            this.lblTxtMaBenhAn.Size = new System.Drawing.Size(354, 83);
+            this.lblTxtMaBenhAn.Size = new System.Drawing.Size(307, 83);
             this.lblTxtMaBenhAn.TabIndex = 10;
             this.lblTxtMaBenhAn.TextValue = "";
             // 
@@ -549,7 +603,7 @@
             this.tableLayoutPanel17.ColumnCount = 1;
             this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel17, 3);
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel15, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.panel8, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 415);
@@ -559,20 +613,72 @@
             this.tableLayoutPanel5.SetRowSpan(this.tableLayoutPanel17, 2);
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(758, 166);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(664, 166);
             this.tableLayoutPanel17.TabIndex = 9;
+            // 
+            // tableLayoutPanel15
+            // 
+            this.tableLayoutPanel15.ColumnCount = 2;
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel15.Controls.Add(this.flowLayoutPanel6, 1, 0);
+            this.tableLayoutPanel15.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel15.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel15.Name = "tableLayoutPanel15";
+            this.tableLayoutPanel15.RowCount = 1;
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(664, 40);
+            this.tableLayoutPanel15.TabIndex = 3;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.buttonThemDonThuoc);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(398, 0);
+            this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(266, 40);
+            this.flowLayoutPanel6.TabIndex = 15;
+            // 
+            // buttonThemDonThuoc
+            // 
+            this.buttonThemDonThuoc.AutoSize = true;
+            this.buttonThemDonThuoc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonThemDonThuoc.BorderRadius = 20;
+            this.buttonThemDonThuoc.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonThemDonThuoc.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDonThuoc.Location = new System.Drawing.Point(196, 5);
+            this.buttonThemDonThuoc.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.buttonThemDonThuoc.MarginBottom = 0;
+            this.buttonThemDonThuoc.MarginLeft = 0;
+            this.buttonThemDonThuoc.MarginRight = 0;
+            this.buttonThemDonThuoc.MarginTop = 0;
+            this.buttonThemDonThuoc.Name = "buttonThemDonThuoc";
+            this.buttonThemDonThuoc.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.buttonThemDonThuoc.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonThemDonThuoc.PanelHeight = 45;
+            this.buttonThemDonThuoc.PanelWidth = 160;
+            this.buttonThemDonThuoc.Size = new System.Drawing.Size(70, 28);
+            this.buttonThemDonThuoc.TabIndex = 0;
+            this.buttonThemDonThuoc.Text = "Thêm";
+            this.buttonThemDonThuoc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemDonThuoc.Click += new System.EventHandler(this.buttonThemDonThuocClick);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Roboto", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
             this.label10.Location = new System.Drawing.Point(0, 0);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(758, 40);
-            this.label10.TabIndex = 1;
+            this.label10.Size = new System.Drawing.Size(398, 40);
+            this.label10.TabIndex = 14;
             this.label10.Text = "Đơn thuốc";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -583,38 +689,90 @@
             this.panel8.Location = new System.Drawing.Point(0, 40);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(758, 126);
+            this.panel8.Size = new System.Drawing.Size(664, 126);
             this.panel8.TabIndex = 2;
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel14, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.panel7, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(404, 249);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(357, 249);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel5.SetRowSpan(this.tableLayoutPanel10, 2);
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(354, 166);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(307, 166);
             this.tableLayoutPanel10.TabIndex = 8;
+            // 
+            // tableLayoutPanel14
+            // 
+            this.tableLayoutPanel14.ColumnCount = 2;
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel14.Controls.Add(this.flowLayoutPanel5, 1, 0);
+            this.tableLayoutPanel14.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel14.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
+            this.tableLayoutPanel14.RowCount = 1;
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(307, 40);
+            this.tableLayoutPanel14.TabIndex = 3;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.buttonChonDichVu);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(184, 0);
+            this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(123, 40);
+            this.flowLayoutPanel5.TabIndex = 14;
+            // 
+            // buttonChonDichVu
+            // 
+            this.buttonChonDichVu.AutoSize = true;
+            this.buttonChonDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonChonDichVu.BorderRadius = 20;
+            this.buttonChonDichVu.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChonDichVu.ForeColor = System.Drawing.Color.White;
+            this.buttonChonDichVu.Location = new System.Drawing.Point(56, 5);
+            this.buttonChonDichVu.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.buttonChonDichVu.MarginBottom = 0;
+            this.buttonChonDichVu.MarginLeft = 0;
+            this.buttonChonDichVu.MarginRight = 0;
+            this.buttonChonDichVu.MarginTop = 0;
+            this.buttonChonDichVu.Name = "buttonChonDichVu";
+            this.buttonChonDichVu.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.buttonChonDichVu.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonChonDichVu.PanelHeight = 45;
+            this.buttonChonDichVu.PanelWidth = 160;
+            this.buttonChonDichVu.Size = new System.Drawing.Size(67, 28);
+            this.buttonChonDichVu.TabIndex = 0;
+            this.buttonChonDichVu.Text = "Chọn";
+            this.buttonChonDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonChonDichVu.Click += new System.EventHandler(this.buttonChonDichVuClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Roboto", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
             this.label9.Location = new System.Drawing.Point(0, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(354, 40);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Dịch vụ đã sử dụng";
+            this.label9.Size = new System.Drawing.Size(184, 40);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Dịch vụ sử dụng";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel7
@@ -624,15 +782,15 @@
             this.panel7.Location = new System.Drawing.Point(0, 40);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(354, 126);
+            this.panel7.Size = new System.Drawing.Size(307, 126);
             this.panel7.TabIndex = 2;
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel5, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel13, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 249);
             this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
@@ -641,22 +799,8 @@
             this.tableLayoutPanel5.SetRowSpan(this.tableLayoutPanel8, 2);
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(354, 166);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(307, 166);
             this.tableLayoutPanel8.TabIndex = 7;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
-            this.label8.Location = new System.Drawing.Point(0, 0);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(354, 40);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Các chẩn đoán";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel5
             // 
@@ -665,8 +809,74 @@
             this.panel5.Location = new System.Drawing.Point(0, 40);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(354, 126);
+            this.panel5.Size = new System.Drawing.Size(307, 126);
             this.panel5.TabIndex = 1;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.ColumnCount = 2;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel13.Controls.Add(this.flowLayoutPanel4, 1, 0);
+            this.tableLayoutPanel13.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(307, 40);
+            this.tableLayoutPanel13.TabIndex = 2;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.buttonChonChanDoan);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(153, 0);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(154, 40);
+            this.flowLayoutPanel4.TabIndex = 14;
+            // 
+            // buttonChonChanDoan
+            // 
+            this.buttonChonChanDoan.AutoSize = true;
+            this.buttonChonChanDoan.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonChonChanDoan.BorderRadius = 20;
+            this.buttonChonChanDoan.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChonChanDoan.ForeColor = System.Drawing.Color.White;
+            this.buttonChonChanDoan.Location = new System.Drawing.Point(87, 5);
+            this.buttonChonChanDoan.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.buttonChonChanDoan.MarginBottom = 0;
+            this.buttonChonChanDoan.MarginLeft = 0;
+            this.buttonChonChanDoan.MarginRight = 0;
+            this.buttonChonChanDoan.MarginTop = 0;
+            this.buttonChonChanDoan.Name = "buttonChonChanDoan";
+            this.buttonChonChanDoan.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.buttonChonChanDoan.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonChonChanDoan.PanelHeight = 45;
+            this.buttonChonChanDoan.PanelWidth = 160;
+            this.buttonChonChanDoan.Size = new System.Drawing.Size(67, 28);
+            this.buttonChonChanDoan.TabIndex = 0;
+            this.buttonChonChanDoan.Text = "Chọn";
+            this.buttonChonChanDoan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonChonChanDoan.Click += new System.EventHandler(this.buttonChonChanDoanClick);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.Font = new System.Drawing.Font("Roboto", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(153, 40);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Chẩn đoán";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lableTextBox3
             // 
@@ -674,12 +884,12 @@
             this.lableTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lableTextBox3.IsPassword = false;
             this.lableTextBox3.LabelText = "Bác sĩ phụ trách";
-            this.lableTextBox3.Location = new System.Drawing.Point(404, 83);
+            this.lableTextBox3.Location = new System.Drawing.Point(357, 83);
             this.lableTextBox3.Margin = new System.Windows.Forms.Padding(0);
             this.lableTextBox3.Name = "lableTextBox3";
             this.lableTextBox3.PanelHeight = 60;
             this.lableTextBox3.PanelWidth = 200;
-            this.lableTextBox3.Size = new System.Drawing.Size(354, 83);
+            this.lableTextBox3.Size = new System.Drawing.Size(307, 83);
             this.lableTextBox3.TabIndex = 6;
             this.lableTextBox3.TextValue = "";
             // 
@@ -695,15 +905,15 @@
             this.lableTextBox2.Name = "lableTextBox2";
             this.lableTextBox2.PanelHeight = 60;
             this.lableTextBox2.PanelWidth = 200;
-            this.lableTextBox2.Size = new System.Drawing.Size(758, 83);
+            this.lableTextBox2.Size = new System.Drawing.Size(664, 83);
             this.lableTextBox2.TabIndex = 5;
             this.lableTextBox2.TextValue = "";
             // 
             // flowLayoutPanel1
             // 
             this.tableLayoutPanel5.SetColumnSpan(this.flowLayoutPanel1, 3);
-            this.flowLayoutPanel1.Controls.Add(this.lblXacNhanBenhAn);
-            this.flowLayoutPanel1.Controls.Add(this.lblHuyBenhAn);
+            this.flowLayoutPanel1.Controls.Add(this.buttonXacNhanBenhAn);
+            this.flowLayoutPanel1.Controls.Add(this.buttonHuyBenhAn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 581);
@@ -711,50 +921,52 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(758, 86);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(664, 86);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // lblXacNhanBenhAn
+            // buttonXacNhanBenhAn
             // 
-            this.lblXacNhanBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblXacNhanBenhAn.BorderRadius = 20;
-            this.lblXacNhanBenhAn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblXacNhanBenhAn.ForeColor = System.Drawing.Color.White;
-            this.lblXacNhanBenhAn.Location = new System.Drawing.Point(618, 10);
-            this.lblXacNhanBenhAn.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblXacNhanBenhAn.MarginBottom = 0;
-            this.lblXacNhanBenhAn.MarginLeft = 0;
-            this.lblXacNhanBenhAn.MarginRight = 0;
-            this.lblXacNhanBenhAn.MarginTop = 0;
-            this.lblXacNhanBenhAn.Name = "lblXacNhanBenhAn";
-            this.lblXacNhanBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.lblXacNhanBenhAn.PanelHeight = 50;
-            this.lblXacNhanBenhAn.PanelWidth = 140;
-            this.lblXacNhanBenhAn.Size = new System.Drawing.Size(140, 45);
-            this.lblXacNhanBenhAn.TabIndex = 1;
-            this.lblXacNhanBenhAn.Text = "Xác nhận";
-            this.lblXacNhanBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXacNhanBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonXacNhanBenhAn.BorderRadius = 20;
+            this.buttonXacNhanBenhAn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanBenhAn.ForeColor = System.Drawing.Color.White;
+            this.buttonXacNhanBenhAn.Location = new System.Drawing.Point(524, 10);
+            this.buttonXacNhanBenhAn.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonXacNhanBenhAn.MarginBottom = 0;
+            this.buttonXacNhanBenhAn.MarginLeft = 0;
+            this.buttonXacNhanBenhAn.MarginRight = 0;
+            this.buttonXacNhanBenhAn.MarginTop = 0;
+            this.buttonXacNhanBenhAn.Name = "buttonXacNhanBenhAn";
+            this.buttonXacNhanBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonXacNhanBenhAn.PanelHeight = 50;
+            this.buttonXacNhanBenhAn.PanelWidth = 140;
+            this.buttonXacNhanBenhAn.Size = new System.Drawing.Size(140, 45);
+            this.buttonXacNhanBenhAn.TabIndex = 1;
+            this.buttonXacNhanBenhAn.Text = "Xác nhận";
+            this.buttonXacNhanBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXacNhanBenhAn.Click += new System.EventHandler(this.buttonXacNhanBenhAnClick);
             // 
-            // lblHuyBenhAn
+            // buttonHuyBenhAn
             // 
-            this.lblHuyBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblHuyBenhAn.BorderRadius = 20;
-            this.lblHuyBenhAn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblHuyBenhAn.ForeColor = System.Drawing.Color.White;
-            this.lblHuyBenhAn.Location = new System.Drawing.Point(458, 10);
-            this.lblHuyBenhAn.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.lblHuyBenhAn.MarginBottom = 0;
-            this.lblHuyBenhAn.MarginLeft = 0;
-            this.lblHuyBenhAn.MarginRight = 0;
-            this.lblHuyBenhAn.MarginTop = 0;
-            this.lblHuyBenhAn.Name = "lblHuyBenhAn";
-            this.lblHuyBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
-            this.lblHuyBenhAn.PanelHeight = 50;
-            this.lblHuyBenhAn.PanelWidth = 180;
-            this.lblHuyBenhAn.Size = new System.Drawing.Size(140, 45);
-            this.lblHuyBenhAn.TabIndex = 0;
-            this.lblHuyBenhAn.Text = "Hủy";
-            this.lblHuyBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHuyBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonHuyBenhAn.BorderRadius = 20;
+            this.buttonHuyBenhAn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyBenhAn.ForeColor = System.Drawing.Color.White;
+            this.buttonHuyBenhAn.Location = new System.Drawing.Point(364, 10);
+            this.buttonHuyBenhAn.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.buttonHuyBenhAn.MarginBottom = 0;
+            this.buttonHuyBenhAn.MarginLeft = 0;
+            this.buttonHuyBenhAn.MarginRight = 0;
+            this.buttonHuyBenhAn.MarginTop = 0;
+            this.buttonHuyBenhAn.Name = "buttonHuyBenhAn";
+            this.buttonHuyBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
+            this.buttonHuyBenhAn.PanelHeight = 50;
+            this.buttonHuyBenhAn.PanelWidth = 180;
+            this.buttonHuyBenhAn.Size = new System.Drawing.Size(140, 45);
+            this.buttonHuyBenhAn.TabIndex = 0;
+            this.buttonHuyBenhAn.Text = "Hủy";
+            this.buttonHuyBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHuyBenhAn.Click += new System.EventHandler(this.buttonHuyBenhAnClick);
             // 
             // label2
             // 
@@ -766,7 +978,7 @@
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(758, 83);
+            this.label2.Size = new System.Drawing.Size(664, 83);
             this.label2.TabIndex = 0;
             this.label2.Text = "Bệnh án";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -777,7 +989,7 @@
             this.tabPageBenh.Controls.Add(this.splitContainer2);
             this.tabPageBenh.Location = new System.Drawing.Point(4, 49);
             this.tabPageBenh.Name = "tabPageBenh";
-            this.tabPageBenh.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageBenh.Size = new System.Drawing.Size(1392, 767);
             this.tabPageBenh.TabIndex = 2;
             this.tabPageBenh.Text = "Bệnh";
             // 
@@ -796,8 +1008,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer2.Panel2.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainer2.Size = new System.Drawing.Size(1592, 767);
-            this.splitContainer2.SplitterDistance = 630;
+            this.splitContainer2.Size = new System.Drawing.Size(1392, 767);
+            this.splitContainer2.SplitterDistance = 550;
             this.splitContainer2.TabIndex = 0;
             // 
             // benhForm
@@ -815,7 +1027,7 @@
             this.benhForm.Name = "benhForm";
             this.benhForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.benhForm.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.benhForm.Size = new System.Drawing.Size(530, 667);
+            this.benhForm.Size = new System.Drawing.Size(450, 667);
             this.benhForm.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -840,7 +1052,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(430, 667);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(350, 667);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // lblTxtMaBenh
@@ -854,7 +1066,7 @@
             this.lblTxtMaBenh.Name = "lblTxtMaBenh";
             this.lblTxtMaBenh.PanelHeight = 60;
             this.lblTxtMaBenh.PanelWidth = 200;
-            this.lblTxtMaBenh.Size = new System.Drawing.Size(430, 83);
+            this.lblTxtMaBenh.Size = new System.Drawing.Size(350, 83);
             this.lblTxtMaBenh.TabIndex = 8;
             this.lblTxtMaBenh.TextValue = "";
             // 
@@ -869,7 +1081,7 @@
             this.lableTextBox5.Name = "lableTextBox5";
             this.lableTextBox5.PanelHeight = 60;
             this.lableTextBox5.PanelWidth = 200;
-            this.lableTextBox5.Size = new System.Drawing.Size(430, 83);
+            this.lableTextBox5.Size = new System.Drawing.Size(350, 83);
             this.lableTextBox5.TabIndex = 7;
             this.lableTextBox5.TextValue = "";
             // 
@@ -884,14 +1096,14 @@
             this.lableTextBox4.Name = "lableTextBox4";
             this.lableTextBox4.PanelHeight = 60;
             this.lableTextBox4.PanelWidth = 200;
-            this.lableTextBox4.Size = new System.Drawing.Size(430, 83);
+            this.lableTextBox4.Size = new System.Drawing.Size(350, 83);
             this.lableTextBox4.TabIndex = 6;
             this.lableTextBox4.TextValue = "";
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.lblXacNhanBenh);
-            this.flowLayoutPanel2.Controls.Add(this.lblHuyBenh);
+            this.flowLayoutPanel2.Controls.Add(this.buttonXacNhanBenh);
+            this.flowLayoutPanel2.Controls.Add(this.buttonHuyBenh);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 581);
@@ -899,50 +1111,52 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(430, 86);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(350, 86);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
-            // lblXacNhanBenh
+            // buttonXacNhanBenh
             // 
-            this.lblXacNhanBenh.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblXacNhanBenh.BorderRadius = 20;
-            this.lblXacNhanBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblXacNhanBenh.ForeColor = System.Drawing.Color.White;
-            this.lblXacNhanBenh.Location = new System.Drawing.Point(290, 10);
-            this.lblXacNhanBenh.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblXacNhanBenh.MarginBottom = 0;
-            this.lblXacNhanBenh.MarginLeft = 0;
-            this.lblXacNhanBenh.MarginRight = 0;
-            this.lblXacNhanBenh.MarginTop = 0;
-            this.lblXacNhanBenh.Name = "lblXacNhanBenh";
-            this.lblXacNhanBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.lblXacNhanBenh.PanelHeight = 50;
-            this.lblXacNhanBenh.PanelWidth = 180;
-            this.lblXacNhanBenh.Size = new System.Drawing.Size(140, 45);
-            this.lblXacNhanBenh.TabIndex = 1;
-            this.lblXacNhanBenh.Text = "Xác nhận";
-            this.lblXacNhanBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXacNhanBenh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonXacNhanBenh.BorderRadius = 20;
+            this.buttonXacNhanBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanBenh.ForeColor = System.Drawing.Color.White;
+            this.buttonXacNhanBenh.Location = new System.Drawing.Point(210, 10);
+            this.buttonXacNhanBenh.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonXacNhanBenh.MarginBottom = 0;
+            this.buttonXacNhanBenh.MarginLeft = 0;
+            this.buttonXacNhanBenh.MarginRight = 0;
+            this.buttonXacNhanBenh.MarginTop = 0;
+            this.buttonXacNhanBenh.Name = "buttonXacNhanBenh";
+            this.buttonXacNhanBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonXacNhanBenh.PanelHeight = 50;
+            this.buttonXacNhanBenh.PanelWidth = 180;
+            this.buttonXacNhanBenh.Size = new System.Drawing.Size(140, 45);
+            this.buttonXacNhanBenh.TabIndex = 1;
+            this.buttonXacNhanBenh.Text = "Xác nhận";
+            this.buttonXacNhanBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXacNhanBenh.Click += new System.EventHandler(this.buttonXacNhanBenhClick);
             // 
-            // lblHuyBenh
+            // buttonHuyBenh
             // 
-            this.lblHuyBenh.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblHuyBenh.BorderRadius = 20;
-            this.lblHuyBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblHuyBenh.ForeColor = System.Drawing.Color.White;
-            this.lblHuyBenh.Location = new System.Drawing.Point(130, 10);
-            this.lblHuyBenh.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.lblHuyBenh.MarginBottom = 0;
-            this.lblHuyBenh.MarginLeft = 0;
-            this.lblHuyBenh.MarginRight = 0;
-            this.lblHuyBenh.MarginTop = 0;
-            this.lblHuyBenh.Name = "lblHuyBenh";
-            this.lblHuyBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
-            this.lblHuyBenh.PanelHeight = 50;
-            this.lblHuyBenh.PanelWidth = 180;
-            this.lblHuyBenh.Size = new System.Drawing.Size(140, 45);
-            this.lblHuyBenh.TabIndex = 0;
-            this.lblHuyBenh.Text = "Hủy";
-            this.lblHuyBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHuyBenh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonHuyBenh.BorderRadius = 20;
+            this.buttonHuyBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyBenh.ForeColor = System.Drawing.Color.White;
+            this.buttonHuyBenh.Location = new System.Drawing.Point(50, 10);
+            this.buttonHuyBenh.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.buttonHuyBenh.MarginBottom = 0;
+            this.buttonHuyBenh.MarginLeft = 0;
+            this.buttonHuyBenh.MarginRight = 0;
+            this.buttonHuyBenh.MarginTop = 0;
+            this.buttonHuyBenh.Name = "buttonHuyBenh";
+            this.buttonHuyBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
+            this.buttonHuyBenh.PanelHeight = 50;
+            this.buttonHuyBenh.PanelWidth = 180;
+            this.buttonHuyBenh.Size = new System.Drawing.Size(140, 45);
+            this.buttonHuyBenh.TabIndex = 0;
+            this.buttonHuyBenh.Text = "Hủy";
+            this.buttonHuyBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHuyBenh.Click += new System.EventHandler(this.buttonHuyBenhClick);
             // 
             // label3
             // 
@@ -953,7 +1167,7 @@
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(430, 83);
+            this.label3.Size = new System.Drawing.Size(350, 83);
             this.label3.TabIndex = 0;
             this.label3.Text = "Bệnh";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -973,7 +1187,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(858, 667);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(738, 667);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel11
@@ -986,9 +1200,9 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel11.Controls.Add(this.roundedLabel1, 6, 0);
-            this.tableLayoutPanel11.Controls.Add(this.roundedLabel2, 4, 0);
-            this.tableLayoutPanel11.Controls.Add(this.roundedLabel3, 2, 0);
+            this.tableLayoutPanel11.Controls.Add(this.buttonXoaBenh, 6, 0);
+            this.tableLayoutPanel11.Controls.Add(this.buttonSuaBenh, 4, 0);
+            this.tableLayoutPanel11.Controls.Add(this.buttonThemBenh, 2, 0);
             this.tableLayoutPanel11.Controls.Add(this.searchBar2, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
@@ -997,90 +1211,93 @@
             this.tableLayoutPanel11.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(858, 66);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(738, 66);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
-            // roundedLabel1
+            // buttonXoaBenh
             // 
-            this.roundedLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel1.BorderRadius = 20;
-            this.roundedLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel1.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel1.Location = new System.Drawing.Point(738, 0);
-            this.roundedLabel1.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel1.MarginBottom = 0;
-            this.roundedLabel1.MarginLeft = 0;
-            this.roundedLabel1.MarginRight = 0;
-            this.roundedLabel1.MarginTop = 0;
-            this.roundedLabel1.Name = "roundedLabel1";
-            this.roundedLabel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel1.PanelHeight = 45;
-            this.roundedLabel1.PanelWidth = 160;
-            this.roundedLabel1.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel1.TabIndex = 4;
-            this.roundedLabel1.Text = "XÓA";
-            this.roundedLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXoaBenh.BackColor = System.Drawing.Color.White;
+            this.buttonXoaBenh.BorderRadius = 20;
+            this.buttonXoaBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonXoaBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaBenh.ForeColor = System.Drawing.Color.White;
+            this.buttonXoaBenh.Location = new System.Drawing.Point(618, 0);
+            this.buttonXoaBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonXoaBenh.MarginBottom = 0;
+            this.buttonXoaBenh.MarginLeft = 0;
+            this.buttonXoaBenh.MarginRight = 0;
+            this.buttonXoaBenh.MarginTop = 0;
+            this.buttonXoaBenh.Name = "buttonXoaBenh";
+            this.buttonXoaBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonXoaBenh.PanelHeight = 45;
+            this.buttonXoaBenh.PanelWidth = 160;
+            this.buttonXoaBenh.Size = new System.Drawing.Size(120, 36);
+            this.buttonXoaBenh.TabIndex = 4;
+            this.buttonXoaBenh.Text = "XÓA";
+            this.buttonXoaBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXoaBenh.Click += new System.EventHandler(this.buttonXoaBenhClick);
             // 
-            // roundedLabel2
+            // buttonSuaBenh
             // 
-            this.roundedLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel2.BorderRadius = 20;
-            this.roundedLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel2.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel2.Location = new System.Drawing.Point(608, 0);
-            this.roundedLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel2.MarginBottom = 0;
-            this.roundedLabel2.MarginLeft = 0;
-            this.roundedLabel2.MarginRight = 0;
-            this.roundedLabel2.MarginTop = 0;
-            this.roundedLabel2.Name = "roundedLabel2";
-            this.roundedLabel2.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel2.PanelHeight = 45;
-            this.roundedLabel2.PanelWidth = 160;
-            this.roundedLabel2.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel2.TabIndex = 3;
-            this.roundedLabel2.Text = "SỬA";
-            this.roundedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaBenh.BackColor = System.Drawing.Color.White;
+            this.buttonSuaBenh.BorderRadius = 20;
+            this.buttonSuaBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSuaBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaBenh.ForeColor = System.Drawing.Color.White;
+            this.buttonSuaBenh.Location = new System.Drawing.Point(488, 0);
+            this.buttonSuaBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSuaBenh.MarginBottom = 0;
+            this.buttonSuaBenh.MarginLeft = 0;
+            this.buttonSuaBenh.MarginRight = 0;
+            this.buttonSuaBenh.MarginTop = 0;
+            this.buttonSuaBenh.Name = "buttonSuaBenh";
+            this.buttonSuaBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonSuaBenh.PanelHeight = 45;
+            this.buttonSuaBenh.PanelWidth = 160;
+            this.buttonSuaBenh.Size = new System.Drawing.Size(120, 36);
+            this.buttonSuaBenh.TabIndex = 3;
+            this.buttonSuaBenh.Text = "SỬA";
+            this.buttonSuaBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaBenh.Click += new System.EventHandler(this.buttonSuaBenhClick);
             // 
-            // roundedLabel3
+            // buttonThemBenh
             // 
-            this.roundedLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel3.BorderRadius = 20;
-            this.roundedLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel3.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel3.Location = new System.Drawing.Point(478, 0);
-            this.roundedLabel3.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel3.MarginBottom = 0;
-            this.roundedLabel3.MarginLeft = 0;
-            this.roundedLabel3.MarginRight = 0;
-            this.roundedLabel3.MarginTop = 0;
-            this.roundedLabel3.Name = "roundedLabel3";
-            this.roundedLabel3.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel3.PanelHeight = 45;
-            this.roundedLabel3.PanelWidth = 160;
-            this.roundedLabel3.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel3.TabIndex = 2;
-            this.roundedLabel3.Text = "THÊM";
-            this.roundedLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemBenh.BackColor = System.Drawing.Color.White;
+            this.buttonThemBenh.BorderRadius = 20;
+            this.buttonThemBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonThemBenh.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonThemBenh.ForeColor = System.Drawing.Color.White;
+            this.buttonThemBenh.Location = new System.Drawing.Point(358, 0);
+            this.buttonThemBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonThemBenh.MarginBottom = 0;
+            this.buttonThemBenh.MarginLeft = 0;
+            this.buttonThemBenh.MarginRight = 0;
+            this.buttonThemBenh.MarginTop = 0;
+            this.buttonThemBenh.Name = "buttonThemBenh";
+            this.buttonThemBenh.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonThemBenh.PanelHeight = 45;
+            this.buttonThemBenh.PanelWidth = 160;
+            this.buttonThemBenh.Size = new System.Drawing.Size(120, 36);
+            this.buttonThemBenh.TabIndex = 2;
+            this.buttonThemBenh.Text = "THÊM";
+            this.buttonThemBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemBenh.Click += new System.EventHandler(this.buttonThemBenhClick);
             // 
             // searchBar2
             // 
-            this.searchBar2.BackColor = System.Drawing.Color.Transparent;
+            this.searchBar2.BackColor = System.Drawing.Color.White;
             this.searchBar2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchBar2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.searchBar2.Location = new System.Drawing.Point(0, 0);
             this.searchBar2.Margin = new System.Windows.Forms.Padding(0);
             this.searchBar2.Name = "searchBar2";
             this.searchBar2.SearchText = "";
-            this.searchBar2.Size = new System.Drawing.Size(448, 36);
+            this.searchBar2.Size = new System.Drawing.Size(328, 36);
             this.searchBar2.TabIndex = 0;
             // 
             // benhPanel
             // 
-            this.benhPanel.BackColor = System.Drawing.Color.Transparent;
+            this.benhPanel.BackColor = System.Drawing.Color.White;
             this.benhPanel.BorderRadius = 40;
             this.benhPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.benhPanel.Location = new System.Drawing.Point(0, 66);
@@ -1091,7 +1308,7 @@
             this.benhPanel.MarginTop = 30;
             this.benhPanel.Name = "benhPanel";
             this.benhPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.benhPanel.Size = new System.Drawing.Size(858, 601);
+            this.benhPanel.Size = new System.Drawing.Size(738, 601);
             this.benhPanel.TabIndex = 0;
             // 
             // tabPageDuocPham
@@ -1100,7 +1317,7 @@
             this.tabPageDuocPham.Controls.Add(this.splitContainerDuocPham);
             this.tabPageDuocPham.Location = new System.Drawing.Point(4, 49);
             this.tabPageDuocPham.Name = "tabPageDuocPham";
-            this.tabPageDuocPham.Size = new System.Drawing.Size(1592, 767);
+            this.tabPageDuocPham.Size = new System.Drawing.Size(1392, 767);
             this.tabPageDuocPham.TabIndex = 3;
             this.tabPageDuocPham.Text = "Dược phẩm";
             // 
@@ -1120,8 +1337,8 @@
             // 
             this.splitContainerDuocPham.Panel2.Controls.Add(this.tableLayoutPanel3);
             this.splitContainerDuocPham.Panel2.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainerDuocPham.Size = new System.Drawing.Size(1592, 767);
-            this.splitContainerDuocPham.SplitterDistance = 630;
+            this.splitContainerDuocPham.Size = new System.Drawing.Size(1392, 767);
+            this.splitContainerDuocPham.SplitterDistance = 550;
             this.splitContainerDuocPham.TabIndex = 0;
             // 
             // duocPhamForm
@@ -1138,7 +1355,7 @@
             this.duocPhamForm.Name = "duocPhamForm";
             this.duocPhamForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.duocPhamForm.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.duocPhamForm.Size = new System.Drawing.Size(530, 667);
+            this.duocPhamForm.Size = new System.Drawing.Size(450, 667);
             this.duocPhamForm.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -1163,7 +1380,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(430, 667);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(350, 667);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // lblTxtMaDuocPham
@@ -1177,7 +1394,7 @@
             this.lblTxtMaDuocPham.Name = "lblTxtMaDuocPham";
             this.lblTxtMaDuocPham.PanelHeight = 60;
             this.lblTxtMaDuocPham.PanelWidth = 200;
-            this.lblTxtMaDuocPham.Size = new System.Drawing.Size(430, 83);
+            this.lblTxtMaDuocPham.Size = new System.Drawing.Size(350, 83);
             this.lblTxtMaDuocPham.TabIndex = 8;
             this.lblTxtMaDuocPham.TextValue = "";
             // 
@@ -1191,7 +1408,7 @@
             this.comboBoxLoaiDuocPham.Name = "comboBoxLoaiDuocPham";
             this.comboBoxLoaiDuocPham.PanelHeight = 100;
             this.comboBoxLoaiDuocPham.PanelWidth = 200;
-            this.comboBoxLoaiDuocPham.Size = new System.Drawing.Size(430, 83);
+            this.comboBoxLoaiDuocPham.Size = new System.Drawing.Size(350, 83);
             this.comboBoxLoaiDuocPham.TabIndex = 7;
             this.comboBoxLoaiDuocPham.TextValue = "";
             this.comboBoxLoaiDuocPham.Paint += new System.Windows.Forms.PaintEventHandler(this.ComboBoxLoaiDuocPhamLoad);
@@ -1207,14 +1424,14 @@
             this.lableTextBox6.Name = "lableTextBox6";
             this.lableTextBox6.PanelHeight = 60;
             this.lableTextBox6.PanelWidth = 200;
-            this.lableTextBox6.Size = new System.Drawing.Size(430, 83);
+            this.lableTextBox6.Size = new System.Drawing.Size(350, 83);
             this.lableTextBox6.TabIndex = 6;
             this.lableTextBox6.TextValue = "";
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.lblXacNhanDuocPham);
-            this.flowLayoutPanel3.Controls.Add(this.lblHuyDuocPham);
+            this.flowLayoutPanel3.Controls.Add(this.buttonXacNhanDuocPham);
+            this.flowLayoutPanel3.Controls.Add(this.buttonHuyDuocPham);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 581);
@@ -1222,50 +1439,52 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flowLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(430, 86);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(350, 86);
             this.flowLayoutPanel3.TabIndex = 5;
             // 
-            // lblXacNhanDuocPham
+            // buttonXacNhanDuocPham
             // 
-            this.lblXacNhanDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblXacNhanDuocPham.BorderRadius = 20;
-            this.lblXacNhanDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblXacNhanDuocPham.ForeColor = System.Drawing.Color.White;
-            this.lblXacNhanDuocPham.Location = new System.Drawing.Point(290, 10);
-            this.lblXacNhanDuocPham.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.lblXacNhanDuocPham.MarginBottom = 0;
-            this.lblXacNhanDuocPham.MarginLeft = 0;
-            this.lblXacNhanDuocPham.MarginRight = 0;
-            this.lblXacNhanDuocPham.MarginTop = 0;
-            this.lblXacNhanDuocPham.Name = "lblXacNhanDuocPham";
-            this.lblXacNhanDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.lblXacNhanDuocPham.PanelHeight = 50;
-            this.lblXacNhanDuocPham.PanelWidth = 180;
-            this.lblXacNhanDuocPham.Size = new System.Drawing.Size(140, 45);
-            this.lblXacNhanDuocPham.TabIndex = 1;
-            this.lblXacNhanDuocPham.Text = "Xác nhận";
-            this.lblXacNhanDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXacNhanDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonXacNhanDuocPham.BorderRadius = 20;
+            this.buttonXacNhanDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanDuocPham.ForeColor = System.Drawing.Color.White;
+            this.buttonXacNhanDuocPham.Location = new System.Drawing.Point(210, 10);
+            this.buttonXacNhanDuocPham.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonXacNhanDuocPham.MarginBottom = 0;
+            this.buttonXacNhanDuocPham.MarginLeft = 0;
+            this.buttonXacNhanDuocPham.MarginRight = 0;
+            this.buttonXacNhanDuocPham.MarginTop = 0;
+            this.buttonXacNhanDuocPham.Name = "buttonXacNhanDuocPham";
+            this.buttonXacNhanDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonXacNhanDuocPham.PanelHeight = 50;
+            this.buttonXacNhanDuocPham.PanelWidth = 180;
+            this.buttonXacNhanDuocPham.Size = new System.Drawing.Size(140, 45);
+            this.buttonXacNhanDuocPham.TabIndex = 1;
+            this.buttonXacNhanDuocPham.Text = "Xác nhận";
+            this.buttonXacNhanDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXacNhanDuocPham.Click += new System.EventHandler(this.buttonXacNhanDuocPhamClick);
             // 
-            // lblHuyDuocPham
+            // buttonHuyDuocPham
             // 
-            this.lblHuyDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblHuyDuocPham.BorderRadius = 20;
-            this.lblHuyDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.lblHuyDuocPham.ForeColor = System.Drawing.Color.White;
-            this.lblHuyDuocPham.Location = new System.Drawing.Point(130, 10);
-            this.lblHuyDuocPham.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.lblHuyDuocPham.MarginBottom = 0;
-            this.lblHuyDuocPham.MarginLeft = 0;
-            this.lblHuyDuocPham.MarginRight = 0;
-            this.lblHuyDuocPham.MarginTop = 0;
-            this.lblHuyDuocPham.Name = "lblHuyDuocPham";
-            this.lblHuyDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
-            this.lblHuyDuocPham.PanelHeight = 50;
-            this.lblHuyDuocPham.PanelWidth = 180;
-            this.lblHuyDuocPham.Size = new System.Drawing.Size(140, 45);
-            this.lblHuyDuocPham.TabIndex = 0;
-            this.lblHuyDuocPham.Text = "Hủy";
-            this.lblHuyDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHuyDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonHuyDuocPham.BorderRadius = 20;
+            this.buttonHuyDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyDuocPham.ForeColor = System.Drawing.Color.White;
+            this.buttonHuyDuocPham.Location = new System.Drawing.Point(50, 10);
+            this.buttonHuyDuocPham.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.buttonHuyDuocPham.MarginBottom = 0;
+            this.buttonHuyDuocPham.MarginLeft = 0;
+            this.buttonHuyDuocPham.MarginRight = 0;
+            this.buttonHuyDuocPham.MarginTop = 0;
+            this.buttonHuyDuocPham.Name = "buttonHuyDuocPham";
+            this.buttonHuyDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
+            this.buttonHuyDuocPham.PanelHeight = 50;
+            this.buttonHuyDuocPham.PanelWidth = 180;
+            this.buttonHuyDuocPham.Size = new System.Drawing.Size(140, 45);
+            this.buttonHuyDuocPham.TabIndex = 0;
+            this.buttonHuyDuocPham.Text = "Hủy";
+            this.buttonHuyDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonHuyDuocPham.Click += new System.EventHandler(this.buttonHuyDuocPhamClick);
             // 
             // label4
             // 
@@ -1277,7 +1496,7 @@
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(430, 83);
+            this.label4.Size = new System.Drawing.Size(350, 83);
             this.label4.TabIndex = 0;
             this.label4.Text = "Dược phẩm";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1296,7 +1515,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(858, 667);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(738, 667);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel12
@@ -1309,9 +1528,9 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel12.Controls.Add(this.roundedLabel4, 6, 0);
-            this.tableLayoutPanel12.Controls.Add(this.roundedLabel8, 4, 0);
-            this.tableLayoutPanel12.Controls.Add(this.roundedLabel9, 2, 0);
+            this.tableLayoutPanel12.Controls.Add(this.buttonXoaDuocPham, 6, 0);
+            this.tableLayoutPanel12.Controls.Add(this.buttonSuaDuocPham, 4, 0);
+            this.tableLayoutPanel12.Controls.Add(this.buttonThemDuocPham, 2, 0);
             this.tableLayoutPanel12.Controls.Add(this.searchBar3, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
@@ -1320,90 +1539,93 @@
             this.tableLayoutPanel12.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(858, 66);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(738, 66);
             this.tableLayoutPanel12.TabIndex = 3;
             // 
-            // roundedLabel4
+            // buttonXoaDuocPham
             // 
-            this.roundedLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel4.BorderRadius = 20;
-            this.roundedLabel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel4.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel4.Location = new System.Drawing.Point(738, 0);
-            this.roundedLabel4.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel4.MarginBottom = 0;
-            this.roundedLabel4.MarginLeft = 0;
-            this.roundedLabel4.MarginRight = 0;
-            this.roundedLabel4.MarginTop = 0;
-            this.roundedLabel4.Name = "roundedLabel4";
-            this.roundedLabel4.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel4.PanelHeight = 45;
-            this.roundedLabel4.PanelWidth = 160;
-            this.roundedLabel4.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel4.TabIndex = 4;
-            this.roundedLabel4.Text = "XÓA";
-            this.roundedLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXoaDuocPham.BackColor = System.Drawing.Color.White;
+            this.buttonXoaDuocPham.BorderRadius = 20;
+            this.buttonXoaDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonXoaDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaDuocPham.ForeColor = System.Drawing.Color.White;
+            this.buttonXoaDuocPham.Location = new System.Drawing.Point(618, 0);
+            this.buttonXoaDuocPham.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonXoaDuocPham.MarginBottom = 0;
+            this.buttonXoaDuocPham.MarginLeft = 0;
+            this.buttonXoaDuocPham.MarginRight = 0;
+            this.buttonXoaDuocPham.MarginTop = 0;
+            this.buttonXoaDuocPham.Name = "buttonXoaDuocPham";
+            this.buttonXoaDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonXoaDuocPham.PanelHeight = 45;
+            this.buttonXoaDuocPham.PanelWidth = 160;
+            this.buttonXoaDuocPham.Size = new System.Drawing.Size(120, 36);
+            this.buttonXoaDuocPham.TabIndex = 4;
+            this.buttonXoaDuocPham.Text = "XÓA";
+            this.buttonXoaDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXoaDuocPham.Click += new System.EventHandler(this.buttonXoaDuocPhamClick);
             // 
-            // roundedLabel8
+            // buttonSuaDuocPham
             // 
-            this.roundedLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel8.BorderRadius = 20;
-            this.roundedLabel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel8.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel8.Location = new System.Drawing.Point(608, 0);
-            this.roundedLabel8.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel8.MarginBottom = 0;
-            this.roundedLabel8.MarginLeft = 0;
-            this.roundedLabel8.MarginRight = 0;
-            this.roundedLabel8.MarginTop = 0;
-            this.roundedLabel8.Name = "roundedLabel8";
-            this.roundedLabel8.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel8.PanelHeight = 45;
-            this.roundedLabel8.PanelWidth = 160;
-            this.roundedLabel8.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel8.TabIndex = 3;
-            this.roundedLabel8.Text = "SỬA";
-            this.roundedLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaDuocPham.BackColor = System.Drawing.Color.White;
+            this.buttonSuaDuocPham.BorderRadius = 20;
+            this.buttonSuaDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSuaDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaDuocPham.ForeColor = System.Drawing.Color.White;
+            this.buttonSuaDuocPham.Location = new System.Drawing.Point(488, 0);
+            this.buttonSuaDuocPham.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSuaDuocPham.MarginBottom = 0;
+            this.buttonSuaDuocPham.MarginLeft = 0;
+            this.buttonSuaDuocPham.MarginRight = 0;
+            this.buttonSuaDuocPham.MarginTop = 0;
+            this.buttonSuaDuocPham.Name = "buttonSuaDuocPham";
+            this.buttonSuaDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonSuaDuocPham.PanelHeight = 45;
+            this.buttonSuaDuocPham.PanelWidth = 160;
+            this.buttonSuaDuocPham.Size = new System.Drawing.Size(120, 36);
+            this.buttonSuaDuocPham.TabIndex = 3;
+            this.buttonSuaDuocPham.Text = "SỬA";
+            this.buttonSuaDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaDuocPham.Click += new System.EventHandler(this.buttonSuaDuocPhamClick);
             // 
-            // roundedLabel9
+            // buttonThemDuocPham
             // 
-            this.roundedLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.roundedLabel9.BorderRadius = 20;
-            this.roundedLabel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel9.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel9.Location = new System.Drawing.Point(478, 0);
-            this.roundedLabel9.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel9.MarginBottom = 0;
-            this.roundedLabel9.MarginLeft = 0;
-            this.roundedLabel9.MarginRight = 0;
-            this.roundedLabel9.MarginTop = 0;
-            this.roundedLabel9.Name = "roundedLabel9";
-            this.roundedLabel9.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel9.PanelHeight = 45;
-            this.roundedLabel9.PanelWidth = 160;
-            this.roundedLabel9.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel9.TabIndex = 2;
-            this.roundedLabel9.Text = "THÊM";
-            this.roundedLabel9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemDuocPham.BackColor = System.Drawing.Color.White;
+            this.buttonThemDuocPham.BorderRadius = 20;
+            this.buttonThemDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonThemDuocPham.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDuocPham.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDuocPham.Location = new System.Drawing.Point(358, 0);
+            this.buttonThemDuocPham.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonThemDuocPham.MarginBottom = 0;
+            this.buttonThemDuocPham.MarginLeft = 0;
+            this.buttonThemDuocPham.MarginRight = 0;
+            this.buttonThemDuocPham.MarginTop = 0;
+            this.buttonThemDuocPham.Name = "buttonThemDuocPham";
+            this.buttonThemDuocPham.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonThemDuocPham.PanelHeight = 45;
+            this.buttonThemDuocPham.PanelWidth = 160;
+            this.buttonThemDuocPham.Size = new System.Drawing.Size(120, 36);
+            this.buttonThemDuocPham.TabIndex = 2;
+            this.buttonThemDuocPham.Text = "THÊM";
+            this.buttonThemDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemDuocPham.Click += new System.EventHandler(this.buttonThemDuocPhamClick);
             // 
             // searchBar3
             // 
-            this.searchBar3.BackColor = System.Drawing.Color.Transparent;
+            this.searchBar3.BackColor = System.Drawing.Color.White;
             this.searchBar3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchBar3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.searchBar3.Location = new System.Drawing.Point(0, 0);
             this.searchBar3.Margin = new System.Windows.Forms.Padding(0);
             this.searchBar3.Name = "searchBar3";
             this.searchBar3.SearchText = "";
-            this.searchBar3.Size = new System.Drawing.Size(448, 36);
+            this.searchBar3.Size = new System.Drawing.Size(328, 36);
             this.searchBar3.TabIndex = 0;
             // 
             // duocPhamPanel
             // 
-            this.duocPhamPanel.BackColor = System.Drawing.Color.Transparent;
+            this.duocPhamPanel.BackColor = System.Drawing.Color.White;
             this.duocPhamPanel.BorderRadius = 40;
             this.duocPhamPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.duocPhamPanel.Location = new System.Drawing.Point(0, 66);
@@ -1414,7 +1636,7 @@
             this.duocPhamPanel.MarginTop = 30;
             this.duocPhamPanel.Name = "duocPhamPanel";
             this.duocPhamPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.duocPhamPanel.Size = new System.Drawing.Size(858, 601);
+            this.duocPhamPanel.Size = new System.Drawing.Size(738, 601);
             this.duocPhamPanel.TabIndex = 0;
             // 
             // HoSoBenhAnPage
@@ -1422,9 +1644,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControlDesign1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "HoSoBenhAnPage";
-            this.Size = new System.Drawing.Size(1600, 820);
+            this.Size = new System.Drawing.Size(1400, 820);
             this.Load += new System.EventHandler(this.HoSoBenhAnPage_Load);
             this.tabControlDesign1.ResumeLayout(false);
             this.tabPageDanhSach.ResumeLayout(false);
@@ -1440,15 +1662,28 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
+            this.tableLayoutPanel18.ResumeLayout(false);
+            this.tableLayoutPanel18.PerformLayout();
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel7.ResumeLayout(false);
             this.benhAnForm.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
-            this.tableLayoutPanel17.PerformLayout();
+            this.tableLayoutPanel15.ResumeLayout(false);
+            this.tableLayoutPanel15.PerformLayout();
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel6.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel10.PerformLayout();
+            this.tableLayoutPanel14.ResumeLayout(false);
+            this.tableLayoutPanel14.PerformLayout();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
             this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
+            this.tableLayoutPanel13.ResumeLayout(false);
+            this.tableLayoutPanel13.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabPageBenh.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -1506,29 +1741,25 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private Component.RoundedLabel lblXacNhanBenhAn;
-        private Component.RoundedLabel lblHuyBenhAn;
+        private Component.RoundedLabel buttonXacNhanBenhAn;
+        private Component.RoundedLabel buttonHuyBenhAn;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private Component.RoundedLabel lblXacNhanBenh;
-        private Component.RoundedLabel lblHuyBenh;
+        private Component.RoundedLabel buttonXacNhanBenh;
+        private Component.RoundedLabel buttonHuyBenh;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private Component.RoundedLabel lblXacNhanDuocPham;
-        private Component.RoundedLabel lblHuyDuocPham;
+        private Component.RoundedLabel buttonXacNhanDuocPham;
+        private Component.RoundedLabel buttonHuyDuocPham;
         private LayoutTest.GUIComponents.LableTextBox lblTxtSoCCCD;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Panel panel6;
         private LayoutTest.GUIComponents.LableTextBox lableTextBox1;
-        private Component.RoundedLabel lblThemBenhAn;
         private LayoutTest.GUIComponents.LableTextBox lableTextBox2;
         private LayoutTest.GUIComponents.LableTextBox lblTxtMaBenhAn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel5;
         private LayoutTest.GUIComponents.LableTextBox lableTextBox3;
         private LayoutTest.GUIComponents.LableTextBox lblTxtMaBenh;
@@ -1538,19 +1769,35 @@
         private LayoutTest.GUIComponents.LableComboBox comboBoxLoaiDuocPham;
         private LayoutTest.GUIComponents.LableTextBox lableTextBox6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private Component.RoundedLabel roundedLabel7;
-        private Component.RoundedLabel roundedLabel5;
-        private Component.RoundedLabel roundedLabel6;
+        private Component.RoundedLabel buttonSuaHoSoBenhAn;
         private Components.SearchBar searchBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private Component.RoundedLabel roundedLabel1;
-        private Component.RoundedLabel roundedLabel2;
-        private Component.RoundedLabel roundedLabel3;
+        private Component.RoundedLabel buttonXoaBenh;
+        private Component.RoundedLabel buttonSuaBenh;
+        private Component.RoundedLabel buttonThemBenh;
         private Components.SearchBar searchBar2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
-        private Component.RoundedLabel roundedLabel4;
-        private Component.RoundedLabel roundedLabel8;
-        private Component.RoundedLabel roundedLabel9;
+        private Component.RoundedLabel buttonXoaDuocPham;
+        private Component.RoundedLabel buttonSuaDuocPham;
+        private Component.RoundedLabel buttonThemDuocPham;
         private Components.SearchBar searchBar3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private Component.RoundedLabel buttonThemDonThuoc;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private Component.RoundedLabel buttonChonDichVu;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private Component.RoundedLabel buttonChonChanDoan;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        private Component.RoundedLabel buttonThemBenhAn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+        private Component.RoundedLabel buttonSuaBenhAn;
     }
 }

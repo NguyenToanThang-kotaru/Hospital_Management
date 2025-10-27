@@ -62,5 +62,57 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
             return table;
         }
+
+        // sự kiệm tabPageDichVu
+        private void buttonHuyDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        // sự kiệm tabPageChiDinhDichVu
+        private void buttonHuyChiDinhDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXacNhanChiDinhDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemChiDinhDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaChiDinhDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaChiDinhDichVuClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

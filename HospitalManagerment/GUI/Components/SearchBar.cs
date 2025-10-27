@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 using HospitalManagerment.Utils;
 
 namespace HospitalManagerment.GUI.Components
@@ -21,10 +17,15 @@ namespace HospitalManagerment.GUI.Components
         private int _borderWidth = 1;
         private Color _iconColor = Consts.FontColorB;
 
+        // Sự kiện public cho thay đổi nội dung
+        public event EventHandler SearchTextChanged;
+
         public SearchBar()
         {
             InitializeComponent();
             SetupControls();
+            txtSearch.TextChanged += TxtSearch_TextChanged;
+
             this.SetStyle(ControlStyles.AllPaintingInWmPaint |
                          ControlStyles.UserPaint |
                          ControlStyles.ResizeRedraw |
@@ -187,6 +188,12 @@ namespace HospitalManagerment.GUI.Components
         {
             get { return txtSearch.Text; }
             set { txtSearch.Text = value; }
+        }
+
+        // Gọi hàm này khi text thay đổi
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchTextChanged?.Invoke(this, e);
         }
     }
 }
