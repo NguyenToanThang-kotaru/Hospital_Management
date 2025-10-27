@@ -103,7 +103,7 @@ namespace HospitalManagerment.DAO
                                     MaDV = reader.GetString("MaDV"),
                                     TenDV = reader.GetString("TenDV"),
                                     GiaDV = reader.GetString("GiaDV"),
-                                    BHYTTra = reader.GetString("BHYTTra")
+                                    BHYTTra = reader.GetString("DuocBHYTChiTra")
                                 };
                                 services.Add(service);
                             }
@@ -137,7 +137,7 @@ namespace HospitalManagerment.DAO
                                 {
                                     MaDV = reader.GetString("MaDV"),
                                     GiaDV = reader.GetString("GiaDV"),
-                                    BHYTTra = reader.GetString("BHYTTra")
+                                    BHYTTra = reader.GetString("DuocBHYTChiTra")
                                 };
                             }
                         }
@@ -204,7 +204,7 @@ namespace HospitalManagerment.DAO
                                     MaDV = reader.GetString("MaDV"),
                                     TenDV = reader.GetString("TenDV"),
                                     GiaDV = reader.GetString("GiaDV"),
-                                    BHYTTra = reader.GetString("BHYTTra")
+                                    BHYTTra = reader.GetString("DuocBHYTChiTra")
                                 };
                                 services.Add(service);
                             }

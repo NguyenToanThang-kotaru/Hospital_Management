@@ -113,7 +113,6 @@
             this.tabPageTaiKhoan.Size = new System.Drawing.Size(1592, 767);
             this.tabPageTaiKhoan.TabIndex = 0;
             this.tabPageTaiKhoan.Text = "Tài khoản";
-            this.tabPageTaiKhoan.Click += new System.EventHandler(this.tabPageTaiKhoan_Click);
             // 
             // splitContainer1
             // 
@@ -443,7 +442,6 @@
             this.taiKhoanPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.taiKhoanPanel.Size = new System.Drawing.Size(887, 601);
             this.taiKhoanPanel.TabIndex = 1;
-            this.taiKhoanPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel6_Paint);
             // 
             // tabPageQuyen
             // 

@@ -47,7 +47,7 @@
             this.roundedLabel5 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.roundedLabel6 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
-            this.roundedPanel3 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.dichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageChiDinhDichVu = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.roundedPanel4 = new HospitalManagerment.GUI.Component.RoundedPanel();
@@ -150,7 +150,6 @@
             this.pnlDichVu.PanelColor = System.Drawing.Color.WhiteSmoke;
             this.pnlDichVu.Size = new System.Drawing.Size(502, 667);
             this.pnlDichVu.TabIndex = 0;
-            this.pnlDichVu.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -312,7 +311,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.roundedPanel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dichVuPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -426,22 +425,21 @@
             this.searchBar1.Size = new System.Drawing.Size(476, 36);
             this.searchBar1.TabIndex = 0;
             // 
-            // roundedPanel3
+            // dichVuPanel
             // 
-            this.roundedPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel3.BorderRadius = 40;
-            this.roundedPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel3.Location = new System.Drawing.Point(0, 66);
-            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedPanel3.MarginBottom = 0;
-            this.roundedPanel3.MarginLeft = 0;
-            this.roundedPanel3.MarginRight = 0;
-            this.roundedPanel3.MarginTop = 30;
-            this.roundedPanel3.Name = "roundedPanel3";
-            this.roundedPanel3.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedPanel3.Size = new System.Drawing.Size(886, 601);
-            this.roundedPanel3.TabIndex = 1;
-            this.roundedPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel3_Paint);
+            this.dichVuPanel.BackColor = System.Drawing.Color.Transparent;
+            this.dichVuPanel.BorderRadius = 40;
+            this.dichVuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dichVuPanel.Location = new System.Drawing.Point(0, 66);
+            this.dichVuPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dichVuPanel.MarginBottom = 0;
+            this.dichVuPanel.MarginLeft = 0;
+            this.dichVuPanel.MarginRight = 0;
+            this.dichVuPanel.MarginTop = 30;
+            this.dichVuPanel.Name = "dichVuPanel";
+            this.dichVuPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.dichVuPanel.Size = new System.Drawing.Size(886, 601);
+            this.dichVuPanel.TabIndex = 1;
             // 
             // tabPageChiDinhDichVu
             // 
@@ -771,6 +769,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "DichVuPage";
             this.Size = new System.Drawing.Size(1600, 820);
+            this.Load += new System.EventHandler(this.DichVuPage_Load);
             this.tabControlDichVu.ResumeLayout(false);
             this.tabPageDichVu.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -820,7 +819,7 @@
         private Component.RoundedLabel lblHuyChiDinhDichVu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private Component.RoundedPanel roundedPanel1;
-        private Component.RoundedPanel roundedPanel3;
+        private Component.RoundedPanel dichVuPanel;
         private LayoutTest.GUIComponents.LableComboBox lableComboBox1;
         private LayoutTest.GUIComponents.LableTextBox lableTextBox3;
         private LayoutTest.GUIComponents.LableTextBox lableTextBox2;
