@@ -225,7 +225,7 @@
             // 
             // txtTenKhoa
             // 
-            this.txtTenKhoa.BackColor = System.Drawing.Color.Transparent;
+            this.txtTenKhoa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTenKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTenKhoa.IsPassword = false;
             this.txtTenKhoa.LabelText = "Tên khoa";
@@ -529,7 +529,7 @@
             // 
             // txtMaNhanVien
             // 
-            this.txtMaNhanVien.BackColor = System.Drawing.Color.Transparent;
+            this.txtMaNhanVien.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMaNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMaNhanVien.IsPassword = false;
             this.txtMaNhanVien.LabelText = "Mã nhân viên";
@@ -544,7 +544,7 @@
             // 
             // comboBoxKhoa
             // 
-            this.comboBoxKhoa.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxKhoa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxKhoa.LabelText = "Khoa";
             this.comboBoxKhoa.Location = new System.Drawing.Point(0, 498);
@@ -559,7 +559,7 @@
             // 
             // comboBoxVaiTro
             // 
-            this.comboBoxVaiTro.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxVaiTro.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxVaiTro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxVaiTro.LabelText = "Vai trò";
             this.comboBoxVaiTro.Location = new System.Drawing.Point(0, 415);
@@ -574,7 +574,7 @@
             // 
             // comboBoxChucVu
             // 
-            this.comboBoxChucVu.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxChucVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxChucVu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBoxChucVu.LabelText = "Chức vụ";
@@ -590,7 +590,7 @@
             // 
             // txtSoDienThoai
             // 
-            this.txtSoDienThoai.BackColor = System.Drawing.Color.Transparent;
+            this.txtSoDienThoai.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtSoDienThoai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSoDienThoai.IsPassword = false;
             this.txtSoDienThoai.LabelText = "Số điện thoại";
@@ -605,7 +605,7 @@
             // 
             // txtTenNhanVien
             // 
-            this.txtTenNhanVien.BackColor = System.Drawing.Color.Transparent;
+            this.txtTenNhanVien.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTenNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTenNhanVien.IsPassword = false;
             this.txtTenNhanVien.LabelText = "Tên nhân viên";

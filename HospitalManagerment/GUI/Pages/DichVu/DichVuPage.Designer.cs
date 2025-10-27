@@ -182,7 +182,7 @@
             // 
             // comboBoxBaoHiemChiTra
             // 
-            this.comboBoxBaoHiemChiTra.BackColor = System.Drawing.Color.Transparent;
+            this.comboBoxBaoHiemChiTra.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxBaoHiemChiTra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxBaoHiemChiTra.LabelText = "Bảo hiểm chi trả";
             this.comboBoxBaoHiemChiTra.Location = new System.Drawing.Point(0, 332);
@@ -196,7 +196,7 @@
             // 
             // txtGiaDichVu
             // 
-            this.txtGiaDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.txtGiaDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtGiaDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGiaDichVu.IsPassword = false;
             this.txtGiaDichVu.LabelText = "Giá dịch vụ";
@@ -211,7 +211,7 @@
             // 
             // txtTenDichVu
             // 
-            this.txtTenDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.txtTenDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTenDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTenDichVu.IsPassword = false;
             this.txtTenDichVu.LabelText = "Tên dịch vụ";
@@ -226,7 +226,7 @@
             // 
             // txtMaDichVu
             // 
-            this.txtMaDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.txtMaDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMaDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMaDichVu.IsPassword = false;
             this.txtMaDichVu.LabelText = "Mã dịch vụ";
@@ -479,7 +479,7 @@
             // 
             // chiDinhDichVuForm
             // 
-            this.chiDinhDichVuForm.BackColor = System.Drawing.Color.Transparent;
+            this.chiDinhDichVuForm.BackColor = System.Drawing.Color.White;
             this.chiDinhDichVuForm.BorderRadius = 40;
             this.chiDinhDichVuForm.Controls.Add(this.tableLayoutPanel4);
             this.chiDinhDichVuForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -497,6 +497,7 @@
             // 
             // tableLayoutPanel4
             // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 0, 7);
@@ -521,6 +522,7 @@
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flowLayoutPanel2.Controls.Add(this.buttonXacNhanChiDinhDichVu);
             this.flowLayoutPanel2.Controls.Add(this.buttonHuyChiDinhDichVu);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -534,7 +536,7 @@
             // 
             // buttonXacNhanChiDinhDichVu
             // 
-            this.buttonXacNhanChiDinhDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.buttonXacNhanChiDinhDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonXacNhanChiDinhDichVu.BorderRadius = 20;
             this.buttonXacNhanChiDinhDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXacNhanChiDinhDichVu.ForeColor = System.Drawing.Color.White;
@@ -556,7 +558,7 @@
             // 
             // buttonHuyChiDinhDichVu
             // 
-            this.buttonHuyChiDinhDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.buttonHuyChiDinhDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonHuyChiDinhDichVu.BorderRadius = 20;
             this.buttonHuyChiDinhDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
             this.buttonHuyChiDinhDichVu.ForeColor = System.Drawing.Color.White;
@@ -578,7 +580,7 @@
             // 
             // txtMaChiDinhDichVu
             // 
-            this.txtMaChiDinhDichVu.BackColor = System.Drawing.Color.Transparent;
+            this.txtMaChiDinhDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtMaChiDinhDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMaChiDinhDichVu.IsPassword = false;
             this.txtMaChiDinhDichVu.LabelText = "Mã chỉ định dịch vụ";
@@ -593,7 +595,7 @@
             // 
             // txtTenBenhNhan
             // 
-            this.txtTenBenhNhan.BackColor = System.Drawing.Color.Transparent;
+            this.txtTenBenhNhan.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTenBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTenBenhNhan.IsPassword = false;
             this.txtTenBenhNhan.LabelText = "Tên bệnh nhân";
@@ -608,7 +610,7 @@
             // 
             // txtSoCCCDBenhNhan
             // 
-            this.txtSoCCCDBenhNhan.BackColor = System.Drawing.Color.Transparent;
+            this.txtSoCCCDBenhNhan.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtSoCCCDBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSoCCCDBenhNhan.IsPassword = false;
             this.txtSoCCCDBenhNhan.LabelText = "Số CCCD bệnh nhân";
@@ -624,6 +626,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Roboto", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
