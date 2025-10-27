@@ -29,6 +29,9 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
             //LoadEmployeeToTable();
             LoadDepartmentToTable();
+
+            txtMaNhanVien.SetReadOnly(true);
+            txtMaKhoa.SetReadOnly(true);
         }
 
         //private void LoadEmployeeToTable()
@@ -176,5 +179,8 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
 
         }
+
+        //
+
     }
 }

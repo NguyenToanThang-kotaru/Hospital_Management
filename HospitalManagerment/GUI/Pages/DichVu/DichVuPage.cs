@@ -27,6 +27,10 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
             LoadServiceToTable();
             LoadServiceDesignationToTable();
+
+            txtMaDichVu.SetReadOnly(true);
+            txtMaChiDinhDichVu.SetReadOnly(true);
+            txtTenBenhNhan.SetReadOnly(true);
         }
 
         private void LoadServiceToTable()

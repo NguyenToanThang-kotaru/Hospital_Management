@@ -40,7 +40,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.hoSoBenhAnForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtSoCCCD = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtSoCCCD = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
@@ -49,11 +49,11 @@
             this.buttonThemBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.lableTextBox1 = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtTenBenhNhan = new LayoutTest.GUIComponents.LableTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.benhAnForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtMaBenhAn = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtMaBenhAn = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
@@ -72,8 +72,8 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonChonChanDoan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label8 = new System.Windows.Forms.Label();
-            this.lableTextBox3 = new LayoutTest.GUIComponents.LableTextBox();
-            this.lableTextBox2 = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtBacSiPhuTrach = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtNgayTaoBenhAn = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -82,9 +82,9 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.benhForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtMaBenh = new LayoutTest.GUIComponents.LableTextBox();
-            this.lableTextBox5 = new LayoutTest.GUIComponents.LableTextBox();
-            this.lableTextBox4 = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtMaBenh = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtMoTaBenh = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtTenBenh = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -100,9 +100,9 @@
             this.splitContainerDuocPham = new System.Windows.Forms.SplitContainer();
             this.duocPhamForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtMaDuocPham = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtMaDuocPham = new LayoutTest.GUIComponents.LableTextBox();
             this.comboBoxLoaiDuocPham = new LayoutTest.GUIComponents.LableComboBox();
-            this.lableTextBox6 = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtTenDuocPham = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -344,9 +344,9 @@
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.lblTxtSoCCCD, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.txtSoCCCD, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel16, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.lableTextBox1, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.txtTenBenhNhan, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(50, 0);
@@ -363,20 +363,20 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(324, 667);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // lblTxtSoCCCD
+            // txtSoCCCD
             // 
-            this.lblTxtSoCCCD.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtSoCCCD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtSoCCCD.IsPassword = false;
-            this.lblTxtSoCCCD.LabelText = "Số căn cước công dân";
-            this.lblTxtSoCCCD.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtSoCCCD.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtSoCCCD.Name = "lblTxtSoCCCD";
-            this.lblTxtSoCCCD.PanelHeight = 60;
-            this.lblTxtSoCCCD.PanelWidth = 200;
-            this.lblTxtSoCCCD.Size = new System.Drawing.Size(324, 83);
-            this.lblTxtSoCCCD.TabIndex = 6;
-            this.lblTxtSoCCCD.TextValue = "";
+            this.txtSoCCCD.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtSoCCCD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSoCCCD.IsPassword = false;
+            this.txtSoCCCD.LabelText = "Số căn cước công dân";
+            this.txtSoCCCD.Location = new System.Drawing.Point(0, 83);
+            this.txtSoCCCD.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSoCCCD.Name = "txtSoCCCD";
+            this.txtSoCCCD.PanelHeight = 60;
+            this.txtSoCCCD.PanelWidth = 200;
+            this.txtSoCCCD.Size = new System.Drawing.Size(324, 83);
+            this.txtSoCCCD.TabIndex = 6;
+            this.txtSoCCCD.TextValue = "";
             // 
             // tableLayoutPanel16
             // 
@@ -506,20 +506,20 @@
             this.panel6.Size = new System.Drawing.Size(324, 287);
             this.panel6.TabIndex = 0;
             // 
-            // lableTextBox1
+            // txtTenBenhNhan
             // 
-            this.lableTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox1.IsPassword = false;
-            this.lableTextBox1.LabelText = "Tên bệnh nhân";
-            this.lableTextBox1.Location = new System.Drawing.Point(0, 166);
-            this.lableTextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox1.Name = "lableTextBox1";
-            this.lableTextBox1.PanelHeight = 60;
-            this.lableTextBox1.PanelWidth = 200;
-            this.lableTextBox1.Size = new System.Drawing.Size(324, 83);
-            this.lableTextBox1.TabIndex = 4;
-            this.lableTextBox1.TextValue = "";
+            this.txtTenBenhNhan.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTenBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTenBenhNhan.IsPassword = false;
+            this.txtTenBenhNhan.LabelText = "Tên bệnh nhân";
+            this.txtTenBenhNhan.Location = new System.Drawing.Point(0, 166);
+            this.txtTenBenhNhan.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenBenhNhan.Name = "txtTenBenhNhan";
+            this.txtTenBenhNhan.PanelHeight = 60;
+            this.txtTenBenhNhan.PanelWidth = 200;
+            this.txtTenBenhNhan.Size = new System.Drawing.Size(324, 83);
+            this.txtTenBenhNhan.TabIndex = 4;
+            this.txtTenBenhNhan.TextValue = "";
             // 
             // label1
             // 
@@ -559,12 +559,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.lblTxtMaBenhAn, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.txtMaBenhAn, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel17, 0, 5);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel10, 2, 3);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel8, 0, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lableTextBox3, 2, 1);
-            this.tableLayoutPanel5.Controls.Add(this.lableTextBox2, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.txtBacSiPhuTrach, 2, 1);
+            this.tableLayoutPanel5.Controls.Add(this.txtNgayTaoBenhAn, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 0, 7);
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -583,20 +583,20 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(664, 667);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // lblTxtMaBenhAn
+            // txtMaBenhAn
             // 
-            this.lblTxtMaBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtMaBenhAn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtMaBenhAn.IsPassword = false;
-            this.lblTxtMaBenhAn.LabelText = "Mã bệnh án";
-            this.lblTxtMaBenhAn.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtMaBenhAn.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtMaBenhAn.Name = "lblTxtMaBenhAn";
-            this.lblTxtMaBenhAn.PanelHeight = 60;
-            this.lblTxtMaBenhAn.PanelWidth = 200;
-            this.lblTxtMaBenhAn.Size = new System.Drawing.Size(307, 83);
-            this.lblTxtMaBenhAn.TabIndex = 10;
-            this.lblTxtMaBenhAn.TextValue = "";
+            this.txtMaBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaBenhAn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMaBenhAn.IsPassword = false;
+            this.txtMaBenhAn.LabelText = "Mã bệnh án";
+            this.txtMaBenhAn.Location = new System.Drawing.Point(0, 83);
+            this.txtMaBenhAn.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaBenhAn.Name = "txtMaBenhAn";
+            this.txtMaBenhAn.PanelHeight = 60;
+            this.txtMaBenhAn.PanelWidth = 200;
+            this.txtMaBenhAn.Size = new System.Drawing.Size(307, 83);
+            this.txtMaBenhAn.TabIndex = 10;
+            this.txtMaBenhAn.TextValue = "";
             // 
             // tableLayoutPanel17
             // 
@@ -878,36 +878,36 @@
             this.label8.Text = "Chẩn đoán";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lableTextBox3
+            // txtBacSiPhuTrach
             // 
-            this.lableTextBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox3.IsPassword = false;
-            this.lableTextBox3.LabelText = "Bác sĩ phụ trách";
-            this.lableTextBox3.Location = new System.Drawing.Point(357, 83);
-            this.lableTextBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox3.Name = "lableTextBox3";
-            this.lableTextBox3.PanelHeight = 60;
-            this.lableTextBox3.PanelWidth = 200;
-            this.lableTextBox3.Size = new System.Drawing.Size(307, 83);
-            this.lableTextBox3.TabIndex = 6;
-            this.lableTextBox3.TextValue = "";
+            this.txtBacSiPhuTrach.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBacSiPhuTrach.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtBacSiPhuTrach.IsPassword = false;
+            this.txtBacSiPhuTrach.LabelText = "Bác sĩ phụ trách";
+            this.txtBacSiPhuTrach.Location = new System.Drawing.Point(357, 83);
+            this.txtBacSiPhuTrach.Margin = new System.Windows.Forms.Padding(0);
+            this.txtBacSiPhuTrach.Name = "txtBacSiPhuTrach";
+            this.txtBacSiPhuTrach.PanelHeight = 60;
+            this.txtBacSiPhuTrach.PanelWidth = 200;
+            this.txtBacSiPhuTrach.Size = new System.Drawing.Size(307, 83);
+            this.txtBacSiPhuTrach.TabIndex = 6;
+            this.txtBacSiPhuTrach.TextValue = "";
             // 
-            // lableTextBox2
+            // txtNgayTaoBenhAn
             // 
-            this.lableTextBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tableLayoutPanel5.SetColumnSpan(this.lableTextBox2, 3);
-            this.lableTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox2.IsPassword = false;
-            this.lableTextBox2.LabelText = "Ngày tạo bệnh án";
-            this.lableTextBox2.Location = new System.Drawing.Point(0, 166);
-            this.lableTextBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox2.Name = "lableTextBox2";
-            this.lableTextBox2.PanelHeight = 60;
-            this.lableTextBox2.PanelWidth = 200;
-            this.lableTextBox2.Size = new System.Drawing.Size(664, 83);
-            this.lableTextBox2.TabIndex = 5;
-            this.lableTextBox2.TextValue = "";
+            this.txtNgayTaoBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tableLayoutPanel5.SetColumnSpan(this.txtNgayTaoBenhAn, 3);
+            this.txtNgayTaoBenhAn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNgayTaoBenhAn.IsPassword = false;
+            this.txtNgayTaoBenhAn.LabelText = "Ngày tạo bệnh án";
+            this.txtNgayTaoBenhAn.Location = new System.Drawing.Point(0, 166);
+            this.txtNgayTaoBenhAn.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNgayTaoBenhAn.Name = "txtNgayTaoBenhAn";
+            this.txtNgayTaoBenhAn.PanelHeight = 60;
+            this.txtNgayTaoBenhAn.PanelWidth = 200;
+            this.txtNgayTaoBenhAn.Size = new System.Drawing.Size(664, 83);
+            this.txtNgayTaoBenhAn.TabIndex = 5;
+            this.txtNgayTaoBenhAn.TextValue = "";
             // 
             // flowLayoutPanel1
             // 
@@ -1035,9 +1035,9 @@
             this.tableLayoutPanel6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.lblTxtMaBenh, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.lableTextBox5, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.lableTextBox4, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.txtMaBenh, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.txtMoTaBenh, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.txtTenBenh, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.flowLayoutPanel2, 0, 7);
             this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1055,50 +1055,50 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(350, 667);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
-            // lblTxtMaBenh
+            // txtMaBenh
             // 
-            this.lblTxtMaBenh.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtMaBenh.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtMaBenh.IsPassword = false;
-            this.lblTxtMaBenh.LabelText = "Mã bệnh";
-            this.lblTxtMaBenh.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtMaBenh.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtMaBenh.Name = "lblTxtMaBenh";
-            this.lblTxtMaBenh.PanelHeight = 60;
-            this.lblTxtMaBenh.PanelWidth = 200;
-            this.lblTxtMaBenh.Size = new System.Drawing.Size(350, 83);
-            this.lblTxtMaBenh.TabIndex = 8;
-            this.lblTxtMaBenh.TextValue = "";
+            this.txtMaBenh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMaBenh.IsPassword = false;
+            this.txtMaBenh.LabelText = "Mã bệnh";
+            this.txtMaBenh.Location = new System.Drawing.Point(0, 83);
+            this.txtMaBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaBenh.Name = "txtMaBenh";
+            this.txtMaBenh.PanelHeight = 60;
+            this.txtMaBenh.PanelWidth = 200;
+            this.txtMaBenh.Size = new System.Drawing.Size(350, 83);
+            this.txtMaBenh.TabIndex = 8;
+            this.txtMaBenh.TextValue = "";
             // 
-            // lableTextBox5
+            // txtMoTaBenh
             // 
-            this.lableTextBox5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox5.IsPassword = false;
-            this.lableTextBox5.LabelText = "Mô tả bệnh";
-            this.lableTextBox5.Location = new System.Drawing.Point(0, 249);
-            this.lableTextBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox5.Name = "lableTextBox5";
-            this.lableTextBox5.PanelHeight = 60;
-            this.lableTextBox5.PanelWidth = 200;
-            this.lableTextBox5.Size = new System.Drawing.Size(350, 83);
-            this.lableTextBox5.TabIndex = 7;
-            this.lableTextBox5.TextValue = "";
+            this.txtMoTaBenh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMoTaBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMoTaBenh.IsPassword = false;
+            this.txtMoTaBenh.LabelText = "Mô tả bệnh";
+            this.txtMoTaBenh.Location = new System.Drawing.Point(0, 249);
+            this.txtMoTaBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMoTaBenh.Name = "txtMoTaBenh";
+            this.txtMoTaBenh.PanelHeight = 60;
+            this.txtMoTaBenh.PanelWidth = 200;
+            this.txtMoTaBenh.Size = new System.Drawing.Size(350, 83);
+            this.txtMoTaBenh.TabIndex = 7;
+            this.txtMoTaBenh.TextValue = "";
             // 
-            // lableTextBox4
+            // txtTenBenh
             // 
-            this.lableTextBox4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox4.IsPassword = false;
-            this.lableTextBox4.LabelText = "Tên bệnh";
-            this.lableTextBox4.Location = new System.Drawing.Point(0, 166);
-            this.lableTextBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox4.Name = "lableTextBox4";
-            this.lableTextBox4.PanelHeight = 60;
-            this.lableTextBox4.PanelWidth = 200;
-            this.lableTextBox4.Size = new System.Drawing.Size(350, 83);
-            this.lableTextBox4.TabIndex = 6;
-            this.lableTextBox4.TextValue = "";
+            this.txtTenBenh.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTenBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTenBenh.IsPassword = false;
+            this.txtTenBenh.LabelText = "Tên bệnh";
+            this.txtTenBenh.Location = new System.Drawing.Point(0, 166);
+            this.txtTenBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenBenh.Name = "txtTenBenh";
+            this.txtTenBenh.PanelHeight = 60;
+            this.txtTenBenh.PanelWidth = 200;
+            this.txtTenBenh.Size = new System.Drawing.Size(350, 83);
+            this.txtTenBenh.TabIndex = 6;
+            this.txtTenBenh.TextValue = "";
             // 
             // flowLayoutPanel2
             // 
@@ -1363,9 +1363,9 @@
             this.tableLayoutPanel7.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.lblTxtMaDuocPham, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.txtMaDuocPham, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.comboBoxLoaiDuocPham, 0, 3);
-            this.tableLayoutPanel7.Controls.Add(this.lableTextBox6, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.txtTenDuocPham, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.flowLayoutPanel3, 0, 7);
             this.tableLayoutPanel7.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1383,20 +1383,20 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(350, 667);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // lblTxtMaDuocPham
+            // txtMaDuocPham
             // 
-            this.lblTxtMaDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtMaDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtMaDuocPham.IsPassword = false;
-            this.lblTxtMaDuocPham.LabelText = "Mã dược phẩm";
-            this.lblTxtMaDuocPham.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtMaDuocPham.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtMaDuocPham.Name = "lblTxtMaDuocPham";
-            this.lblTxtMaDuocPham.PanelHeight = 60;
-            this.lblTxtMaDuocPham.PanelWidth = 200;
-            this.lblTxtMaDuocPham.Size = new System.Drawing.Size(350, 83);
-            this.lblTxtMaDuocPham.TabIndex = 8;
-            this.lblTxtMaDuocPham.TextValue = "";
+            this.txtMaDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMaDuocPham.IsPassword = false;
+            this.txtMaDuocPham.LabelText = "Mã dược phẩm";
+            this.txtMaDuocPham.Location = new System.Drawing.Point(0, 83);
+            this.txtMaDuocPham.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaDuocPham.Name = "txtMaDuocPham";
+            this.txtMaDuocPham.PanelHeight = 60;
+            this.txtMaDuocPham.PanelWidth = 200;
+            this.txtMaDuocPham.Size = new System.Drawing.Size(350, 83);
+            this.txtMaDuocPham.TabIndex = 8;
+            this.txtMaDuocPham.TextValue = "";
             // 
             // comboBoxLoaiDuocPham
             // 
@@ -1413,20 +1413,20 @@
             this.comboBoxLoaiDuocPham.TextValue = "";
             this.comboBoxLoaiDuocPham.Paint += new System.Windows.Forms.PaintEventHandler(this.ComboBoxLoaiDuocPhamLoad);
             // 
-            // lableTextBox6
+            // txtTenDuocPham
             // 
-            this.lableTextBox6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox6.IsPassword = false;
-            this.lableTextBox6.LabelText = "Tên dược phẩm";
-            this.lableTextBox6.Location = new System.Drawing.Point(0, 166);
-            this.lableTextBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox6.Name = "lableTextBox6";
-            this.lableTextBox6.PanelHeight = 60;
-            this.lableTextBox6.PanelWidth = 200;
-            this.lableTextBox6.Size = new System.Drawing.Size(350, 83);
-            this.lableTextBox6.TabIndex = 6;
-            this.lableTextBox6.TextValue = "";
+            this.txtTenDuocPham.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTenDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTenDuocPham.IsPassword = false;
+            this.txtTenDuocPham.LabelText = "Tên dược phẩm";
+            this.txtTenDuocPham.Location = new System.Drawing.Point(0, 166);
+            this.txtTenDuocPham.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenDuocPham.Name = "txtTenDuocPham";
+            this.txtTenDuocPham.PanelHeight = 60;
+            this.txtTenDuocPham.PanelWidth = 200;
+            this.txtTenDuocPham.Size = new System.Drawing.Size(350, 83);
+            this.txtTenDuocPham.TabIndex = 6;
+            this.txtTenDuocPham.TextValue = "";
             // 
             // flowLayoutPanel3
             // 
@@ -1749,25 +1749,25 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private Component.RoundedLabel buttonXacNhanDuocPham;
         private Component.RoundedLabel buttonHuyDuocPham;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtSoCCCD;
+        private LayoutTest.GUIComponents.LableTextBox txtSoCCCD;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Panel panel6;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox1;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox2;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtMaBenhAn;
+        private LayoutTest.GUIComponents.LableTextBox txtTenBenhNhan;
+        private LayoutTest.GUIComponents.LableTextBox txtNgayTaoBenhAn;
+        private LayoutTest.GUIComponents.LableTextBox txtMaBenhAn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel5;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox3;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtMaBenh;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox5;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox4;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtMaDuocPham;
+        private LayoutTest.GUIComponents.LableTextBox txtBacSiPhuTrach;
+        private LayoutTest.GUIComponents.LableTextBox txtMaBenh;
+        private LayoutTest.GUIComponents.LableTextBox txtMoTaBenh;
+        private LayoutTest.GUIComponents.LableTextBox txtTenBenh;
+        private LayoutTest.GUIComponents.LableTextBox txtMaDuocPham;
         private LayoutTest.GUIComponents.LableComboBox comboBoxLoaiDuocPham;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox6;
+        private LayoutTest.GUIComponents.LableTextBox txtTenDuocPham;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private Component.RoundedLabel buttonSuaHoSoBenhAn;
         private Components.SearchBar searchBar1;

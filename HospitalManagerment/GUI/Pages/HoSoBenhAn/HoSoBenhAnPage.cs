@@ -28,6 +28,13 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             LoadMedicineToTable();
             LoadDiseaseToTable();
+
+            txtMaBenhAn.SetReadOnly(true);
+            txtBacSiPhuTrach.SetReadOnly(true);
+            txtNgayTaoBenhAn.SetReadOnly(true);
+            txtTenBenhNhan.SetReadOnly(true);
+            txtMaDuocPham.SetReadOnly(true);
+            txtMaBenh.SetReadOnly(true);
         }
 
         private void LoadMedicineToTable()

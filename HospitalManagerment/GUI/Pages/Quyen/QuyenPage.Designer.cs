@@ -33,10 +33,10 @@
             this.splitContainerTaiKhoan = new System.Windows.Forms.SplitContainer();
             this.taiKhoanForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblTxtTenDangNhap = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtTenDangNhap = new LayoutTest.GUIComponents.LableTextBox();
             this.comboBoxQuyen = new LayoutTest.GUIComponents.LableComboBox();
             this.comboBoxNhanVien = new LayoutTest.GUIComponents.LableComboBox();
-            this.lableTextBox1 = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtMatKhau = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -52,8 +52,8 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.quyenForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lableTextBox3 = new LayoutTest.GUIComponents.LableTextBox();
-            this.lblTxtMaQuyen = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtTenQuyen = new LayoutTest.GUIComponents.LableTextBox();
+            this.txtMaQuyen = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -159,10 +159,10 @@
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.lblTxtTenDangNhap, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.txtTenDangNhap, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxQuyen, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxNhanVien, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.lableTextBox1, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.txtMatKhau, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel1, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,20 +181,20 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(350, 667);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
-            // lblTxtTenDangNhap
+            // txtTenDangNhap
             // 
-            this.lblTxtTenDangNhap.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtTenDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtTenDangNhap.IsPassword = false;
-            this.lblTxtTenDangNhap.LabelText = "Tên đăng nhập";
-            this.lblTxtTenDangNhap.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtTenDangNhap.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtTenDangNhap.Name = "lblTxtTenDangNhap";
-            this.lblTxtTenDangNhap.PanelHeight = 60;
-            this.lblTxtTenDangNhap.PanelWidth = 200;
-            this.lblTxtTenDangNhap.Size = new System.Drawing.Size(350, 83);
-            this.lblTxtTenDangNhap.TabIndex = 8;
-            this.lblTxtTenDangNhap.TextValue = "";
+            this.txtTenDangNhap.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTenDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTenDangNhap.IsPassword = false;
+            this.txtTenDangNhap.LabelText = "Tên đăng nhập";
+            this.txtTenDangNhap.Location = new System.Drawing.Point(0, 83);
+            this.txtTenDangNhap.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenDangNhap.Name = "txtTenDangNhap";
+            this.txtTenDangNhap.PanelHeight = 60;
+            this.txtTenDangNhap.PanelWidth = 200;
+            this.txtTenDangNhap.Size = new System.Drawing.Size(350, 83);
+            this.txtTenDangNhap.TabIndex = 8;
+            this.txtTenDangNhap.TextValue = "";
             // 
             // comboBoxQuyen
             // 
@@ -224,20 +224,20 @@
             this.comboBoxNhanVien.TabIndex = 6;
             this.comboBoxNhanVien.TextValue = "";
             // 
-            // lableTextBox1
+            // txtMatKhau
             // 
-            this.lableTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox1.IsPassword = false;
-            this.lableTextBox1.LabelText = "Mật khẩu";
-            this.lableTextBox1.Location = new System.Drawing.Point(0, 166);
-            this.lableTextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox1.Name = "lableTextBox1";
-            this.lableTextBox1.PanelHeight = 60;
-            this.lableTextBox1.PanelWidth = 200;
-            this.lableTextBox1.Size = new System.Drawing.Size(350, 83);
-            this.lableTextBox1.TabIndex = 5;
-            this.lableTextBox1.TextValue = "";
+            this.txtMatKhau.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMatKhau.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMatKhau.IsPassword = false;
+            this.txtMatKhau.LabelText = "Mật khẩu";
+            this.txtMatKhau.Location = new System.Drawing.Point(0, 166);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PanelHeight = 60;
+            this.txtMatKhau.PanelWidth = 200;
+            this.txtMatKhau.Size = new System.Drawing.Size(350, 83);
+            this.txtMatKhau.TabIndex = 5;
+            this.txtMatKhau.TextValue = "";
             // 
             // flowLayoutPanel1
             // 
@@ -503,8 +503,8 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.lableTextBox3, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.lblTxtMaQuyen, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.txtTenQuyen, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.txtMaQuyen, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
@@ -523,35 +523,35 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(676, 667);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // lableTextBox3
+            // txtTenQuyen
             // 
-            this.lableTextBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lableTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lableTextBox3.IsPassword = false;
-            this.lableTextBox3.LabelText = "Tên quyền";
-            this.lableTextBox3.Location = new System.Drawing.Point(363, 83);
-            this.lableTextBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.lableTextBox3.Name = "lableTextBox3";
-            this.lableTextBox3.PanelHeight = 60;
-            this.lableTextBox3.PanelWidth = 200;
-            this.lableTextBox3.Size = new System.Drawing.Size(313, 83);
-            this.lableTextBox3.TabIndex = 8;
-            this.lableTextBox3.TextValue = "";
+            this.txtTenQuyen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTenQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTenQuyen.IsPassword = false;
+            this.txtTenQuyen.LabelText = "Tên quyền";
+            this.txtTenQuyen.Location = new System.Drawing.Point(363, 83);
+            this.txtTenQuyen.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTenQuyen.Name = "txtTenQuyen";
+            this.txtTenQuyen.PanelHeight = 60;
+            this.txtTenQuyen.PanelWidth = 200;
+            this.txtTenQuyen.Size = new System.Drawing.Size(313, 83);
+            this.txtTenQuyen.TabIndex = 8;
+            this.txtTenQuyen.TextValue = "";
             // 
-            // lblTxtMaQuyen
+            // txtMaQuyen
             // 
-            this.lblTxtMaQuyen.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTxtMaQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTxtMaQuyen.IsPassword = false;
-            this.lblTxtMaQuyen.LabelText = "Mã quyền";
-            this.lblTxtMaQuyen.Location = new System.Drawing.Point(0, 83);
-            this.lblTxtMaQuyen.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTxtMaQuyen.Name = "lblTxtMaQuyen";
-            this.lblTxtMaQuyen.PanelHeight = 60;
-            this.lblTxtMaQuyen.PanelWidth = 200;
-            this.lblTxtMaQuyen.Size = new System.Drawing.Size(313, 83);
-            this.lblTxtMaQuyen.TabIndex = 7;
-            this.lblTxtMaQuyen.TextValue = "";
+            this.txtMaQuyen.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtMaQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMaQuyen.IsPassword = false;
+            this.txtMaQuyen.LabelText = "Mã quyền";
+            this.txtMaQuyen.Location = new System.Drawing.Point(0, 83);
+            this.txtMaQuyen.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMaQuyen.Name = "txtMaQuyen";
+            this.txtMaQuyen.PanelHeight = 60;
+            this.txtMaQuyen.PanelWidth = 200;
+            this.txtMaQuyen.Size = new System.Drawing.Size(313, 83);
+            this.txtMaQuyen.TabIndex = 7;
+            this.txtMaQuyen.TextValue = "";
             // 
             // tableLayoutPanel5
             // 
@@ -697,7 +697,7 @@
             // 
             // buttonXoaQuyen
             // 
-            this.buttonXoaQuyen.BackColor = System.Drawing.Color.Transparent;
+            this.buttonXoaQuyen.BackColor = System.Drawing.Color.White;
             this.buttonXoaQuyen.BorderRadius = 20;
             this.buttonXoaQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonXoaQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -720,7 +720,7 @@
             // 
             // buttonSuaQuyen
             // 
-            this.buttonSuaQuyen.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSuaQuyen.BackColor = System.Drawing.Color.White;
             this.buttonSuaQuyen.BorderRadius = 20;
             this.buttonSuaQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSuaQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -743,7 +743,7 @@
             // 
             // buttonThemQuyen
             // 
-            this.buttonThemQuyen.BackColor = System.Drawing.Color.Transparent;
+            this.buttonThemQuyen.BackColor = System.Drawing.Color.White;
             this.buttonThemQuyen.BorderRadius = 20;
             this.buttonThemQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonThemQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
@@ -766,7 +766,7 @@
             // 
             // quyenPanel
             // 
-            this.quyenPanel.BackColor = System.Drawing.Color.Transparent;
+            this.quyenPanel.BackColor = System.Drawing.Color.White;
             this.quyenPanel.BorderRadius = 40;
             this.quyenPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.quyenPanel.Location = new System.Drawing.Point(0, 66);
@@ -840,12 +840,12 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Component.RoundedLabel buttonXacNhanQuyen;
         private Component.RoundedLabel buttonHuyQuyen;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtTenDangNhap;
+        private LayoutTest.GUIComponents.LableTextBox txtTenDangNhap;
         private LayoutTest.GUIComponents.LableComboBox comboBoxQuyen;
         private LayoutTest.GUIComponents.LableComboBox comboBoxNhanVien;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox1;
-        private LayoutTest.GUIComponents.LableTextBox lableTextBox3;
-        private LayoutTest.GUIComponents.LableTextBox lblTxtMaQuyen;
+        private LayoutTest.GUIComponents.LableTextBox txtMatKhau;
+        private LayoutTest.GUIComponents.LableTextBox txtTenQuyen;
+        private LayoutTest.GUIComponents.LableTextBox txtMaQuyen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;

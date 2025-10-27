@@ -100,7 +100,7 @@ namespace LayoutTest.GUIComponents
         public void SetReadOnly(bool readOnly)
         {
             txt.ReadOnly = readOnly;
-            txt.BackColor = readOnly ? Color.LightGray : Color.White;
+            txt.BackColor = readOnly ? Color.WhiteSmoke : Color.White;
         }
     }
 }

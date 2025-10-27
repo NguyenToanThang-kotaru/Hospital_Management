@@ -23,6 +23,14 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         private void BenhNhanPage_Load(object sender, EventArgs e)
         {
             LoadPatientToTable();
+
+            checkBoxCoBHYTCheckedChanged(checkBoxCoBHYT, EventArgs.Empty);
+            txtMaDKDV.SetReadOnly(true);
+            txtNhanVientaoPhieu.SetReadOnly(true);
+            txtTenBenhNhan.SetReadOnly(true);
+            txtNgayGioTaoPhieu.SetReadOnly(true);
+            txtTongChiPhi.SetReadOnly(true);
+            txtTiLeChiTra.SetReadOnly(true);
         }
 
         private void LoadPatientToTable()
@@ -123,7 +131,11 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         // sự kiện tabPageBenhNhan
         private void checkBoxCoBHYTCheckedChanged(object sender, EventArgs e)
         {
+            bool allowEdit = checkBoxCoBHYT.Checked;
 
+            txtSoBHYT.SetReadOnly(!allowEdit);
+            txtNgayCap.SetReadOnly(!allowEdit);
+            txtNgayHetHan.SetReadOnly(!allowEdit);
         }
         private void buttonHuyBenhNhanClick(object sender, EventArgs e)
         {

@@ -27,6 +27,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             LoadAccountToTable();
             LoadPermissionToTable();
+
+            txtMaQuyen.SetReadOnly(true);
         }
 
         private void LoadAccountToTable()
