@@ -193,6 +193,7 @@
             this.comboBoxBaoHiemChiTra.Size = new System.Drawing.Size(350, 83);
             this.comboBoxBaoHiemChiTra.TabIndex = 6;
             this.comboBoxBaoHiemChiTra.TextValue = "";
+            this.comboBoxBaoHiemChiTra.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxBaoHiemChiTraLoad);
             // 
             // txtGiaDichVu
             // 

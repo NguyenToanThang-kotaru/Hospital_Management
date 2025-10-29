@@ -122,5 +122,10 @@ namespace HospitalManagerment.BUS
                 return null;
             }
         }
+
+        public bool ExistsServiceId(string maDV)
+        {
+            return GetAllService().Any(sv => sv.MaDV == maDV);
+        }
     }
 }
