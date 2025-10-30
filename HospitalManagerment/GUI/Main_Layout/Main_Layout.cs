@@ -1,107 +1,58 @@
-﻿using System;
-using System.Windows.Forms;
-using HospitalManagerment.GUI.Pages.Statistics;
+﻿using HospitalManagerment.DTO;
 using HospitalManagerment.GUI.Pages.BenhNhan;
 using HospitalManagerment.GUI.Pages.DichVu;
 using HospitalManagerment.GUI.Pages.HoSoBenhAn;
 using HospitalManagerment.GUI.Pages.NhanVien;
+using HospitalManagerment.GUI.Pages.Statistics;
+using System;
+using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Main_Layout
 {
     public partial class Main_Layout : Form
     {
-        public Main_Layout()
+        private string employeeId;
+        public Main_Layout(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            LoadPage(new StatisticPage());
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SideBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MainContent_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void LoadPage(UserControl page)
         {
-            MainContent.Controls.Clear();      // Xóa nội dung cũ
-            page.Dock = DockStyle.Fill;             // Cho nội dung lấp đầy panel
-            MainContent.Controls.Add(page);    // Thêm trang mới vào
+            MainContent.Controls.Clear();    
+            page.Dock = DockStyle.Fill;           
+            MainContent.Controls.Add(page);   
         }
-
-        //private void LoadSidebar()
-        //{
-        //    ChucNangDAO dao = new ChucNangDAO();
-        //    DataTable dt = dao.GetAll();
-
-        //    // Xóa các control cũ nếu có
-        //    SideBar.Controls.Clear();
-
-        //    int y = 10; // vị trí bắt đầu
-
-        //    foreach (DataRow row in dt.Rows)
-        //    {
-        //        Button btn = new Button();
-        //        btn.Text = row["TenChucNang"].ToString();
-        //        btn.Tag = row["FormLienKet"].ToString(); // gắn tên form hoặc id
-        //        btn.Size = new Size(SideBar.Width - 20, 40);
-        //        btn.Location = new Point(10, y);
-        //        btn.BackColor = Color.LightSteelBlue;
-        //        btn.FlatStyle = FlatStyle.Flat;
-        //        btn.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-        //        btn.TextAlign = ContentAlignment.MiddleLeft;
-        //        btn.Click += SidebarButton_Click;
-
-        //        SideBar.Controls.Add(btn);
-        //        y += 45; // cách giữa các nút
-        //    }
-        //}
 
         private void Dashboard_Click(object sender, EventArgs e)
         {
-            LoadPage(new StatisticPage());
+            LoadPage(new StatisticPage(employeeId));
         }
 
         private void BenhNhanItem_Click(object sender, EventArgs e)
         {
-            LoadPage(new BenhNhanPage());
+            LoadPage(new BenhNhanPage(employeeId));
         }
 
         private void HoSoBenhAnItem_Click(object sender, EventArgs e)
         {
-            LoadPage(new HoSoBenhAnPage());
+            LoadPage(new HoSoBenhAnPage(employeeId));
         }
 
         private void DichVu_Click(object sender, EventArgs e)
         {
-            LoadPage(new DichVuPage());
+            LoadPage(new DichVuPage(employeeId));
         }
 
         private void NhanVien_Click(object sender, EventArgs e)
         {
-            LoadPage(new NhanVienPage());
+            LoadPage(new NhanVienPage(employeeId));
         }
 
         private void Quyen_Click(object sender, EventArgs e)
         {
-            LoadPage(new QuyenPage());
+            LoadPage(new QuyenPage(employeeId));
         }
     }
 }

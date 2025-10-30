@@ -10,13 +10,15 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 {
     public partial class QuyenPage : UserControl
     {
+        private string employeeId;
         private TableDataGridView tableAccounts;
         private TableDataGridView tablePermission;
         private PermissionBUS permissionBUS;
         private AccountBUS accountBUS;
-        public QuyenPage()
+        public QuyenPage(string employeeId  )
         {
             InitializeComponent();
+            this.employeeId = employeeId;
             tableAccounts = new TableDataGridView();
             tablePermission = new TableDataGridView();
             accountBUS = new AccountBUS();

@@ -11,14 +11,16 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
 {
     public partial class NhanVienPage : UserControl
     {
+        private string employeeId; 
         private TableDataGridView tableEmployee;
         private TableDataGridView tableDepartment;
         private EmployeeBUS employeeBUS;
         private DepartmentBUS departmentBUS;
 
-        public NhanVienPage()
+        public NhanVienPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
             tableEmployee = new TableDataGridView();
             tableDepartment = new TableDataGridView();
             employeeBUS = new EmployeeBUS();

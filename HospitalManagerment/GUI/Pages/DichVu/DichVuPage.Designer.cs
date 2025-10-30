@@ -52,6 +52,8 @@
             this.splitContainerChiDinhDichVu = new System.Windows.Forms.SplitContainer();
             this.chiDinhDichVuForm = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBoxDichVu = new LayoutTest.GUIComponents.LableComboBox();
+            this.txtNhanVienTaoPhieu = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -501,6 +503,8 @@
             this.tableLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxDichVu, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.txtNhanVienTaoPhieu, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel2, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.txtMaChiDinhDichVu, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.txtTenBenhNhan, 0, 3);
@@ -520,6 +524,36 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(350, 667);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // comboBoxDichVu
+            // 
+            this.comboBoxDichVu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxDichVu.LabelText = "Dịch vụ";
+            this.comboBoxDichVu.Location = new System.Drawing.Point(0, 415);
+            this.comboBoxDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.comboBoxDichVu.Name = "comboBoxDichVu";
+            this.comboBoxDichVu.PanelHeight = 100;
+            this.comboBoxDichVu.PanelWidth = 200;
+            this.comboBoxDichVu.Size = new System.Drawing.Size(350, 83);
+            this.comboBoxDichVu.TabIndex = 9;
+            this.comboBoxDichVu.TextValue = "";
+            this.comboBoxDichVu.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxDichVuLoad);
+            // 
+            // txtNhanVienTaoPhieu
+            // 
+            this.txtNhanVienTaoPhieu.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNhanVienTaoPhieu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNhanVienTaoPhieu.IsPassword = false;
+            this.txtNhanVienTaoPhieu.LabelText = "Nhân viên tạo phiếu";
+            this.txtNhanVienTaoPhieu.Location = new System.Drawing.Point(0, 332);
+            this.txtNhanVienTaoPhieu.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNhanVienTaoPhieu.Name = "txtNhanVienTaoPhieu";
+            this.txtNhanVienTaoPhieu.PanelHeight = 60;
+            this.txtNhanVienTaoPhieu.PanelWidth = 200;
+            this.txtNhanVienTaoPhieu.Size = new System.Drawing.Size(350, 83);
+            this.txtNhanVienTaoPhieu.TabIndex = 8;
+            this.txtNhanVienTaoPhieu.TextValue = "";
             // 
             // flowLayoutPanel2
             // 
@@ -853,5 +887,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Component.RoundedLabel buttonXacNhanChiDinhDichVu;
         private Component.RoundedLabel buttonHuyChiDinhDichVu;
+        private LayoutTest.GUIComponents.LableTextBox txtNhanVienTaoPhieu;
+        private LayoutTest.GUIComponents.LableComboBox comboBoxDichVu;
     }
 }

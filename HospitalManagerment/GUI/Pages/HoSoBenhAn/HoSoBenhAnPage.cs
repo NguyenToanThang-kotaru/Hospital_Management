@@ -11,13 +11,15 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 {
     public partial class HoSoBenhAnPage : UserControl
     {
+        private string employeeId;
         private TableDataGridView tableMedicine;
         private TableDataGridView tableDisease;
         private MedicineBUS medicineBUS;
         private DiseaseBUS diseaseBUS;
-        public HoSoBenhAnPage()
+        public HoSoBenhAnPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
             tableMedicine = new TableDataGridView();
             tableDisease = new TableDataGridView();
             medicineBUS = new MedicineBUS();

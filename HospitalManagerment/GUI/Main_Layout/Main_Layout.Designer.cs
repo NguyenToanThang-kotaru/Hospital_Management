@@ -77,7 +77,6 @@
             this.SideBar.Name = "SideBar";
             this.SideBar.Size = new System.Drawing.Size(310, 873);
             this.SideBar.TabIndex = 1;
-            this.SideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.SideBar_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -246,7 +245,6 @@
             this.MainContent.Name = "MainContent";
             this.MainContent.Size = new System.Drawing.Size(1372, 873);
             this.MainContent.TabIndex = 2;
-            this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
             // 
             // Main_Layout
             // 

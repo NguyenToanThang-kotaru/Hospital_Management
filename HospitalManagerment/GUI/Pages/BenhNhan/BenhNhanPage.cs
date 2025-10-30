@@ -11,13 +11,18 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
 {
     public partial class BenhNhanPage : UserControl
     {
+        private string employeeId;
         private TableDataGridView tablePatient;
         private PatientBUS patientBUS;
-        public BenhNhanPage()
+        private HealthInsuranceBUS healthInsuranceBUS;
+        public BenhNhanPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
             tablePatient = new TableDataGridView();
             patientBUS = new PatientBUS();
+            healthInsuranceBUS = new HealthInsuranceBUS();
+
         }
 
         private void BenhNhanPage_Load(object sender, EventArgs e)
@@ -139,7 +144,17 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         }
         private void buttonHuyBenhNhanClick(object sender, EventArgs e)
         {
-
+            txtSoCCCD.TextValue = "";
+            txtNgaySinh.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            txtSoDienThoai.TextValue = "";
+            comboBoxGioiTinh.GetComboBox().SelectedIndex = -1;
+            txtDiaChi.TextValue = "";
+            checkBoxCoBHYT.Checked = false;
+            txtSoBHYT.TextValue = "";
+            txtNgayCap.TextValue = "";
+            txtNgayHetHan.TextValue = "";
+            txtTiLeChiTra.TextValue = "";
         }
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
@@ -165,7 +180,8 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         // sự kiện tabPageDanhSach
         private void buttonThemBenhNhanClick(object sender, EventArgs e)
         {
-
+            tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
+            buttonHuyBenhNhanClick(null, null);
         }
 
         private void buttonSuaBenhNhanClick(object sender, EventArgs e)

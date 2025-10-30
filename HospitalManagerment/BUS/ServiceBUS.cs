@@ -124,7 +124,7 @@ namespace HospitalManagerment.BUS
         }
 
         public bool ExistsServiceId(string maDV)
-        {
+        {   
             return GetAllService().Any(sv => sv.MaDV == maDV);
         }
     }

@@ -108,5 +108,10 @@ namespace HospitalManagerment.BUS
                 return null;
             }
         }
+
+        public bool ExistsServiceDesignationId(string maPCD)
+        {
+            return GetAllServiceDesignation().Any(sv => sv.MaPCD == maPCD);
+        }
     }
 }

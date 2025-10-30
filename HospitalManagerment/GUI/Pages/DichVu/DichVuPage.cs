@@ -11,17 +11,23 @@ namespace HospitalManagerment.GUI.Pages.DichVu
 {
     public partial class DichVuPage : UserControl
     {
+        private string employeeId;
         private TableDataGridView tableService;        
         private TableDataGridView tableServiceDesignation;
         private ServiceBUS serviceBUS;
         private ServiceDesignationBUS serviceDesignationBUS;
-        public DichVuPage()
+        private PatientBUS patientBUS;
+        private EmployeeBUS employeeBUS;
+        public DichVuPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
             tableService = new TableDataGridView();
             tableServiceDesignation = new TableDataGridView();
             serviceBUS = new ServiceBUS();
             serviceDesignationBUS = new ServiceDesignationBUS();
+            patientBUS = new PatientBUS(); 
+            employeeBUS = new EmployeeBUS();
         }
 
         private void DichVuPage_Load(object sender, EventArgs e)
@@ -32,8 +38,11 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             txtMaDichVu.SetReadOnly(true);
             txtMaChiDinhDichVu.SetReadOnly(true);
             txtTenBenhNhan.SetReadOnly(true);
+            txtNhanVienTaoPhieu.SetReadOnly(true);
 
             txtMaDichVu.TextValue = serviceBUS.GetNextServiceId();
+            txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
+            txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
         }
 
         private void LoadServiceToTable()
@@ -92,13 +101,36 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
         }
 
+        private void comboBoxDichVuLoad(object sender, PaintEventArgs e)
+        {
+            ComboBox cb = comboBoxDichVu.GetComboBox();
+            if (cb.DataSource == null)
+            {
+                cb.DataSource = serviceBUS.GetAllService();
+                cb.DisplayMember = "TenDV";   // Tên thuộc tính hiển thị
+                cb.ValueMember = "MaDV";      // Giá trị lấy ra để lưu
+                cb.SelectedIndex = -1;
+
+                cb.DrawMode = DrawMode.OwnerDrawFixed;
+                cb.DrawItem += (s, ev) =>
+                {
+                    if (ev.Index < 0) return;
+                    string text = ((ServiceDTO)cb.Items[ev.Index]).TenDV;
+                    Color textColor = Color.FromArgb(125, 125, 125);
+                    ev.DrawBackground();
+                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
+                    ev.DrawFocusRectangle();
+                };
+            }
+        }
+
         // sự kiệm tabPageDichVu
         private void buttonHuyDichVuClick(object sender, EventArgs e)
         {
             txtMaDichVu.TextValue = serviceBUS.GetNextServiceId();
             txtTenDichVu.TextValue = "";
             txtGiaDichVu.TextValue = "";
-            comboBoxBaoHiemChiTra.TextValue = "";
+            comboBoxBaoHiemChiTra.GetComboBox().SelectedIndex = -1;
             tableService.ClearSelection();
         }
 
@@ -147,13 +179,20 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             if (tableService.SelectedRows.Count > 0)
             {
                 var row = tableService.SelectedRows[0];
-                txtMaDichVu.TextValue = row.Cells["MaDV"].Value?.ToString();
-                txtTenDichVu.TextValue = row.Cells["TenDV"].Value?.ToString();
-                txtGiaDichVu.TextValue = row.Cells["GiaDV"].Value?.ToString();
-                if (row.Cells["BHYTTra"].Value?.ToString() == "1")
-                    comboBoxBaoHiemChiTra.TextValue = "Có";
+                string maDV = row.Cells["MaDV"].Value?.ToString();
+
+                var dichVu = serviceBUS.GetServiceById(maDV);
+                if (serviceBUS.GetServiceById(maDV) != null)
+                {
+                    txtMaDichVu.TextValue = dichVu.MaDV?.ToString();
+                    txtTenDichVu.TextValue = dichVu.TenDV?.ToString();
+                    txtGiaDichVu.TextValue = dichVu.GiaDV?.ToString();
+                    comboBoxBaoHiemChiTra.TextValue = dichVu.BHYTTra?.ToString() == "1" ? "Có" : "Không";
+                }
                 else
-                    comboBoxBaoHiemChiTra.TextValue = "Không";
+                {
+                    MessageBox.Show("Không tìm thấy dịch vụ với mã này!");
+                }
             }
             else
             {
@@ -185,29 +224,99 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         // sự kiệm tabPageChiDinhDichVu
         private void buttonHuyChiDinhDichVuClick(object sender, EventArgs e)
         {
-
+            txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
+            txtSoCCCDBenhNhan.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            comboBoxDichVu.TextValue = "";
+            txtSoCCCDBenhNhan.Focus();
         }
 
         private void buttonXacNhanChiDinhDichVuClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSoCCCDBenhNhan.TextValue) || string.IsNullOrEmpty(txtTenBenhNhan.TextValue) || string.IsNullOrEmpty(comboBoxDichVu.TextValue))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin dịch vụ!");
+                return;
+            }
+            ServiceDesignationDTO serviceDesignation = new ServiceDesignationDTO()
+            {
+                MaPCD = txtMaChiDinhDichVu.TextValue,
+                SoCCCD = txtSoCCCDBenhNhan.TextValue,
+                MaNV = employeeId,
+                MaDV = comboBoxDichVu.GetComboBox().SelectedValue?.ToString(),
+                NgayGioTaoPhieu = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            };
 
+            if (!serviceDesignationBUS.ExistsServiceDesignationId(serviceDesignation.MaDV))
+            {
+                serviceDesignationBUS.AddServiceDesignation(serviceDesignation);
+                MessageBox.Show("Thêm dịch vụ thành công!");
+            }
+            else
+            {
+                serviceDesignationBUS.UpdateServiceDesignation(serviceDesignation);
+                MessageBox.Show("Cập nhật dịch vụ thành công!");
+            }
+            LoadServiceDesignationToTable();
+            buttonHuyChiDinhDichVuClick(null, null);
         }
 
         private void buttonThemChiDinhDichVuClick(object sender, EventArgs e)
         {
-
+            txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
+            txtSoCCCDBenhNhan.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            comboBoxDichVu.TextValue = "";
+            tableServiceDesignation.ClearSelection();
         }
 
         private void buttonSuaChiDinhDichVuClick(object sender, EventArgs e)
         {
+            if (tableServiceDesignation.SelectedRows.Count > 0)
+            {
+                var row = tableService.SelectedRows[0];
+                string maPCD = row.Cells["MaPCD"].Value?.ToString();
 
+                var phieuChiDinh = serviceDesignationBUS.GetServiceDesignationById(maPCD);
+                if (phieuChiDinh != null)
+                {
+                    txtMaChiDinhDichVu.TextValue = phieuChiDinh.MaPCD?.ToString();
+                    txtSoCCCDBenhNhan.TextValue = phieuChiDinh.SoCCCD?.ToString();
+                    txtTenBenhNhan.TextValue = patientBUS.GetPatientById(phieuChiDinh.SoCCCD?.ToString()).TenBN;
+                    txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeByID(phieuChiDinh.MaNV?.ToString()).TenNV;
+                    comboBoxDichVu.GetComboBox().SelectedValue = phieuChiDinh.MaDV;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy phiếu chỉ định dịch vụ với mã này!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn phiếu chỉ định dịch vụ cần sửa!");
+            }
         }
 
         private void buttonXoaChiDinhDichVuClick(object sender, EventArgs e)
         {
-
+            if (tableServiceDesignation.SelectedRows.Count > 0)
+            {
+                string maChiDinhDichVu = tableServiceDesignation.SelectedRows[0].Cells["MaPCD"].Value?.ToString();
+                var result = MessageBox.Show("Bạn có chắc muốn xóa phiếu chỉ định này?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    serviceDesignationBUS.DeleteServiceDesignation(maChiDinhDichVu);
+                    MessageBox.Show("Xóa dịch vụ thành công!");
+                    LoadServiceDesignationToTable();
+                    buttonHuyChiDinhDichVuClick(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn phiếu chỉ định dịch vụ cần xóa!");
+            }
         }
 
-       
+        
     }
 }
