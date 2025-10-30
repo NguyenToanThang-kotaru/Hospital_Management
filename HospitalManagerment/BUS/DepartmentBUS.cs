@@ -121,5 +121,10 @@ namespace HospitalManagerment.BUS
                 return null;
             }
         }
+
+        public bool ExistsDepartmentId(string maKhoa)
+        {
+            return GetAllDepartment().Any(sv => sv.MaKhoa == maKhoa);
+        }
     }
 }

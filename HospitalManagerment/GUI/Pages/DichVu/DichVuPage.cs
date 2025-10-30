@@ -227,7 +227,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
             txtSoCCCDBenhNhan.TextValue = "";
             txtTenBenhNhan.TextValue = "";
-            comboBoxDichVu.TextValue = "";
+            comboBoxDichVu.GetComboBox().SelectedIndex = -1;
             txtSoCCCDBenhNhan.Focus();
         }
 

@@ -75,8 +75,10 @@
 using HospitalManagerment.DAO;
 using HospitalManagerment.DTO;
 using HospitalManagerment.Utils;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HospitalManagerment.BUS
 {
@@ -141,6 +143,16 @@ namespace HospitalManagerment.BUS
             if (!employeeDAO.DeleteEmployee(employeeID))
                 throw new Exception("Xóa nhân viên thất bại!");
             return true;
+        }
+
+        public string GetNextEmployeeId()
+        {
+            return employeeDAO.GetNextEmployeeId();
+        }
+
+        public bool ExistsEmployeeId(string maNV)
+        {
+            return GetAllEmployees().Any(sv => sv.MaNV == maNV);
         }
     }
 }

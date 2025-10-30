@@ -320,6 +320,7 @@ using HospitalManagerment.DTO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace HospitalManagerment.DAO
 {
@@ -488,15 +489,12 @@ namespace HospitalManagerment.DAO
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     DatabaseConnection.Open(conn);
-
-                    string nextId = GetNextEmployeeId();
-
                     string query = @"
                         INSERT INTO nhanvien (MaNV, TenNV, SdtNV, ChucVu, VaiTro, MaKhoa, TrangThaiXoa)
                         VALUES (@MaNV, @TenNV, @SdtNV, @ChucVu, @VaiTro, @MaKhoa, 0)";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaNV", nextId);
+                        cmd.Parameters.AddWithValue("@MaNV", employee.MaNV);
                         cmd.Parameters.AddWithValue("@TenNV", employee.TenNV);
                         cmd.Parameters.AddWithValue("@SdtNV", employee.SdtNV);
                         cmd.Parameters.AddWithValue("@ChucVu", employee.ChucVu);
@@ -580,6 +578,7 @@ namespace HospitalManagerment.DAO
                 return false;
             }
         }
+
     }
 }
 
