@@ -83,6 +83,7 @@ using HospitalManagerment.DAO;
 using HospitalManagerment.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HospitalManagerment.BUS
 {
@@ -173,6 +174,11 @@ namespace HospitalManagerment.BUS
         {
             return accountDAO.GetAccountByUsername(username);
         }
-     }
+
+        public bool ExistsAccountUsername(string username)
+        {
+            return GetAllAccount().Any( sv => sv.TenDangNhap == username);
+        }
+    }
 }
 

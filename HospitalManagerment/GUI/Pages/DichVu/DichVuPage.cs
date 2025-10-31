@@ -147,7 +147,8 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 MaDV = txtMaDichVu.TextValue,
                 TenDV = txtTenDichVu.TextValue,
                 GiaDV = txtGiaDichVu.TextValue,
-                BHYTTra = comboBoxBaoHiemChiTra.TextValue == "Có" ? "1" : "Không"
+                BHYTTra = comboBoxBaoHiemChiTra.TextValue == "Có" ? "1" : "0"
+
             };
 
             if (!serviceBUS.ExistsServiceId(service.MaDV))
@@ -240,8 +241,8 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
             ServiceDesignationDTO serviceDesignation = new ServiceDesignationDTO()
             {
-                MaPCD = txtMaChiDinhDichVu.TextValue,
-                SoCCCD = txtSoCCCDBenhNhan.TextValue,
+                MaPCD = txtMaChiDinhDichVu.TextValue.Trim(),
+                SoCCCD = txtSoCCCDBenhNhan.TextValue.Trim(),
                 MaNV = employeeId,
                 MaDV = comboBoxDichVu.GetComboBox().SelectedValue?.ToString(),
                 NgayGioTaoPhieu = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
@@ -257,7 +258,6 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 serviceDesignationBUS.UpdateServiceDesignation(serviceDesignation);
                 MessageBox.Show("Cập nhật dịch vụ thành công!");
             }
-            LoadServiceDesignationToTable();
             buttonHuyChiDinhDichVuClick(null, null);
         }
 
@@ -266,7 +266,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
             txtSoCCCDBenhNhan.TextValue = "";
             txtTenBenhNhan.TextValue = "";
-            comboBoxDichVu.TextValue = "";
+            comboBoxDichVu.GetComboBox().SelectedIndex = -1;
             tableServiceDesignation.ClearSelection();
         }
 
@@ -307,7 +307,6 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 {
                     serviceDesignationBUS.DeleteServiceDesignation(maChiDinhDichVu);
                     MessageBox.Show("Xóa dịch vụ thành công!");
-                    LoadServiceDesignationToTable();
                     buttonHuyChiDinhDichVuClick(null, null);
                 }
             }

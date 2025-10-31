@@ -193,7 +193,7 @@
             this.txtTenDangNhap.PanelHeight = 60;
             this.txtTenDangNhap.PanelWidth = 200;
             this.txtTenDangNhap.Size = new System.Drawing.Size(350, 83);
-            this.txtTenDangNhap.TabIndex = 8;
+            this.txtTenDangNhap.TabIndex = 1;
             this.txtTenDangNhap.TextValue = "";
             // 
             // comboBoxQuyen
@@ -207,8 +207,9 @@
             this.comboBoxQuyen.PanelHeight = 100;
             this.comboBoxQuyen.PanelWidth = 200;
             this.comboBoxQuyen.Size = new System.Drawing.Size(350, 83);
-            this.comboBoxQuyen.TabIndex = 7;
+            this.comboBoxQuyen.TabIndex = 4;
             this.comboBoxQuyen.TextValue = "";
+            this.comboBoxQuyen.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxQuyenLoad);
             // 
             // comboBoxNhanVien
             // 
@@ -221,8 +222,9 @@
             this.comboBoxNhanVien.PanelHeight = 100;
             this.comboBoxNhanVien.PanelWidth = 200;
             this.comboBoxNhanVien.Size = new System.Drawing.Size(350, 83);
-            this.comboBoxNhanVien.TabIndex = 6;
+            this.comboBoxNhanVien.TabIndex = 3;
             this.comboBoxNhanVien.TextValue = "";
+            this.comboBoxNhanVien.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxNhanVienLoad);
             // 
             // txtMatKhau
             // 
@@ -236,7 +238,7 @@
             this.txtMatKhau.PanelHeight = 60;
             this.txtMatKhau.PanelWidth = 200;
             this.txtMatKhau.Size = new System.Drawing.Size(350, 83);
-            this.txtMatKhau.TabIndex = 5;
+            this.txtMatKhau.TabIndex = 2;
             this.txtMatKhau.TextValue = "";
             // 
             // flowLayoutPanel1
@@ -270,7 +272,7 @@
             this.buttonXacNhanTaiKhoan.PanelHeight = 50;
             this.buttonXacNhanTaiKhoan.PanelWidth = 180;
             this.buttonXacNhanTaiKhoan.Size = new System.Drawing.Size(140, 45);
-            this.buttonXacNhanTaiKhoan.TabIndex = 1;
+            this.buttonXacNhanTaiKhoan.TabIndex = 5;
             this.buttonXacNhanTaiKhoan.Text = "Xác nhận";
             this.buttonXacNhanTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonXacNhanTaiKhoan.Click += new System.EventHandler(this.buttonXacNhanTaiKhoanClick);
