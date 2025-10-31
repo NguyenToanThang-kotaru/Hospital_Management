@@ -121,5 +121,10 @@ namespace HospitalManagerment.BUS
             }
             return new List<DiseaseDTO>();
         }
+
+        public bool ExistsDiseaseId(string maBenh)
+        {
+            return GetAllDiseases().Any(sv => sv.MaBenh == maBenh);
+        }
     }
 }

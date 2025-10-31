@@ -180,13 +180,16 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         // sự kiện tabPageDanhSach
         private void buttonThemBenhNhanClick(object sender, EventArgs e)
         {
+            // chọn dòng
             tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
             buttonHuyBenhNhanClick(null, null);
         }
 
         private void buttonSuaBenhNhanClick(object sender, EventArgs e)
         {
-
+            // chọn dòng
+            tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
+            buttonHuyBenhNhanClick(null, null);
         }
 
         private void buttonXoaBenhNhanClick(object sender, EventArgs e)

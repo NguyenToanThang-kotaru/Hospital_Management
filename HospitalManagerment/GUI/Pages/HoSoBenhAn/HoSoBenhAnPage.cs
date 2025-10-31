@@ -16,6 +16,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         private TableDataGridView tableDisease;
         private MedicineBUS medicineBUS;
         private DiseaseBUS diseaseBUS;
+        private MedicalBUS medicalBUS;
+        private EmployeeBUS employeeBUS;
         public HoSoBenhAnPage(string employeeId)
         {
             InitializeComponent();
@@ -24,6 +26,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             tableDisease = new TableDataGridView();
             medicineBUS = new MedicineBUS();
             diseaseBUS = new DiseaseBUS();
+            medicalBUS = new MedicalBUS();
+            employeeBUS = new EmployeeBUS();
         }
 
         private void HoSoBenhAnPage_Load(object sender, EventArgs e)
@@ -33,10 +37,14 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
             txtMaBenhAn.SetReadOnly(true);
             txtBacSiPhuTrach.SetReadOnly(true);
-            txtNgayTaoBenhAn.SetReadOnly(true);
             txtTenBenhNhan.SetReadOnly(true);
             txtMaDuocPham.SetReadOnly(true);
             txtMaBenh.SetReadOnly(true);
+
+            txtMaBenh.TextValue = diseaseBUS.GetNextDiseaseId();
+            txtMaDuocPham.TextValue = medicineBUS.GetNextMedicineId();
+            txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
+            txtBacSiPhuTrach.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
         }
 
         private void LoadMedicineToTable()
@@ -107,7 +115,9 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         // sự kiện tabPageDanhSach
         private void buttonSuaHoSoBenhAnClick(object sender, EventArgs e)
         {
-
+            // chọn dòng
+            tabControlHoSoBenhAn.SelectedTab = tabPageBenhAn;
+            buttonHuyBenhAnClick(null, null);
         }
         
         //sự kiện tabPageBenhAn
@@ -149,53 +159,173 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         // sự kiện tabPageBenh
         private void buttonHuyBenhClick(object sender, EventArgs e)
         {
-
+            txtMaBenh.TextValue = diseaseBUS.GetNextDiseaseId();
+            txtTenBenh.TextValue = "";
+            txtMoTaBenh.TextValue = "";
         }
 
         private void buttonXacNhanBenhClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtTenBenh.TextValue))
+            {
+                MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin benh!");
+                return;
+            }
+            DiseaseDTO disease = new DiseaseDTO()
+            {
+                MaBenh = txtMaBenh.TextValue.Trim(),
+                TenBenh = txtTenBenh.TextValue.Trim(),
+                MoTaBenh = txtMoTaBenh.TextValue.Trim()
+            };
 
+            if (!diseaseBUS.ExistsDiseaseId(disease.MaBenh))
+            {
+                diseaseBUS.AddDisease(disease);
+                MessageBox.Show("Thêm benh thành công!");
+            }
+            else
+            {
+                diseaseBUS.UpdateDisease(disease);
+                MessageBox.Show("Cập nhật benh thành công!");
+            }
+            buttonHuyBenhClick(null, null);
         }
 
         private void buttonThemBenhClick(object sender, EventArgs e)
         {
-
+            txtMaBenh.TextValue = diseaseBUS.GetNextDiseaseId();
+            txtTenBenh.TextValue = "";
+            txtMoTaBenh.TextValue = "";
         }
 
         private void buttonSuaBenhClick(object sender, EventArgs e)
         {
+            if (tableDisease.SelectedRows.Count > 0)
+            {
+                var row = tableDisease.SelectedRows[0];
+                string maBenh = row.Cells["MaBenh"].Value?.ToString();
 
+                var benh = diseaseBUS.GetDiseaseById(maBenh);
+                if (diseaseBUS.GetDiseaseById(maBenh) != null)
+                {
+                    txtMaBenh.TextValue = benh.MaBenh;
+                    txtTenBenh.TextValue = benh.TenBenh;
+                    txtMoTaBenh.TextValue = benh.MoTaBenh;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy benh!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn benh cần sửa!");
+            }
         }
 
         private void buttonXoaBenhClick(object sender, EventArgs e)
         {
-
+            if (tableDisease.SelectedRows.Count > 0)
+            {
+                string maBenh = tableDisease.SelectedRows[0].Cells["MaBenh"].Value?.ToString();
+                var result = MessageBox.Show("Bạn có chắc muốn xóa benh này?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    diseaseBUS.DeleteDisease(maBenh);
+                    MessageBox.Show("Xóa benh thành công!");
+                    buttonHuyBenhClick(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn benh cần xóa!");
+            }
         }
 
         // sự kiện tabPageDuocPham
         private void buttonHuyDuocPhamClick(object sender, EventArgs e)
         {
-
+            txtMaDuocPham.TextValue = medicineBUS.GetNextMedicineId();
+            txtTenDuocPham.TextValue = "";
+            comboBoxLoaiDuocPham.GetComboBox().SelectedIndex = -1;
         }
 
         private void buttonXacNhanDuocPhamClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtTenDuocPham.TextValue) || string.IsNullOrEmpty(comboBoxLoaiDuocPham.TextValue))
+            {
+                MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin duoc pham!");
+                return;
+            }
+            MedicineDTO medicine = new MedicineDTO()
+            {
+                MaDP = txtMaDuocPham.TextValue.Trim(),
+                TenDP = txtTenDuocPham.TextValue.Trim(),
+                LoaiDP = comboBoxLoaiDuocPham.TextValue,
+            };
 
+            if (!medicineBUS.ExistsMedicineId(medicine.MaDP))
+            {
+                medicineBUS.AddMedicine(medicine);
+                MessageBox.Show("Thêm duoc pham thành công!");
+            }
+            else
+            {
+                medicineBUS.UpdateMedicine(medicine);
+                MessageBox.Show("Cập nhật duoc pham thành công!");
+            }
+            buttonHuyBenhClick(null, null);
         }
 
         private void buttonThemDuocPhamClick(object sender, EventArgs e)
         {
-
+            txtMaDuocPham.TextValue = medicineBUS.GetNextMedicineId();
+            txtTenDuocPham.TextValue = "";
+            comboBoxLoaiDuocPham.GetComboBox().SelectedIndex = -1;
         }
 
         private void buttonSuaDuocPhamClick(object sender, EventArgs e)
         {
+            if (tableMedicine.SelectedRows.Count > 0)
+            {
+                var row = tableMedicine.SelectedRows[0];
+                string maDP = row.Cells["MaDP"].Value?.ToString();
 
+                var duocpham = medicineBUS.GetMedicineById(maDP);
+                if (medicineBUS.GetMedicineById(maDP) != null)
+                {
+                    txtMaDuocPham.TextValue = duocpham.MaDP;
+                    txtTenDuocPham.TextValue = duocpham.TenDP;
+                    comboBoxLoaiDuocPham.TextValue = duocpham.LoaiDP;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy duoc pham!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn duoc pham cần sửa!");
+            }
         }
 
         private void buttonXoaDuocPhamClick(object sender, EventArgs e)
         {
-
+            if (tableMedicine.SelectedRows.Count > 0)
+            {
+                string maDP = tableMedicine.SelectedRows[0].Cells["MaDP"].Value?.ToString();
+                var result = MessageBox.Show("Bạn có chắc muốn xóa duoc pham này?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    medicineBUS.DeleteMedicine(maDP);
+                    MessageBox.Show("Xóa duoc pham thành công!");
+                    buttonHuyBenhClick(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn duoc pham cần xóa!");
+            }
         }
     }
 }
