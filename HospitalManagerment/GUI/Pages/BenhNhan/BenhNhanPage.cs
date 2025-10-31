@@ -13,16 +13,21 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
     {
         private string employeeId;
         private TableDataGridView tablePatient;
+        private EmployeeBUS employeeBUS;
         private PatientBUS patientBUS;
         private HealthInsuranceBUS healthInsuranceBUS;
+        private ServiceRegistrationBUS serviceRegistrationBUS;
+        private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
         public BenhNhanPage(string employeeId)
         {
             InitializeComponent();
             this.employeeId = employeeId;
             tablePatient = new TableDataGridView();
+            employeeBUS = new EmployeeBUS();
             patientBUS = new PatientBUS();
             healthInsuranceBUS = new HealthInsuranceBUS();
-
+            serviceRegistrationBUS = new ServiceRegistrationBUS();
+            serviceRegistrationDetailBUS = new ServiceRegistrationDetailBUS();
         }
 
         private void BenhNhanPage_Load(object sender, EventArgs e)
@@ -36,6 +41,9 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             txtNgayGioTaoPhieu.SetReadOnly(true);
             txtTongChiPhi.SetReadOnly(true);
             txtTiLeChiTra.SetReadOnly(true);
+
+            txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
+            txtNhanVientaoPhieu.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
         }
 
         private void LoadPatientToTable()
@@ -169,6 +177,13 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         }
         private void buttonHuyDangKyDichVuClick(object sender, EventArgs e)
         {
+            txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
+            txtSoCCCDBenhNhan.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            txtNgayGioTaoPhieu.TextValue = "";
+            txtTongChiPhi.TextValue = "";
+            comboBoxHinhThucThanhToan.GetComboBox().SelectedIndex = -1;
+            comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
 
         }
 
