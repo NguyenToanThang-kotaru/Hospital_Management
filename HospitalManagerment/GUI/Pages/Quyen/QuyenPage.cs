@@ -15,6 +15,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         private TableDataGridView tableAccounts;
         private TableDataGridView tablePermission;
         private PermissionBUS permissionBUS;
+        private PermissionDetailBUS permissionDetailBUS;
         private AccountBUS accountBUS;
         private EmployeeBUS employeeBUS;
         public QuyenPage(string employeeId)
@@ -25,6 +26,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             tablePermission = new TableDataGridView();
             accountBUS = new AccountBUS();
             permissionBUS = new PermissionBUS();
+            permissionDetailBUS = new PermissionDetailBUS();
             employeeBUS = new EmployeeBUS();   
         }
 
