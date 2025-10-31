@@ -167,7 +167,7 @@ namespace HospitalManagerment.DAO
                             string lastID = result.ToString();
                             int number = 0;
 
-                            if (lastID.Length > 1 && int.TryParse(lastID.Substring(4), out number))
+                            if (lastID.Length > 5 && int.TryParse(lastID.Substring(5), out number))
                             {
                                 number++;
                                 return "QUYEN" + number.ToString("D4");
@@ -180,7 +180,7 @@ namespace HospitalManagerment.DAO
             {
                 MessageBox.Show("Lỗi khi lấy mã quyền tiếp theo: " + ex.Message);
             }
-            return "Q0001";
+            return "QUYEN0001";
         }
 
         public List<PermissionDTO> SearchPermissionByName(string keyword)
