@@ -1,7 +1,9 @@
 ﻿using HospitalManagerment.DTO;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.DAO
@@ -62,31 +64,6 @@ namespace HospitalManagerment.DAO
             return 0;
         }
 
-        public int DeletePermissionDetail(string maQuyen, string maHD, string maCN)
-        {
-            string sql = "DELETE FROM chitietquyen WHERE MaQuyen = @MaQuyen AND MaHD = @MaHD AND MaCN = @MaCN";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
-                        cmd.Parameters.AddWithValue("@MaHD", maHD);
-                        cmd.Parameters.AddWithValue("@MaCN", maCN);
-
-                        conn.Open();
-                        return cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi xóa chi tiết quyền: " + ex.Message);
-            }
-            return 0;
-        }
-
         public List<PermissionDetailDTO> GetAllPermissionDetails()
         {
             List<PermissionDetailDTO> list = new List<PermissionDetailDTO>();
@@ -121,10 +98,10 @@ namespace HospitalManagerment.DAO
             return list;
         }
 
-        public List<PermissionDetailDTO> GetPermissionDetailsById(string maQuyen)
+        public List<PermissionDetailDTO> GetPermissionDetailsByPermissionId(string maQuyen)
         {
             List<PermissionDetailDTO> list = new List<PermissionDetailDTO>();
-            string sql = "SELECT * FROM chitietquyen WHERE MaQuyen = @MaQuyen";
+            string sql = "SELECT * FROM chitietquyen WHERE MaQuyen = @MaQuyen AND TrangThaiKichHoat = 1" ;
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -157,40 +134,78 @@ namespace HospitalManagerment.DAO
             return list;
         }
 
-        public List<PermissionDetailDTO> SearchPermissionDetailByAction(string keyword)
+        public int ActivePermissionDetail(string maCN, string maQuyen, string maHD)
         {
-            List<PermissionDetailDTO> list = new List<PermissionDetailDTO>();
-            string sql = "SELECT * FROM chitietquyen WHERE MaHD LIKE @keyword";
+            string sql = "UPDATE chitietquyen SET TrangThaiKichHoat = 1 WHERE MaCN = @MaCN AND MaQuyen = @MaQuyen AND MaHD = @MaHD";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
+                        cmd.Parameters.AddWithValue("@MaCN", maCN);
+                        cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
+                        cmd.Parameters.AddWithValue("@MaHD", maHD);
 
                         conn.Open();
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                list.Add(new PermissionDetailDTO
-                                {
-                                    MaQuyen = reader["MaQuyen"].ToString(),
-                                    MaHD = reader["MaHD"].ToString(),
-                                    MaCN = reader["MaCN"].ToString(),
-                                    TrangThaiKichHoat = reader["TrangThaiKichHoat"].ToString()
-                                });
-                            }
-                        }
+                        return cmd.ExecuteNonQuery();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm chi tiết quyền: " + ex.Message);
+                MessageBox.Show("Lỗi khi kích hoạt chi tiết quyền: " + ex.Message);
+                return 0;
             }
-            return list;
         }
+
+        public int ExistsPermissionDetail(string maCN, string maQuyen, string maHD)
+        {
+            string sql = "SELECT COUNT(*) FROM chitietquyen WHERE MaCN = @MaCN AND MaQuyen = @MaQuyen AND MaHD = @MaHD";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaCN", maCN);
+                        cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
+                        cmd.Parameters.AddWithValue("@MaHD", maHD);
+                        return Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra tồn tại chi tiết quyền: " + ex.Message);
+                return 0;
+            }
+        }
+
+        public int DeletePermissionDetail(string maQuyen, string maHD, string maCN)
+        {
+            string sql = "UPDATE chitietquyen SET TrangThaiKichHoat = 0 WHERE MaQuyen = @MaQuyen AND MaHD = @MaHD AND MaCN = @MaCN";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
+                        cmd.Parameters.AddWithValue("@MaHD", maHD);
+                        cmd.Parameters.AddWithValue("@MaCN", maCN);
+
+                        conn.Open();
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa chi tiết quyền: " + ex.Message);
+            }
+            return 0;
+        }
+
     }
 }

@@ -144,11 +144,10 @@ namespace HospitalManagerment.GUI.Pages.DichVu
 
             ServiceDTO service = new ServiceDTO()
             {
-                MaDV = txtMaDichVu.TextValue,
-                TenDV = txtTenDichVu.TextValue,
-                GiaDV = txtGiaDichVu.TextValue,
+                MaDV = txtMaDichVu.TextValue.Trim(),
+                TenDV = txtTenDichVu.TextValue.Trim(),
+                GiaDV = txtGiaDichVu.TextValue.Trim(),
                 BHYTTra = comboBoxBaoHiemChiTra.TextValue == "Có" ? "1" : "0"
-
             };
 
             if (!serviceBUS.ExistsServiceId(service.MaDV))
@@ -274,7 +273,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
             if (tableServiceDesignation.SelectedRows.Count > 0)
             {
-                var row = tableService.SelectedRows[0];
+                var row = tableServiceDesignation.SelectedRows[0];
                 string maPCD = row.Cells["MaPCD"].Value?.ToString();
 
                 var phieuChiDinh = serviceDesignationBUS.GetServiceDesignationById(maPCD);
@@ -306,7 +305,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 if (result == DialogResult.Yes)
                 {
                     serviceDesignationBUS.DeleteServiceDesignation(maChiDinhDichVu);
-                    MessageBox.Show("Xóa dịch vụ thành công!");
+                    MessageBox.Show("Xóa phiếu chỉ định dịch vụ thành công!");
                     buttonHuyChiDinhDichVuClick(null, null);
                 }
             }
