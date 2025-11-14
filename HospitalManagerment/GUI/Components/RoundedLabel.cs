@@ -14,7 +14,7 @@ namespace HospitalManagerment.GUI.Component
         public int MarginTop { get; set; } = 0;
         public int MarginRight { get; set; } = 0;
         public int MarginBottom { get; set; } = 0;
-        public int PanelWidth { get; set; } = 160;
+        public int PanelWidth { get; set; } = 140;
         public int PanelHeight { get; set; } = 45;
 
         public RoundedLabel()

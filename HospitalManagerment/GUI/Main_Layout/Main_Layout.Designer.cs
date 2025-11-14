@@ -50,9 +50,9 @@
             this.Header.Controls.Add(this.Tittle);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
-            this.Header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1882, 80);
+            this.Header.Size = new System.Drawing.Size(1682, 80);
             this.Header.TabIndex = 0;
             // 
             // Tittle
@@ -77,7 +77,6 @@
             this.SideBar.Name = "SideBar";
             this.SideBar.Size = new System.Drawing.Size(310, 873);
             this.SideBar.TabIndex = 1;
-            this.SideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.SideBar_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -89,6 +88,7 @@
             this.flowLayoutPanel1.Controls.Add(this.QuyenItem);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 873);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -241,25 +241,24 @@
             // 
             this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainContent.Location = new System.Drawing.Point(310, 80);
-            this.MainContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainContent.Margin = new System.Windows.Forms.Padding(0);
             this.MainContent.Name = "MainContent";
-            this.MainContent.Size = new System.Drawing.Size(1572, 873);
+            this.MainContent.Size = new System.Drawing.Size(1372, 873);
             this.MainContent.TabIndex = 2;
-            this.MainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContent_Paint);
             // 
             // Main_Layout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.ClientSize = new System.Drawing.Size(1882, 953);
+            this.ClientSize = new System.Drawing.Size(1682, 953);
             this.Controls.Add(this.MainContent);
             this.Controls.Add(this.SideBar);
             this.Controls.Add(this.Header);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main_Layout";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hospital Management";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.SideBar.ResumeLayout(false);

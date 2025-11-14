@@ -38,7 +38,7 @@ namespace HospitalManagerment.GUI.Login_Layout
             if (loginSuccess)
             {
                 this.Hide();
-                Main_Layout.Main_Layout mainLayout = new Main_Layout.Main_Layout();
+                Main_Layout.Main_Layout mainLayout = new Main_Layout.Main_Layout(accountBUS.GetAccountByUsername(account.TenDangNhap).MaNV);
                 mainLayout.ShowDialog();
                 this.Close();
             }

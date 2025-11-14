@@ -1,100 +1,238 @@
 ﻿using HospitalManagerment.BUS;
 using HospitalManagerment.DTO;
+using HospitalManagerment.GUI.Component.TableDataGridView;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 {
     public partial class QuyenPage : UserControl
     {
-        private DataGridView dgvAccounts;
+        private string employeeId;
+        private TableDataGridView tableAccounts;
+        private TableDataGridView tablePermission;
+        private PermissionBUS permissionBUS;
+        private PermissionDetailBUS permissionDetailBUS;
         private AccountBUS accountBUS;
-        public QuyenPage()
+        private EmployeeBUS employeeBUS;
+        public QuyenPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
+            tableAccounts = new TableDataGridView();
+            tablePermission = new TableDataGridView();
             accountBUS = new AccountBUS();
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
+            permissionBUS = new PermissionBUS();
+            permissionDetailBUS = new PermissionDetailBUS();
+            employeeBUS = new EmployeeBUS();   
         }
 
         private void QuyenPage_Load(object sender, EventArgs e)
         {
-            LoadAccountsToGrid();
+            LoadAccountToTable();
+            LoadPermissionToTable();
+
+            txtMaQuyen.SetReadOnly(true);
+            txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
+        private void LoadAccountToTable()
         {
-
+            tableAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableAccounts.DataSource = ToDataTable(accountBUS.GetAllAccount());
+            taiKhoanPanel.Controls.Add(tableAccounts);
         }
 
-        private void tabPageTaiKhoan_Click(object sender, EventArgs e)
+        private void LoadPermissionToTable()
         {
-
+            tablePermission.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tablePermission.DataSource = ToDataTable(permissionBUS.GetAllPermissions());
+            quyenPanel.Controls.Add(tablePermission);
         }
 
-        private void roundedPanel6_Paint(object sender, PaintEventArgs e)
+        private DataTable ToDataTable<T>(List<T> data)
         {
-
-        }
-        private void LoadAccountsToGrid()
-        {
-            // Khởi tạo DataGridView
-            dgvAccounts = new DataGridView
+            DataTable table = new DataTable();
+            var properties = typeof(T).GetProperties();
+            foreach (var prop in properties)
             {
-                Dock = DockStyle.Fill,
-                AutoGenerateColumns = false,
-                BackgroundColor = System.Drawing.Color.White,
-                AllowUserToAddRows = false,
-                AllowUserToDeleteRows = false,
-                ReadOnly = true,
-                BorderStyle = BorderStyle.None,
-                SelectionMode = DataGridViewSelectionMode.FullRowSelect,
-                RowHeadersVisible = false
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+            foreach (var item in data)
+            {
+                var row = table.NewRow();
+                foreach (var prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
+                }
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
+        private void comboBoxNhanVienLoad(object sender, PaintEventArgs e)
+        {
+            ComboBox cb = comboBoxNhanVien.GetComboBox();
+            if (cb.DataSource == null)
+            {
+                cb.DataSource = employeeBUS.GetAllEmployees(); //doi thanh GetAllEmployeesDoNotHaveAccount
+                cb.DisplayMember = "TenNV";
+                cb.ValueMember = "MaNV";
+                cb.SelectedIndex = -1;
+                cb.DrawMode = DrawMode.OwnerDrawFixed;
+                cb.DrawItem += (s, ev) =>
+                {
+                    if (ev.Index < 0) return;
+                    string text = ((EmployeeDTO)cb.Items[ev.Index]).TenNV;
+                    Color textColor = Color.FromArgb(125, 125, 125);
+                    ev.DrawBackground();
+                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
+                    ev.DrawFocusRectangle();
+                };
+            }
+        }
+
+        private void comboBoxQuyenLoad(object sender, PaintEventArgs e)
+        {
+            ComboBox cb = comboBoxQuyen.GetComboBox();
+            if (cb.DataSource == null)
+            {
+                cb.DataSource = permissionBUS.GetAllPermissions();
+                cb.DisplayMember = "TenQuyen";
+                cb.ValueMember = "MaQuyen";
+                cb.SelectedIndex = -1;
+                cb.DrawMode = DrawMode.OwnerDrawFixed;
+                cb.DrawItem += (s, ev) =>
+                {
+                    if (ev.Index < 0) return;
+                    string text = ((PermissionDTO)cb.Items[ev.Index]).TenQuyen;
+                    Color textColor = Color.FromArgb(125, 125, 125);
+                    ev.DrawBackground();
+                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
+                    ev.DrawFocusRectangle();
+                };
+            }
+        }
+
+        // sự kiện tabPageTaiKhoan
+        private void buttonHuyTaiKhoanClick(object sender, EventArgs e)
+        {
+            txtTenDangNhap.TextValue = "";
+            txtMatKhau.TextValue = "";
+            comboBoxNhanVien.GetComboBox().SelectedIndex = -1;
+            comboBoxQuyen.GetComboBox().SelectedIndex = -1;
+        }
+
+        private void buttonXacNhanTaiKhoanClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTenDangNhap.TextValue) || string.IsNullOrEmpty(txtMatKhau.TextValue) || string.IsNullOrEmpty(comboBoxNhanVien.TextValue) || string.IsNullOrEmpty(comboBoxQuyen.TextValue))
+            {
+                MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin tài khoản!");
+                return;
+            }
+            AccountDTO account = new AccountDTO()
+            {
+                TenDangNhap = txtTenDangNhap.TextValue.Trim(),
+                MatKhau = txtMatKhau.TextValue.Trim(),
+                MaNV = comboBoxNhanVien.GetComboBox().SelectedValue?.ToString(),
+                MaQuyen = comboBoxQuyen?.GetComboBox().SelectedValue?.ToString(),
             };
 
-            // Định nghĩa cột
-            dgvAccounts.Columns.Add(new DataGridViewTextBoxColumn()
+            if (!accountBUS.ExistsAccountUsername(account.TenDangNhap))
             {
-                DataPropertyName = "TenDangNhap",
-                HeaderText = "Tên đăng nhập",
-                Width = 200
-            });
-            dgvAccounts.Columns.Add(new DataGridViewTextBoxColumn()
+                accountBUS.AddAccount(account);
+                MessageBox.Show("Thêm tài khoản thành công!");
+            }
+            else
             {
-                DataPropertyName = "MatKhau",
-                HeaderText = "Mật khẩu",
-                Width = 200
-            });
-            dgvAccounts.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "MaQuyen",
-                HeaderText = "Mã quyền",
-                Width = 150
-            });
-            dgvAccounts.Columns.Add(new DataGridViewTextBoxColumn()
-            {
-                DataPropertyName = "MaNV",
-                HeaderText = "Mã nhân viên",
-                Width = 150
-            });
+                accountBUS.UpdateAccount(account);
+                MessageBox.Show("Cập nhật tài khoản thành công!");
+            }
+            buttonHuyTaiKhoanClick(null, null);
+        }
 
-            // Gắn vào panel
-            taiKhoanPanel.Controls.Clear();
-            taiKhoanPanel.Controls.Add(dgvAccounts);
+        private void buttonThemTaiKhoanClick(object sender, EventArgs e)
+        {
+            txtTenDangNhap.TextValue = "";
+            txtMatKhau.TextValue = "";
+            comboBoxNhanVien.GetComboBox().SelectedIndex = -1;
+            comboBoxQuyen.GetComboBox().SelectedIndex = -1;  
+        }
 
-            // Gọi BUS để lấy dữ liệu
-            List<AccountDTO> accounts = accountBUS.GetAllAccount();
-            dgvAccounts.DataSource = accounts;
+        private void buttonSuaTaiKhoanClick(object sender, EventArgs e)
+        {
+            if (tableAccounts.SelectedRows.Count > 0)
+            {
+                var row = tableAccounts.SelectedRows[0];
+                string username = row.Cells["TenDangNhap"].Value?.ToString();
+
+                var taikhoan = accountBUS.GetAccountByUsername(username);
+                if (accountBUS.GetAccountByUsername(username) != null)
+                {
+                    txtTenDangNhap.TextValue = taikhoan.TenDangNhap?.ToString();
+                    txtMatKhau.TextValue = taikhoan.MatKhau?.ToString();
+                    comboBoxNhanVien.GetComboBox().SelectedValue = taikhoan.MaNV;
+                    comboBoxQuyen.GetComboBox().SelectedValue = taikhoan.MaQuyen;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy nhân viên với tài khoản!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn tài khoản cần sửa!");
+            }
+        }
+
+        private void buttonXoaTaiKhoanClick(object sender, EventArgs e)
+        {
+            if (tableAccounts.SelectedRows.Count > 0)
+            {
+                string tenDangNhap = tableAccounts.SelectedRows[0].Cells["TenDangNhap"].Value?.ToString();
+                var result = MessageBox.Show("Bạn có chắc muốn xóa tai khoan này?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    accountBUS.DeleteAccount(tenDangNhap);
+                    MessageBox.Show("Xóa tai khoan thành công!");
+                    buttonHuyTaiKhoanClick(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn phiếu chỉ định dịch vụ cần xóa!");
+            }
+        }
+
+        // sự kiện tabPageQuyen
+        private void buttonHuyQuyenClick(object sender, EventArgs e)
+        {
+            txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
+            txtTenQuyen.TextValue = "";
+        }
+
+        private void buttonXacNhanQuyenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemQuyenClick(object sender, EventArgs e)
+        {
+            txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
+            txtTenQuyen.TextValue = "";
+        }
+
+        private void buttonSuaQuyenClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaQuyenClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

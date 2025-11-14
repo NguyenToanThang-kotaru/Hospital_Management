@@ -12,9 +12,11 @@ namespace HospitalManagerment.GUI.Pages.Statistics
 {
     public partial class StatisticPage : UserControl
     {
-        public StatisticPage()
+        private string employeeId;
+        public StatisticPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
         }
     }
 }

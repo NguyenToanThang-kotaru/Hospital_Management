@@ -39,7 +39,7 @@ namespace HospitalManagerment.DAO
 
         public int UpdateServiceDesignation(ServiceDesignationDTO obj)
         {
-            string sql = "UPDATE phieuchidinh SET SoCCCD = @SoCCCD, MaNV = @MaNV, MaDV = @MaDV, " +
+            string sql = "UPDATE phieuchidinh SET SoCCCD = @SoCCCD, MaNV = @MaNV, MaDV = @MaDV" +
                          "NgayGioTaoPhieu = @NgayGioTaoPhieu, TrangThaiXoa = @TrangThaiXoa " +
                          "WHERE MaPCD = @MaPCD";
             try

@@ -16,13 +16,13 @@ namespace HospitalManagerment.DTO
 
         public PermissionDetailDTO()
         {
-            this.maQuyen = " ";
-            this.maHD = " ";
-            this.maCN = " ";
-            this.trangThaiKichHoat = " ";
+            this.maQuyen = string.Empty;
+            this.maHD = string.Empty;
+            this.maCN = string.Empty;
+            this.trangThaiKichHoat = "1";
         }
 
-        public PermissionDetailDTO(string maQuyen, string maHD, string maCN, string trangThaiKichHoat)
+        public PermissionDetailDTO(string maQuyen, string maHD, string maCN, string trangThaiKichHoat = "1")
         {
             this.maQuyen = maQuyen;
             this.maHD = maHD;

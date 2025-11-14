@@ -1,80 +1,218 @@
-﻿using System;
+﻿using HospitalManagerment.BUS;
+using HospitalManagerment.DTO;
+using HospitalManagerment.GUI.Component.TableDataGridView;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Pages.BenhNhan
 {
     public partial class BenhNhanPage : UserControl
     {
-        public BenhNhanPage()
+        private string employeeId;
+        private TableDataGridView tablePatient;
+        private EmployeeBUS employeeBUS;
+        private PatientBUS patientBUS;
+        private HealthInsuranceBUS healthInsuranceBUS;
+        private ServiceRegistrationBUS serviceRegistrationBUS;
+        private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
+        public BenhNhanPage(string employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
+            tablePatient = new TableDataGridView();
+            employeeBUS = new EmployeeBUS();
+            patientBUS = new PatientBUS();
+            healthInsuranceBUS = new HealthInsuranceBUS();
+            serviceRegistrationBUS = new ServiceRegistrationBUS();
+            serviceRegistrationDetailBUS = new ServiceRegistrationDetailBUS();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void BenhNhanPage_Load(object sender, EventArgs e)
+        {
+            LoadPatientToTable();
+
+            checkBoxCoBHYTCheckedChanged(checkBoxCoBHYT, EventArgs.Empty);
+            txtMaDKDV.SetReadOnly(true);
+            txtNhanVientaoPhieu.SetReadOnly(true);
+            txtTenBenhNhan.SetReadOnly(true);
+            txtNgayGioTaoPhieu.SetReadOnly(true);
+            txtTongChiPhi.SetReadOnly(true);
+            txtTiLeChiTra.SetReadOnly(true);
+
+            txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
+            txtNhanVientaoPhieu.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
+        }
+
+        private void LoadPatientToTable()
+        {
+            tablePatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tablePatient.DataSource = ToDataTable(patientBUS.GetAllPatients());
+            benhNhanPanel.Controls.Add(tablePatient);
+        }
+        private DataTable ToDataTable<T>(List<T> data)
+        {
+            DataTable table = new DataTable();
+            var properties = typeof(T).GetProperties();
+            foreach (var prop in properties)
+            {
+                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+            }
+            foreach (var item in data)
+            {
+                var row = table.NewRow();
+                foreach (var prop in properties)
+                {
+                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
+                }
+                table.Rows.Add(row);
+            }
+            return table;
+        }
+
+        private void comboBoxGioiTinhLoad(object sender, PaintEventArgs e)
+        {
+            ComboBox cb = comboBoxGioiTinh.GetComboBox();
+
+            if (cb.Items.Count == 0)
+            {
+                cb.Items.Add("Nam");
+                cb.Items.Add("Nữ");
+
+                cb.DrawMode = DrawMode.OwnerDrawFixed;
+                cb.DrawItem += (s, ev) =>
+                {
+                    if (ev.Index < 0) return;
+
+                    string text = cb.Items[ev.Index].ToString();
+                    Color textColor = Color.FromArgb(125, 125, 125);
+                    ev.DrawBackground();
+                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
+                    ev.DrawFocusRectangle();
+                };
+            }
+        }
+
+        private void comboBoxTrangThaiDangKyLoad(object sender, PaintEventArgs e)
+        {
+            ComboBox cb = comboBoxTranhThaiDangKi.GetComboBox();
+
+            if (cb.Items.Count == 0)
+            {
+                cb.Items.Add("Đã hoàn thành");
+                cb.Items.Add("Đã hủy");
+
+                cb.DrawMode = DrawMode.OwnerDrawFixed;
+                cb.DrawItem += (s, ev) =>
+                {
+                    if (ev.Index < 0) return;
+
+                    string text = cb.Items[ev.Index].ToString();
+                    Color textColor = Color.FromArgb(125, 125, 125);
+                    ev.DrawBackground();
+                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
+                    ev.DrawFocusRectangle();
+                };
+            }
+        }
+
+        private void comboBoxHinhThucThanhToanLoad(object sender, PaintEventArgs e)
+        {
+            ComboBox cb = comboBoxHinhThucThanhToan.GetComboBox();
+
+            if (cb.Items.Count == 0)
+            {
+                cb.Items.Add("Tiền mặt");
+                cb.Items.Add("Chuyển khoản");
+
+                cb.DrawMode = DrawMode.OwnerDrawFixed;
+                cb.DrawItem += (s, ev) =>
+                {
+                    if (ev.Index < 0) return;
+
+                    string text = cb.Items[ev.Index].ToString();
+                    Color textColor = Color.FromArgb(125, 125, 125);
+                    ev.DrawBackground();
+                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
+                    ev.DrawFocusRectangle();
+                };
+            }
+        }
+
+        // sự kiện tabPageBenhNhan
+        private void checkBoxCoBHYTCheckedChanged(object sender, EventArgs e)
+        {
+            bool allowEdit = checkBoxCoBHYT.Checked;
+
+            txtSoBHYT.SetReadOnly(!allowEdit);
+            txtNgayCap.SetReadOnly(!allowEdit);
+            txtNgayHetHan.SetReadOnly(!allowEdit);
+        }
+        private void buttonHuyBenhNhanClick(object sender, EventArgs e)
+        {
+            txtSoCCCD.TextValue = "";
+            txtNgaySinh.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            txtSoDienThoai.TextValue = "";
+            comboBoxGioiTinh.GetComboBox().SelectedIndex = -1;
+            txtDiaChi.TextValue = "";
+            checkBoxCoBHYT.Checked = false;
+            txtSoBHYT.TextValue = "";
+            txtNgayCap.TextValue = "";
+            txtNgayHetHan.TextValue = "";
+            txtTiLeChiTra.TextValue = "";
+        }
+
+        private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        // sự kiện tabPageDangKyDichVu
+        private void buttonChonDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+        private void buttonHuyDangKyDichVuClick(object sender, EventArgs e)
+        {
+            txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
+            txtSoCCCDBenhNhan.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            txtNgayGioTaoPhieu.TextValue = "";
+            txtTongChiPhi.TextValue = "";
+            comboBoxHinhThucThanhToan.GetComboBox().SelectedIndex = -1;
+            comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
+
+        }
+
+        private void buttonXacNhanDangKyDichVuClick(object sender, EventArgs e)
         {
 
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        // sự kiện tabPageDanhSach
+        private void buttonThemBenhNhanClick(object sender, EventArgs e)
+        {
+            // chọn dòng
+            tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
+            buttonHuyBenhNhanClick(null, null);
+        }
+
+        private void buttonSuaBenhNhanClick(object sender, EventArgs e)
+        {
+            // chọn dòng
+            tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
+            buttonHuyBenhNhanClick(null, null);
+        }
+
+        private void buttonXoaBenhNhanClick(object sender, EventArgs e)
         {
 
         }
+        //  
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void panel1_Paint_2(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lableTextBox1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CheckBoxCoBHYT_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lableTextBox7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lableTextBox2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lableTextBox1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
