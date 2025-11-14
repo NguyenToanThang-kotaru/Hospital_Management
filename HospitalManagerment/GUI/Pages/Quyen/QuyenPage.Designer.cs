@@ -55,7 +55,7 @@
             this.txtTenQuyen = new LayoutTest.GUIComponents.LableTextBox();
             this.txtMaQuyen = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.quyenPanelForCheckbox = new System.Windows.Forms.Panel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanQuyen = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyQuyen = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -562,7 +562,7 @@
             this.tableLayoutPanel4.SetColumnSpan(this.tableLayoutPanel5, 3);
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.quyenPanelForCheckbox, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 166);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
@@ -574,15 +574,16 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(676, 415);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
-            // panel2
+            // quyenPanelForCheckbox
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 45);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(676, 370);
-            this.panel2.TabIndex = 0;
+            this.quyenPanelForCheckbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.quyenPanelForCheckbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.quyenPanelForCheckbox.Location = new System.Drawing.Point(0, 30);
+            this.quyenPanelForCheckbox.Margin = new System.Windows.Forms.Padding(0, 30, 0, 30);
+            this.quyenPanelForCheckbox.Name = "quyenPanelForCheckbox";
+            this.tableLayoutPanel5.SetRowSpan(this.quyenPanelForCheckbox, 2);
+            this.quyenPanelForCheckbox.Size = new System.Drawing.Size(676, 355);
+            this.quyenPanelForCheckbox.TabIndex = 0;
             // 
             // flowLayoutPanel2
             // 
@@ -849,7 +850,7 @@
         private LayoutTest.GUIComponents.LableTextBox txtTenQuyen;
         private LayoutTest.GUIComponents.LableTextBox txtMaQuyen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel quyenPanelForCheckbox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private Component.RoundedLabel buttonXoaTaiKhoan;
         private Component.RoundedLabel buttonSuaTaiKhoan;

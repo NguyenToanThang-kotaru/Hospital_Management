@@ -33,11 +33,11 @@ namespace HospitalManagerment.BUS
             return listDTO;
         }
 
-        public List<PermissionDetailDTO> GetPermissionDetailsById(string maQuyen)
+        public List<PermissionDetailDTO> GetPermissionDetailsByPermissionId(string maQuyen)
         {
             try
             {
-                return permissionDetailDAO.GetPermissionDetailsById(maQuyen);
+                return permissionDetailDAO.GetPermissionDetailsByPermissionId(maQuyen);
             }
             catch (Exception ex)
             {
@@ -106,17 +106,14 @@ namespace HospitalManagerment.BUS
             return false;
         }
 
-        public List<PermissionDetailDTO> SearchPermissionDetailByAction(string keyword)
+        public bool ActivePermissionDetail(string maQuyen, string maHD, string maCN)
         {
-            try
-            {
-                return permissionDetailDAO.SearchPermissionDetailByAction(keyword);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm chi tiết quyền: " + ex.Message);
-            }
-            return new List<PermissionDetailDTO>();
+            return permissionDetailDAO.ActivePermissionDetail(maCN, maQuyen, maHD) > 0;
+        }
+
+        public bool ExistsPermissionDetail(string maQuyen, string maHD, string maCN)
+        {
+            return permissionDetailDAO.ExistsPermissionDetail(maCN, maQuyen, maHD) > 0;
         }
     }
 }

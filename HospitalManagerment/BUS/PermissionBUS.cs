@@ -121,5 +121,12 @@ namespace HospitalManagerment.BUS
             }
             return new List<PermissionDTO>();
         }
+
+        public bool ExistsPermissionId(string maQuyen)
+        {
+            return GetAllPermissions().Any(sv => sv.MaQuyen == maQuyen);
+        }
     }
+
+
 }
