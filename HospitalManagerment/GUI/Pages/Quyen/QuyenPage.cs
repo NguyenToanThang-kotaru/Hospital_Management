@@ -425,6 +425,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             }
 
             LoadPermissionToTable();
+            comboBoxQuyenLoad(null, null);
             buttonHuyQuyenClick(null, null);
         }
 
