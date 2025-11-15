@@ -102,5 +102,10 @@ namespace LayoutTest.GUIComponents
             txt.ReadOnly = readOnly;
             txt.BackColor = readOnly ? Color.WhiteSmoke : Color.White;
         }
+
+        internal object GetTextBox()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

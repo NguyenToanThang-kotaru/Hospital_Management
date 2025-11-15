@@ -14,7 +14,7 @@ namespace HospitalManagerment.DAO
     {
         public int AddServiceRegistration(ServiceRegistrationDTO obj)
         {
-            string sql = "INSERT INTO dangkidichvu (MaDKDV, SoCCCD, NgayGioTaoPhieu, TrangThaiDangKy, TongChiPhi, HinhThucThanhToan, MaNV, TrangThaiXoa) " +
+            string sql = "INSERT INTO dangkydichvu (MaDKDV, SoCCCD, NgayGioTaoPhieu, TrangThaiDangKy, TongChiPhi, HinhThucThanhToan, MaNV, TrangThaiXoa) " +
                            "VALUES (@MaDKDV, @SoCCCD, @NgayGioTaoPhieu, @TrangThaiDangKy, @TongChiPhi, @HinhThucThanhToan, @MaNV, 0)";
             try
             {

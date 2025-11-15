@@ -135,8 +135,8 @@ namespace HospitalManagerment.BUS
             if (!Validators.IsValidBHYT(healthInsurance.SoBHYT))
                 throw new ArgumentException("Số BHYT không hợp lệ (VD: DN19512345)");
 
-            if (healthInsuranceDAO.IsDuplicateBHYT(healthInsurance.SoBHYT))
-                throw new ArgumentException("Số BHYT này đã tồn tại trong hệ thống");
+            //if (healthInsuranceDAO.IsDuplicateBHYT(healthInsurance.SoBHYT))
+            //    throw new ArgumentException("Số BHYT này đã tồn tại trong hệ thống");
 
             if (!Validators.IsValidDate(healthInsurance.NgayCap.ToString()))
                 throw new ArgumentException("Ngày cấp không hợp lệ");
@@ -158,6 +158,8 @@ namespace HospitalManagerment.BUS
 
         public bool AddHealthInsurance(HealthInsuranceDTO healthInsurance)
         {
+            if (healthInsuranceDAO.IsDuplicateBHYT(healthInsurance.SoBHYT))
+                throw new ArgumentException("Số BHYT này đã tồn tại trong hệ thống");
             ValidateHealthInsurance(healthInsurance);
             if (!healthInsuranceDAO.AddHealthInsurance(healthInsurance))
                 throw new Exception("Thêm BHYT thất bại!");

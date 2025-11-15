@@ -286,6 +286,10 @@ namespace HospitalManagerment.BUS
 
                 patient.SoBHYT = bhyt.SoBHYT;
             }
+            else
+            {
+                patient.SoBHYT = ""; // gán rỗng nếu không có BHYT
+            }
 
             if (!patientDAO.AddPatient(patient))
                 throw new Exception("Không thể thêm bệnh nhân vào cơ sở dữ liệu!");
@@ -356,5 +360,11 @@ namespace HospitalManagerment.BUS
                 throw new Exception("Xoá bệnh nhân thất bại!");
             return true;
         }
+
+        public PatientDTO GetPatientByIdOrNull(string soCCCD)
+        {
+            return patientDAO.GetPatientById(soCCCD); // trả về null nếu không tìm thấy
+        }
+
     }
 }

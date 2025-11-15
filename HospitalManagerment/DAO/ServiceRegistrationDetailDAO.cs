@@ -10,7 +10,7 @@ namespace HospitalManagerment.DAO
     {
         public int AddServiceRegistrationDetail(ServiceRegistrationDetailDTO obj)
         {
-            string sql = "INSERT INTO dangkidichvu (MaDKDV, MaDV) " +
+            string sql = "INSERT INTO chitietdangky (MaDKDV, MaDV) " +
                            "VALUES (@MaDKDV, @MaDV)";
             try
             {

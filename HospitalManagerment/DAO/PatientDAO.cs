@@ -490,10 +490,7 @@ namespace HospitalManagerment.DAO
                         cmd.Parameters.AddWithValue("@GioiTinh", patient.GioiTinh);
                         cmd.Parameters.AddWithValue("@SdtBN", patient.SdtBN);
                         cmd.Parameters.AddWithValue("@DiaChi", patient.DiaChi);
-                        if (string.IsNullOrEmpty(patient.SoBHYT))
-                            cmd.Parameters.AddWithValue("@SoBHYT", DBNull.Value);
-                        else
-                            cmd.Parameters.AddWithValue("@SoBHYT", patient.SoBHYT);
+                        cmd.Parameters.AddWithValue("@SoBHYT", patient.SoBHYT);
 
                         int rows = cmd.ExecuteNonQuery();
                         DatabaseConnection.Close(conn);

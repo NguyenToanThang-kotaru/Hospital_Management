@@ -298,10 +298,6 @@ namespace HospitalManagerment.DAO
                         cmd.Parameters.AddWithValue("@SoBHYT", bhyt.SoBHYT);
                         cmd.Parameters.AddWithValue("@NgayCap", bhyt.NgayCap);
                         cmd.Parameters.AddWithValue("@NgayHetHan", bhyt.NgayHetHan);
-<<<<<<< HEAD
-                        //cmd.Parameters.AddWithValue("@NoiDangKi", bhyt.NoiDangKi);
-=======
->>>>>>> b45e6d5cce631aeb1e7b3b7ce570171781a9cd44
                         cmd.Parameters.AddWithValue("@MucHuong", bhyt.MucHuong);
 
                         int rows = cmd.ExecuteNonQuery();
