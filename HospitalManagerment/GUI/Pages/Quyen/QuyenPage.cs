@@ -21,6 +21,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         private PermissionDetailBUS permissionDetailBUS;
         private AccountBUS accountBUS;
         private EmployeeBUS employeeBUS;
+        private ActionBUS actionBUS;
+        private FunctionBUS functionBUS;
 
         private readonly dynamic[] hanhDongArr = new[]
         {
@@ -50,6 +52,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             permissionBUS = new PermissionBUS();
             permissionDetailBUS = new PermissionDetailBUS();
             employeeBUS = new EmployeeBUS();
+            actionBUS = new ActionBUS();
+            functionBUS = new FunctionBUS();
 
             quyenPanelForCheckbox.Controls.Add(CreatePermissionTable());
         }
@@ -65,17 +69,38 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
         private void LoadAccountToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Tên Đăng Nhập", typeof(string));
+            table.Columns.Add("Quyền", typeof(string));
+            table.Columns.Add("Nhân Viên", typeof(string));
+
+            foreach (var account in accountBUS.GetAllAccount())
+            {
+                table.Rows.Add(account.TenDangNhap, account.MaQuyen, account.MaNV);
+            }
+
             tableAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableAccounts.DataSource = ToDataTable(accountBUS.GetAllAccount());
+            tableAccounts.DataSource = table;
             taiKhoanPanel.Controls.Add(tableAccounts);
         }
 
+
         private void LoadPermissionToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Quyền", typeof(string));
+            table.Columns.Add("Tên Quyền", typeof(string));
+
+            foreach (var permission in permissionBUS.GetAllPermissions())
+            {
+                table.Rows.Add(permission.MaQuyen, permission.TenQuyen);
+            }
+
             tablePermission.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tablePermission.DataSource = ToDataTable(permissionBUS.GetAllPermissions());
+            tablePermission.DataSource = table;
             quyenPanel.Controls.Add(tablePermission);
         }
+
 
         private TableLayoutPanel CreatePermissionTable()
         {
@@ -264,7 +289,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             if (tableAccounts.SelectedRows.Count > 0)
             {
                 var row = tableAccounts.SelectedRows[0];
-                string username = row.Cells["TenDangNhap"].Value?.ToString();
+                string username = row.Cells["Tên Đăng Nhập"].Value?.ToString();
 
                 var taikhoan = accountBUS.GetAccountByUsername(username);
                 if (accountBUS.GetAccountByUsername(username) != null)
@@ -289,7 +314,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             if (tableAccounts.SelectedRows.Count > 0)
             {
-                string tenDangNhap = tableAccounts.SelectedRows[0].Cells["TenDangNhap"].Value?.ToString();
+                string tenDangNhap = tableAccounts.SelectedRows[0].Cells["Tên Đăng Nhập"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa tai khoan này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -458,7 +483,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             if (tablePermission.SelectedRows.Count > 0)
             {
                 var row = tablePermission.SelectedRows[0];
-                string maQuyen = row.Cells["MaQuyen"].Value?.ToString();
+                string maQuyen = row.Cells["Mã Quyền"].Value?.ToString();
 
                 var quyen = permissionBUS.GetPermissionById(maQuyen);
                 if (quyen != null)
@@ -507,8 +532,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             if (tablePermission.SelectedRows.Count > 0)
             {
-                string maQuyen = tablePermission.SelectedRows[0].Cells["MaQuyen"].Value?.ToString();
-                var result = MessageBox.Show("Bạn có chắc muốn xóa quyen này?", "Xác nhận", MessageBoxButtons.YesNo);
+                string maQuyen = tablePermission.SelectedRows[0].Cells["Mã Quyền"].Value?.ToString();
+                var result = MessageBox.Show("Bạn có chắc muốn xóa quyền này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     permissionBUS.DeletePermission(maQuyen);

@@ -1,6 +1,5 @@
 ﻿using HospitalManagerment.DTO;
 using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

@@ -1,38 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HospitalManagerment.DTO
 {
     internal class ActionDTO
     {
-        private string maHD;
-        private string tenHD;
 
-        public ActionDTO()
-        {
-            this.maHD = " ";
-            this.tenHD = " ";
-        }
+        public ActionDTO() { }
 
         public ActionDTO(string maHD, string tenHD)
         {
-            this.maHD = maHD;
-            this.tenHD = tenHD;
+            this.MaHD = maHD;
+            this.TenHD = tenHD;
         }
 
-        public string MaHD
-        {
-            get => this.maHD;
-            set { this.maHD = value; }
-        }
-
-        public string TenHD
-        {
-            get => this.tenHD;
-            set { this.tenHD = value; }
-        }
+        [Key]
+        public string MaHD { get; set; }
+        public string TenHD { get; set; }
     }
 }
