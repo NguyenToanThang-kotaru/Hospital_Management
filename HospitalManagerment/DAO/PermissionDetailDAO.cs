@@ -170,6 +170,8 @@ namespace HospitalManagerment.DAO
                         cmd.Parameters.AddWithValue("@MaCN", maCN);
                         cmd.Parameters.AddWithValue("@MaQuyen", maQuyen);
                         cmd.Parameters.AddWithValue("@MaHD", maHD);
+
+                        conn.Open();
                         return Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }

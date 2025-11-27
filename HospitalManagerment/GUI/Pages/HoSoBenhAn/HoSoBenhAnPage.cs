@@ -44,7 +44,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             txtMaBenh.TextValue = diseaseBUS.GetNextDiseaseId();
             txtMaDuocPham.TextValue = medicineBUS.GetNextMedicineId();
             txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
-            txtBacSiPhuTrach.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
+            txtBacSiPhuTrach.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
         }
 
         private void LoadMedicineToTable()

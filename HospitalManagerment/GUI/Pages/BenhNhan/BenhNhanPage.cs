@@ -54,7 +54,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             txtTiLeChiTra.SetReadOnly(true);
 
             txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
-            txtNhanVientaoPhieu.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
+            txtNhanVientaoPhieu.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
 
             txtNgayGioTaoPhieu.TextValue = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 

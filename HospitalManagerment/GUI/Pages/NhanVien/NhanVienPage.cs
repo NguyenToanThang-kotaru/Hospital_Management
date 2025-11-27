@@ -211,7 +211,7 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 var row = tableEmployee.SelectedRows[0];
                 string maNV = row.Cells["MaNV"].Value?.ToString();
 
-                var employee = employeeBUS.GetEmployeeByID(maNV);
+                var employee = employeeBUS.GetEmployeeById(maNV);
                 if (employee != null)
                 {
                     txtMaNhanVien.TextValue = employee.MaNV;

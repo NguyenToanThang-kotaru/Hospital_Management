@@ -42,7 +42,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
 
             txtMaDichVu.TextValue = serviceBUS.GetNextServiceId();
             txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
-            txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeByID(employeeId).TenNV;
+            txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
         }
 
         private void LoadServiceToTable()
@@ -282,7 +282,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                     txtMaChiDinhDichVu.TextValue = phieuChiDinh.MaPCD?.ToString();
                     txtSoCCCDBenhNhan.TextValue = phieuChiDinh.SoCCCD?.ToString();
                     txtTenBenhNhan.TextValue = patientBUS.GetPatientById(phieuChiDinh.SoCCCD?.ToString()).TenBN;
-                    txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeByID(phieuChiDinh.MaNV?.ToString()).TenNV;
+                    txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeById(phieuChiDinh.MaNV?.ToString()).TenNV;
                     comboBoxDichVu.GetComboBox().SelectedValue = phieuChiDinh.MaDV;
                 }
                 else

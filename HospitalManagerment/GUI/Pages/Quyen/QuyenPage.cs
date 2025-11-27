@@ -200,7 +200,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             ComboBox cb = comboBoxNhanVien.GetComboBox();
             if (cb.DataSource == null)
             {
-                cb.DataSource = employeeBUS.GetAllEmployees(); //doi thanh GetAllEmployeesDoNotHaveAccount
+                cb.DataSource = employeeBUS.GetAllEmployeesDoNotHaveAccount(); //doi thanh GetAllEmployeesDoNotHaveAccount
                 cb.DisplayMember = "TenNV";
                 cb.ValueMember = "MaNV";
                 cb.SelectedIndex = -1;
@@ -239,11 +239,14 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             }
         }
 
-        // sự kiện tabPageTaiKhoan
+        // sự kiện tabPageTaiKhoan =========================================================================================================
+        // sự kiện tabPageTaiKhoan =========================================================================================================
         private void buttonHuyTaiKhoanClick(object sender, EventArgs e)
         {
             txtTenDangNhap.TextValue = "";
             txtMatKhau.TextValue = "";
+            comboBoxNhanVien.GetComboBox().DataSource = null;
+            comboBoxNhanVienLoad(null,null);
             comboBoxNhanVien.GetComboBox().SelectedIndex = -1;
             comboBoxQuyen.GetComboBox().SelectedIndex = -1;
         }
@@ -273,6 +276,9 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 accountBUS.UpdateAccount(account);
                 MessageBox.Show("Cập nhật tài khoản thành công!");
             }
+            LoadAccountToTable();
+            comboBoxNhanVien.GetComboBox().DataSource = null;
+            comboBoxNhanVienLoad(null, null);
             buttonHuyTaiKhoanClick(null, null);
         }
 
@@ -292,11 +298,31 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 string username = row.Cells["Tên Đăng Nhập"].Value?.ToString();
 
                 var taikhoan = accountBUS.GetAccountByUsername(username);
-                if (accountBUS.GetAccountByUsername(username) != null)
+                if (taikhoan != null)
                 {
                     txtTenDangNhap.TextValue = taikhoan.TenDangNhap?.ToString();
                     txtMatKhau.TextValue = taikhoan.MatKhau?.ToString();
-                    comboBoxNhanVien.GetComboBox().SelectedValue = taikhoan.MaNV;
+
+                    ComboBox cbNhanVien = comboBoxNhanVien.GetComboBox();
+                    // Lấy danh sách nhân viên hiện tại từ DataSource
+                    var list = ((List<EmployeeDTO>)cbNhanVien.DataSource).ToList();
+
+                    // Kiểm tra nếu chưa có nhân viên này thì thêm
+                    if (!list.Any(emp => emp.MaNV == taikhoan.MaNV))
+                    {
+                        var emp = employeeBUS.GetEmployeeById(taikhoan.MaNV);
+                        if (emp != null)
+                            list.Add(emp);
+                    }
+
+                    // Gán lại DataSource
+                    cbNhanVien.DataSource = null;
+                    cbNhanVien.DataSource = list;
+                    cbNhanVien.DisplayMember = "TenNV";
+                    cbNhanVien.ValueMember = "MaNV";
+
+                    // Chọn nhân viên đang sửa
+                    cbNhanVien.SelectedValue = taikhoan.MaNV;
                     comboBoxQuyen.GetComboBox().SelectedValue = taikhoan.MaQuyen;
                 }
                 else
@@ -310,16 +336,20 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             }
         }
 
+
         private void buttonXoaTaiKhoanClick(object sender, EventArgs e)
         {
             if (tableAccounts.SelectedRows.Count > 0)
             {
                 string tenDangNhap = tableAccounts.SelectedRows[0].Cells["Tên Đăng Nhập"].Value?.ToString();
-                var result = MessageBox.Show("Bạn có chắc muốn xóa tai khoan này?", "Xác nhận", MessageBoxButtons.YesNo);
+                var result = MessageBox.Show("Bạn có chắc muốn xóa tài khoản này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     accountBUS.DeleteAccount(tenDangNhap);
-                    MessageBox.Show("Xóa tai khoan thành công!");
+                    MessageBox.Show("Xóa tài khoản thành công!");
+                    LoadAccountToTable();
+                    comboBoxNhanVien.GetComboBox().DataSource = null;
+                    comboBoxNhanVienLoad(null, null);
                     buttonHuyTaiKhoanClick(null, null);
                 }
             }
@@ -426,21 +456,30 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                             if (panel != null && panel.Controls.Count > 0)
                             {
                                 CheckBox ckb = panel.Controls[0] as CheckBox;
-                                if (ckb != null && ckb.Checked)
+                                if (ckb != null)
                                 {
-                                    PermissionDetailDTO permissionDetail = new PermissionDetailDTO()
-                                    {
-                                        MaCN = chucNangArr[i].MaCN,
-                                        MaQuyen = permission.MaQuyen,
-                                        MaHD = hanhDongArr[j].MaHD
-                                    };
+                                    string maCN = chucNangArr[i].MaCN;
+                                    string maHD = hanhDongArr[j].MaHD;
+                                    string maQuyen = permission.MaQuyen;
+                                    bool isChecked = ckb.Checked;
 
-                                    permissionDetailBUS.AddPermissionDetail(permissionDetail);
+                                    bool exists = permissionDetailBUS.ExistsPermissionDetail(maQuyen, maHD, maCN);
+
+                                    if (isChecked && exists)
+                                        permissionDetailBUS.ActivePermissionDetail(maQuyen, maHD, maCN);
+                                    else if (isChecked && !exists)
+                                        permissionDetailBUS.AddPermissionDetail(new PermissionDetailDTO()
+                                        {
+                                            MaCN = maCN,
+                                            MaQuyen = maQuyen,
+                                            MaHD = maHD
+                                        });
+                                    else if (!isChecked && exists)
+                                        permissionDetailBUS.DeletePermissionDetail(maQuyen, maHD, maCN);
                                 }
                             }
                         }
                     }
-
                     MessageBox.Show("Cập nhật quyền thành công!");
                 }
                 else
@@ -448,8 +487,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                     MessageBox.Show("Cập nhật quyền thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
             LoadPermissionToTable();
+            comboBoxQuyen.GetComboBox().DataSource = null;
             comboBoxQuyenLoad(null, null);
             buttonHuyQuyenClick(null, null);
         }
@@ -538,6 +577,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 {
                     permissionBUS.DeletePermission(maQuyen);
                     MessageBox.Show("Xóa quyền thành công!");
+                    comboBoxQuyen.GetComboBox().DataSource = null;
+                    LoadPermissionToTable();
                     buttonHuyQuyenClick(null, null);
                 }
             }
