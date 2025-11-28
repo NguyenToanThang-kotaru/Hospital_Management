@@ -49,36 +49,36 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
         private void LoadMedicineToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Dược Phẩm", typeof(string));
+            table.Columns.Add("Tên Dược Phẩm", typeof(string));
+            table.Columns.Add("Loại Dược Phẩm", typeof(string));
+
+            foreach (var medicine in medicineBUS.GetAllMedicines())
+            {
+                table.Rows.Add(medicine.MaDP, medicine.TenDP, medicine.LoaiDP);
+            }
+
             tableMedicine.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableMedicine.DataSource = ToDataTable(medicineBUS.GetAllMedicines());
+            tableMedicine.DataSource = table;
             duocPhamPanel.Controls.Add(tableMedicine);
         }
 
         private void LoadDiseaseToTable()
         {
-            tableDisease.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableDisease.DataSource = ToDataTable(diseaseBUS.GetAllDiseases());
-            benhPanel.Controls.Add(tableDisease);
-        }
-
-        private DataTable ToDataTable<T>(List<T> data)
-        {
             DataTable table = new DataTable();
-            var properties = typeof(T).GetProperties();
-            foreach (var prop in properties)
+            table.Columns.Add("Mã Bệnh", typeof(string));
+            table.Columns.Add("Tên Bệnh", typeof(string));
+            table.Columns.Add("Mô Tả Bệnh", typeof(string));
+
+            foreach (var disease in diseaseBUS.GetAllDiseases())
             {
-                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
+                table.Rows.Add(disease.MaBenh, disease.TenBenh, disease.MoTaBenh);
             }
-            foreach (var item in data)
-            {
-                var row = table.NewRow();
-                foreach (var prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
-                }
-                table.Rows.Add(row);
-            }
-            return table;
+
+            tableDisease.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableDisease.DataSource = table;
+            benhPanel.Controls.Add(tableDisease);
         }
 
         private void ComboBoxLoaiDuocPhamLoad(object sender, PaintEventArgs e)
@@ -189,6 +189,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 MessageBox.Show("Cập nhật benh thành công!");
             }
             buttonHuyBenhClick(null, null);
+            LoadDiseaseToTable();
         }
 
         private void buttonThemBenhClick(object sender, EventArgs e)
@@ -203,7 +204,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             if (tableDisease.SelectedRows.Count > 0)
             {
                 var row = tableDisease.SelectedRows[0];
-                string maBenh = row.Cells["MaBenh"].Value?.ToString();
+                string maBenh = row.Cells["Mã Bệnh"].Value?.ToString();
 
                 var benh = diseaseBUS.GetDiseaseById(maBenh);
                 if (diseaseBUS.GetDiseaseById(maBenh) != null)
@@ -227,12 +228,13 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             if (tableDisease.SelectedRows.Count > 0)
             {
-                string maBenh = tableDisease.SelectedRows[0].Cells["MaBenh"].Value?.ToString();
+                string maBenh = tableDisease.SelectedRows[0].Cells["Mã Bệnh"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa benh này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     diseaseBUS.DeleteDisease(maBenh);
                     MessageBox.Show("Xóa benh thành công!");
+                    LoadDiseaseToTable();
                     buttonHuyBenhClick(null, null);
                 }
             }
@@ -274,7 +276,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 medicineBUS.UpdateMedicine(medicine);
                 MessageBox.Show("Cập nhật duoc pham thành công!");
             }
-            buttonHuyBenhClick(null, null);
+            LoadMedicineToTable();
+            buttonHuyDuocPhamClick(null, null);
         }
 
         private void buttonThemDuocPhamClick(object sender, EventArgs e)
@@ -289,7 +292,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             if (tableMedicine.SelectedRows.Count > 0)
             {
                 var row = tableMedicine.SelectedRows[0];
-                string maDP = row.Cells["MaDP"].Value?.ToString();
+                string maDP = row.Cells["Mã Dược Phẩm"].Value?.ToString();
 
                 var duocpham = medicineBUS.GetMedicineById(maDP);
                 if (medicineBUS.GetMedicineById(maDP) != null)
@@ -313,13 +316,14 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             if (tableMedicine.SelectedRows.Count > 0)
             {
-                string maDP = tableMedicine.SelectedRows[0].Cells["MaDP"].Value?.ToString();
+                string maDP = tableMedicine.SelectedRows[0].Cells["Mã Dược Phẩm"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa duoc pham này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     medicineBUS.DeleteMedicine(maDP);
                     MessageBox.Show("Xóa duoc pham thành công!");
-                    buttonHuyBenhClick(null, null);
+                    LoadMedicineToTable();
+                    buttonHuyDuocPhamClick(null, null);
                 }
             }
             else

@@ -70,29 +70,24 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
 
         private void LoadPatientToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Số CCCD", typeof(string));
+            table.Columns.Add("Tên Bệnh Nhân", typeof(string));
+            table.Columns.Add("Số BHYT", typeof(string));
+            table.Columns.Add("Ngày Sinh", typeof(string));
+            table.Columns.Add("Giới Tính", typeof(string));
+            table.Columns.Add("Số Điện Thoại", typeof(string));
+
+            foreach (var patient in patientBUS.GetAllPatients())
+            {
+                table.Rows.Add(patient.SoCCCD, patient.TenBN, patient.SoBHYT, patient.NgaySinh, patient.GioiTinh, patient.SdtBN);
+            }
+
             tablePatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tablePatient.DataSource = ToDataTable(patientBUS.GetAllPatients());
+            tablePatient.DataSource = table;
             benhNhanPanel.Controls.Add(tablePatient);
         }
-        private DataTable ToDataTable<T>(List<T> data)
-        {
-            DataTable table = new DataTable();
-            var properties = typeof(T).GetProperties();
-            foreach (var prop in properties)
-            {
-                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
-            foreach (var item in data)
-            {
-                var row = table.NewRow();
-                foreach (var prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
-                }
-                table.Rows.Add(row);
-            }
-            return table;
-        }
+
 
         private void comboBoxGioiTinhLoad(object sender, PaintEventArgs e)
         {
@@ -292,7 +287,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             if (tablePatient.SelectedRows.Count > 0)
             {
                 var row = tablePatient.SelectedRows[0];
-                oldSoCCCD = row.Cells["SoCCCD"].Value?.ToString();
+                oldSoCCCD = row.Cells["Số CCCD"].Value?.ToString();
                 isEditMode = true;
 
                 var patient = patientBUS.GetPatientById(oldSoCCCD);
@@ -346,7 +341,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         {
             if (tablePatient.SelectedRows.Count > 0)
             {
-                string soCCCD = tablePatient.SelectedRows[0].Cells["SoCCCD"].Value?.ToString();
+                string soCCCD = tablePatient.SelectedRows[0].Cells["Số CCCD"].Value?.ToString();
                 //var result = MessageBox.Show("Bạn có chắc muốn xóa bệnh nhân này?", "Xác nhận", MessageBoxButtons.YesNo);
                 //if (result == DialogResult.Yes)
                 
@@ -391,15 +386,25 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             // Tạo form popup
             Form popup = new Form();
             popup.Text = "Chọn dịch vụ";
-            popup.Size = new Size(1200, 500);
+            popup.Size = new Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
 
             // DataGridView hiển thị tất cả dịch vụ
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Dịch Vụ", typeof(string));
+            table.Columns.Add("Tên Dịch Vụ", typeof(string));
+            table.Columns.Add("Giá Dịch Vụ", typeof(string));
+            table.Columns.Add("Bảo hiểm chi trả", typeof(string));
+
+            foreach (var service in serviceBUS.GetAllService())
+            {
+                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
+            }
+
             TableDataGridView dgv = new TableDataGridView();
-            dgv.DataSource = ToDataTable(serviceBUS.GetAllService());
+            dgv.DataSource = table;
             dgv.Dock = DockStyle.Fill;
-            dgv.ReadOnly = true;
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
             popup.Controls.Add(dgv);
 
             // Panel chứa nút
@@ -430,7 +435,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                     return;
                 }
 
-                string maDV = dgv.SelectedRows[0].Cells["MaDV"].Value.ToString();
+                string maDV = dgv.SelectedRows[0].Cells["Mã Dịch Vụ"].Value.ToString();
                 var service = serviceBUS.GetServiceById(maDV);
 
                 if (!listServiceSelected.Any(x => x.MaDV == maDV))
@@ -468,9 +473,10 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             if (tableServiceSelected == null) return;
 
             var dt = new DataTable();
-            dt.Columns.Add("MaDV");
-            dt.Columns.Add("TenDV");
-            dt.Columns.Add("GiaDV");
+            dt.Columns.Add("Mã Dịch Vụ");
+            dt.Columns.Add("Tên Dịch Vụ");
+            dt.Columns.Add("Giá");
+            dt.Columns.Add("Xóa");
 
             foreach (var service in listServiceSelected)
             {
@@ -548,9 +554,10 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
 
             var dt = new DataTable();
-            dt.Columns.Add("MaDV");
-            dt.Columns.Add("TenDV");
-            dt.Columns.Add("GiaDV");
+            dt.Columns.Add("Mã Dịch Vụ");
+            dt.Columns.Add("Tên Dịch Vụ");
+            dt.Columns.Add("Giá");
+            dt.Columns.Add("Xóa");
 
             tableServiceSelected.DataSource = dt;
             txtTongChiPhi.TextValue = "0";
