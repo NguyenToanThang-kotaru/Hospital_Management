@@ -48,7 +48,7 @@
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonThemBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.benhAnPanel = new System.Windows.Forms.Panel();
             this.txtTenBenhNhan = new LayoutTest.GUIComponents.LableTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.benhAnForm = new HospitalManagerment.GUI.Component.RoundedPanel();
@@ -59,15 +59,15 @@
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonThemDonThuoc = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.donThuocPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonChonDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.dichVuPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.chanDoanPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonChonChanDoan = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -383,7 +383,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel18, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.panel6, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.benhAnPanel, 0, 1);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 249);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
@@ -495,15 +495,15 @@
             this.label5.Text = "Bệnh án";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel6
+            // benhAnPanel
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 45);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(324, 287);
-            this.panel6.TabIndex = 0;
+            this.benhAnPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.benhAnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.benhAnPanel.Location = new System.Drawing.Point(0, 45);
+            this.benhAnPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.benhAnPanel.Name = "benhAnPanel";
+            this.benhAnPanel.Size = new System.Drawing.Size(324, 257);
+            this.benhAnPanel.TabIndex = 0;
             // 
             // txtTenBenhNhan
             // 
@@ -602,7 +602,7 @@
             this.tableLayoutPanel5.SetColumnSpan(this.tableLayoutPanel17, 3);
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel15, 0, 0);
-            this.tableLayoutPanel17.Controls.Add(this.panel8, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.donThuocPanel, 0, 1);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 415);
             this.tableLayoutPanel17.Margin = new System.Windows.Forms.Padding(0);
@@ -680,22 +680,22 @@
             this.label10.Text = "Đơn thuốc";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel8
+            // donThuocPanel
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 40);
-            this.panel8.Margin = new System.Windows.Forms.Padding(0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(664, 126);
-            this.panel8.TabIndex = 2;
+            this.donThuocPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.donThuocPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.donThuocPanel.Location = new System.Drawing.Point(0, 40);
+            this.donThuocPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.donThuocPanel.Name = "donThuocPanel";
+            this.donThuocPanel.Size = new System.Drawing.Size(664, 96);
+            this.donThuocPanel.TabIndex = 2;
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel14, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.panel7, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.dichVuPanel, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(357, 166);
             this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
@@ -774,21 +774,21 @@
             this.label9.Text = "Dịch vụ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel7
+            // dichVuPanel
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 40);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(307, 209);
-            this.panel7.TabIndex = 2;
+            this.dichVuPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dichVuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dichVuPanel.Location = new System.Drawing.Point(0, 40);
+            this.dichVuPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.dichVuPanel.Name = "dichVuPanel";
+            this.dichVuPanel.Size = new System.Drawing.Size(307, 179);
+            this.dichVuPanel.TabIndex = 2;
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.panel5, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.chanDoanPanel, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel13, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 166);
@@ -802,15 +802,15 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(307, 249);
             this.tableLayoutPanel8.TabIndex = 7;
             // 
-            // panel5
+            // chanDoanPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 40);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(307, 209);
-            this.panel5.TabIndex = 1;
+            this.chanDoanPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.chanDoanPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chanDoanPanel.Location = new System.Drawing.Point(0, 40);
+            this.chanDoanPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.chanDoanPanel.Name = "chanDoanPanel";
+            this.chanDoanPanel.Size = new System.Drawing.Size(307, 179);
+            this.chanDoanPanel.TabIndex = 1;
             // 
             // tableLayoutPanel13
             // 
@@ -1735,15 +1735,15 @@
         private Component.RoundedLabel buttonHuyDuocPham;
         private LayoutTest.GUIComponents.LableTextBox txtSoCCCD;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel benhAnPanel;
         private LayoutTest.GUIComponents.LableTextBox txtTenBenhNhan;
         private LayoutTest.GUIComponents.LableTextBox txtMaBenhAn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel donThuocPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel dichVuPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel chanDoanPanel;
         private LayoutTest.GUIComponents.LableTextBox txtBacSiPhuTrach;
         private LayoutTest.GUIComponents.LableTextBox txtMaBenh;
         private LayoutTest.GUIComponents.LableTextBox txtMoTaBenh;

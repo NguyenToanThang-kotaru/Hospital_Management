@@ -29,10 +29,10 @@
             private void InitializeComponent()
             {
             this.tableLayoutForm = new System.Windows.Forms.TableLayoutPanel();
-            this.lblHeader = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblTxtMatKhau = new LayoutTest.GUIComponents.LableTextBox();
             this.lblTxtTaiKhoan = new LayoutTest.GUIComponents.LableTextBox();
+            this.lblHeader = new System.Windows.Forms.Label();
             this.tableLayoutForm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,19 +58,6 @@
             this.tableLayoutForm.Size = new System.Drawing.Size(682, 453);
             this.tableLayoutForm.TabIndex = 0;
             // 
-            // lblHeader
-            // 
-            this.lblHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHeader.AutoSize = true;
-            this.lblHeader.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeader.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblHeader.Location = new System.Drawing.Point(68, 34);
-            this.lblHeader.Name = "lblHeader";
-            this.lblHeader.Size = new System.Drawing.Size(546, 45);
-            this.lblHeader.TabIndex = 2;
-            this.lblHeader.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
-            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -81,7 +68,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(200, 15, 200, 45);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(282, 54);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "ĐĂNG NHẬP";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -98,7 +85,7 @@
             this.lblTxtMatKhau.PanelHeight = 60;
             this.lblTxtMatKhau.PanelWidth = 200;
             this.lblTxtMatKhau.Size = new System.Drawing.Size(482, 83);
-            this.lblTxtMatKhau.TabIndex = 4;
+            this.lblTxtMatKhau.TabIndex = 3;
             this.lblTxtMatKhau.TextValue = "";
             // 
             // lblTxtTaiKhoan
@@ -113,8 +100,21 @@
             this.lblTxtTaiKhoan.PanelHeight = 60;
             this.lblTxtTaiKhoan.PanelWidth = 200;
             this.lblTxtTaiKhoan.Size = new System.Drawing.Size(482, 83);
-            this.lblTxtTaiKhoan.TabIndex = 3;
+            this.lblTxtTaiKhoan.TabIndex = 2;
             this.lblTxtTaiKhoan.TextValue = "";
+            // 
+            // lblHeader
+            // 
+            this.lblHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHeader.AutoSize = true;
+            this.lblHeader.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeader.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblHeader.Location = new System.Drawing.Point(68, 34);
+            this.lblHeader.Name = "lblHeader";
+            this.lblHeader.Size = new System.Drawing.Size(546, 45);
+            this.lblHeader.TabIndex = 2;
+            this.lblHeader.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
+            this.lblHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login_Layout
             // 

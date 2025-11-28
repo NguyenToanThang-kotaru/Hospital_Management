@@ -125,8 +125,8 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             }
         }
 
-        // sự kiện tabPageNhanVien ======================================================================================
-        // sự kiện tabPageNhanVien ======================================================================================
+        // sự kiện tabPageNhanVien ===================================================================================================================
+        // sự kiện tabPageNhanVien ===================================================================================================================
         private void buttonHuyNhanVienClick(object sender, EventArgs e)
         {
             txtMaNhanVien.TextValue = employeeBUS.GetNextEmployeeId();
@@ -229,7 +229,8 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         }
 
 
-        // sự kiện tabPageKhoa
+        // sự kiện tabPageKhoa ============================================================================================================================================
+        // sự kiện tabPageKhoa ============================================================================================================================================
         private void buttonHuyKhoaClick(object sender, EventArgs e)
         {
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
@@ -317,8 +318,6 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 MessageBox.Show("Vui lòng chọn khoa cần sửa!");
             }
         }
-
-
 
         private void buttonXoaKhoaClick(object sender, EventArgs e)
         {

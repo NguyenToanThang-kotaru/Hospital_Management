@@ -78,8 +78,6 @@ namespace HospitalManagerment.GUI.Main_Layout
                 quyenPage = new QuyenPage(employeeId);
             LoadPage(quyenPage);
         }
-
-       
     }
 
 }
