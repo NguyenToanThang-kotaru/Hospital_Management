@@ -184,9 +184,9 @@ namespace HospitalManagerment.DAO
                             string lastID = result.ToString();
                             int number = 0;
 
-                            if (lastID.StartsWith("DKDV") && lastID.Length > 3)
+                            if (lastID.StartsWith("DKDV") && lastID.Length > 4)
                             {
-                                string numberPart = lastID.Substring(3);
+                                string numberPart = lastID.Substring(4);
                                 if (int.TryParse(numberPart, out number))
                                 {
                                     number++;

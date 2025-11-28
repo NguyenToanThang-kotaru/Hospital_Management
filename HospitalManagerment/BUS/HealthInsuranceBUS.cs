@@ -102,6 +102,7 @@ using HospitalManagerment.DAO;
 using HospitalManagerment.DTO;
 using HospitalManagerment.Utils;
 using System;
+using System.Globalization;
 
 namespace HospitalManagerment.BUS
 {
@@ -143,6 +144,12 @@ namespace HospitalManagerment.BUS
 
             if (!Validators.IsValidDate(healthInsurance.NgayHetHan.ToString()))
                 throw new ArgumentException("Ngày hết hạn không hợp lệ");
+
+            DateTime dNgayCap = DateTime.ParseExact(healthInsurance.NgayCap.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            DateTime dNgayHetHan = DateTime.ParseExact(healthInsurance.NgayHetHan.ToString(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+            if (dNgayHetHan <= dNgayCap)
+                throw new ArgumentException("Ngày hết hạn phải sau ngày cấp");
 
             if (healthInsurance.MucHuong == "null")
                 throw new ArgumentException("Số BHYT không hợp lệ. Vui lòng kiểm tra lại!");

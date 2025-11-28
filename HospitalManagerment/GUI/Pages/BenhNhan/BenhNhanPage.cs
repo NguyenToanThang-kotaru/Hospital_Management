@@ -1,10 +1,12 @@
 ﻿using HospitalManagerment.BUS;
 using HospitalManagerment.DTO;
+using HospitalManagerment.GUI.Component;
 using HospitalManagerment.GUI.Component.TableDataGridView;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -56,7 +58,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
             txtNhanVientaoPhieu.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
 
-            txtNgayGioTaoPhieu.TextValue = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            txtNgayGioTaoPhieu.TextValue = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
 
             if (txtSoCCCDBenhNhan.txt != null)
             {
@@ -156,9 +158,17 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 return;
             }
 
-            if (!DateTime.TryParse(txtNgaySinh.TextValue, out DateTime ngaySinh))
+            if (!DateTime.TryParseExact(txtNgaySinh.TextValue, "dd-MM-yyyy",
+                CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime ngaySinh))
             {
-                MessageBox.Show("Ngày sinh không hợp lệ!");
+                MessageBox.Show("Ngày sinh không hợp lệ! Vui lòng nhập theo định dạng dd-MM-yyyy (Ví dụ: 25-12-2000)");
+                return;
+            }
+
+            // Kiểm tra thêm: Ngày sinh không được lớn hơn ngày hiện tại6
+            if (ngaySinh > DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại!");
                 return;
             }
 
@@ -167,7 +177,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             {
                 SoCCCD = txtSoCCCD.TextValue.Trim(),
                 TenBN = txtHoVaTen.TextValue.Trim(),
-                NgaySinh = ngaySinh.ToString("yyyy-MM-dd"),
+                NgaySinh = ngaySinh.ToString("dd-MM-yyyy"),
                 GioiTinh = comboBoxGioiTinh.GetComboBox().SelectedItem?.ToString() ?? "",
                 SdtBN = txtSoDienThoai.TextValue.Trim(),
                 DiaChi = txtDiaChi.TextValue.Trim(),
@@ -304,8 +314,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             if (tablePatient.SelectedRows.Count > 0)
             {
                 string soCCCD = tablePatient.SelectedRows[0].Cells["Số CCCD"].Value?.ToString();
-                //var result = MessageBox.Show("Bạn có chắc muốn xóa bệnh nhân này?", "Xác nhận", MessageBoxButtons.YesNo);
-                //if (result == DialogResult.Yes)
                 
                     var patient = patientBUS.GetPatientById(soCCCD);
 
@@ -313,12 +321,9 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                     {
                         healthInsuranceBUS.DeleteHealthInsurance(patient.SoBHYT);
                     }
-
                     patientBUS.DeletePatient(soCCCD);
-
                     buttonHuyBenhNhanClick(null, null);
                     LoadPatientToTable(); // Cập nhật lại bảng
-                
             }
             else
             {
@@ -343,93 +348,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
-        private void ShowServiceSelectionDialog()
-        {
-            // Tạo form popup
-            Form popup = new Form();
-            popup.Text = "Chọn dịch vụ";
-            popup.Size = new Size(900, 500);
-            popup.StartPosition = FormStartPosition.CenterParent;
-
-            // DataGridView hiển thị tất cả dịch vụ
-            DataTable table = new DataTable();
-            table.Columns.Add("Mã Dịch Vụ", typeof(string));
-            table.Columns.Add("Tên Dịch Vụ", typeof(string));
-            table.Columns.Add("Giá Dịch Vụ", typeof(string));
-            table.Columns.Add("Bảo hiểm chi trả", typeof(string));
-
-            foreach (var service in serviceBUS.GetAllService())
-            {
-                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
-            }
-
-            TableDataGridView dgv = new TableDataGridView();
-            dgv.DataSource = table;
-            dgv.Dock = DockStyle.Fill;
-            
-            popup.Controls.Add(dgv);
-
-            // Panel chứa nút
-            FlowLayoutPanel panelButtons = new FlowLayoutPanel();
-            panelButtons.Height = 50;
-            panelButtons.Dock = DockStyle.Bottom;
-            panelButtons.Padding = new Padding(10);
-            panelButtons.BackColor = Color.WhiteSmoke;
-            panelButtons.FlowDirection = FlowDirection.RightToLeft; 
-            panelButtons.WrapContents = false;
-            panelButtons.AutoSize = false;
-            panelButtons.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-
-            // NÚT THÊM
-            Button btnAdd = new Button();
-            btnAdd.Text = "Thêm dịch vụ";
-            btnAdd.Width = 150;
-            btnAdd.Height = 35;
-            btnAdd.BackColor = Color.LightGreen;
-            btnAdd.FlatStyle = FlatStyle.Flat;
-            btnAdd.Location = new Point(10, 7);
-
-            btnAdd.Click += (s, e) =>
-            {
-                if (dgv.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("Vui lòng chọn dịch vụ!");
-                    return;
-                }
-
-                string maDV = dgv.SelectedRows[0].Cells["Mã Dịch Vụ"].Value.ToString();
-                var service = serviceBUS.GetServiceById(maDV);
-
-                if (!listServiceSelected.Any(x => x.MaDV == maDV))
-                {
-                    listServiceSelected.Add(service);
-                    UpdateServiceSelectedTable();
-                }
-                else
-                {
-                    MessageBox.Show("Dịch vụ đã được chọn rồi!");
-                }
-            };
-
-            // NÚT ĐÓNG
-            Button btnClose = new Button();
-            btnClose.Text = "Đóng";
-            btnClose.Width = 100;
-            btnClose.Height = 35;
-            btnClose.BackColor = Color.LightCoral;
-            btnClose.FlatStyle = FlatStyle.Flat;
-            btnClose.Location = new Point(180, 7);
-
-            btnClose.Click += (s, e) => popup.Close();
-
-            panelButtons.Controls.Add(btnClose);
-            panelButtons.Controls.Add(btnAdd);
-            popup.Controls.Add(panelButtons);
-
-            popup.ShowDialog();
-        }
-
-        // Cập nhật bảng dịch vụ đã chọn và tổng chi phí
         private void UpdateServiceSelectedTable()
         {
             if (tableServiceSelected == null) return;
@@ -438,7 +356,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             dt.Columns.Add("Mã Dịch Vụ");
             dt.Columns.Add("Tên Dịch Vụ");
             dt.Columns.Add("Giá");
-            //dt.Columns.Add("Xóa");
 
             foreach (var service in listServiceSelected)
             {
@@ -453,21 +370,119 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 btnDelete.Name = "btnDelete";
                 btnDelete.HeaderText = "Thao tác";
                 btnDelete.Text = "Xóa";
-                btnDelete.UseColumnTextForButtonValue = true; // Hiển thị chữ "Xóa" lên nút
+                btnDelete.UseColumnTextForButtonValue = true;
                 btnDelete.Width = 80;
-
-                // Thêm vào cuối bảng
                 tableServiceSelected.Columns.Add(btnDelete);
             }
 
-            decimal tongChiPhi = listServiceSelected.Sum(s => decimal.TryParse(s.GiaDV, out var g) ? g : 0);
-            txtTongChiPhi.TextValue = tongChiPhi.ToString("N0");
+            decimal tongChiPhiCuoiCung = 0;
+            decimal phanTramBHYTChiTra = 0;
+
+            string soCCCD = txtSoCCCDBenhNhan.TextValue.Trim();
+
+            if (!string.IsNullOrEmpty(soCCCD))
+            {
+                var patient = patientBUS.GetPatientByIdOrNull(soCCCD);
+                if (patient != null && !string.IsNullOrEmpty(patient.SoBHYT))
+                {
+                    string strMucHuong = GetMucHuongFromBHYT(patient.SoBHYT); 
+
+                    if (!string.IsNullOrEmpty(strMucHuong) && strMucHuong.Contains("%"))
+                    {
+                        decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra);
+                        phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
+                    }
+                }
+            }
+
+            foreach (var service in listServiceSelected)
+            {
+                if (decimal.TryParse(service.GiaDV, out decimal giaGoc))
+                {
+                    if (service.BHYTTra == "1")
+                    {
+                        decimal tienPhaiTra = giaGoc * (1 - phanTramBHYTChiTra);
+                        tongChiPhiCuoiCung += tienPhaiTra;
+                    }
+                    else
+                    {
+                        tongChiPhiCuoiCung += giaGoc;
+                    }
+                }
+            }
+
+            txtTongChiPhi.TextValue = tongChiPhiCuoiCung.ToString("N0");
         }
 
 
         private void buttonChonDichVuClick(object sender, EventArgs e)
         {
-            ShowServiceSelectionDialog();
+            Form popup = new Form();
+            popup.Text = "Chọn dịch vụ";
+            popup.Size = new Size(900, 500);
+            popup.StartPosition = FormStartPosition.CenterParent;
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Dịch Vụ", typeof(string));
+            table.Columns.Add("Tên Dịch Vụ", typeof(string));
+            table.Columns.Add("Giá Dịch Vụ", typeof(string));
+            table.Columns.Add("Bảo hiểm chi trả", typeof(string));
+
+            foreach (var service in serviceBUS.GetAllService())
+            {
+                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
+            }
+
+            TableDataGridView dgv = new TableDataGridView();
+            dgv.DataSource = table;
+            dgv.Dock = DockStyle.Fill;
+
+            popup.Controls.Add(dgv);
+
+            FlowLayoutPanel panelButtons = new FlowLayoutPanel();
+            panelButtons.Height = 60;
+            panelButtons.Dock = DockStyle.Bottom;
+            panelButtons.Padding = new Padding(10);
+            panelButtons.BackColor = Color.White;
+            panelButtons.FlowDirection = FlowDirection.RightToLeft;
+
+            RoundedLabel btnAdd = new RoundedLabel();
+            btnAdd.Text = "Chọn";
+            btnAdd.AutoSize = false;
+            btnAdd.Size = new Size(100, 35);
+            btnAdd.BackColor = Color.White;
+            btnAdd.PanelColor = Color.FromArgb(52, 211, 153);
+
+            RoundedLabel btnClose = new RoundedLabel();
+            btnClose.Text = "Đóng";
+            btnClose.AutoSize = false;
+            btnClose.Size = new Size(100, 35);
+            btnClose.BackColor = Color.White;
+            btnClose.PanelColor = Color.FromArgb(255, 90, 93);
+          
+
+            btnAdd.Click += (s, args) =>
+            {
+                string maDV = dgv.SelectedRows[0].Cells["Mã Dịch Vụ"].Value.ToString();
+                var service = serviceBUS.GetServiceById(maDV);
+
+                if (!listServiceSelected.Any(x => x.MaDV == maDV))
+                {
+                    listServiceSelected.Add(service);
+                    UpdateServiceSelectedTable();
+                }
+                else
+                {
+                      MessageBox.Show("Dịch vụ đã được chọn rồi!");
+                }
+            };
+
+            btnClose.Click += (s, args) => popup.Close();
+
+            panelButtons.Controls.Add(btnClose);
+            panelButtons.Controls.Add(btnAdd);
+            popup.Controls.Add(panelButtons);
+
+            popup.ShowDialog();
         }
 
         private void buttonXacNhanDangKyDichVuClick(object sender, EventArgs e)
@@ -488,7 +503,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             {
                 MaDKDV = txtMaDKDV.TextValue,
                 SoCCCD = txtSoCCCDBenhNhan.TextValue,
-                NgayGioTaoPhieu = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                NgayGioTaoPhieu = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"),
                 TongChiPhi = txtTongChiPhi.TextValue,
                 HinhThucThanhToan = comboBoxHinhThucThanhToan.GetComboBox().SelectedItem?.ToString(),
                 TrangThaiDangKy = comboBoxTranhThaiDangKi.GetComboBox().SelectedItem?.ToString(),
@@ -558,6 +573,8 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             {
                 txtTenBenhNhan.TextValue = "";
             }
+
+            UpdateServiceSelectedTable();
         }
 
         private void TableServiceSelected_CellContentClick(object sender, DataGridViewCellEventArgs e)
