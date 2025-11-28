@@ -18,11 +18,11 @@ namespace HospitalManagerment.DTO
         {
             maKhoa = string.Empty;
             tenKhoa = string.Empty;
-            soLuong = string.Empty;
+            soLuong = "0";
             trangThaiXoa = "0";
         }
 
-        public DepartmentDTO(string maKhoa, string tenKhoa, string soLuong, string trangThaiXoa = "0")
+        public DepartmentDTO(string maKhoa, string tenKhoa, string soLuong , string trangThaiXoa = "0")
         {
             this.maKhoa = maKhoa;
             this.tenKhoa = tenKhoa;

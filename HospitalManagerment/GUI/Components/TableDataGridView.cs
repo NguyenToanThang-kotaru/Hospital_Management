@@ -43,7 +43,7 @@ namespace HospitalManagerment.GUI.Component.TableDataGridView
             AllowUserToResizeRows = false;
             RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            ColumnHeadersHeight = 45;
+            ColumnHeadersHeight = 35;
             RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
         }
     }

@@ -46,7 +46,7 @@
             this.buttonXoaTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonSuaTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
+            this.searchBar = new System.Windows.Forms.TextBox();
             this.taiKhoanPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageQuyen = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -344,7 +344,7 @@
             this.tableLayoutPanel6.Controls.Add(this.buttonXoaTaiKhoan, 6, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonSuaTaiKhoan, 4, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonThemTaiKhoan, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.searchBar1, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.searchBar, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
@@ -424,17 +424,15 @@
             this.buttonThemTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemTaiKhoan.Click += new System.EventHandler(this.buttonThemTaiKhoanClick);
             // 
-            // searchBar1
+            // searchBar
             // 
-            this.searchBar1.BackColor = System.Drawing.Color.White;
-            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.searchBar1.Location = new System.Drawing.Point(0, 0);
-            this.searchBar1.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.SearchText = "";
-            this.searchBar1.Size = new System.Drawing.Size(328, 36);
-            this.searchBar1.TabIndex = 0;
+            this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBar.Location = new System.Drawing.Point(0, 0);
+            this.searchBar.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBar.Name = "searchBar";
+            this.searchBar.Size = new System.Drawing.Size(328, 30);
+            this.searchBar.TabIndex = 5;
             // 
             // taiKhoanPanel
             // 
@@ -804,6 +802,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tabPageQuyen.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -855,10 +854,10 @@
         private Component.RoundedLabel buttonXoaTaiKhoan;
         private Component.RoundedLabel buttonSuaTaiKhoan;
         private Component.RoundedLabel buttonThemTaiKhoan;
-        private Components.SearchBar searchBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private Component.RoundedLabel buttonXoaQuyen;
         private Component.RoundedLabel buttonSuaQuyen;
         private Component.RoundedLabel buttonThemQuyen;
+        private System.Windows.Forms.TextBox searchBar;
     }
 }

@@ -35,7 +35,7 @@
             this.txtMaKhoa = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.nhanVienKhoaPanel = new System.Windows.Forms.Panel();
             this.txtTenKhoa = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonXacNhanKhoa = new HospitalManagerment.GUI.Component.RoundedLabel();
@@ -186,7 +186,7 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.nhanVienKhoaPanel, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 249);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
@@ -213,15 +213,15 @@
             this.label3.Text = "Các nhân viên thuộc khoa";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel2
+            // nhanVienKhoaPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 40);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(350, 292);
-            this.panel2.TabIndex = 2;
+            this.nhanVienKhoaPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.nhanVienKhoaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nhanVienKhoaPanel.Location = new System.Drawing.Point(0, 40);
+            this.nhanVienKhoaPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
+            this.nhanVienKhoaPanel.Name = "nhanVienKhoaPanel";
+            this.nhanVienKhoaPanel.Size = new System.Drawing.Size(350, 252);
+            this.nhanVienKhoaPanel.TabIndex = 2;
             // 
             // txtTenKhoa
             // 
@@ -891,7 +891,7 @@
         private LayoutTest.GUIComponents.LableTextBox txtMaKhoa;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel nhanVienKhoaPanel;
         private LayoutTest.GUIComponents.LableTextBox txtTenKhoa;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Component.RoundedLabel buttonXacNhanKhoa;

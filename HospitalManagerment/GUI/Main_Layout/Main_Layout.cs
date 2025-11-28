@@ -33,6 +33,10 @@ namespace HospitalManagerment.GUI.Main_Layout
             MainContent.Controls.Add(page);
         }
 
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+
+        }
         private void Dashboard_Click(object sender, EventArgs e)
         {
             if (statPage == null)
@@ -74,6 +78,8 @@ namespace HospitalManagerment.GUI.Main_Layout
                 quyenPage = new QuyenPage(employeeId);
             LoadPage(quyenPage);
         }
+
+       
     }
 
 }

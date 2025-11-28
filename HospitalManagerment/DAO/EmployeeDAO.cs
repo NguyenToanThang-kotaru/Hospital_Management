@@ -301,6 +301,53 @@ namespace HospitalManagerment.DAO
             return employees;
         }
 
+        public List<EmployeeDTO> GetAllEmployeesByDepartmentId(string departmentId)
+        {
+            List<EmployeeDTO> employees = new List<EmployeeDTO>();
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    DatabaseConnection.Open(conn);
+
+                    string query = @"
+                SELECT MaNV, TenNV, SdtNV, ChucVu, VaiTro, MaKhoa
+                FROM nhanvien
+                WHERE TrangThaiXoa = 0
+                  AND MaKhoa = @MaKhoa";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaKhoa", departmentId);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                employees.Add(new EmployeeDTO
+                                {
+                                    MaNV = reader["MaNV"].ToString(),
+                                    TenNV = reader["TenNV"].ToString(),
+                                    SdtNV = reader["SdtNV"].ToString(),
+                                    ChucVu = reader["ChucVu"].ToString(),
+                                    VaiTro = reader["VaiTro"].ToString(),
+                                    MaKhoa = reader["MaKhoa"].ToString(),
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi lấy danh sách nhân viên theo khoa: {ex.Message}");
+            }
+
+            return employees;
+        }
+
+
 
     }
 }

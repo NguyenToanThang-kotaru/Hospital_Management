@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.Header = new System.Windows.Forms.Panel();
-            this.Tittle = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.MainContent = new System.Windows.Forms.Panel();
             this.DashboardItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.BenhNhanItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.HoSoBenhAnItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.DichVuItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.NhanVienItem = new HospitalManagerment.GUI.Components.SidebarItem();
             this.QuyenItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.MainContent = new System.Windows.Forms.Panel();
+            this.roundedLabel2 = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.Header.SuspendLayout();
             this.SideBar.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -47,7 +48,8 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(146)))));
-            this.Header.Controls.Add(this.Tittle);
+            this.Header.Controls.Add(this.roundedLabel2);
+            this.Header.Controls.Add(this.title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
@@ -55,17 +57,16 @@
             this.Header.Size = new System.Drawing.Size(1682, 80);
             this.Header.TabIndex = 0;
             // 
-            // Tittle
+            // title
             // 
-            this.Tittle.AutoSize = true;
-            this.Tittle.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.Tittle.ForeColor = System.Drawing.Color.White;
-            this.Tittle.Location = new System.Drawing.Point(11, 22);
-            this.Tittle.Name = "Tittle";
-            this.Tittle.Size = new System.Drawing.Size(210, 35);
-            this.Tittle.TabIndex = 0;
-            this.Tittle.Text = "Administrator";
-            this.Tittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.White;
+            this.title.Location = new System.Drawing.Point(12, 15);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(653, 45);
+            this.title.TabIndex = 2;
+            this.title.Text = "HOSPITAL MANAGEMENT SYSTEM";
             // 
             // SideBar
             // 
@@ -92,6 +93,15 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(310, 873);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // MainContent
+            // 
+            this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainContent.Location = new System.Drawing.Point(310, 80);
+            this.MainContent.Margin = new System.Windows.Forms.Padding(0);
+            this.MainContent.Name = "MainContent";
+            this.MainContent.Size = new System.Drawing.Size(1372, 873);
+            this.MainContent.TabIndex = 2;
             // 
             // DashboardItem
             // 
@@ -237,14 +247,25 @@
             this.QuyenItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.QuyenItem.Click += new System.EventHandler(this.Quyen_Click);
             // 
-            // MainContent
+            // roundedLabel2
             // 
-            this.MainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContent.Location = new System.Drawing.Point(310, 80);
-            this.MainContent.Margin = new System.Windows.Forms.Padding(0);
-            this.MainContent.Name = "MainContent";
-            this.MainContent.Size = new System.Drawing.Size(1372, 873);
-            this.MainContent.TabIndex = 2;
+            this.roundedLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(77)))), ((int)(((byte)(146)))));
+            this.roundedLabel2.BorderRadius = 20;
+            this.roundedLabel2.Font = new System.Drawing.Font("Tahoma", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.roundedLabel2.Location = new System.Drawing.Point(1490, 23);
+            this.roundedLabel2.MarginBottom = 0;
+            this.roundedLabel2.MarginLeft = 0;
+            this.roundedLabel2.MarginRight = 0;
+            this.roundedLabel2.MarginTop = 0;
+            this.roundedLabel2.Name = "roundedLabel2";
+            this.roundedLabel2.PanelColor = System.Drawing.Color.White;
+            this.roundedLabel2.PanelHeight = 60;
+            this.roundedLabel2.PanelWidth = 160;
+            this.roundedLabel2.Size = new System.Drawing.Size(170, 40);
+            this.roundedLabel2.TabIndex = 3;
+            this.roundedLabel2.Text = "ĐĂNG XUẤT";
+            this.roundedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Main_Layout
             // 
@@ -272,7 +293,6 @@
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Panel SideBar;
         private System.Windows.Forms.Panel MainContent;
-        private System.Windows.Forms.Label Tittle;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Components.SidebarItem DashboardItem;
         private Components.SidebarItem BenhNhanItem;
@@ -280,5 +300,7 @@
         private Components.SidebarItem DichVuItem;
         private Components.SidebarItem NhanVienItem;
         private Components.SidebarItem QuyenItem;
+        private Component.RoundedLabel roundedLabel2;
+        private System.Windows.Forms.Label title;
     }
 }

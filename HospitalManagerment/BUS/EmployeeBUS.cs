@@ -85,5 +85,10 @@ namespace HospitalManagerment.BUS
         {
             return employeeDAO.GetAllEmployeesDoNotHaveAccount();
         }
+
+        public List<EmployeeDTO> GetAllEmployeesByDepartmentId(string id)
+        {
+            return employeeDAO.GetAllEmployeesByDepartmentId(id);
+        }
     }
 }

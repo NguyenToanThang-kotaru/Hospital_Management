@@ -14,6 +14,7 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         private string employeeId; 
         private TableDataGridView tableEmployee;
         private TableDataGridView tableDepartment;
+        private TableDataGridView tableEmployeeOfDepartment;
         private EmployeeBUS employeeBUS;
         private DepartmentBUS departmentBUS;
 
@@ -22,6 +23,7 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             InitializeComponent();
             this.employeeId = employeeId;
             tableEmployee = new TableDataGridView();
+            tableEmployeeOfDepartment = new TableDataGridView();
             tableDepartment = new TableDataGridView();
             employeeBUS = new EmployeeBUS();
             departmentBUS = new DepartmentBUS();
@@ -31,46 +33,57 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
             LoadEmployeeToTable();
             LoadDepartmentToTable();
+            LoadEmployeeOfDepartmentToTable();
 
             txtMaNhanVien.SetReadOnly(true);
             txtMaKhoa.SetReadOnly(true);
-
             txtMaNhanVien.TextValue = employeeBUS.GetNextEmployeeId();
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
         }
 
         private void LoadEmployeeToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Nhân Viên", typeof(string));
+            table.Columns.Add("Tên Nhân Viên", typeof(string));
+            table.Columns.Add("Vai Trò", typeof(string));
+            table.Columns.Add("Khoa", typeof(string));
+
+            foreach (var employee in employeeBUS.GetAllEmployees())
+            {
+                table.Rows.Add(employee.MaNV, employee.TenNV, employee.VaiTro, employee.MaKhoa);
+            }
             tableEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableEmployee.DataSource = ToDataTable(employeeBUS.GetAllEmployees());
+            tableEmployee.DataSource = table;
             nhanVienPanel.Controls.Add(tableEmployee);
         }
 
         private void LoadDepartmentToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Khoa", typeof(string));
+            table.Columns.Add("Tên Khoa", typeof(string));
+            table.Columns.Add("Số lượng nhân viên", typeof(string));
+
+            foreach (var department in departmentBUS.GetAllDepartment())
+            {
+                table.Rows.Add(department.MaKhoa, department.TenKhoa, department.SoLuong);
+            }
+
             tableDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableDepartment.DataSource = ToDataTable(departmentBUS.GetAllDepartment());
+            tableDepartment.DataSource = table;
             khoaPanel.Controls.Add(tableDepartment);
         }
 
-        private DataTable ToDataTable<T>(List<T> data)
+        private void LoadEmployeeOfDepartmentToTable()
         {
             DataTable table = new DataTable();
-            var properties = typeof(T).GetProperties();
-            foreach (var prop in properties)
-            {
-                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
-            foreach (var item in data)
-            {
-                var row = table.NewRow();
-                foreach (var prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
-                }
-                table.Rows.Add(row);
-            }
-            return table;
+            table.Columns.Add("Tên Nhân viên", typeof(string));
+            table.Columns.Add("Chức vụ", typeof(string));
+
+            tableEmployeeOfDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableEmployeeOfDepartment.DataSource = table;
+            nhanVienKhoaPanel.Controls.Add(tableEmployeeOfDepartment);
         }
         private void comboBoxChucVuLoad(object sender, PaintEventArgs e)
         {
@@ -150,7 +163,8 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             }
         }
 
-        // sự kiện tabPageNhanVien
+        // sự kiện tabPageNhanVien ======================================================================================
+        // sự kiện tabPageNhanVien ======================================================================================
         private void buttonHuyNhanVienClick(object sender, EventArgs e)
         {
             txtMaNhanVien.TextValue = employeeBUS.GetNextEmployeeId();
@@ -209,7 +223,7 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             if (tableEmployee.SelectedRows.Count > 0)
             {
                 var row = tableEmployee.SelectedRows[0];
-                string maNV = row.Cells["MaNV"].Value?.ToString();
+                string maNV = row.Cells["Mã Nhân Viên"].Value?.ToString();
 
                 var employee = employeeBUS.GetEmployeeById(maNV);
                 if (employee != null)
@@ -236,7 +250,7 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
             if (tableEmployee.SelectedRows.Count > 0)
             {
-                string maNV = tableEmployee.SelectedRows[0].Cells["MaNV"].Value?.ToString();
+                string maNV = tableEmployee.SelectedRows[0].Cells["Mã Nhân Viên"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa nhân viên này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -258,7 +272,6 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         {
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
             txtTenKhoa.TextValue = "";
-            tableDepartment.ClearSelection();
         }
 
 
@@ -286,6 +299,8 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 departmentBUS.UpdateDepartment(department);
                 MessageBox.Show("Cập nhật khoa thành công!");
             }
+            comboBoxKhoa.GetComboBox().DataSource = null;
+            comboBoxKhoaLoad(null, null);
             LoadDepartmentToTable();
             buttonHuyKhoaClick(null, null);
         }
@@ -302,13 +317,33 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             if (tableDepartment.SelectedRows.Count > 0)
             {
                 var row = tableDepartment.SelectedRows[0];
-                string maKhoa = row.Cells["MaKhoa"].Value?.ToString();
+                string maKhoa = row.Cells["Mã Khoa"].Value?.ToString();
 
                 var department = departmentBUS.GetDepartmentById(maKhoa);
                 if (department != null)
                 {
                     txtMaKhoa.TextValue = department.MaKhoa;
                     txtTenKhoa.TextValue = department.TenKhoa;
+
+                    List<EmployeeDTO> employees = employeeBUS.GetAllEmployeesByDepartmentId(maKhoa);
+
+                    nhanVienKhoaPanel.Controls.Clear();
+                    tableEmployeeOfDepartment = new TableDataGridView();
+                    tableEmployeeOfDepartment.Dock = DockStyle.Fill;
+                    tableEmployeeOfDepartment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    tableEmployeeOfDepartment.ReadOnly = true;
+                    tableEmployeeOfDepartment.AllowUserToAddRows = false;
+
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Tên Nhân Viên");
+                    dt.Columns.Add("Chức vụ");
+
+                    foreach (var nv in employees)
+                    {
+                        dt.Rows.Add(nv.TenNV, nv.ChucVu);
+                    }
+                    tableEmployeeOfDepartment.DataSource = dt;
+                    nhanVienKhoaPanel.Controls.Add(tableEmployeeOfDepartment);
                 }
                 else
                 {
@@ -322,11 +357,12 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
         }
 
 
+
         private void buttonXoaKhoaClick(object sender, EventArgs e)
         {
             if (tableDepartment.SelectedRows.Count > 0)
             {
-                string maKhoa = tableDepartment.SelectedRows[0].Cells["MaKhoa"].Value?.ToString();
+                string maKhoa = tableDepartment.SelectedRows[0].Cells["Mã Khoa"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa khoa này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -341,9 +377,6 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 MessageBox.Show("Vui lòng chọn khoa cần xóa!");
             }
         }
-
-
-        //
 
     }
 }

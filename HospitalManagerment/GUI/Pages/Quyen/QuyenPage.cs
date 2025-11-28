@@ -175,26 +175,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             return table;
         }
 
-        private DataTable ToDataTable<T>(List<T> data)
-        {
-            DataTable table = new DataTable();
-            var properties = typeof(T).GetProperties();
-            foreach (var prop in properties)
-            {
-                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
-            foreach (var item in data)
-            {
-                var row = table.NewRow();
-                foreach (var prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
-                }
-                table.Rows.Add(row);
-            }
-            return table;
-        }
-
         private void comboBoxNhanVienLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxNhanVien.GetComboBox();
