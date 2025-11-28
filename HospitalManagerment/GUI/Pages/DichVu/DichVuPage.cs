@@ -108,7 +108,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
         }
 
-        // sự kiệm tabPageDichVu
+        // sự kiệm tabPageDichVugit 
         private void buttonHuyDichVuClick(object sender, EventArgs e)
         {
             txtMaDichVu.TextValue = serviceBUS.GetNextServiceId();
