@@ -43,6 +43,12 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             txtMaDichVu.TextValue = serviceBUS.GetNextServiceId();
             txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
             txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
+
+            if (txtSoCCCDBenhNhan.txt != null)
+            {
+                txtSoCCCDBenhNhan.txt.TextChanged -= GetPatientNameByCCCD;
+                txtSoCCCDBenhNhan.txt.TextChanged += GetPatientNameByCCCD;
+            }
         }
 
         private void LoadServiceToTable()
@@ -87,18 +93,6 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             {
                 cb.Items.Add("Có");
                 cb.Items.Add("Không");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
@@ -111,17 +105,6 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 cb.DisplayMember = "TenDV";   // Tên thuộc tính hiển thị
                 cb.ValueMember = "MaDV";      // Giá trị lấy ra để lưu
                 cb.SelectedIndex = -1;
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-                    string text = ((ServiceDTO)cb.Items[ev.Index]).TenDV;
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
@@ -320,6 +303,21 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
         }
 
-        
+        private void GetPatientNameByCCCD(object sender, EventArgs e)
+        {
+            string soCCCD = txtSoCCCDBenhNhan.TextValue.Trim();
+
+            if (!string.IsNullOrEmpty(soCCCD))
+            {
+                var patient = patientBUS.GetPatientByIdOrNull(soCCCD);
+                if (patient != null)
+                    txtTenBenhNhan.TextValue = patient.TenBN;
+                else
+                    txtTenBenhNhan.TextValue = "";
+            }
+            else
+                txtTenBenhNhan.TextValue = "";
+        }
+
     }
 }
