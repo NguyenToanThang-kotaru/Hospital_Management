@@ -33,7 +33,8 @@ namespace HospitalManagerment.GUI.Component.TableDataGridView
                 Font = new Font("Roboto", 10),
                 ForeColor = Color.Black,
                 BackColor = Color.White,
-                SelectionForeColor = Color.Black
+                SelectionBackColor = Color.FromArgb(155,155,155),
+                SelectionForeColor = Color.White
             };
             GridColor = Color.FromArgb(230, 230, 230);
             CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

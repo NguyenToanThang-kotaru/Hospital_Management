@@ -92,26 +92,12 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         private void comboBoxGioiTinhLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxGioiTinh.GetComboBox();
-
             if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Nam");
                 cb.Items.Add("Nữ");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
-
         private void comboBoxTrangThaiDangKyLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxTranhThaiDangKi.GetComboBox();
@@ -119,19 +105,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Đã hoàn thành");
-                cb.Items.Add("Đã hủy");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
+                cb.Items.Add("Đã hủy");     
             }
         }
 
@@ -143,18 +117,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             {
                 cb.Items.Add("Tiền mặt");
                 cb.Items.Add("Chuyển khoản");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
@@ -476,7 +438,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             dt.Columns.Add("Mã Dịch Vụ");
             dt.Columns.Add("Tên Dịch Vụ");
             dt.Columns.Add("Giá");
-            dt.Columns.Add("Xóa");
+            //dt.Columns.Add("Xóa");
 
             foreach (var service in listServiceSelected)
             {
@@ -484,6 +446,19 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
 
             tableServiceSelected.DataSource = dt;
+
+            if (tableServiceSelected.Columns["btnDelete"] == null)
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.Name = "btnDelete";
+                btnDelete.HeaderText = "Thao tác";
+                btnDelete.Text = "Xóa";
+                btnDelete.UseColumnTextForButtonValue = true; // Hiển thị chữ "Xóa" lên nút
+                btnDelete.Width = 80;
+
+                // Thêm vào cuối bảng
+                tableServiceSelected.Columns.Add(btnDelete);
+            }
 
             decimal tongChiPhi = listServiceSelected.Sum(s => decimal.TryParse(s.GiaDV, out var g) ? g : 0);
             txtTongChiPhi.TextValue = tongChiPhi.ToString("N0");
@@ -549,7 +524,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 tableServiceSelected.RowHeadersVisible = false;
                 tableServiceSelected.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 tableServiceSelected.MultiSelect = false;
-
+                tableServiceSelected.CellContentClick += TableServiceSelected_CellContentClick;
                 panel2.Controls.Add(tableServiceSelected);
             }
 
@@ -585,5 +560,23 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
+        private void TableServiceSelected_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && tableServiceSelected.Columns[e.ColumnIndex].Name == "btnDelete")
+            {
+                string maDV = tableServiceSelected.Rows[e.RowIndex].Cells["Mã Dịch Vụ"].Value.ToString();
+
+                var itemToRemove = listServiceSelected.FirstOrDefault(x => x.MaDV == maDV);
+                if (itemToRemove != null)
+                {
+                    listServiceSelected.Remove(itemToRemove);
+
+                    UpdateServiceSelectedTable();
+                }
+            }
+        }
+
     }
+
+
 }

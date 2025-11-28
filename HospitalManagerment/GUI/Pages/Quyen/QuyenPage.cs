@@ -184,16 +184,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 cb.DisplayMember = "TenNV";
                 cb.ValueMember = "MaNV";
                 cb.SelectedIndex = -1;
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-                    string text = ((EmployeeDTO)cb.Items[ev.Index]).TenNV;
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
@@ -206,16 +196,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 cb.DisplayMember = "TenQuyen";
                 cb.ValueMember = "MaQuyen";
                 cb.SelectedIndex = -1;
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-                    string text = ((PermissionDTO)cb.Items[ev.Index]).TenQuyen;
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 

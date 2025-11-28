@@ -61,15 +61,50 @@ namespace LayoutTest.GUIComponents
             comboBox.ForeColor = Consts.FontColorA;
             comboBox.BackColor = Color.White;
             comboBox.FlatStyle = FlatStyle.Standard;
-            comboBox.DropDownStyle = ComboBoxStyle.DropDownList; 
+            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox.ItemHeight = 24;
+            comboBox.DrawItem += ComboBox_DrawItem;
 
             this.Controls.Add(comboBox);
             this.Controls.Add(lbl);
         }
+
+
+        private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            ComboBox combo = sender as ComboBox;
+
+            string text = combo.GetItemText(combo.Items[e.Index]);
+            // --------------------
+
+            // Phần vẽ màu giữ nguyên như cũ
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(155,155,155)), e.Bounds);
+                StringFormat sf = new StringFormat { LineAlignment = StringAlignment.Center };
+                using (Brush brush = new SolidBrush(Color.White))
+                {
+                    e.Graphics.DrawString(text, combo.Font, brush, e.Bounds, sf);
+                }
+            }
+            else
+            {
+                e.Graphics.FillRectangle(new SolidBrush(Color.White), e.Bounds);
+
+                StringFormat sf = new StringFormat { LineAlignment = StringAlignment.Center };
+                using (Brush brush = new SolidBrush(Consts.FontColorA))
+                {
+                    e.Graphics.DrawString(text, combo.Font, brush, e.Bounds, sf);
+                }
+            }
+        }
+
         public ComboBox GetComboBox()
         {
             return comboBox;
         }
-
     }
 }

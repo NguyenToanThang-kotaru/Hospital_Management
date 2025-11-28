@@ -94,19 +94,6 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 cb.Items.Add("Điều trị");
                 cb.Items.Add("Nội trú");
                 cb.Items.Add("Thực tập");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-
-                    Color textColor = Color.FromArgb(125,125,125); 
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
@@ -122,19 +109,6 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 cb.Items.Add("Bác sĩ");
                 cb.Items.Add("Điều dưỡng");
                 cb.Items.Add("Bảo vệ");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
@@ -148,17 +122,6 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 cb.DisplayMember = "TenKhoa";  
                 cb.ValueMember = "MaKhoa";     
                 cb.SelectedIndex = -1;
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-                    string text = ((DepartmentDTO)cb.Items[ev.Index]).TenKhoa;
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
