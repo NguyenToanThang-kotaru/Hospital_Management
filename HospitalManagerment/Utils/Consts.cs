@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -91,7 +92,15 @@ namespace HospitalManagerment.Utils
 
         public static bool IsValidDate(string date)
         {
-            return DateTime.TryParse(date, out DateTime d) && d <= DateTime.Today;
+            bool isFormatValid = DateTime.TryParseExact(
+                date,
+                "dd-MM-yyyy",
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None,
+                out DateTime d
+            );
+
+            return isFormatValid;
         }
 
         public static bool IsValidGender(string gender)
