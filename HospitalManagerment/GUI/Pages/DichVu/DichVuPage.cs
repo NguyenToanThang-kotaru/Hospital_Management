@@ -47,38 +47,39 @@ namespace HospitalManagerment.GUI.Pages.DichVu
 
         private void LoadServiceToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Dịch Vụ", typeof(string));
+            table.Columns.Add("Tên Dịch Vụ", typeof(string));
+            table.Columns.Add("Giá Dịch Vụ", typeof(string));
+            table.Columns.Add("Bảo hiểm chi trả", typeof(string));
+
+            foreach (var service in serviceBUS.GetAllService())
+            {
+                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
+            }
+
             tableService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableService.DataSource = ToDataTable(serviceBUS.GetAllService());
+            tableService.DataSource = table;
             dichVuPanel.Controls.Add(tableService);
         }
 
         private void LoadServiceDesignationToTable()
         {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Phiếu", typeof(string));
+            table.Columns.Add("Bệnh Nhân", typeof(string));
+            table.Columns.Add("Dịch Vụ", typeof(string));
+            table.Columns.Add("Ngày Tạo Phiếu", typeof(string));
+
+            foreach (var serviceDesignation in serviceDesignationBUS.GetAllServiceDesignation())
+            {
+                table.Rows.Add(serviceDesignation.MaPCD, serviceDesignation.SoCCCD, serviceDesignation.MaDV, serviceDesignation.NgayGioTaoPhieu);
+            }
+
             tableServiceDesignation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableServiceDesignation.DataSource = ToDataTable(serviceDesignationBUS.GetAllServiceDesignation());
+            tableServiceDesignation.DataSource = table;
             chiDinhDichVuPanel.Controls.Add(tableServiceDesignation);
         }
-
-        private DataTable ToDataTable<T>(List<T> data)
-        {
-            DataTable table = new DataTable();
-            var properties = typeof(T).GetProperties();
-            foreach (var prop in properties)
-            {
-                table.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
-            foreach (var item in data)
-            {
-                var row = table.NewRow();
-                foreach (var prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item, null) ?? DBNull.Value;
-                }
-                table.Rows.Add(row);
-            }
-            return table;
-        }
-
         private void comboBoxBaoHiemChiTraLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxBaoHiemChiTra.GetComboBox();
@@ -160,6 +161,8 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 serviceBUS.UpdateService(service);
                 MessageBox.Show("Cập nhật dịch vụ thành công!");
             }
+            comboBoxDichVu.GetComboBox().DataSource = null;
+            comboBoxDichVuLoad(null, null);
             LoadServiceToTable();
             buttonHuyDichVuClick(null, null);
         }
@@ -179,7 +182,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             if (tableService.SelectedRows.Count > 0)
             {
                 var row = tableService.SelectedRows[0];
-                string maDV = row.Cells["MaDV"].Value?.ToString();
+                string maDV = row.Cells["Mã Dịch Vụ"].Value?.ToString();
 
                 var dichVu = serviceBUS.GetServiceById(maDV);
                 if (serviceBUS.GetServiceById(maDV) != null)
@@ -204,7 +207,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
             if (tableService.SelectedRows.Count > 0)
             {
-                string maDichVu = tableService.SelectedRows[0].Cells["MaDV"].Value?.ToString();
+                string maDichVu = tableService.SelectedRows[0].Cells["Mã Dịch Vụ"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa dịch vụ này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -258,6 +261,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
                 MessageBox.Show("Cập nhật dịch vụ thành công!");
             }
             buttonHuyChiDinhDichVuClick(null, null);
+            LoadServiceDesignationToTable();
         }
 
         private void buttonThemChiDinhDichVuClick(object sender, EventArgs e)
@@ -274,7 +278,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             if (tableServiceDesignation.SelectedRows.Count > 0)
             {
                 var row = tableServiceDesignation.SelectedRows[0];
-                string maPCD = row.Cells["MaPCD"].Value?.ToString();
+                string maPCD = row.Cells["Mã Phiếu"].Value?.ToString();
 
                 var phieuChiDinh = serviceDesignationBUS.GetServiceDesignationById(maPCD);
                 if (phieuChiDinh != null)
@@ -300,13 +304,14 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
             if (tableServiceDesignation.SelectedRows.Count > 0)
             {
-                string maChiDinhDichVu = tableServiceDesignation.SelectedRows[0].Cells["MaPCD"].Value?.ToString();
+                string maChiDinhDichVu = tableServiceDesignation.SelectedRows[0].Cells["Mã Phiếu"].Value?.ToString();
                 var result = MessageBox.Show("Bạn có chắc muốn xóa phiếu chỉ định này?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     serviceDesignationBUS.DeleteServiceDesignation(maChiDinhDichVu);
                     MessageBox.Show("Xóa phiếu chỉ định dịch vụ thành công!");
                     buttonHuyChiDinhDichVuClick(null, null);
+                    LoadServiceDesignationToTable();
                 }
             }
             else

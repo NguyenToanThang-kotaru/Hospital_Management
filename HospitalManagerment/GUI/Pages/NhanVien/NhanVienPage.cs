@@ -63,11 +63,10 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             DataTable table = new DataTable();
             table.Columns.Add("Mã Khoa", typeof(string));
             table.Columns.Add("Tên Khoa", typeof(string));
-            table.Columns.Add("Số lượng nhân viên", typeof(string));
 
             foreach (var department in departmentBUS.GetAllDepartment())
             {
-                table.Rows.Add(department.MaKhoa, department.TenKhoa, department.SoLuong);
+                table.Rows.Add(department.MaKhoa, department.TenKhoa);
             }
 
             tableDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
