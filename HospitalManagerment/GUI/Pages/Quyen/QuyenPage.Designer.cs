@@ -259,7 +259,7 @@
             // 
             this.buttonXacNhanTaiKhoan.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonXacNhanTaiKhoan.BorderRadius = 20;
-            this.buttonXacNhanTaiKhoan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXacNhanTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.buttonXacNhanTaiKhoan.Location = new System.Drawing.Point(210, 10);
             this.buttonXacNhanTaiKhoan.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -281,7 +281,7 @@
             // 
             this.buttonHuyTaiKhoan.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonHuyTaiKhoan.BorderRadius = 20;
-            this.buttonHuyTaiKhoan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonHuyTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.buttonHuyTaiKhoan.Location = new System.Drawing.Point(50, 10);
             this.buttonHuyTaiKhoan.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -360,7 +360,7 @@
             this.buttonXoaTaiKhoan.BackColor = System.Drawing.Color.White;
             this.buttonXoaTaiKhoan.BorderRadius = 20;
             this.buttonXoaTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonXoaTaiKhoan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXoaTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.buttonXoaTaiKhoan.Location = new System.Drawing.Point(618, 0);
             this.buttonXoaTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
@@ -383,7 +383,7 @@
             this.buttonSuaTaiKhoan.BackColor = System.Drawing.Color.White;
             this.buttonSuaTaiKhoan.BorderRadius = 20;
             this.buttonSuaTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSuaTaiKhoan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSuaTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.buttonSuaTaiKhoan.Location = new System.Drawing.Point(488, 0);
             this.buttonSuaTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
@@ -406,7 +406,7 @@
             this.buttonThemTaiKhoan.BackColor = System.Drawing.Color.White;
             this.buttonThemTaiKhoan.BorderRadius = 20;
             this.buttonThemTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonThemTaiKhoan.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonThemTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonThemTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.buttonThemTaiKhoan.Location = new System.Drawing.Point(358, 0);
             this.buttonThemTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
@@ -602,7 +602,7 @@
             // 
             this.buttonXacNhanQuyen.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonXacNhanQuyen.BorderRadius = 20;
-            this.buttonXacNhanQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXacNhanQuyen.ForeColor = System.Drawing.Color.White;
             this.buttonXacNhanQuyen.Location = new System.Drawing.Point(536, 10);
             this.buttonXacNhanQuyen.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -624,7 +624,7 @@
             // 
             this.buttonHuyQuyen.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonHuyQuyen.BorderRadius = 20;
-            this.buttonHuyQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonHuyQuyen.ForeColor = System.Drawing.Color.White;
             this.buttonHuyQuyen.Location = new System.Drawing.Point(376, 10);
             this.buttonHuyQuyen.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -701,7 +701,7 @@
             this.buttonXoaQuyen.BackColor = System.Drawing.Color.White;
             this.buttonXoaQuyen.BorderRadius = 20;
             this.buttonXoaQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonXoaQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXoaQuyen.ForeColor = System.Drawing.Color.White;
             this.buttonXoaQuyen.Location = new System.Drawing.Point(292, 0);
             this.buttonXoaQuyen.Margin = new System.Windows.Forms.Padding(0);
@@ -724,7 +724,7 @@
             this.buttonSuaQuyen.BackColor = System.Drawing.Color.White;
             this.buttonSuaQuyen.BorderRadius = 20;
             this.buttonSuaQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSuaQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSuaQuyen.ForeColor = System.Drawing.Color.White;
             this.buttonSuaQuyen.Location = new System.Drawing.Point(146, 0);
             this.buttonSuaQuyen.Margin = new System.Windows.Forms.Padding(0);
@@ -747,7 +747,7 @@
             this.buttonThemQuyen.BackColor = System.Drawing.Color.White;
             this.buttonThemQuyen.BorderRadius = 20;
             this.buttonThemQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonThemQuyen.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonThemQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonThemQuyen.ForeColor = System.Drawing.Color.White;
             this.buttonThemQuyen.Location = new System.Drawing.Point(0, 0);
             this.buttonThemQuyen.Margin = new System.Windows.Forms.Padding(0);

@@ -96,19 +96,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 cb.Items.Add("Thuốc tránh thai");
                 cb.Items.Add("Thuốc kháng virus");
                 cb.Items.Add("Thuốc chống ung thư");
-
-                cb.DrawMode = DrawMode.OwnerDrawFixed;
-                cb.DrawItem += (s, ev) =>
-                {
-                    if (ev.Index < 0) return;
-
-                    string text = cb.Items[ev.Index].ToString();
-
-                    Color textColor = Color.FromArgb(125, 125, 125);
-                    ev.DrawBackground();
-                    ev.Graphics.DrawString(text, cb.Font, new SolidBrush(textColor), ev.Bounds);
-                    ev.DrawFocusRectangle();
-                };
             }
         }
 
