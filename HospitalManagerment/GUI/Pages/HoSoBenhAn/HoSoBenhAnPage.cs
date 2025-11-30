@@ -696,9 +696,16 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         private void buttonXacNhanBenhAnClick(object sender, EventArgs e)
         {
             DataTable diagnoseTable = (DataTable)tableDiagnoseOfMedical.DataSource;
+            DataTable serviceTable = (DataTable)tableServiceOfMedical.DataSource;
+            DataTable prescriptionTable = (DataTable)tablePrescriptionOfMedical.DataSource;
             if (diagnoseTable.Rows.Count == 0)
             {
                 MessageBox.Show("Vui lòng thêm ít nhất một chẩn đoán!");
+                return;
+            }
+            if (serviceTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng thêm ít nhất một dịch vụ!");
                 return;
             }
             if (string.IsNullOrEmpty(txtSoCCCD.TextValue))
@@ -734,7 +741,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 }
 
                 // Thêm đơn thuốc
-                DataTable prescriptionTable = (DataTable)tablePrescriptionOfMedical.DataSource;
                 foreach (DataRow row in prescriptionTable.Rows)
                 {
                     PrescriptionDTO prescription = new PrescriptionDTO()
@@ -748,7 +754,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 }
 
                 // Thêm chi tiết dịch vụ
-                DataTable serviceTable = (DataTable)tableServiceOfMedical.DataSource;
                 foreach (DataRow row in serviceTable.Rows)
                 {
                     ServiceDetailDTO serviceDetail = new ServiceDetailDTO()

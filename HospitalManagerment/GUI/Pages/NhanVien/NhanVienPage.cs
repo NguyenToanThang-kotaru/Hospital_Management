@@ -156,6 +156,31 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
                 MaKhoa = comboBoxKhoa.GetComboBox().SelectedValue?.ToString(),
             };
 
+            if (employee.ChucVu == "Trưởng khoa")
+            {
+                bool count = employeeBUS.CountHeadOfDepartment(employee.MaKhoa);
+
+                if (!employeeBUS.ExistsEmployeeId(employee.MaNV))  
+                {
+                    if (count)
+                    {
+                        MessageBox.Show("Khoa này đã có Trưởng khoa. Không thể thêm mới!");
+                        return;
+                    }
+                }
+                else                                       
+                {
+                    var old = employeeBUS.GetEmployeeById(employee.MaNV);
+                    bool isPromotingToHead = old.ChucVu != "Trưởng khoa";
+
+                    if (isPromotingToHead && count)
+                    {
+                        MessageBox.Show("Khoa này đã có Trưởng khoa. Không thể cập nhật thành Trưởng khoa!");
+                        return;
+                    }
+                }
+            }
+
             if (!employeeBUS.ExistsEmployeeId(employee.MaNV))
             {
                 employeeBUS.AddEmployee(employee);

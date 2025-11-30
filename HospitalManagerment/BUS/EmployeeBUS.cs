@@ -90,5 +90,10 @@ namespace HospitalManagerment.BUS
         {
             return employeeDAO.GetAllEmployeesByDepartmentId(id);
         }
+
+        public bool CountHeadOfDepartment(string maKhoa)
+        {
+            return employeeDAO.CountHeadOfDepartment(maKhoa) >= 1;
+        }
     }
 }

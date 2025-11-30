@@ -347,6 +347,35 @@ namespace HospitalManagerment.DAO
             return employees;
         }
 
+        public int CountHeadOfDepartment(string maKhoa)
+        {
+            int count = 0;
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    DatabaseConnection.Open(conn);
+
+                    string query = @"SELECT COUNT(*) FROM nhanvien WHERE TrangThaiXoa = 0 AND MaKhoa = @MaKhoa AND ChucVu = 'Trưởng khoa'";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaKhoa", maKhoa);
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                            count = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi kiểm tra số lượng Trưởng khoa: {ex.Message}");
+            }
+
+            return count;
+        }
 
 
     }

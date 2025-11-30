@@ -1,10 +1,11 @@
 ﻿using HospitalManagerment.BUS;
 using HospitalManagerment.DTO;
 using HospitalManagerment.GUI.Component.TableDataGridView;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Pages.DichVu
@@ -108,7 +109,8 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
         }
 
-        // sự kiệm tabPageDichVugit 
+        // sự kiệm tabPageDichVu =========================================================================================================================================================
+        // sự kiệm tabPageDichVu =========================================================================================================================================================
         private void buttonHuyDichVuClick(object sender, EventArgs e)
         {
             txtMaDichVu.TextValue = serviceBUS.GetNextServiceId();
@@ -207,7 +209,8 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         }
 
 
-        // sự kiệm tabPageChiDinhDichVu
+        // sự kiệm tabPageChiDinhDichVu ================================================================================================================================================
+        // sự kiệm tabPageChiDinhDichVu ================================================================================================================================================
         private void buttonHuyChiDinhDichVuClick(object sender, EventArgs e)
         {
             txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
@@ -221,7 +224,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
         {
             if (string.IsNullOrEmpty(txtSoCCCDBenhNhan.TextValue) || string.IsNullOrEmpty(txtTenBenhNhan.TextValue) || string.IsNullOrEmpty(comboBoxDichVu.TextValue))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin dịch vụ!");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin phiếu chỉ định dịch vụ!");
                 return;
             }
             ServiceDesignationDTO serviceDesignation = new ServiceDesignationDTO()
@@ -236,13 +239,14 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             if (!serviceDesignationBUS.ExistsServiceDesignationId(serviceDesignation.MaDV))
             {
                 serviceDesignationBUS.AddServiceDesignation(serviceDesignation);
-                MessageBox.Show("Thêm dịch vụ thành công!");
+                MessageBox.Show("Thêm phiếu chỉ định dịch vụ thành công!");
             }
             else
             {
                 serviceDesignationBUS.UpdateServiceDesignation(serviceDesignation);
-                MessageBox.Show("Cập nhật dịch vụ thành công!");
+                MessageBox.Show("Cập nhật phiếu chỉ định dịch vụ thành công!");
             }
+            ExportServiceDesignationToPDF(serviceDesignation);
             buttonHuyChiDinhDichVuClick(null, null);
             LoadServiceDesignationToTable();
         }
@@ -317,6 +321,64 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             }
             else
                 txtTenBenhNhan.TextValue = "";
+        }
+
+        private void ExportServiceDesignationToPDF(ServiceDesignationDTO dto)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "PDF file|*.pdf";
+            saveFile.FileName = $"PhieuChiDinh_{dto.MaPCD}.pdf";
+
+            if (saveFile.ShowDialog() != DialogResult.OK)
+                return;
+
+            using (var fs = new FileStream(saveFile.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+                PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                doc.Open();
+
+                var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
+                var contentFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+
+                doc.Add(new Paragraph("PHIẾU CHỈ ĐỊNH DỊCH VỤ", titleFont));
+                doc.Add(new Paragraph("\n"));
+
+                var patient = patientBUS.GetPatientById(dto.SoCCCD);
+                var employee = employeeBUS.GetEmployeeById(dto.MaNV);
+                var service = serviceBUS.GetServiceById(dto.MaDV);
+
+                PdfPTable table = new PdfPTable(2);
+                table.WidthPercentage = 100;
+
+                table.AddCell(new Phrase("Mã Phiếu:", contentFont));
+                table.AddCell(new Phrase(dto.MaPCD, contentFont));
+
+                table.AddCell(new Phrase("Bệnh Nhân:", contentFont));
+                table.AddCell(new Phrase(patient.TenBN, contentFont));
+
+                table.AddCell(new Phrase("Số CCCD:", contentFont));
+                table.AddCell(new Phrase(dto.SoCCCD, contentFont));
+
+                table.AddCell(new Phrase("Dịch Vụ:", contentFont));
+                table.AddCell(new Phrase(service.TenDV, contentFont));
+
+                table.AddCell(new Phrase("Giá:", contentFont));
+                table.AddCell(new Phrase(service.GiaDV, contentFont));
+
+                table.AddCell(new Phrase("Nhân Viên Tạo Phiếu:", contentFont));
+                table.AddCell(new Phrase(employee.TenNV, contentFont));
+
+                table.AddCell(new Phrase("Ngày Tạo Phiếu:", contentFont));
+                table.AddCell(new Phrase(dto.NgayGioTaoPhieu, contentFont));
+
+                doc.Add(table);
+
+                doc.Close();
+                writer.Close();
+            }
+
+            MessageBox.Show("Đã xuất PDF thành công!");
         }
 
     }
