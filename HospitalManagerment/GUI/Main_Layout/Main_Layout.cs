@@ -35,8 +35,22 @@ namespace HospitalManagerment.GUI.Main_Layout
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show(
+                "Bạn có chắc chắn muốn đăng xuất?",
+                "Đăng xuất",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
 
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();    
+                Login_Layout.Login_Layout login = new Login_Layout.Login_Layout();
+                login.ShowDialog();
+                
+            }
         }
+
         private void Dashboard_Click(object sender, EventArgs e)
         {
             if (statPage == null)

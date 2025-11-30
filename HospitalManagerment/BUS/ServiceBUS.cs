@@ -36,7 +36,7 @@ namespace HospitalManagerment.BUS
 
         public ServiceDTO GetServiceById(string maDV)
         {
-            return listDTO.FirstOrDefault(x => x.MaDV == maDV);
+            return servicedao.GetServiceById(maDV);
         }
 
         public bool AddService(ServiceDTO obj)

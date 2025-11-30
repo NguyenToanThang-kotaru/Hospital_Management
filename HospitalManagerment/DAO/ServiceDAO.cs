@@ -120,7 +120,7 @@ namespace HospitalManagerment.DAO
 
         public ServiceDTO GetServiceById(string maDV)
         {
-            string sql = "SELECT * FROM dichvu WHERE MaDV = @MaDV AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM dichvu WHERE MaDV = @MaDV";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

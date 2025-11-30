@@ -116,7 +116,7 @@ namespace HospitalManagerment.DAO
 
         public MedicineDTO GetMedicineById(string maDP)
         {
-            string query = "SELECT * FROM duocpham WHERE MaDP = @MaDP AND TrangThaiXoa = 0";
+            string query = "SELECT * FROM duocpham WHERE MaDP = @MaDP";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

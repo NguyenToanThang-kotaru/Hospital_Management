@@ -35,7 +35,7 @@ namespace HospitalManagerment.BUS
 
         public MedicineDTO GetMedicineById(string maDP)
         {
-            return listDTO.FirstOrDefault(x => x.MaDP == maDP);
+            return medicinedao.GetMedicineById(maDP);
         }
 
         public bool AddMedicine(MedicineDTO obj)

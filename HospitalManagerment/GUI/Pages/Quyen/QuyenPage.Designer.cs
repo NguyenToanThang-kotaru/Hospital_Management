@@ -426,6 +426,7 @@
             // 
             // searchBar
             // 
+            this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.searchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBar.Location = new System.Drawing.Point(0, 0);
@@ -850,14 +851,14 @@
         private LayoutTest.GUIComponents.LableTextBox txtMaQuyen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel quyenPanelForCheckbox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private Component.RoundedLabel buttonXoaTaiKhoan;
-        private Component.RoundedLabel buttonSuaTaiKhoan;
-        private Component.RoundedLabel buttonThemTaiKhoan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private Component.RoundedLabel buttonXoaQuyen;
         private Component.RoundedLabel buttonSuaQuyen;
         private Component.RoundedLabel buttonThemQuyen;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private Component.RoundedLabel buttonXoaTaiKhoan;
+        private Component.RoundedLabel buttonSuaTaiKhoan;
+        private Component.RoundedLabel buttonThemTaiKhoan;
         private System.Windows.Forms.TextBox searchBar;
     }
 }

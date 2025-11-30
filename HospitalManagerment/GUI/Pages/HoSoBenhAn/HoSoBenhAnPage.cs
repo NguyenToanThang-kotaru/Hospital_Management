@@ -270,10 +270,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 {
                     txtSoCCCD.TextValue = patient.SoCCCD;
                     txtTenBenhNhan.TextValue = patient.TenBN;
-
-                    // Gọi hàm riêng để hiển thị bảng bệnh án
                     LoadMedicalTableByPatientId(soCCCD);
-
                 }
                 else
                 {

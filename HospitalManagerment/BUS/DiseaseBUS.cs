@@ -35,7 +35,7 @@ namespace HospitalManagerment.BUS
 
         public DiseaseDTO GetDiseaseById(string maBenh)
         {
-            return listDTO.FirstOrDefault(x => x.MaBenh == maBenh);
+            return diseaseDAO.GetDiseaseById(maBenh);
         }
 
         public bool AddDisease(DiseaseDTO obj)

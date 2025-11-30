@@ -121,7 +121,7 @@ namespace HospitalManagerment.DAO
 
         public DiseaseDTO GetDiseaseById(string maBenh)
         {
-            string sql = "SELECT * FROM benh WHERE MaBenh = @MaBenh AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM benh WHERE MaBenh = @MaBenh";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
