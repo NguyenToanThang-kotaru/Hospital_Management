@@ -44,8 +44,6 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonSuaBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonThemBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.benhAnPanel = new System.Windows.Forms.Panel();
@@ -128,7 +126,6 @@
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
-            this.flowLayoutPanel7.SuspendLayout();
             this.benhAnForm.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
@@ -397,12 +394,11 @@
             // 
             // tableLayoutPanel18
             // 
-            this.tableLayoutPanel18.ColumnCount = 3;
+            this.tableLayoutPanel18.ColumnCount = 2;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel18.Controls.Add(this.flowLayoutPanel8, 2, 0);
-            this.tableLayoutPanel18.Controls.Add(this.flowLayoutPanel7, 1, 0);
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel18.Controls.Add(this.flowLayoutPanel8, 1, 0);
             this.tableLayoutPanel18.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
@@ -415,48 +411,14 @@
             // 
             // flowLayoutPanel8
             // 
-            this.flowLayoutPanel8.Controls.Add(this.buttonSuaBenhAn);
+            this.flowLayoutPanel8.Controls.Add(this.buttonThemBenhAn);
             this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(243, 0);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(162, 0);
             this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(81, 45);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(162, 45);
             this.flowLayoutPanel8.TabIndex = 16;
-            // 
-            // buttonSuaBenhAn
-            // 
-            this.buttonSuaBenhAn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonSuaBenhAn.BorderRadius = 20;
-            this.buttonSuaBenhAn.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuaBenhAn.ForeColor = System.Drawing.Color.White;
-            this.buttonSuaBenhAn.Location = new System.Drawing.Point(11, 5);
-            this.buttonSuaBenhAn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.buttonSuaBenhAn.MarginBottom = 0;
-            this.buttonSuaBenhAn.MarginLeft = 0;
-            this.buttonSuaBenhAn.MarginRight = 0;
-            this.buttonSuaBenhAn.MarginTop = 0;
-            this.buttonSuaBenhAn.Name = "buttonSuaBenhAn";
-            this.buttonSuaBenhAn.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.buttonSuaBenhAn.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.buttonSuaBenhAn.PanelHeight = 45;
-            this.buttonSuaBenhAn.PanelWidth = 160;
-            this.buttonSuaBenhAn.Size = new System.Drawing.Size(70, 30);
-            this.buttonSuaBenhAn.TabIndex = 1;
-            this.buttonSuaBenhAn.Text = "SỬA";
-            this.buttonSuaBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.buttonSuaBenhAn.Click += new System.EventHandler(this.buttonSuaBenhAnClick);
-            // 
-            // flowLayoutPanel7
-            // 
-            this.flowLayoutPanel7.Controls.Add(this.buttonThemBenhAn);
-            this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(162, 0);
-            this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(81, 45);
-            this.flowLayoutPanel7.TabIndex = 15;
             // 
             // buttonThemBenhAn
             // 
@@ -464,7 +426,7 @@
             this.buttonThemBenhAn.BorderRadius = 20;
             this.buttonThemBenhAn.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThemBenhAn.ForeColor = System.Drawing.Color.White;
-            this.buttonThemBenhAn.Location = new System.Drawing.Point(11, 5);
+            this.buttonThemBenhAn.Location = new System.Drawing.Point(92, 5);
             this.buttonThemBenhAn.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.buttonThemBenhAn.MarginBottom = 0;
             this.buttonThemBenhAn.MarginLeft = 0;
@@ -477,7 +439,7 @@
             this.buttonThemBenhAn.PanelWidth = 160;
             this.buttonThemBenhAn.Size = new System.Drawing.Size(70, 30);
             this.buttonThemBenhAn.TabIndex = 0;
-            this.buttonThemBenhAn.Text = "THÊM";
+            this.buttonThemBenhAn.Text = "Thêm";
             this.buttonThemBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemBenhAn.Click += new System.EventHandler(this.buttonThemBenhAnClick);
             // 
@@ -1649,7 +1611,6 @@
             this.tableLayoutPanel18.ResumeLayout(false);
             this.tableLayoutPanel18.PerformLayout();
             this.flowLayoutPanel8.ResumeLayout(false);
-            this.flowLayoutPanel7.ResumeLayout(false);
             this.benhAnForm.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -1777,10 +1738,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private Component.RoundedLabel buttonChonChanDoan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
         private Component.RoundedLabel buttonThemBenhAn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
-        private Component.RoundedLabel buttonSuaBenhAn;
     }
 }

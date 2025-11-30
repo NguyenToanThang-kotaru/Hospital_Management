@@ -2,10 +2,12 @@
 using HospitalManagerment.DTO;
 using HospitalManagerment.GUI.Component;
 using HospitalManagerment.GUI.Component.TableDataGridView;
+using LayoutTest.GUIComponents;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
@@ -22,7 +24,10 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         private TableDataGridView tablePrescriptionOfMedical; //dơn thuoc
         private MedicineBUS medicineBUS;
         private DiseaseBUS diseaseBUS;
-        private MedicalBUS medicalBUS;
+        private MedicalBUS medicalBUS; //benh an
+        private DiagnoseBUS diagnoseBUS; //chan doan
+        private PrescriptionBUS prescriptionBUS; //don thuoc
+        private ServiceDetailBUS serviceDetailBUS; //chi tiet dich vu
         private EmployeeBUS employeeBUS;
         private PatientBUS patientBUS;
         private ServiceBUS serviceBUS;
@@ -31,16 +36,25 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
         {
             InitializeComponent();
             this.employeeId = employeeId;
+
             tableMedicine = new TableDataGridView();
             tableDisease = new TableDataGridView();
             tablePatient = new TableDataGridView();
             tableMedical = new TableDataGridView();
+            tableMedical.CellClick += TableMedicalCellClick;
             tableServiceOfMedical = new TableDataGridView();
+            tableServiceOfMedical.CellClick += TableServiceOfMedicalCellClick;
             tableDiagnoseOfMedical = new TableDataGridView();
+            tableDiagnoseOfMedical.CellClick += TableDiagnoseOfMedicalCellClick;
             tablePrescriptionOfMedical = new TableDataGridView();
+            tablePrescriptionOfMedical.CellClick += TablePrescriptionOfMedicalCellClick;
+
             medicineBUS = new MedicineBUS();
             diseaseBUS = new DiseaseBUS();
             medicalBUS = new MedicalBUS();
+            diagnoseBUS = new DiagnoseBUS();
+            prescriptionBUS = new PrescriptionBUS();
+            serviceDetailBUS = new ServiceDetailBUS();
             employeeBUS = new EmployeeBUS();
             patientBUS = new PatientBUS();
             serviceBUS = new ServiceBUS();
@@ -56,6 +70,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             LoadDiagnoseOfMedicalToTable();
             LoadPrescriptionOfMedicalToTable();
 
+            txtSoCCCD.SetReadOnly(true);
             txtMaBenhAn.SetReadOnly(true);
             txtBacSiPhuTrach.SetReadOnly(true);
             txtTenBenhNhan.SetReadOnly(true);
@@ -84,53 +99,110 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             hoSoBenhAnPanel.Controls.Add(tablePatient);
         }
 
-
         private void LoadMedicalToTable()
         {
-            DataTable table = new DataTable();
-            table.Columns.Add("Mã bệnh án", typeof(string));
-            table.Columns.Add("Sửa", typeof(string));
+            tableMedical.AutoGenerateColumns = false;
+            tableMedical.Columns.Clear();
+
+            tableMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Mã Bệnh Án", DataPropertyName = "Mã Bệnh Án", HeaderText = "Mã Bệnh Án" });
+
+            DataGridViewButtonColumn btnView = new DataGridViewButtonColumn();
+            btnView.Name = "btnView";
+            btnView.HeaderText = "Xem";
+            btnView.Text = "Xem";
+            btnView.UseColumnTextForButtonValue = true;
+            tableMedical.Columns.Add(btnView);
 
             tableMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            tableMedical.DataSource = table;
+            btnView.DisplayIndex = tableMedical.Columns.Count - 1;
+
             benhAnPanel.Controls.Add(tableMedical);
         }
+
         private void LoadServiceOfMedicalToTable()
         {
             DataTable table = new DataTable();
             table.Columns.Add("Mã", typeof(string));
-            table.Columns.Add("Tên dịch vụ", typeof(string));
-            table.Columns.Add("Xóa", typeof(string));
+            table.Columns.Add("Tên", typeof(string));
 
-            tableServiceOfMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableServiceOfMedical.AutoGenerateColumns = false;
+            tableServiceOfMedical.Columns.Clear();
+
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnDelete";
+            btnDelete.HeaderText = "Xóa";
+            btnDelete.Text = "Xóa";
+            btnDelete.UseColumnTextForButtonValue = true;
+            tableServiceOfMedical.Columns.Add(btnDelete);
+
+            tableServiceOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Mã",  DataPropertyName = "Mã" });
+            tableServiceOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Tên", DataPropertyName = "Tên" });
+
             tableServiceOfMedical.DataSource = table;
+            tableServiceOfMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            btnDelete.DisplayIndex = tableServiceOfMedical.Columns.Count - 1;
+
             dichVuPanel.Controls.Add(tableServiceOfMedical);
         }
+
         private void LoadDiagnoseOfMedicalToTable()
         {
             DataTable table = new DataTable();
-            table.Columns.Add("Mã bệnh", typeof(string));
-            table.Columns.Add("Tên bệnh", typeof(string));
-            table.Columns.Add("Xóa", typeof(string));
+            table.Columns.Add("Mã", typeof(string));
+            table.Columns.Add("Tên", typeof(string));
 
-            tableDiagnoseOfMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableDiagnoseOfMedical.AutoGenerateColumns = false;
+            tableDiagnoseOfMedical.Columns.Clear();
+
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnDelete";
+            btnDelete.HeaderText = "Xóa";
+            btnDelete.Text = "Xóa";
+            btnDelete.UseColumnTextForButtonValue = true;
+            tableDiagnoseOfMedical.Columns.Add(btnDelete);
+            tableDiagnoseOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Mã", DataPropertyName = "Mã" });
+            tableDiagnoseOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Tên", DataPropertyName = "Tên" });
+
             tableDiagnoseOfMedical.DataSource = table;
+            tableDiagnoseOfMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            btnDelete.DisplayIndex = tableDiagnoseOfMedical.Columns.Count - 1;
+
             chanDoanPanel.Controls.Add(tableDiagnoseOfMedical);
         }
+
         private void LoadPrescriptionOfMedicalToTable()
         {
             DataTable table = new DataTable();
-            table.Columns.Add("Mã dược phẩm", typeof(string));
+            table.Columns.Add("Mã", typeof(string));
             table.Columns.Add("Dược phẩm", typeof(string));
             table.Columns.Add("Số lượng", typeof(string));
             table.Columns.Add("Đơn vị", typeof(string));
-            table.Columns.Add("Xóa", typeof(string));
 
-            tablePrescriptionOfMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tablePrescriptionOfMedical.AutoGenerateColumns = false;
+            tablePrescriptionOfMedical.Columns.Clear();
+
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnDelete";
+            btnDelete.HeaderText = "Xóa";
+            btnDelete.Text = "Xóa";
+            btnDelete.UseColumnTextForButtonValue = true;
+            tablePrescriptionOfMedical.Columns.Add(btnDelete);
+
+            tablePrescriptionOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Mã", DataPropertyName = "Mã" });
+            tablePrescriptionOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Dược phẩm", DataPropertyName = "Dược phẩm" });
+            tablePrescriptionOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Số lượng", DataPropertyName = "Số lượng" });
+            tablePrescriptionOfMedical.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Đơn vị", DataPropertyName = "Đơn vị" });
+
             tablePrescriptionOfMedical.DataSource = table;
+            tablePrescriptionOfMedical.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            btnDelete.DisplayIndex = tablePrescriptionOfMedical.Columns.Count - 1;
+
+            tablePrescriptionOfMedical.CellClick += TablePrescriptionOfMedicalCellClick;
             donThuocPanel.Controls.Add(tablePrescriptionOfMedical);
         }
-
 
         private void LoadMedicineToTable()
         {
@@ -148,7 +220,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             tableMedicine.DataSource = table;
             duocPhamPanel.Controls.Add(tableMedicine);
         }
-
 
         private void LoadDiseaseToTable()
         {
@@ -185,8 +256,8 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             }
         }
 
-        // sự kiện tabPageDanhSach =====================================================================================================================================
-        // sự kiện tabPageDanhSach =====================================================================================================================================
+        // sự kiện tabPageDanhSach =========================================================================================================================================
+        // sự kiện tabPageDanhSach =========================================================================================================================================
         private void buttonSuaHoSoBenhAnClick(object sender, EventArgs e)
         {
             if (tablePatient.SelectedRows.Count > 0)
@@ -199,6 +270,10 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 {
                     txtSoCCCD.TextValue = patient.SoCCCD;
                     txtTenBenhNhan.TextValue = patient.TenBN;
+
+                    // Gọi hàm riêng để hiển thị bảng bệnh án
+                    LoadMedicalTableByPatientId(soCCCD);
+
                 }
                 else
                 {
@@ -212,21 +287,103 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             tabControlHoSoBenhAn.SelectedTab = tabPageBenhAn;
             buttonHuyBenhAnClick(null, null);
         }
+        private void LoadMedicalTableByPatientId(string soCCCD)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Bệnh Án", typeof(string));
+            var medicals = medicalBUS.GetAllMedicalsByPatientId(soCCCD);
+            foreach (var medical in medicals)
+            {
+                table.Rows.Add(medical.MaBA);
+            }
+            tableMedical.DataSource = table;
+        }
+
+        private void TableMedicalCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            if (tableMedical.Columns[e.ColumnIndex].Name == "btnView")
+            {
+                string maBA = tableMedical.Rows[e.RowIndex].Cells["Mã Bệnh Án"].Value.ToString();
+                LoadDiagnosesByMedicalId(maBA);
+                LoadServicesByMedicalId(maBA);
+                LoadPrescriptionsByMedicalId(maBA);
+            }
+        }
+
+        private void LoadServicesByMedicalId(string maBA)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã", typeof(string));
+            table.Columns.Add("Tên", typeof(string));
+
+            var services = serviceDetailBUS.GetServiceDetailByMedicalId(maBA);
+            foreach (var serviceDetail in services)
+            {
+                var service = serviceBUS.GetServiceById(serviceDetail.MaDV);
+                if (service != null)
+                {
+                    table.Rows.Add(service.MaDV, service.TenDV);
+                }
+            }
+            tableServiceOfMedical.DataSource = table;
+        }
+
+        private void LoadDiagnosesByMedicalId(string maBA)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã", typeof(string));
+            table.Columns.Add("Tên", typeof(string));
+
+            var diagnoses = diagnoseBUS.GetDiagnosesByMedicalId(maBA);
+            foreach (var diagnose in diagnoses)
+            {
+                var disease = diseaseBUS.GetDiseaseById(diagnose.MaBenh);
+                if (disease != null)
+                {
+                    table.Rows.Add(disease.MaBenh, disease.TenBenh);
+                }
+            }
+            tableDiagnoseOfMedical.DataSource = table;
+        }
+
+        private void LoadPrescriptionsByMedicalId(string maBA)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã", typeof(string));
+            table.Columns.Add("Dược phẩm", typeof(string));
+            table.Columns.Add("Số lượng", typeof(string));
+            table.Columns.Add("Đơn vị", typeof(string));
+
+            var prescriptions = prescriptionBUS.GetPrescriptionsByMedicalId(maBA);
+            foreach (var prescription in prescriptions)
+            {
+                var medicine = medicineBUS.GetMedicineById(prescription.MaDP);
+                if (medicine != null)
+                {
+                    table.Rows.Add(medicine.MaDP, medicine.TenDP, prescription.SoLuongDP, prescription.DonViDP);
+                }
+            }
+            tablePrescriptionOfMedical.DataSource = table;
+        }
 
         //sự kiện tabPageBenhAn  ============================================================================================================================================
         //sự kiện tabPageBenhAn  ============================================================================================================================================
         private void buttonThemBenhAnClick(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonSuaBenhAnClick(object sender, EventArgs e)
-        {
-
+            txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
+            LoadDiagnoseOfMedicalToTable();
+            LoadServiceOfMedicalToTable();
+            LoadPrescriptionOfMedicalToTable();
         }
 
         private void buttonChonChanDoanClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSoCCCD.TextValue)){
+                MessageBox.Show("Vui long chọn hồ sơ bệnh án để chọn chẩn đoán!");
+                return;
+            }
             Form popup = new Form();
             popup.Text = "Chọn chẩn đoán";
             popup.Size = new Size(900, 500);
@@ -244,7 +401,6 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
             popup.Controls.Add(dgv);
 
-            // Panel chứa nút
             FlowLayoutPanel panelButtons = new FlowLayoutPanel();
             panelButtons.Height = 60;
             panelButtons.Dock = DockStyle.Bottom;
@@ -268,18 +424,21 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
             btnAdd.Click += (s, args) =>
             {
-                string maDV = dgv.SelectedRows[0].Cells["Mã Bệnh"].Value.ToString();
-                var service = serviceBUS.GetServiceById(maDV);
+                string maBenh = dgv.SelectedRows[0].Cells["Mã Bệnh"].Value.ToString();
+                string tenBenh = dgv.SelectedRows[0].Cells["Tên Bệnh"].Value.ToString();
 
-                //if (!listServiceSelected.Any(x => x.MaDV == maDV))
-                //{
-                //    listServiceSelected.Add(service);
-                //    UpdateServiceSelectedTable();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Dịch vụ đã được chọn rồi!");
-                //}
+                DataTable diagnoseTable = (DataTable)tableDiagnoseOfMedical.DataSource;
+
+                foreach (DataRow row in diagnoseTable.Rows)
+                {
+                    if (row["Mã"].ToString() == maBenh)
+                    {
+                        MessageBox.Show("Bệnh đã được chọn rồi!");
+                        return;
+                    }
+                }
+                diagnoseTable.Rows.Add(maBenh, tenBenh);
+                popup.Close();
             };
 
             btnClose.Click += (s, args) => popup.Close();
@@ -291,12 +450,37 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             popup.ShowDialog();
         }
 
+        private void TableDiagnoseOfMedicalCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (tableDiagnoseOfMedical.Columns[e.ColumnIndex].Name == "btnDelete")
+            {
+                DataTable diagnoseTable = (DataTable)tableDiagnoseOfMedical.DataSource;
+                string maBenh = tableDiagnoseOfMedical.Rows[e.RowIndex].Cells["Mã"].Value.ToString();
+
+                foreach (DataRow row in diagnoseTable.Rows)
+                {
+                    if (row["Mã"].ToString() == maBenh)
+                    {
+                        diagnoseTable.Rows.Remove(row);
+                        break;
+                    }
+                }
+            }
+        }
+
         private void buttonChonDichVuClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSoCCCD.TextValue))
+            {
+                MessageBox.Show("Vui long chọn hồ sơ bệnh án để chọn dịch vụ!");
+                return;
+            }
             Form popup = new Form();
             popup.Text = "Chọn dịch vụ";
             popup.Size = new Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
+
             DataTable table = new DataTable();
             table.Columns.Add("Mã Dịch Vụ", typeof(string));
             table.Columns.Add("Tên Dịch Vụ", typeof(string));
@@ -336,17 +520,21 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             btnAdd.Click += (s, args) =>
             {
                 string maDV = dgv.SelectedRows[0].Cells["Mã Dịch Vụ"].Value.ToString();
-                var service = serviceBUS.GetServiceById(maDV);
+                string tenDV = dgv.SelectedRows[0].Cells["Tên Dịch Vụ"].Value.ToString();
 
-                //if (!listServiceSelected.Any(x => x.MaDV == maDV))
-                //{
-                //    listServiceSelected.Add(service);
-                //    UpdateServiceSelectedTable();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Dịch vụ đã được chọn rồi!");
-                //}
+                DataTable serviceTable = (DataTable)tableServiceOfMedical.DataSource;
+
+                foreach (DataRow row in serviceTable.Rows)
+                {
+                    if (row["Mã"].ToString() == maDV)
+                    {
+                        MessageBox.Show("Dịch vụ đã được chọn rồi!");
+                        return;
+                    }
+                }
+
+                serviceTable.Rows.Add(maDV, tenDV);
+                popup.Close();
             };
 
             btnClose.Click += (s, args) => popup.Close();
@@ -358,12 +546,37 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             popup.ShowDialog();
         }
 
+        private void TableServiceOfMedicalCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+            if (tableServiceOfMedical.Columns[e.ColumnIndex].Name == "btnDelete")
+            {
+                DataTable serviceTable = (DataTable)tableServiceOfMedical.DataSource;
+                string maDV = tableServiceOfMedical.Rows[e.RowIndex].Cells["Mã"].Value.ToString();
+
+                foreach (DataRow row in serviceTable.Rows)
+                {
+                    if (row["Mã"].ToString() == maDV)
+                    {
+                        serviceTable.Rows.Remove(row);
+                        break;
+                    }
+                }
+            }
+        }
+
         private void buttonThemDonThuocClick(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSoCCCD.TextValue))
+            {
+                MessageBox.Show("Vui long chọn hồ sơ bệnh án để thêm đơn thuốc!");
+                return;
+            }
             Form popup = new Form();
             popup.Text = "Thêm đơn thuốc";
             popup.Size = new Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
+
             DataTable table = new DataTable();
             table.Columns.Add("Mã Dược Phẩm", typeof(string));
             table.Columns.Add("Tên Dược Phẩm", typeof(string));
@@ -376,6 +589,25 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
             dgv.Dock = DockStyle.Fill;
 
             popup.Controls.Add(dgv);
+
+            FlowLayoutPanel pnlInputRow = new FlowLayoutPanel();
+            pnlInputRow.Height = 100;
+            pnlInputRow.Dock = DockStyle.Bottom;
+            pnlInputRow.FlowDirection = FlowDirection.LeftToRight;
+            pnlInputRow.Padding = new Padding(10);
+            pnlInputRow.BackColor = Color.White;
+
+            LableTextBox txtSoLuong = new LableTextBox(400, 80, "Số lượng:");
+            txtSoLuong.Margin = new Padding(15);
+
+            LableComboBox comboboxDonVi = new LableComboBox(400, 80, "Đơn vị:");
+            comboboxDonVi.Margin = new Padding(15);
+            comboboxDonVi.GetComboBox().Items.AddRange(new object[] { "Viên", "Ống", "Hộp", "Vĩ", "Chai", "Gói", "Tuýp", "Lọ" });
+            if (comboboxDonVi.GetComboBox().Items.Count > 0)
+                comboboxDonVi.GetComboBox().SelectedIndex = 0;
+
+            pnlInputRow.Controls.Add(txtSoLuong);
+            pnlInputRow.Controls.Add(comboboxDonVi);
 
             FlowLayoutPanel panelButtons = new FlowLayoutPanel();
             panelButtons.Height = 60;
@@ -400,37 +632,183 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
             btnAdd.Click += (s, args) =>
             {
-                string maDV = dgv.SelectedRows[0].Cells["Mã Dược Phẩm"].Value.ToString();
-                var service = serviceBUS.GetServiceById(maDV);
+                string maDP = dgv.SelectedRows[0].Cells["Mã Dược Phẩm"].Value.ToString();
+                string tenDP = dgv.SelectedRows[0].Cells["Tên Dược Phẩm"].Value.ToString();
 
-                //if (!listServiceSelected.Any(x => x.MaDV == maDV))
-                //{
-                //    listServiceSelected.Add(service);
-                //    UpdateServiceSelectedTable();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Dịch vụ đã được chọn rồi!");
-                //}
+                string soLuongText = txtSoLuong.TextValue.Trim();
+                if (!int.TryParse(soLuongText, out int soLuong) || soLuong <= 0)
+                {
+                    MessageBox.Show("Số lượng phải là số nguyên dương!");
+                    return;
+                }
+
+                string donVi = comboboxDonVi.TextValue.Trim();
+                if (string.IsNullOrEmpty(donVi))
+                {
+                    MessageBox.Show("Vui lòng chọn đơn vị!");
+                    return;
+                }
+
+                DataTable prescriptionTable = (DataTable)tablePrescriptionOfMedical.DataSource;
+
+                foreach (DataRow row in prescriptionTable.Rows)
+                {
+                    if (row["Mã"].ToString() == maDP)
+                    {
+                        MessageBox.Show("Dược phẩm đã được thêm rồi!");
+                        return;
+                    }
+                }
+
+                prescriptionTable.Rows.Add(maDP, tenDP, soLuong, donVi);
+                popup.Close();
             };
 
             btnClose.Click += (s, args) => popup.Close();
 
             panelButtons.Controls.Add(btnClose);
             panelButtons.Controls.Add(btnAdd);
+            popup.Controls.Add(pnlInputRow);
             popup.Controls.Add(panelButtons);
 
             popup.ShowDialog();
         }
 
+        private void TablePrescriptionOfMedicalCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            if (tablePrescriptionOfMedical.Columns[e.ColumnIndex].Name == "btnDelete")
+            {
+                DataTable prescriptionTable = (DataTable)tablePrescriptionOfMedical.DataSource;
+                if (e.RowIndex < prescriptionTable.Rows.Count)
+                {
+                    prescriptionTable.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+        }
+
         private void buttonHuyBenhAnClick(object sender, EventArgs e)
         {
-
+            txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
+            LoadDiagnoseOfMedicalToTable();
+            LoadServiceOfMedicalToTable();
+            LoadPrescriptionOfMedicalToTable();
         }
 
         private void buttonXacNhanBenhAnClick(object sender, EventArgs e)
         {
+            DataTable diagnoseTable = (DataTable)tableDiagnoseOfMedical.DataSource;
+            if (diagnoseTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng thêm ít nhất một chẩn đoán!");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtSoCCCD.TextValue))
+            {
+                MessageBox.Show("Vui lòng chọn bệnh nhân!");
+                return;
+            }
 
+            MedicalDTO medical = new MedicalDTO()
+            {
+                MaBA = txtMaBenhAn.TextValue,
+                SoCCCD = txtSoCCCD.TextValue,
+                MaNV = employeeId,
+                NgayTao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+            };
+
+            if (!medicalBUS.ExistsMedicalId(medical.MaBA)) // thêm
+            {
+                medicalBUS.AddMedical(medical);
+                MessageBox.Show("Thêm bệnh án thành công!");
+
+                // Thêm chẩn đoán
+                foreach (DataRow row in diagnoseTable.Rows)
+                {
+                    DiagnoseDTO diagnose = new DiagnoseDTO()
+                    {
+                        MaBA = medical.MaBA,
+                        MaBenh = row["Mã"].ToString(),
+                        NgayChanDoan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        KetQuaDieuTri = "1"
+                    };
+                    diagnoseBUS.AddDiagnose(diagnose);
+                }
+
+                // Thêm đơn thuốc
+                DataTable prescriptionTable = (DataTable)tablePrescriptionOfMedical.DataSource;
+                foreach (DataRow row in prescriptionTable.Rows)
+                {
+                    PrescriptionDTO prescription = new PrescriptionDTO()
+                    {
+                        MaBA = medical.MaBA,
+                        MaDP = row["Mã"].ToString(),
+                        SoLuongDP =row["Số lượng"].ToString(),
+                        DonViDP = row["Đơn vị"].ToString()
+                    };
+                    prescriptionBUS.AddPrescription(prescription);
+                }
+
+                // Thêm chi tiết dịch vụ
+                DataTable serviceTable = (DataTable)tableServiceOfMedical.DataSource;
+                foreach (DataRow row in serviceTable.Rows)
+                {
+                    ServiceDetailDTO serviceDetail = new ServiceDetailDTO()
+                    {
+                        MaBA = medical.MaBA,
+                        MaDV = row["Mã"].ToString()
+                    };
+                    serviceDetailBUS.AddServiceDetail(serviceDetail);
+                }
+
+                MessageBox.Show("Thêm bệnh án và các thông tin liên quan thành công!");
+                LoadMedicalTableByPatientId(txtSoCCCD.TextValue);
+            }
+            else // sửa
+            {
+                //medicalBUS.UpdateMedical(medical);
+                //MessageBox.Show("Cập nhật bệnh án thành công!");
+
+                //diagnoseBUS.DeleteDiagnoseByMedicalId(medical.MaBA);
+                //foreach (DataRow row in diagnoseTable.Rows)
+                //{
+                //    DiagnoseDTO diagnose = new DiagnoseDTO()
+                //    {
+                //        MaBA = medical.MaBA,
+                //        MaBenh = row["Mã"].ToString()
+                //    };
+                //    diagnoseBUS.AddDiagnose(diagnose);
+                //}
+
+                //prescriptionBUS.DeletePrescriptionByMedicalId(medical.MaBA);
+                //foreach (DataRow row in prescriptionTable.Rows)
+                //{
+                //    PrescriptionDTO prescription = new PrescriptionDTO()
+                //    {
+                //        MaBA = medical.MaBA,
+                //        MaDP = row["Mã"].ToString(),
+                //        SoLuong = int.Parse(row["Số lượng"].ToString()),
+                //        DonVi = row["Đơn vị"].ToString()
+                //    };
+                //    prescriptionBUS.AddPrescription(prescription);
+                //}
+
+                //serviceDetailBUS.DeleteServiceDetailByMedicalId(medical.MaBA);
+                //foreach (DataRow row in serviceTable.Rows)
+                //{
+                //    ServiceDetailDTO serviceDetail = new ServiceDetailDTO()
+                //    {
+                //        MaBA = medical.MaBA,
+                //        MaDV = row["Mã"].ToString()
+                //    };
+                //    serviceDetailBUS.AddServiceDetail(serviceDetail);
+                //}
+
+                //MessageBox.Show("Cập nhật bệnh án và các thông tin liên quan thành công!");
+            }
+
+            buttonHuyBenhAnClick(null, null);
         }
 
         // sự kiện tabPageBenh ============================================================================================================================================

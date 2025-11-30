@@ -121,5 +121,15 @@ namespace HospitalManagerment.BUS
             }
             return new List<MedicalDTO>();
         }
+
+        public bool ExistsMedicalId(string maBA)
+        {
+            return GetAllMedicals().Any(ba => ba.MaBA == maBA);
+        }
+
+        public List<MedicalDTO> GetAllMedicalsByPatientId(string soCCCD)
+        {
+            return medicalDAO.GetAllMedicalsByPatientId(soCCCD);
+        }
     }
 }

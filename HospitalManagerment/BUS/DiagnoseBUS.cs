@@ -134,5 +134,11 @@ namespace HospitalManagerment.BUS
             }
             return false;
         }
+
+        public List<DiagnoseDTO> GetDiagnosesByMedicalId(string maBA)
+        {
+            return diagnoseDAO.GetDiagnoseByMedicalId(maBA);
+        }
     }
+
 }

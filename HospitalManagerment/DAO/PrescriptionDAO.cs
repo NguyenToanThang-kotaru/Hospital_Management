@@ -95,9 +95,11 @@ namespace HospitalManagerment.DAO
             return list;
         }
 
-        public PrescriptionDTO GetPrescriptionByMedicalId(string maBA)
+        public List<PrescriptionDTO> GetPrescriptionsByMedicalId(string maBA)
         {
+            List<PrescriptionDTO> list = new List<PrescriptionDTO>();
             string sql = "SELECT * FROM donthuoc WHERE MaBA = @MaBA";
+
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -105,18 +107,19 @@ namespace HospitalManagerment.DAO
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaBA", maBA);
+
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read())
+                            while (reader.Read())
                             {
-                                return new PrescriptionDTO()
+                                list.Add(new PrescriptionDTO
                                 {
                                     MaBA = reader.GetString("MaBA"),
                                     MaDP = reader.GetString("MaDP"),
                                     SoLuongDP = reader.GetString("SoLuongDP"),
                                     DonViDP = reader.GetString("DonViDP")
-                                };
+                                });
                             }
                         }
                     }
@@ -124,9 +127,9 @@ namespace HospitalManagerment.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi lấy đơn thuốc: " + ex.Message);
+                MessageBox.Show("Lỗi khi lấy danh sách đơn thuốc theo bệnh án: " + ex.Message);
             }
-            return null;
+            return list;
         }
 
         public List<PrescriptionDTO> SearchPrescriptionByName(string maDP)

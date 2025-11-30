@@ -96,30 +96,9 @@ namespace HospitalManagerment.BUS
         //    return false;
         //}
 
-        public List<ServiceDetailDTO> SearchServiceDetailByName(string keyword)
+        public List<ServiceDetailDTO> GetServiceDetailByMedicalId(string maBA)
         {
-            try
-            {
-                return servicedetaildao.SearchServiceDetailByName(keyword);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm chi tiết dịch vụ: " + ex.Message);
-                return new List<ServiceDetailDTO>();
-            }
-        }
-
-        public string GetNextServiceDetailId()
-        {
-            try
-            {
-                return servicedetaildao.GetNextServiceDetailId();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy mã dịch vụ tiếp theo: " + ex.Message);
-                return null;
-            }
+            return servicedetaildao.GetServiceDetailByMedicalId(maBA);
         }
     }
 }

@@ -23,22 +23,25 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
         private bool isEditMode = false;
         private string oldSoCCCD = "";
-        private TableDataGridView tableServiceAll; 
-        private TableDataGridView tableServiceSelected; 
-        private List<ServiceDTO> listServiceSelected = new List<ServiceDTO>(); 
+        private TableDataGridView tableServiceSelected;
+        private List<ServiceDTO> listServiceSelected;
         private ServiceBUS serviceBUS;
 
         public BenhNhanPage(string employeeId)
         {
             InitializeComponent();
             this.employeeId = employeeId;
+
             tablePatient = new TableDataGridView();
+
             employeeBUS = new EmployeeBUS();
             patientBUS = new PatientBUS();
             healthInsuranceBUS = new HealthInsuranceBUS();
             serviceRegistrationBUS = new ServiceRegistrationBUS();
             serviceRegistrationDetailBUS = new ServiceRegistrationDetailBUS();
             serviceBUS = new ServiceBUS();
+
+            listServiceSelected = new List<ServiceDTO>();
 
         }
 

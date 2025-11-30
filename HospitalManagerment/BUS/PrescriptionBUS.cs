@@ -121,5 +121,10 @@ namespace HospitalManagerment.BUS
                 return null;
             }
         }
+
+        public List<PrescriptionDTO> GetPrescriptionsByMedicalId(string maBA)
+        {
+            return prescriptiondao.GetPrescriptionsByMedicalId(maBA);
+        }
     }
 }

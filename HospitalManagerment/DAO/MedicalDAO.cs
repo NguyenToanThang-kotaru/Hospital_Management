@@ -188,7 +188,7 @@ namespace HospitalManagerment.DAO
             {
                 MessageBox.Show("Lỗi khi lấy mã bệnh án tiếp theo: " + ex.Message);
             }
-            return "BA0001";
+            return "BA000001";
         }
 
         public List<MedicalDTO> SearchMedicalByName(string keyword)
@@ -227,6 +227,44 @@ namespace HospitalManagerment.DAO
                 MessageBox.Show("Lỗi khi tìm kiếm bệnh án: " + ex.Message);
             }
 
+            return list;
+        }
+
+        public List<MedicalDTO> GetAllMedicalsByPatientId(string soCCCD)
+        {
+            List<MedicalDTO> list = new List<MedicalDTO>();
+            string sql = "SELECT * FROM benhan WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0 ORDER BY NgayTao DESC";
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SoCCCD", soCCCD);
+
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                list.Add(new MedicalDTO
+                                {
+                                    MaBA = reader["MaBA"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    MaNV = reader["MaNV"].ToString(),
+                                    NgayTao = reader["NgayTao"].ToString(),
+                                    TrangThaiXoa = reader["TrangThaiXoa"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lấy danh sách bệnh án theo bệnh nhân: " + ex.Message);
+            }
             return list;
         }
     }
