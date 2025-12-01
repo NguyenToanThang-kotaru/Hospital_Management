@@ -109,6 +109,10 @@ namespace HospitalManagerment.BUS
             }
         }
 
+        public List<ServiceDesignationDTO> SearchServiceDesignationByCustomer(string soCCCD)
+        {
+            return serviceDesignationDAO.SearchServiceDesignationByCustomer(soCCCD);
+        }
         public bool ExistsServiceDesignationId(string maPCD)
         {
             return GetAllServiceDesignation().Any(sv => sv.MaPCD == maPCD);

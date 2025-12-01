@@ -364,5 +364,46 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
             }
         }
 
+        private void searchBarNhanVienTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarNhanVien.Text.Trim();
+            var employees = employeeBUS.SearchEmployee(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Nhân Viên", typeof(string));
+            table.Columns.Add("Tên Nhân Viên", typeof(string));
+            table.Columns.Add("Vai Trò", typeof(string));
+            table.Columns.Add("Khoa", typeof(string));
+
+            foreach (var employee in employees)
+            {
+                table.Rows.Add(
+                    employee.MaNV,
+                    employee.TenNV,
+                    employee.VaiTro,
+                    departmentBUS.GetDepartmentById(employee.MaKhoa)?.TenKhoa
+                );
+            }
+
+            tableEmployee.DataSource = table;
+        }
+
+        private void searchBarKhoaTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarKhoa.Text.Trim();
+            var departments = departmentBUS.SearchDepartmentByName(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Khoa", typeof(string));
+            table.Columns.Add("Tên Khoa", typeof(string));
+
+            foreach (var department in departments)
+            {
+                table.Rows.Add(department.MaKhoa, department.TenKhoa);
+            }
+
+            tableDepartment.DataSource = table;
+        }
+
     }
 }

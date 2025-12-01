@@ -46,7 +46,7 @@
             this.buttonXoaTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonSuaTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemTaiKhoan = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar = new System.Windows.Forms.TextBox();
+            this.searchBarTaiKhoan = new System.Windows.Forms.TextBox();
             this.taiKhoanPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageQuyen = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -344,7 +344,7 @@
             this.tableLayoutPanel6.Controls.Add(this.buttonXoaTaiKhoan, 6, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonSuaTaiKhoan, 4, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonThemTaiKhoan, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.searchBar, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.searchBarTaiKhoan, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
@@ -424,16 +424,17 @@
             this.buttonThemTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemTaiKhoan.Click += new System.EventHandler(this.buttonThemTaiKhoanClick);
             // 
-            // searchBar
+            // searchBarTaiKhoan
             // 
-            this.searchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBar.Location = new System.Drawing.Point(0, 0);
-            this.searchBar.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar.Name = "searchBar";
-            this.searchBar.Size = new System.Drawing.Size(328, 35);
-            this.searchBar.TabIndex = 5;
+            this.searchBarTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarTaiKhoan.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarTaiKhoan.Location = new System.Drawing.Point(0, 0);
+            this.searchBarTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarTaiKhoan.Name = "searchBarTaiKhoan";
+            this.searchBarTaiKhoan.Size = new System.Drawing.Size(328, 35);
+            this.searchBarTaiKhoan.TabIndex = 5;
+            this.searchBarTaiKhoan.TextChanged += new System.EventHandler(this.searchBarTaiKhoanTextChanged);
             // 
             // taiKhoanPanel
             // 
@@ -859,6 +860,6 @@
         private Component.RoundedLabel buttonXoaTaiKhoan;
         private Component.RoundedLabel buttonSuaTaiKhoan;
         private Component.RoundedLabel buttonThemTaiKhoan;
-        private System.Windows.Forms.TextBox searchBar;
+        private System.Windows.Forms.TextBox searchBarTaiKhoan;
     }
 }

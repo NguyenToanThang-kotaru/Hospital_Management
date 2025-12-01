@@ -381,5 +381,51 @@ namespace HospitalManagerment.GUI.Pages.DichVu
             MessageBox.Show("Đã xuất PDF thành công!");
         }
 
+        private void searchBarDichVuTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarDichVu.Text.Trim();
+            var services = serviceBUS.SearchServiceByName(keyword); 
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Dịch Vụ", typeof(string));
+            table.Columns.Add("Tên Dịch Vụ", typeof(string));
+            table.Columns.Add("Giá Dịch Vụ", typeof(string));
+            table.Columns.Add("Bảo hiểm chi trả", typeof(string));
+
+            foreach (var service in services)
+            {
+                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
+            }
+
+            tableService.DataSource = table;
+        }
+
+        private void searchBarChiDinhDichVuTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarChiDinhDichVu.Text.Trim();
+            var serviceDesignations = serviceDesignationBUS.SearchServiceDesignationByCustomer(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Phiếu", typeof(string));
+            table.Columns.Add("Bệnh Nhân", typeof(string));
+            table.Columns.Add("Dịch Vụ", typeof(string));
+            table.Columns.Add("Ngày Tạo Phiếu", typeof(string));
+
+            foreach (var sd in serviceDesignations)
+            {
+                var patient = patientBUS.GetPatientById(sd.SoCCCD);
+                var service = serviceBUS.GetServiceById(sd.MaDV);
+
+                table.Rows.Add(
+                    sd.MaPCD,
+                    patient != null ? patient.TenBN : "",
+                    service != null ? service.TenDV : "",
+                    sd.NgayGioTaoPhieu
+                );
+            }
+
+            tableServiceDesignation.DataSource = table;
+        }
+
     }
 }

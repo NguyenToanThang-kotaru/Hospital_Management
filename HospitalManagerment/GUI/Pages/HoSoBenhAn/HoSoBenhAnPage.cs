@@ -990,5 +990,72 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 MessageBox.Show("Vui lòng chọn duoc pham cần xóa!");
             }
         }
+
+        private void searchBarHoSoBenhAnTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarHoSoBenhAn.Text.Trim();
+            var patients = patientBUS.SearchPatient(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Số Căn Cước Công Dân", typeof(string));
+            table.Columns.Add("Tên Bệnh Nhân", typeof(string));
+
+            foreach (var patient in patients)
+            {
+                table.Rows.Add(
+                    patient.SoCCCD,
+                    patient.TenBN
+                );
+            }
+
+            tablePatient.DataSource = table;
+        }
+
+
+        private void searchBarBenhTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarBenh.Text.Trim();
+            var diseases = diseaseBUS.SearchDiseaseByName(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Bệnh", typeof(string));
+            table.Columns.Add("Tên Bệnh", typeof(string));
+            table.Columns.Add("Mô Tả", typeof(string));
+
+            foreach (var disease in diseases)
+            {
+                table.Rows.Add(
+                    disease.MaBenh,
+                    disease.TenBenh,
+                    disease.MoTaBenh
+                );
+            }
+
+            tableDisease.DataSource = table;
+        }
+
+
+        private void searchBarDuocPhamTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarDuocPham.Text.Trim();
+            var medicines = medicineBUS.SearchMedicinesByName(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Dược Phẩm", typeof(string));
+            table.Columns.Add("Tên Dược Phẩm", typeof(string));
+            table.Columns.Add("Loại Dược Phẩm", typeof(string));
+
+            foreach (var med in medicines)
+            {
+                table.Rows.Add(
+                    med.MaDP,
+                    med.TenDP,
+                    med.LoaiDP
+                );
+            }
+
+            tableMedicine.DataSource = table;
+        }
+
     }
 }

@@ -547,5 +547,30 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
                 MessageBox.Show("Vui lòng chọn quyền cần xóa!");
             }
         }
+
+        private void searchBarTaiKhoanTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarTaiKhoan.Text.Trim();
+
+            // Gọi hàm search từ BUS
+            var accounts = accountBUS.SearchAccount(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Tên Đăng Nhập", typeof(string));
+            table.Columns.Add("Quyền", typeof(string));
+            table.Columns.Add("Nhân Viên", typeof(string));
+
+            foreach (var account in accounts)
+            {
+                table.Rows.Add(
+                    account.TenDangNhap,
+                    permissionBUS.GetPermissionById(account.MaQuyen)?.TenQuyen,
+                    employeeBUS.GetEmployeeById(account.MaNV)?.TenNV
+                );
+            }
+
+            tableAccounts.DataSource = table;
+        }
+
     }
 }

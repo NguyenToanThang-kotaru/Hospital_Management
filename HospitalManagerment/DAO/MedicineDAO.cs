@@ -182,7 +182,7 @@ namespace HospitalManagerment.DAO
         public List<MedicineDTO> SearchMedicinesByName(string maDP)
         {
             List<MedicineDTO> medicines = new List<MedicineDTO>();
-            string sql = "SELECT * FROM duocpham WHERE MaDP LIKE CONCAT('%', @MaDP, '%') AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM duocpham WHERE TenDP LIKE CONCAT('%', @MaDP, '%') AND TrangThaiXoa = 0";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

@@ -37,10 +37,7 @@ namespace HospitalManagerment.BUS
 
         public List<EmployeeDTO> SearchEmployee(string keyword)
         {
-            var result = employeeDAO.SearchEmployee(keyword);
-            if (result.Count == 0)
-                throw new Exception("Không tìm thấy nhân viên phù hợp!");
-            return result;
+            return employeeDAO.SearchEmployee(keyword);
         }
 
         public List<EmployeeDTO> GetAllEmployees()

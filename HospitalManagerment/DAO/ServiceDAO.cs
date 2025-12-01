@@ -187,7 +187,7 @@ namespace HospitalManagerment.DAO
         public List<ServiceDTO> SearchServiceByName(string maDV)
         {
             List<ServiceDTO> services = new List<ServiceDTO>();
-            string sql = "SELECT * FROM dichvu WHERE MaDV LIKE CONCAT('%', @MaDV, '%') AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM dichvu WHERE TenDV LIKE CONCAT('%', @MaDV, '%') AND TrangThaiXoa = 0";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

@@ -363,6 +363,7 @@
             this.searchBarKhoa.Name = "searchBarKhoa";
             this.searchBarKhoa.Size = new System.Drawing.Size(328, 35);
             this.searchBarKhoa.TabIndex = 6;
+            this.searchBarKhoa.TextChanged += new System.EventHandler(this.searchBarKhoaTextChanged);
             // 
             // buttonXoaKhoa
             // 
@@ -740,6 +741,7 @@
             this.searchBarNhanVien.Name = "searchBarNhanVien";
             this.searchBarNhanVien.Size = new System.Drawing.Size(328, 35);
             this.searchBarNhanVien.TabIndex = 6;
+            this.searchBarNhanVien.TextChanged += new System.EventHandler(this.searchBarNhanVienTextChanged);
             // 
             // buttonXoaNhanVien
             // 

@@ -364,6 +364,7 @@
             this.searchBarDichVu.Name = "searchBarDichVu";
             this.searchBarDichVu.Size = new System.Drawing.Size(328, 35);
             this.searchBarDichVu.TabIndex = 8;
+            this.searchBarDichVu.TextChanged += new System.EventHandler(this.searchBarDichVuTextChanged);
             // 
             // buttonXoaDichVu
             // 
@@ -723,6 +724,7 @@
             this.searchBarChiDinhDichVu.Name = "searchBarChiDinhDichVu";
             this.searchBarChiDinhDichVu.Size = new System.Drawing.Size(328, 35);
             this.searchBarChiDinhDichVu.TabIndex = 7;
+            this.searchBarChiDinhDichVu.TextChanged += new System.EventHandler(this.searchBarChiDinhDichVuTextChanged);
             // 
             // buttonXoaChiDinhDichVu
             // 
