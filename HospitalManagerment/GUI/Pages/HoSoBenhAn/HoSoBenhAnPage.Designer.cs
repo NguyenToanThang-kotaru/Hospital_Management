@@ -34,7 +34,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSuaHoSoBenhAn = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
             this.hoSoBenhAnPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageBenhAn = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -91,7 +90,6 @@
             this.buttonXoaBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonSuaBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemBenh = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar2 = new HospitalManagerment.GUI.Components.SearchBar();
             this.benhPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageDuocPham = new System.Windows.Forms.TabPage();
             this.splitContainerDuocPham = new System.Windows.Forms.SplitContainer();
@@ -109,8 +107,10 @@
             this.buttonXoaDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonSuaDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemDuocPham = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar3 = new HospitalManagerment.GUI.Components.SearchBar();
             this.duocPhamPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.searchBarHoSoBenhAn = new System.Windows.Forms.TextBox();
+            this.searchBarBenh = new System.Windows.Forms.TextBox();
+            this.searchBarDuocPham = new System.Windows.Forms.TextBox();
             this.tabControlHoSoBenhAn.SuspendLayout();
             this.tabPageDanhSach.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -224,8 +224,8 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel9.Controls.Add(this.searchBarHoSoBenhAn, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.buttonSuaHoSoBenhAn, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.searchBar1, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
@@ -258,18 +258,6 @@
             this.buttonSuaHoSoBenhAn.Text = "SỬA";
             this.buttonSuaHoSoBenhAn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonSuaHoSoBenhAn.Click += new System.EventHandler(this.buttonSuaHoSoBenhAnClick);
-            // 
-            // searchBar1
-            // 
-            this.searchBar1.BackColor = System.Drawing.Color.White;
-            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.searchBar1.Location = new System.Drawing.Point(0, 0);
-            this.searchBar1.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.SearchText = "";
-            this.searchBar1.Size = new System.Drawing.Size(1142, 36);
-            this.searchBar1.TabIndex = 0;
             // 
             // hoSoBenhAnPanel
             // 
@@ -1146,10 +1134,10 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel11.Controls.Add(this.searchBarBenh, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.buttonXoaBenh, 6, 0);
             this.tableLayoutPanel11.Controls.Add(this.buttonSuaBenh, 4, 0);
             this.tableLayoutPanel11.Controls.Add(this.buttonThemBenh, 2, 0);
-            this.tableLayoutPanel11.Controls.Add(this.searchBar2, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
@@ -1228,18 +1216,6 @@
             this.buttonThemBenh.Text = "THÊM";
             this.buttonThemBenh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemBenh.Click += new System.EventHandler(this.buttonThemBenhClick);
-            // 
-            // searchBar2
-            // 
-            this.searchBar2.BackColor = System.Drawing.Color.White;
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.searchBar2.Location = new System.Drawing.Point(0, 0);
-            this.searchBar2.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.SearchText = "";
-            this.searchBar2.Size = new System.Drawing.Size(328, 36);
-            this.searchBar2.TabIndex = 0;
             // 
             // benhPanel
             // 
@@ -1474,10 +1450,10 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel12.Controls.Add(this.searchBarDuocPham, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.buttonXoaDuocPham, 6, 0);
             this.tableLayoutPanel12.Controls.Add(this.buttonSuaDuocPham, 4, 0);
             this.tableLayoutPanel12.Controls.Add(this.buttonThemDuocPham, 2, 0);
-            this.tableLayoutPanel12.Controls.Add(this.searchBar3, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel12.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(0);
@@ -1557,18 +1533,6 @@
             this.buttonThemDuocPham.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemDuocPham.Click += new System.EventHandler(this.buttonThemDuocPhamClick);
             // 
-            // searchBar3
-            // 
-            this.searchBar3.BackColor = System.Drawing.Color.White;
-            this.searchBar3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.searchBar3.Location = new System.Drawing.Point(0, 0);
-            this.searchBar3.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar3.Name = "searchBar3";
-            this.searchBar3.SearchText = "";
-            this.searchBar3.Size = new System.Drawing.Size(328, 36);
-            this.searchBar3.TabIndex = 0;
-            // 
             // duocPhamPanel
             // 
             this.duocPhamPanel.BackColor = System.Drawing.Color.White;
@@ -1585,6 +1549,39 @@
             this.duocPhamPanel.Size = new System.Drawing.Size(738, 601);
             this.duocPhamPanel.TabIndex = 0;
             // 
+            // searchBarHoSoBenhAn
+            // 
+            this.searchBarHoSoBenhAn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarHoSoBenhAn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarHoSoBenhAn.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarHoSoBenhAn.Location = new System.Drawing.Point(0, 0);
+            this.searchBarHoSoBenhAn.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarHoSoBenhAn.Name = "searchBarHoSoBenhAn";
+            this.searchBarHoSoBenhAn.Size = new System.Drawing.Size(1142, 35);
+            this.searchBarHoSoBenhAn.TabIndex = 6;
+            // 
+            // searchBarBenh
+            // 
+            this.searchBarBenh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarBenh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarBenh.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarBenh.Location = new System.Drawing.Point(0, 0);
+            this.searchBarBenh.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarBenh.Name = "searchBarBenh";
+            this.searchBarBenh.Size = new System.Drawing.Size(328, 35);
+            this.searchBarBenh.TabIndex = 7;
+            // 
+            // searchBarDuocPham
+            // 
+            this.searchBarDuocPham.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarDuocPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarDuocPham.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarDuocPham.Location = new System.Drawing.Point(0, 0);
+            this.searchBarDuocPham.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarDuocPham.Name = "searchBarDuocPham";
+            this.searchBarDuocPham.Size = new System.Drawing.Size(328, 35);
+            this.searchBarDuocPham.TabIndex = 7;
+            // 
             // HoSoBenhAnPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1599,6 +1596,7 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
             this.tabPageBenhAn.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1641,6 +1639,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.tabPageDuocPham.ResumeLayout(false);
             this.splitContainerDuocPham.Panel1.ResumeLayout(false);
             this.splitContainerDuocPham.Panel2.ResumeLayout(false);
@@ -1652,6 +1651,7 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1714,17 +1714,14 @@
         private LayoutTest.GUIComponents.LableTextBox txtTenDuocPham;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private Component.RoundedLabel buttonSuaHoSoBenhAn;
-        private Components.SearchBar searchBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private Component.RoundedLabel buttonXoaBenh;
         private Component.RoundedLabel buttonSuaBenh;
         private Component.RoundedLabel buttonThemBenh;
-        private Components.SearchBar searchBar2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private Component.RoundedLabel buttonXoaDuocPham;
         private Component.RoundedLabel buttonSuaDuocPham;
         private Component.RoundedLabel buttonThemDuocPham;
-        private Components.SearchBar searchBar3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.Label label9;
@@ -1741,5 +1738,8 @@
         private Component.RoundedLabel buttonThemBenhAn;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+        private System.Windows.Forms.TextBox searchBarHoSoBenhAn;
+        private System.Windows.Forms.TextBox searchBarBenh;
+        private System.Windows.Forms.TextBox searchBarDuocPham;
     }
 }

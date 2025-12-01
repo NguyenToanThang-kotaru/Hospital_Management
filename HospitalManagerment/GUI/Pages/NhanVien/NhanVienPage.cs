@@ -51,7 +51,7 @@ namespace HospitalManagerment.GUI.Pages.NhanVien
 
             foreach (var employee in employeeBUS.GetAllEmployees())
             {
-                table.Rows.Add(employee.MaNV, employee.TenNV, employee.VaiTro, employee.MaKhoa);
+                table.Rows.Add(employee.MaNV, employee.TenNV, employee.VaiTro, departmentBUS.GetDepartmentById(employee.MaKhoa).TenKhoa);
             }
             tableEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tableEmployee.DataSource = table;

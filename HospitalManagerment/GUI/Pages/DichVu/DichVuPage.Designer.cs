@@ -43,10 +43,10 @@
             this.buttonHuyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchBarDichVu = new System.Windows.Forms.TextBox();
             this.buttonXoaDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonSuaDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar1 = new HospitalManagerment.GUI.Components.SearchBar();
             this.dichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabPageChiDinhDichVu = new System.Windows.Forms.TabPage();
             this.splitContainerChiDinhDichVu = new System.Windows.Forms.SplitContainer();
@@ -63,10 +63,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchBarChiDinhDichVu = new System.Windows.Forms.TextBox();
             this.buttonXoaChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonSuaChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.searchBar2 = new HospitalManagerment.GUI.Components.SearchBar();
             this.chiDinhDichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tabControlDichVu.SuspendLayout();
             this.tabPageDichVu.SuspendLayout();
@@ -340,10 +340,10 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel5.Controls.Add(this.searchBarDichVu, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonXoaDichVu, 6, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonSuaDichVu, 4, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonThemDichVu, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.searchBar1, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
@@ -353,6 +353,17 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(738, 66);
             this.tableLayoutPanel5.TabIndex = 3;
+            // 
+            // searchBarDichVu
+            // 
+            this.searchBarDichVu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarDichVu.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarDichVu.Location = new System.Drawing.Point(0, 0);
+            this.searchBarDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarDichVu.Name = "searchBarDichVu";
+            this.searchBarDichVu.Size = new System.Drawing.Size(328, 35);
+            this.searchBarDichVu.TabIndex = 8;
             // 
             // buttonXoaDichVu
             // 
@@ -422,18 +433,6 @@
             this.buttonThemDichVu.Text = "THÊM";
             this.buttonThemDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemDichVu.Click += new System.EventHandler(this.buttonThemDichVuClick);
-            // 
-            // searchBar1
-            // 
-            this.searchBar1.BackColor = System.Drawing.Color.White;
-            this.searchBar1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.searchBar1.Location = new System.Drawing.Point(0, 0);
-            this.searchBar1.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar1.Name = "searchBar1";
-            this.searchBar1.SearchText = "";
-            this.searchBar1.Size = new System.Drawing.Size(328, 36);
-            this.searchBar1.TabIndex = 0;
             // 
             // dichVuPanel
             // 
@@ -700,10 +699,10 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel3.Controls.Add(this.searchBarChiDinhDichVu, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonXoaChiDinhDichVu, 6, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonSuaChiDinhDichVu, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonThemChiDinhDichVu, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.searchBar2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -713,6 +712,17 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(738, 66);
             this.tableLayoutPanel3.TabIndex = 3;
+            // 
+            // searchBarChiDinhDichVu
+            // 
+            this.searchBarChiDinhDichVu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarChiDinhDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarChiDinhDichVu.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarChiDinhDichVu.Location = new System.Drawing.Point(0, 0);
+            this.searchBarChiDinhDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarChiDinhDichVu.Name = "searchBarChiDinhDichVu";
+            this.searchBarChiDinhDichVu.Size = new System.Drawing.Size(328, 35);
+            this.searchBarChiDinhDichVu.TabIndex = 7;
             // 
             // buttonXoaChiDinhDichVu
             // 
@@ -783,18 +793,6 @@
             this.buttonThemChiDinhDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.buttonThemChiDinhDichVu.Click += new System.EventHandler(this.buttonThemChiDinhDichVuClick);
             // 
-            // searchBar2
-            // 
-            this.searchBar2.BackColor = System.Drawing.Color.White;
-            this.searchBar2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchBar2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.searchBar2.Location = new System.Drawing.Point(0, 0);
-            this.searchBar2.Margin = new System.Windows.Forms.Padding(0);
-            this.searchBar2.Name = "searchBar2";
-            this.searchBar2.SearchText = "";
-            this.searchBar2.Size = new System.Drawing.Size(328, 36);
-            this.searchBar2.TabIndex = 0;
-            // 
             // chiDinhDichVuPanel
             // 
             this.chiDinhDichVuPanel.BackColor = System.Drawing.Color.White;
@@ -832,6 +830,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tabPageChiDinhDichVu.ResumeLayout(false);
             this.splitContainerChiDinhDichVu.Panel1.ResumeLayout(false);
             this.splitContainerChiDinhDichVu.Panel2.ResumeLayout(false);
@@ -843,6 +842,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -878,16 +878,16 @@
         private Component.RoundedLabel buttonXoaDichVu;
         private Component.RoundedLabel buttonSuaDichVu;
         private Component.RoundedLabel buttonThemDichVu;
-        private Components.SearchBar searchBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Component.RoundedLabel buttonXoaChiDinhDichVu;
         private Component.RoundedLabel buttonSuaChiDinhDichVu;
         private Component.RoundedLabel buttonThemChiDinhDichVu;
-        private Components.SearchBar searchBar2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private Component.RoundedLabel buttonXacNhanChiDinhDichVu;
         private Component.RoundedLabel buttonHuyChiDinhDichVu;
         private LayoutTest.GUIComponents.LableTextBox txtNhanVienTaoPhieu;
         private LayoutTest.GUIComponents.LableComboBox comboBoxDichVu;
+        private System.Windows.Forms.TextBox searchBarDichVu;
+        private System.Windows.Forms.TextBox searchBarChiDinhDichVu;
     }
 }

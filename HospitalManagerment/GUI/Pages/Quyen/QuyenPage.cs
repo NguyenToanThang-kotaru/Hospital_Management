@@ -76,7 +76,7 @@ namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
 
             foreach (var account in accountBUS.GetAllAccount())
             {
-                table.Rows.Add(account.TenDangNhap, account.MaQuyen, account.MaNV);
+                table.Rows.Add(account.TenDangNhap, permissionBUS.GetPermissionById(account.MaQuyen).TenQuyen, employeeBUS.GetEmployeeById(account.MaNV).TenNV);
             }
 
             tableAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;

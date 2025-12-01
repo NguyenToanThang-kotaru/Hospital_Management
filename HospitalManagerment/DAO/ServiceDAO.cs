@@ -136,6 +136,7 @@ namespace HospitalManagerment.DAO
                                 return new ServiceDTO
                                 {
                                     MaDV = reader.GetString("MaDV"),
+                                    TenDV= reader.GetString("TenDV"),
                                     GiaDV = reader.GetString("GiaDV"),
                                     BHYTTra = reader.GetString("DuocBHYTChiTra")
                                 };
