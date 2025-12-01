@@ -1,4 +1,4 @@
-﻿namespace HospitalManagerment.GUI.Pages.BenhNhan
+﻿namespace HM.GUI.Pages.BenhNhan
 {
     partial class BenhNhanPage
     {
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControlBenhNhan = new HospitalManagerment.GUI.Components.TabControlDesign();
+            this.tabControlBenhNhan = new HM.GUI.Components.TabControlDesign();
             this.tabPageBenhNhan = new System.Windows.Forms.TabPage();
             this.splitContainerBenhNhan = new System.Windows.Forms.SplitContainer();
-            this.benhNhanForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.benhNhanForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutFormBenhNhan = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSoCCCD = new LayoutTest.GUIComponents.LableTextBox();
@@ -41,10 +41,10 @@
             this.comboBoxGioiTinh = new LayoutTest.GUIComponents.LableComboBox();
             this.txtDiaChi = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonXacNhanBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonHuyBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanBenhNhan = new HM.GUI.Component.RoundedLabel();
+            this.buttonHuyBenhNhan = new HM.GUI.Component.RoundedLabel();
             this.checkBoxCoBHYT = new System.Windows.Forms.CheckBox();
-            this.baoHiemYTeForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.baoHiemYTeForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtTiLeChiTra = new LayoutTest.GUIComponents.LableTextBox();
             this.txtNgayHetHan = new LayoutTest.GUIComponents.LableTextBox();
@@ -52,7 +52,7 @@
             this.txtSoBHYT = new LayoutTest.GUIComponents.LableTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPageDangKyDichVu = new System.Windows.Forms.TabPage();
-            this.dangKiDichVuForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.dangKiDichVuForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -69,28 +69,28 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonChonDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonChonDichVu = new HM.GUI.Component.RoundedLabel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonXacNhanDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonHuyDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanDangKyDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonHuyDangKyDichVu = new HM.GUI.Component.RoundedLabel();
             this.tabPageDanhSachBN = new System.Windows.Forms.TabPage();
             this.tabPageDanhSachBenhNhan = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.benhNhanPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.benhNhanPanel = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarBenhNhan = new System.Windows.Forms.TextBox();
-            this.buttonXoaBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonSuaBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonThemBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXoaBenhNhan = new HM.GUI.Component.RoundedLabel();
+            this.buttonSuaBenhNhan = new HM.GUI.Component.RoundedLabel();
+            this.buttonThemBenhNhan = new HM.GUI.Component.RoundedLabel();
             this.tabPageDKDV = new System.Windows.Forms.TabPage();
             this.tabPageDanhSachDangKyDichVu = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.dangKyDichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.dangKyDichVuPanel = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarDangKyDichVu = new System.Windows.Forms.TextBox();
-            this.buttonXoaDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonSuaDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonThemDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXoaDangKyDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonSuaDangKyDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonThemDangKyDichVu = new HM.GUI.Component.RoundedLabel();
             this.tabControlBenhNhan.SuspendLayout();
             this.tabPageBenhNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBenhNhan)).BeginInit();

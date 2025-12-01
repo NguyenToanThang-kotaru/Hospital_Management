@@ -1,8 +1,8 @@
-﻿using HospitalManagerment.Utils;
+﻿using HM.Utils;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Component.TableDataGridView
+namespace HM.GUI.Component.TableDataGridView
 {
     internal class TableDataGridView : DataGridView
     {

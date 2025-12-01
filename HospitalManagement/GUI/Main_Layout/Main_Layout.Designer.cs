@@ -1,4 +1,4 @@
-﻿namespace HospitalManagerment.GUI.Main_Layout
+﻿namespace HM.GUI.Main_Layout
 {
     partial class Main_Layout
     {
@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.Header = new System.Windows.Forms.Panel();
-            this.buttonLogout = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonLogout = new HM.GUI.Component.RoundedLabel();
             this.title = new System.Windows.Forms.Label();
             this.SideBar = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.DashboardItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.BenhNhanItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.HoSoBenhAnItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.DichVuItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.NhanVienItem = new HospitalManagerment.GUI.Components.SidebarItem();
-            this.QuyenItem = new HospitalManagerment.GUI.Components.SidebarItem();
+            this.DashboardItem = new HM.GUI.Components.SidebarItem();
+            this.BenhNhanItem = new HM.GUI.Components.SidebarItem();
+            this.HoSoBenhAnItem = new HM.GUI.Components.SidebarItem();
+            this.DichVuItem = new HM.GUI.Components.SidebarItem();
+            this.NhanVienItem = new HM.GUI.Components.SidebarItem();
+            this.QuyenItem = new HM.GUI.Components.SidebarItem();
             this.MainContent = new System.Windows.Forms.Panel();
             this.Header.SuspendLayout();
             this.SideBar.SuspendLayout();

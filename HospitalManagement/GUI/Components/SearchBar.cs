@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using HospitalManagerment.Utils;
+using HM.Utils;
 
-namespace HospitalManagerment.GUI.Components
+namespace HM.GUI.Components
 {
     internal class SearchBar : Panel
     {

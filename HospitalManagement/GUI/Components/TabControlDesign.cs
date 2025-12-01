@@ -8,7 +8,7 @@ using System.Drawing;
 using System.ComponentModel;
 using System.Drawing.Text;
 
-namespace HospitalManagerment.GUI.Components
+namespace HM.GUI.Components
 {
     internal class TabControlDesign : TabControl
     {

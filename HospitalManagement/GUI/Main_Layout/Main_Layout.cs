@@ -1,14 +1,14 @@
-﻿using HospitalManagerment.BUS;
-using HospitalManagerment.GUI.Pages.BenhNhan;
-using HospitalManagerment.GUI.Pages.DichVu;
-using HospitalManagerment.GUI.Pages.HoSoBenhAn;
-using HospitalManagerment.GUI.Pages.NhanVien;
-using HospitalManagerment.GUI.Pages.Statistics;
+﻿using HM.BUS;
+using HM.GUI.Pages.BenhNhan;
+using HM.GUI.Pages.DichVu;
+using HM.GUI.Pages.HoSoBenhAn;
+using HM.GUI.Pages.NhanVien;
+using HM.GUI.Pages.Statistics;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Main_Layout
+namespace HM.GUI.Main_Layout
 {
     public partial class Main_Layout : Form
     {

@@ -1,10 +1,10 @@
-﻿using HospitalManagerment.Utils;
+﻿using HM.Utils;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Component
+namespace HM.GUI.Component
 {
     internal class RoundedLabel : Label
     {

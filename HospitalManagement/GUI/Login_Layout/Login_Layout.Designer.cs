@@ -1,4 +1,4 @@
-﻿    namespace HospitalManagerment.GUI.Login_Layout
+﻿    namespace HM.GUI.Login_Layout
     {
         partial class Login_Layout
         {

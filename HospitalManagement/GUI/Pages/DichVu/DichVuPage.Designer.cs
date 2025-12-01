@@ -1,4 +1,4 @@
-﻿namespace HospitalManagerment.GUI.Pages.DichVu
+﻿namespace HM.GUI.Pages.DichVu
 {
     partial class DichVuPage
     {
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControlDichVu = new HospitalManagerment.GUI.Components.TabControlDesign();
+            this.tabControlDichVu = new HM.GUI.Components.TabControlDesign();
             this.tabPageDichVu = new System.Windows.Forms.TabPage();
             this.splitContainerDichVu = new System.Windows.Forms.SplitContainer();
-            this.dichVuForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.dichVuForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBoxBaoHiemChiTra = new LayoutTest.GUIComponents.LableComboBox();
             this.txtGiaDichVu = new LayoutTest.GUIComponents.LableTextBox();
@@ -39,24 +39,24 @@
             this.txtMaDichVu = new LayoutTest.GUIComponents.LableTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonXacNhanDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonHuyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonHuyDichVu = new HM.GUI.Component.RoundedLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarDichVu = new System.Windows.Forms.TextBox();
-            this.buttonXoaDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonSuaDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonThemDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.dichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.buttonXoaDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonSuaDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonThemDichVu = new HM.GUI.Component.RoundedLabel();
+            this.dichVuPanel = new HM.GUI.Component.RoundedPanel();
             this.tabPageChiDinhDichVu = new System.Windows.Forms.TabPage();
             this.splitContainerChiDinhDichVu = new System.Windows.Forms.SplitContainer();
-            this.chiDinhDichVuForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.chiDinhDichVuForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.comboBoxDichVu = new LayoutTest.GUIComponents.LableComboBox();
             this.txtNhanVienTaoPhieu = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonXacNhanChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonHuyChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanChiDinhDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonHuyChiDinhDichVu = new HM.GUI.Component.RoundedLabel();
             this.txtMaChiDinhDichVu = new LayoutTest.GUIComponents.LableTextBox();
             this.txtTenBenhNhan = new LayoutTest.GUIComponents.LableTextBox();
             this.txtSoCCCDBenhNhan = new LayoutTest.GUIComponents.LableTextBox();
@@ -64,10 +64,10 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarChiDinhDichVu = new System.Windows.Forms.TextBox();
-            this.buttonXoaChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonSuaChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonThemChiDinhDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.chiDinhDichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.buttonXoaChiDinhDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonSuaChiDinhDichVu = new HM.GUI.Component.RoundedLabel();
+            this.buttonThemChiDinhDichVu = new HM.GUI.Component.RoundedLabel();
+            this.chiDinhDichVuPanel = new HM.GUI.Component.RoundedPanel();
             this.tabControlDichVu.SuspendLayout();
             this.tabPageDichVu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerDichVu)).BeginInit();

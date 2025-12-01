@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Pages.Statistics
+namespace HM.GUI.Pages.Statistics
 {
     public partial class StatisticPage : UserControl
     {

@@ -1,7 +1,7 @@
-﻿using HospitalManagerment.BUS;
-using HospitalManagerment.DTO;
-using HospitalManagerment.GUI.Component;
-using HospitalManagerment.GUI.Component.TableDataGridView;
+﻿using HM.BUS;
+using HM.DTO;
+using HM.GUI.Component;
+using HM.GUI.Component.TableDataGridView;
 using LayoutTest.GUIComponents;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Pages.HoSoBenhAn
+namespace HM.GUI.Pages.HoSoBenhAn
 {
     public partial class HoSoBenhAnPage : UserControl
     {
