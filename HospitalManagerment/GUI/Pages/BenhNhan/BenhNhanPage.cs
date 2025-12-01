@@ -151,7 +151,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
         {
-            // Validate bắt buộc
             if (string.IsNullOrEmpty(txtSoCCCD.TextValue) ||
                 string.IsNullOrEmpty(txtHoVaTen.TextValue) ||
                 string.IsNullOrEmpty(txtNgaySinh.TextValue))
@@ -230,22 +229,8 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
-
-        private void buttonHuyDangKyDichVuClick(object sender, EventArgs e)
-        {
-            txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
-            txtSoCCCDBenhNhan.TextValue = "";
-            txtTenBenhNhan.TextValue = "";
-            txtTongChiPhi.TextValue = "";
-            comboBoxHinhThucThanhToan.GetComboBox().SelectedIndex = -1;
-            comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
-
-            listServiceSelected.Clear();
-            UpdateServiceSelectedTable();
-
-        }
-
-        // sự kiện tabPageDanhSachBenhNhan =======================================================
+        // sự kiện tabPageDanhSachBenhNhan ====================================================================================================================
+        // sự kiện tabPageDanhSachBenhNhan ====================================================================================================================
         private void buttonThemBenhNhanClick(object sender, EventArgs e)
         {
             tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
@@ -318,7 +303,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                     }
                     patientBUS.DeletePatient(soCCCD);
                     buttonHuyBenhNhanClick(null, null);
-                    LoadPatientToTable(); // Cập nhật lại bảng
+                    LoadPatientToTable(); 
             }
             else
             {
@@ -343,6 +328,21 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
+        // sự kiện tabPageDangKyDichVu ====================================================================================================================
+        // sự kiện tabPageDangKyDichVu ====================================================================================================================
+        private void buttonHuyDangKyDichVuClick(object sender, EventArgs e)
+        {
+            txtMaDKDV.TextValue = serviceRegistrationBUS.GetNextServiceRegistrationId();
+            txtSoCCCDBenhNhan.TextValue = "";
+            txtTenBenhNhan.TextValue = "";
+            txtTongChiPhi.TextValue = "";
+            comboBoxHinhThucThanhToan.GetComboBox().SelectedIndex = -1;
+            comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
+
+            listServiceSelected.Clear();
+            UpdateServiceSelectedTable();
+
+        } 
         private void UpdateServiceSelectedTable()
         {
             if (tableServiceSelected == null) return;
@@ -520,7 +520,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
-
         private void LoadServiceSelectedToPanel()
         {
             if (tableServiceSelected == null)
@@ -588,6 +587,28 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
+
+        // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
+        // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
+        private void searchBarDangKyDichVuTextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonThemDangKyDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSuaDangKyDichVuClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonXoaDangKyDichVuClick(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

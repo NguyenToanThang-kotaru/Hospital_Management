@@ -1,10 +1,11 @@
-﻿using HospitalManagerment.DTO;
+﻿using HospitalManagerment.BUS;
 using HospitalManagerment.GUI.Pages.BenhNhan;
 using HospitalManagerment.GUI.Pages.DichVu;
 using HospitalManagerment.GUI.Pages.HoSoBenhAn;
 using HospitalManagerment.GUI.Pages.NhanVien;
 using HospitalManagerment.GUI.Pages.Statistics;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace HospitalManagerment.GUI.Main_Layout
@@ -12,6 +13,7 @@ namespace HospitalManagerment.GUI.Main_Layout
     public partial class Main_Layout : Form
     {
         private string employeeId;
+        private AccountBUS accountBUS;
 
         private StatisticPage statPage;
         private BenhNhanPage benhNhanPage;
@@ -24,6 +26,9 @@ namespace HospitalManagerment.GUI.Main_Layout
         {
             InitializeComponent();
             this.employeeId = employeeId;
+            accountBUS = new AccountBUS();
+            ApplyViewPermissions(accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap);
+
         }
 
         private void LoadPage(UserControl page)
@@ -48,6 +53,36 @@ namespace HospitalManagerment.GUI.Main_Layout
                 Login_Layout.Login_Layout login = new Login_Layout.Login_Layout();
                 login.ShowDialog();
                 
+            }
+        }
+
+        private void ApplyViewPermissions(string username)
+        {
+            try
+            {
+                List<string> allowedMaCN = accountBUS.GetFunctionsWithViewPermission(username);
+                if (allowedMaCN == null) allowedMaCN = new List<string>();
+
+                var mapping = new Dictionary<string, Control>(StringComparer.OrdinalIgnoreCase)
+                {
+                    { "CN0001", DashboardItem },
+                    { "CN0002", BenhNhanItem },
+                    { "CN0003", HoSoBenhAnItem },
+                    { "CN0004", DichVuItem },
+                    { "CN0005", NhanVienItem },
+                    { "CN0006", QuyenItem }
+                };
+
+                foreach (var kv in mapping)
+                    kv.Value.Visible = false;
+
+                foreach (string ma in allowedMaCN)
+                    if (mapping.TryGetValue(ma, out Control ctl))
+                        ctl.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi áp quyền hiển thị sidebar: " + ex.Message);
             }
         }
 

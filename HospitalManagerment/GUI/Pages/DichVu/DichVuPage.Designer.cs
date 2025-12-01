@@ -321,7 +321,9 @@
             this.tableLayoutPanel1.Controls.Add(this.dichVuPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
@@ -352,7 +354,7 @@
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(738, 66);
-            this.tableLayoutPanel5.TabIndex = 3;
+            this.tableLayoutPanel5.TabIndex = 4;
             // 
             // searchBarDichVu
             // 
@@ -363,7 +365,7 @@
             this.searchBarDichVu.Margin = new System.Windows.Forms.Padding(0);
             this.searchBarDichVu.Name = "searchBarDichVu";
             this.searchBarDichVu.Size = new System.Drawing.Size(328, 35);
-            this.searchBarDichVu.TabIndex = 8;
+            this.searchBarDichVu.TabIndex = 7;
             this.searchBarDichVu.TextChanged += new System.EventHandler(this.searchBarDichVuTextChanged);
             // 
             // buttonXoaDichVu
@@ -876,10 +878,6 @@
         private LayoutTest.GUIComponents.LableTextBox txtMaChiDinhDichVu;
         private LayoutTest.GUIComponents.LableTextBox txtTenBenhNhan;
         private LayoutTest.GUIComponents.LableTextBox txtSoCCCDBenhNhan;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private Component.RoundedLabel buttonXoaDichVu;
-        private Component.RoundedLabel buttonSuaDichVu;
-        private Component.RoundedLabel buttonThemDichVu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private Component.RoundedLabel buttonXoaChiDinhDichVu;
         private Component.RoundedLabel buttonSuaChiDinhDichVu;
@@ -889,7 +887,11 @@
         private Component.RoundedLabel buttonHuyChiDinhDichVu;
         private LayoutTest.GUIComponents.LableTextBox txtNhanVienTaoPhieu;
         private LayoutTest.GUIComponents.LableComboBox comboBoxDichVu;
-        private System.Windows.Forms.TextBox searchBarDichVu;
         private System.Windows.Forms.TextBox searchBarChiDinhDichVu;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TextBox searchBarDichVu;
+        private Component.RoundedLabel buttonXoaDichVu;
+        private Component.RoundedLabel buttonSuaDichVu;
+        private Component.RoundedLabel buttonThemDichVu;
     }
 }

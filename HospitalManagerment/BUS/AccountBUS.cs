@@ -42,19 +42,16 @@ namespace HospitalManagerment.BUS
             return accountDAO.Login(account, out errorMessage);
         }
 
-        // Trả về tất cả tài khoản
         public List<AccountDTO> GetAllAccount()
         {
             return accountDAO.GetAllAccount();
         }
 
-        // Tìm kiếm tài khoản theo keyword (tenDangNhap, MaNV)
         public List<AccountDTO> SearchAccount(string keyword)
         {
             return accountDAO.SearchAccountBy(keyword);
         }
 
-        // Thêm tài khoản
         public bool AddAccount(AccountDTO account)
         {
             string errorMessage;
@@ -72,7 +69,6 @@ namespace HospitalManagerment.BUS
             return true;
         }
 
-        // Cập nhật tài khoản
         public bool UpdateAccount(AccountDTO account)
         {
             if (!accountDAO.UpdateAccount(account))
@@ -80,7 +76,6 @@ namespace HospitalManagerment.BUS
             return true;
         }
 
-        // Xoá tài khoản
         public bool DeleteAccount(string username)
         {
             if (string.IsNullOrWhiteSpace(username))
@@ -99,6 +94,22 @@ namespace HospitalManagerment.BUS
         {
             return GetAllAccount().Any( sv => sv.TenDangNhap == username);
         }
+
+        //
+        public AccountDTO GetAccountByEmployeeId(string employeeId)
+        { 
+            return accountDAO.GetAccountByEmployeeId(employeeId);
+        }
+        public List<string> GetFunctionsWithViewPermission(string username)
+        {
+            return accountDAO.getFunctionsWithViewPermission(username);
+        }
+
+        public bool HasPermission(string username, string maCN, string maHD)
+        {
+            return accountDAO.HasPermission(username, maCN, maHD);
+        }
+
     }
 }
 

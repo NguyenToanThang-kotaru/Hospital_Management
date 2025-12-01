@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HospitalManagerment.DAO
 {
@@ -224,5 +225,120 @@ namespace HospitalManagerment.DAO
             }
             return null;
         }
+
+        public AccountDTO GetAccountByEmployeeId(string employeeId)
+        {
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM taikhoan WHERE MaNV = @MaNV AND TrangThaiXoa = 0";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaNV", employeeId);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return new AccountDTO
+                                {
+                                    TenDangNhap = reader["TenDangNhap"].ToString(),
+                                    MatKhau = reader["MatKhau"].ToString(),
+                                    MaQuyen = reader["MaQuyen"].ToString(),
+                                    MaNV = reader["MaNV"].ToString()
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi lấy tài khoản theo mã nhân viên: " + ex.Message);
+            }
+            return null;
+        }
+
+        public List<string> getFunctionsWithViewPermission(string username)
+        {
+            List<string> listMaCN = new List<string>();
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT ctq.MaCN
+                             FROM taikhoan tk
+                             JOIN quyen q ON tk.MaQuyen = q.MaQuyen
+                             JOIN chitietquyen ctq ON q.MaQuyen = ctq.MaQuyen
+                             WHERE ctq.TrangThaiKichHoat = 1 AND ctq.MaHD = 'view' AND tk.TenDangNhap = @username";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                listMaCN.Add(reader.GetString("MaCN"));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+            }
+            return listMaCN;
+        }
+
+
+        public bool HasPermission(string username, string maCN, string maHD)
+        {
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT 1
+                             FROM taikhoan tk
+                             JOIN quyen q ON tk.MaQuyen = q.MaQuyen
+                             JOIN chitietquyen ctq ON q.MaQuyen = ctq.MaQuyen
+                             WHERE ctq.TrangThaiKichHoat = 1
+                               AND ctq.MaCN = @maCN
+                               AND ctq.MaHD = @maHD
+                               AND tk.TenDangNhap = @username
+                             LIMIT 1";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@maCN", maCN);
+                        cmd.Parameters.AddWithValue("@maHD", maHD);
+                        cmd.Parameters.AddWithValue("@username", username);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi khi kiểm tra quyền: " + ex.Message);
+            }
+
+            return false;
+        }
+
+
     }
 }

@@ -62,7 +62,7 @@ namespace HospitalManagerment.GUI.Pages.DichVu
 
             foreach (var service in serviceBUS.GetAllService())
             {
-                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
+                table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra == "1" ? "Có" : "Không");
             }
 
             tableService.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;

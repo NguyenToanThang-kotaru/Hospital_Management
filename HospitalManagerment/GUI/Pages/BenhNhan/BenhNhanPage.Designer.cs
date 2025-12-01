@@ -748,9 +748,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 40);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(656, 294);
+            this.panel2.Size = new System.Drawing.Size(656, 264);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -1121,6 +1121,7 @@
             this.searchBarDangKyDichVu.Name = "searchBarDangKyDichVu";
             this.searchBarDangKyDichVu.Size = new System.Drawing.Size(882, 35);
             this.searchBarDangKyDichVu.TabIndex = 7;
+            this.searchBarDangKyDichVu.TextChanged += new System.EventHandler(this.searchBarDangKyDichVuTextChanged);
             // 
             // buttonXoaDangKyDichVu
             // 
@@ -1143,6 +1144,7 @@
             this.buttonXoaDangKyDichVu.TabIndex = 4;
             this.buttonXoaDangKyDichVu.Text = "XÓA";
             this.buttonXoaDangKyDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXoaDangKyDichVu.Click += new System.EventHandler(this.buttonXoaDangKyDichVuClick);
             // 
             // buttonSuaDangKyDichVu
             // 
@@ -1165,6 +1167,7 @@
             this.buttonSuaDangKyDichVu.TabIndex = 3;
             this.buttonSuaDangKyDichVu.Text = "SỬA";
             this.buttonSuaDangKyDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaDangKyDichVu.Click += new System.EventHandler(this.buttonSuaDangKyDichVuClick);
             // 
             // buttonThemDangKyDichVu
             // 
@@ -1187,6 +1190,7 @@
             this.buttonThemDangKyDichVu.TabIndex = 2;
             this.buttonThemDangKyDichVu.Text = "THÊM";
             this.buttonThemDangKyDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemDangKyDichVu.Click += new System.EventHandler(this.buttonThemDangKyDichVuClick);
             // 
             // BenhNhanPage
             // 
