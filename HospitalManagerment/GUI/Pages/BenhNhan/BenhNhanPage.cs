@@ -21,7 +21,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
         private HealthInsuranceBUS healthInsuranceBUS;
         private ServiceRegistrationBUS serviceRegistrationBUS;
         private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
-        private bool isEditMode = false;
         private string oldSoCCCD = "";
         private TableDataGridView tableServiceSelected;
         private List<ServiceDTO> listServiceSelected;
@@ -125,7 +124,8 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             }
         }
 
-        // sự kiện tabPageBenhNhan
+        // sự kiện tabPageBenhNhan ===========================================================================================================================================
+        // sự kiện tabPageBenhNhan ===========================================================================================================================================
         private void checkBoxCoBHYTCheckedChanged(object sender, EventArgs e)
         {
             bool allowEdit = checkBoxCoBHYT.Checked;
@@ -167,7 +167,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 return;
             }
 
-            // Ngày sinh không được lớn hơn hiện tại
             if (ngaySinh > DateTime.Now)
             {
                 MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại!");
@@ -205,22 +204,16 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                     TrangThaiXoa = "0"
                 };
             }
-
             try
             {
-                // KIỂM TRA CCCD ĐÃ TỒN TẠI CHƯA
-                bool exists = patientBUS.ExistsPatient(patient.SoCCCD);
-
                 bool success;
-                if (exists)
+                if (patientBUS.ExistsPatient(patient.SoCCCD))
                 {
-                    // ĐÃ TỒN TẠI → UPDATE
                     success = patientBUS.UpdatePatient(patient, bhyt, patient.SoCCCD);
                     MessageBox.Show("Cập nhật bệnh nhân thành công!");
                 }
                 else
                 {
-                    // CHƯA TỒN TẠI → ADD
                     success = patientBUS.AddPatient(patient, bhyt);
                     MessageBox.Show("Thêm bệnh nhân thành công!");
                 }
@@ -252,7 +245,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
 
         }
 
-        // sự kiện tabPageDanhSach
+        // sự kiện tabPageDanhSachBenhNhan =======================================================
         private void buttonThemBenhNhanClick(object sender, EventArgs e)
         {
             tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
@@ -265,7 +258,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
             {
                 var row = tablePatient.SelectedRows[0];
                 oldSoCCCD = row.Cells["Số CCCD"].Value?.ToString();
-                isEditMode = true;
 
                 var patient = patientBUS.GetPatientById(oldSoCCCD);
                 if (patient != null)
@@ -298,8 +290,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                         txtNgayHetHan.TextValue = "";
                         txtTiLeChiTra.TextValue = "";
                     }
-
-                    // Chuyển sang tab "Bệnh nhân"
                     tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
                 }
                 else
