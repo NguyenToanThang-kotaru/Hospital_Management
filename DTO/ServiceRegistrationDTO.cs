@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HospitalManagerment.DTO
+﻿namespace DTO
 {
     // đăng ký dịch vụ
     internal class ServiceRegistrationDTO

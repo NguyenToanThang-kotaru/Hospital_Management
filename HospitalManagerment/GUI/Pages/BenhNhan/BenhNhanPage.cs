@@ -151,7 +151,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
         {
-
             // Validate bắt buộc
             if (string.IsNullOrEmpty(txtSoCCCD.TextValue) ||
                 string.IsNullOrEmpty(txtHoVaTen.TextValue) ||
@@ -168,7 +167,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 return;
             }
 
-            // Kiểm tra thêm: Ngày sinh không được lớn hơn ngày hiện tại6
+            // Ngày sinh không được lớn hơn hiện tại
             if (ngaySinh > DateTime.Now)
             {
                 MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại!");
@@ -207,18 +206,21 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 };
             }
 
-            // Lưu bệnh nhân
-            bool success;
-
             try
             {
-                if (isEditMode)
+                // KIỂM TRA CCCD ĐÃ TỒN TẠI CHƯA
+                bool exists = patientBUS.ExistsPatient(patient.SoCCCD);
+
+                bool success;
+                if (exists)
                 {
-                    success = patientBUS.UpdatePatient(patient, bhyt, oldSoCCCD);
+                    // ĐÃ TỒN TẠI → UPDATE
+                    success = patientBUS.UpdatePatient(patient, bhyt, patient.SoCCCD);
                     MessageBox.Show("Cập nhật bệnh nhân thành công!");
                 }
                 else
                 {
+                    // CHƯA TỒN TẠI → ADD
                     success = patientBUS.AddPatient(patient, bhyt);
                     MessageBox.Show("Thêm bệnh nhân thành công!");
                 }
@@ -226,7 +228,6 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 if (success)
                 {
                     buttonHuyBenhNhanClick(null, null);
-                    isEditMode = false; // reset
                     LoadPatientToTable();
                 }
             }
@@ -235,6 +236,7 @@ namespace HospitalManagerment.GUI.Pages.BenhNhan
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void buttonHuyDangKyDichVuClick(object sender, EventArgs e)
         {

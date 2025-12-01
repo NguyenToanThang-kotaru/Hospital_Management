@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.DAO
+namespace DAO.DAO
 {
     internal class DiagnoseDAO
     {

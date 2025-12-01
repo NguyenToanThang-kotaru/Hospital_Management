@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HospitalManagerment.DTO
+namespace DTO
 {
     internal class ActionDTO
     {

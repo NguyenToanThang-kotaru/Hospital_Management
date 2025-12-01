@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HospitalManagerment.DAO
+namespace DAO.DAO
 {
     internal class ActionDAO
     {

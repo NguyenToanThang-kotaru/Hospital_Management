@@ -1,10 +1,11 @@
-﻿using HospitalManagerment.DTO;
+﻿using DTO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using HospitalManagerment.;
 
-namespace HospitalManagerment.DAO
+namespace DAO.DAO
 {
     internal class AccountDAO
     {

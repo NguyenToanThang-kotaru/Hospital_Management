@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace HospitalManagerment.DTO
+﻿
+namespace DTO
 {
     // Đơn thuốc
     internal class PrescriptionDTO
