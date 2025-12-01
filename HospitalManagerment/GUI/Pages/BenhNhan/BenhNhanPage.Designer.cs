@@ -74,7 +74,7 @@
             this.buttonXacNhanDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonHuyDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.tabPageDanhSachBN = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabPageDanhSachBenhNhan = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.benhNhanPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -83,14 +83,14 @@
             this.buttonSuaBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.buttonThemBenhNhan = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.tabPageDKDV = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.tabPageDanhSachDangKyDichVu = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.roundedPanel1 = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.dangKyDichVuPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.roundedLabel1 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel2 = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.roundedLabel3 = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.searchBarDangKyDichVu = new System.Windows.Forms.TextBox();
+            this.buttonXoaDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonSuaDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonThemDangKyDichVu = new HospitalManagerment.GUI.Component.RoundedLabel();
             this.tabControlBenhNhan.SuspendLayout();
             this.tabPageBenhNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBenhNhan)).BeginInit();
@@ -111,11 +111,11 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tabPageDanhSachBN.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tabPageDanhSachBenhNhan.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tabPageDKDV.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.tabPageDanhSachDangKyDichVu.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.SuspendLayout();
@@ -879,23 +879,23 @@
             // tabPageDanhSachBN
             // 
             this.tabPageDanhSachBN.BackColor = System.Drawing.Color.White;
-            this.tabPageDanhSachBN.Controls.Add(this.panel1);
+            this.tabPageDanhSachBN.Controls.Add(this.tabPageDanhSachBenhNhan);
             this.tabPageDanhSachBN.Location = new System.Drawing.Point(4, 49);
             this.tabPageDanhSachBN.Name = "tabPageDanhSachBN";
             this.tabPageDanhSachBN.Size = new System.Drawing.Size(1392, 767);
             this.tabPageDanhSachBN.TabIndex = 2;
             this.tabPageDanhSachBN.Text = "Danh sách BN";
             // 
-            // panel1
+            // tabPageDanhSachBenhNhan
             // 
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(50);
-            this.panel1.Size = new System.Drawing.Size(1392, 767);
-            this.panel1.TabIndex = 0;
+            this.tabPageDanhSachBenhNhan.Controls.Add(this.tableLayoutPanel1);
+            this.tabPageDanhSachBenhNhan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPageDanhSachBenhNhan.Location = new System.Drawing.Point(0, 0);
+            this.tabPageDanhSachBenhNhan.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPageDanhSachBenhNhan.Name = "tabPageDanhSachBenhNhan";
+            this.tabPageDanhSachBenhNhan.Padding = new System.Windows.Forms.Padding(50);
+            this.tabPageDanhSachBenhNhan.Size = new System.Drawing.Size(1392, 767);
+            this.tabPageDanhSachBenhNhan.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -1035,7 +1035,7 @@
             // 
             // tabPageDKDV
             // 
-            this.tabPageDKDV.Controls.Add(this.panel3);
+            this.tabPageDKDV.Controls.Add(this.tabPageDanhSachDangKyDichVu);
             this.tabPageDKDV.Location = new System.Drawing.Point(4, 49);
             this.tabPageDKDV.Name = "tabPageDKDV";
             this.tabPageDKDV.Size = new System.Drawing.Size(1392, 767);
@@ -1043,24 +1043,24 @@
             this.tabPageDKDV.Text = "Danh sách DKDV";
             this.tabPageDKDV.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // tabPageDanhSachDangKyDichVu
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.tableLayoutPanel8);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(50);
-            this.panel3.Size = new System.Drawing.Size(1392, 767);
-            this.panel3.TabIndex = 1;
+            this.tabPageDanhSachDangKyDichVu.BackColor = System.Drawing.Color.White;
+            this.tabPageDanhSachDangKyDichVu.Controls.Add(this.tableLayoutPanel8);
+            this.tabPageDanhSachDangKyDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPageDanhSachDangKyDichVu.Location = new System.Drawing.Point(0, 0);
+            this.tabPageDanhSachDangKyDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPageDanhSachDangKyDichVu.Name = "tabPageDanhSachDangKyDichVu";
+            this.tabPageDanhSachDangKyDichVu.Padding = new System.Windows.Forms.Padding(50);
+            this.tabPageDanhSachDangKyDichVu.Size = new System.Drawing.Size(1392, 767);
+            this.tabPageDanhSachDangKyDichVu.TabIndex = 1;
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Controls.Add(this.roundedPanel1, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.dangKyDichVuPanel, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel8.Location = new System.Drawing.Point(50, 50);
@@ -1071,21 +1071,21 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(1292, 667);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
-            // roundedPanel1
+            // dangKyDichVuPanel
             // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedPanel1.BorderRadius = 40;
-            this.roundedPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedPanel1.Location = new System.Drawing.Point(0, 66);
-            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedPanel1.MarginBottom = 0;
-            this.roundedPanel1.MarginLeft = 0;
-            this.roundedPanel1.MarginRight = 0;
-            this.roundedPanel1.MarginTop = 30;
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.roundedPanel1.Size = new System.Drawing.Size(1292, 601);
-            this.roundedPanel1.TabIndex = 1;
+            this.dangKyDichVuPanel.BackColor = System.Drawing.Color.White;
+            this.dangKyDichVuPanel.BorderRadius = 40;
+            this.dangKyDichVuPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dangKyDichVuPanel.Location = new System.Drawing.Point(0, 66);
+            this.dangKyDichVuPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.dangKyDichVuPanel.MarginBottom = 0;
+            this.dangKyDichVuPanel.MarginLeft = 0;
+            this.dangKyDichVuPanel.MarginRight = 0;
+            this.dangKyDichVuPanel.MarginTop = 30;
+            this.dangKyDichVuPanel.Name = "dangKyDichVuPanel";
+            this.dangKyDichVuPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
+            this.dangKyDichVuPanel.Size = new System.Drawing.Size(1292, 601);
+            this.dangKyDichVuPanel.TabIndex = 1;
             // 
             // tableLayoutPanel9
             // 
@@ -1097,10 +1097,10 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel9.Controls.Add(this.textBox1, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.roundedLabel1, 6, 0);
-            this.tableLayoutPanel9.Controls.Add(this.roundedLabel2, 4, 0);
-            this.tableLayoutPanel9.Controls.Add(this.roundedLabel3, 2, 0);
+            this.tableLayoutPanel9.Controls.Add(this.searchBarDangKyDichVu, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.buttonXoaDangKyDichVu, 6, 0);
+            this.tableLayoutPanel9.Controls.Add(this.buttonSuaDangKyDichVu, 4, 0);
+            this.tableLayoutPanel9.Controls.Add(this.buttonThemDangKyDichVu, 2, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
@@ -1111,82 +1111,82 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(1292, 66);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
-            // textBox1
+            // searchBarDangKyDichVu
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(882, 35);
-            this.textBox1.TabIndex = 7;
+            this.searchBarDangKyDichVu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchBarDangKyDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchBarDangKyDichVu.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBarDangKyDichVu.Location = new System.Drawing.Point(0, 0);
+            this.searchBarDangKyDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBarDangKyDichVu.Name = "searchBarDangKyDichVu";
+            this.searchBarDangKyDichVu.Size = new System.Drawing.Size(882, 35);
+            this.searchBarDangKyDichVu.TabIndex = 7;
             // 
-            // roundedLabel1
+            // buttonXoaDangKyDichVu
             // 
-            this.roundedLabel1.BackColor = System.Drawing.Color.White;
-            this.roundedLabel1.BorderRadius = 20;
-            this.roundedLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel1.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel1.Location = new System.Drawing.Point(1172, 0);
-            this.roundedLabel1.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel1.MarginBottom = 0;
-            this.roundedLabel1.MarginLeft = 0;
-            this.roundedLabel1.MarginRight = 0;
-            this.roundedLabel1.MarginTop = 0;
-            this.roundedLabel1.Name = "roundedLabel1";
-            this.roundedLabel1.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel1.PanelHeight = 45;
-            this.roundedLabel1.PanelWidth = 160;
-            this.roundedLabel1.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel1.TabIndex = 4;
-            this.roundedLabel1.Text = "XÓA";
-            this.roundedLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonXoaDangKyDichVu.BackColor = System.Drawing.Color.White;
+            this.buttonXoaDangKyDichVu.BorderRadius = 20;
+            this.buttonXoaDangKyDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonXoaDangKyDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaDangKyDichVu.ForeColor = System.Drawing.Color.White;
+            this.buttonXoaDangKyDichVu.Location = new System.Drawing.Point(1172, 0);
+            this.buttonXoaDangKyDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonXoaDangKyDichVu.MarginBottom = 0;
+            this.buttonXoaDangKyDichVu.MarginLeft = 0;
+            this.buttonXoaDangKyDichVu.MarginRight = 0;
+            this.buttonXoaDangKyDichVu.MarginTop = 0;
+            this.buttonXoaDangKyDichVu.Name = "buttonXoaDangKyDichVu";
+            this.buttonXoaDangKyDichVu.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonXoaDangKyDichVu.PanelHeight = 45;
+            this.buttonXoaDangKyDichVu.PanelWidth = 160;
+            this.buttonXoaDangKyDichVu.Size = new System.Drawing.Size(120, 36);
+            this.buttonXoaDangKyDichVu.TabIndex = 4;
+            this.buttonXoaDangKyDichVu.Text = "XÓA";
+            this.buttonXoaDangKyDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // roundedLabel2
+            // buttonSuaDangKyDichVu
             // 
-            this.roundedLabel2.BackColor = System.Drawing.Color.White;
-            this.roundedLabel2.BorderRadius = 20;
-            this.roundedLabel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel2.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel2.Location = new System.Drawing.Point(1042, 0);
-            this.roundedLabel2.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel2.MarginBottom = 0;
-            this.roundedLabel2.MarginLeft = 0;
-            this.roundedLabel2.MarginRight = 0;
-            this.roundedLabel2.MarginTop = 0;
-            this.roundedLabel2.Name = "roundedLabel2";
-            this.roundedLabel2.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel2.PanelHeight = 45;
-            this.roundedLabel2.PanelWidth = 160;
-            this.roundedLabel2.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel2.TabIndex = 3;
-            this.roundedLabel2.Text = "SỬA";
-            this.roundedLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonSuaDangKyDichVu.BackColor = System.Drawing.Color.White;
+            this.buttonSuaDangKyDichVu.BorderRadius = 20;
+            this.buttonSuaDangKyDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSuaDangKyDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaDangKyDichVu.ForeColor = System.Drawing.Color.White;
+            this.buttonSuaDangKyDichVu.Location = new System.Drawing.Point(1042, 0);
+            this.buttonSuaDangKyDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSuaDangKyDichVu.MarginBottom = 0;
+            this.buttonSuaDangKyDichVu.MarginLeft = 0;
+            this.buttonSuaDangKyDichVu.MarginRight = 0;
+            this.buttonSuaDangKyDichVu.MarginTop = 0;
+            this.buttonSuaDangKyDichVu.Name = "buttonSuaDangKyDichVu";
+            this.buttonSuaDangKyDichVu.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonSuaDangKyDichVu.PanelHeight = 45;
+            this.buttonSuaDangKyDichVu.PanelWidth = 160;
+            this.buttonSuaDangKyDichVu.Size = new System.Drawing.Size(120, 36);
+            this.buttonSuaDangKyDichVu.TabIndex = 3;
+            this.buttonSuaDangKyDichVu.Text = "SỬA";
+            this.buttonSuaDangKyDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // roundedLabel3
+            // buttonThemDangKyDichVu
             // 
-            this.roundedLabel3.BackColor = System.Drawing.Color.White;
-            this.roundedLabel3.BorderRadius = 20;
-            this.roundedLabel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundedLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
-            this.roundedLabel3.ForeColor = System.Drawing.Color.White;
-            this.roundedLabel3.Location = new System.Drawing.Point(912, 0);
-            this.roundedLabel3.Margin = new System.Windows.Forms.Padding(0);
-            this.roundedLabel3.MarginBottom = 0;
-            this.roundedLabel3.MarginLeft = 0;
-            this.roundedLabel3.MarginRight = 0;
-            this.roundedLabel3.MarginTop = 0;
-            this.roundedLabel3.Name = "roundedLabel3";
-            this.roundedLabel3.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
-            this.roundedLabel3.PanelHeight = 45;
-            this.roundedLabel3.PanelWidth = 160;
-            this.roundedLabel3.Size = new System.Drawing.Size(120, 36);
-            this.roundedLabel3.TabIndex = 2;
-            this.roundedLabel3.Text = "THÊM";
-            this.roundedLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonThemDangKyDichVu.BackColor = System.Drawing.Color.White;
+            this.buttonThemDangKyDichVu.BorderRadius = 20;
+            this.buttonThemDangKyDichVu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonThemDangKyDichVu.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonThemDangKyDichVu.ForeColor = System.Drawing.Color.White;
+            this.buttonThemDangKyDichVu.Location = new System.Drawing.Point(912, 0);
+            this.buttonThemDangKyDichVu.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonThemDangKyDichVu.MarginBottom = 0;
+            this.buttonThemDangKyDichVu.MarginLeft = 0;
+            this.buttonThemDangKyDichVu.MarginRight = 0;
+            this.buttonThemDangKyDichVu.MarginTop = 0;
+            this.buttonThemDangKyDichVu.Name = "buttonThemDangKyDichVu";
+            this.buttonThemDangKyDichVu.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
+            this.buttonThemDangKyDichVu.PanelHeight = 45;
+            this.buttonThemDangKyDichVu.PanelWidth = 160;
+            this.buttonThemDangKyDichVu.Size = new System.Drawing.Size(120, 36);
+            this.buttonThemDangKyDichVu.TabIndex = 2;
+            this.buttonThemDangKyDichVu.Text = "THÊM";
+            this.buttonThemDangKyDichVu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BenhNhanPage
             // 
@@ -1221,12 +1221,12 @@
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tabPageDanhSachBN.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.tabPageDanhSachBenhNhan.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tabPageDKDV.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.tabPageDanhSachDangKyDichVu.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
@@ -1244,7 +1244,7 @@
         private Component.RoundedPanel benhNhanForm;
         private Component.RoundedPanel baoHiemYTeForm;
         private Component.RoundedPanel dangKiDichVuForm;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel tabPageDanhSachBenhNhan;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Component.RoundedPanel benhNhanPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutFormBenhNhan;
@@ -1291,13 +1291,13 @@
         private Component.RoundedLabel buttonChonDichVu;
         private System.Windows.Forms.TextBox searchBarBenhNhan;
         private System.Windows.Forms.TabPage tabPageDKDV;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel tabPageDanhSachDangKyDichVu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private Component.RoundedPanel roundedPanel1;
+        private Component.RoundedPanel dangKyDichVuPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.TextBox textBox1;
-        private Component.RoundedLabel roundedLabel1;
-        private Component.RoundedLabel roundedLabel2;
-        private Component.RoundedLabel roundedLabel3;
+        private System.Windows.Forms.TextBox searchBarDangKyDichVu;
+        private Component.RoundedLabel buttonXoaDangKyDichVu;
+        private Component.RoundedLabel buttonSuaDangKyDichVu;
+        private Component.RoundedLabel buttonThemDangKyDichVu;
     }
 }
