@@ -1,5 +1,5 @@
-﻿using HospitalManagerment.BUS;
-using HospitalManagerment.DTO;
+﻿using HM.BUS;
+using HM.DTO;
 using LayoutTest.GUIComponents;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Login_Layout
+namespace HM.GUI.Login_Layout
 {
     public partial class Login_Layout : Form
     {

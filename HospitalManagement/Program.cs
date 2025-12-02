@@ -1,8 +1,8 @@
-﻿using HospitalManagerment.BUS;
-using HospitalManagerment.DTO;
-using HospitalManagerment.GUI;
-using HospitalManagerment.GUI.Login_Layout;
-using HospitalManagerment.GUI.Main_Layout;
+﻿using HM.BUS;
+using HM.DTO;
+using HM.GUI;
+using HM.GUI.Login_Layout;
+using HM.GUI.Main_Layout;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagerment
+namespace HM
 {
 
    internal static class Program

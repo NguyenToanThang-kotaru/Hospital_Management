@@ -1,6 +1,6 @@
-﻿using HospitalManagerment.BUS;
-using HospitalManagerment.DTO;
-using HospitalManagerment.GUI.Component.TableDataGridView;
+﻿using HM.BUS;
+using HM.DTO;
+using HM.GUI.Component.TableDataGridView;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -8,7 +8,7 @@ using System.Data;
 using System.IO;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Pages.DichVu
+namespace HM.GUI.Pages.DichVu
 {
     public partial class DichVuPage : UserControl
     {

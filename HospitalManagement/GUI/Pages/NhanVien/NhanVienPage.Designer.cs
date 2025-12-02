@@ -1,4 +1,4 @@
-﻿namespace HospitalManagerment.GUI.Pages.NhanVien
+﻿namespace HM.GUI.Pages.NhanVien
 {
     partial class NhanVienPage
     {
@@ -30,7 +30,7 @@
         {
             this.tabPageKhoa = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.khoaForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.khoaForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMaKhoa = new LayoutTest.GUIComponents.LableTextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -38,19 +38,19 @@
             this.nhanVienKhoaPanel = new System.Windows.Forms.Panel();
             this.txtTenKhoa = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonXacNhanKhoa = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonHuyKhoa = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanKhoa = new HM.GUI.Component.RoundedLabel();
+            this.buttonHuyKhoa = new HM.GUI.Component.RoundedLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarKhoa = new System.Windows.Forms.TextBox();
-            this.buttonXoaKhoa = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonSuaKhoa = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttnThemKhoa = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.khoaPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.buttonXoaKhoa = new HM.GUI.Component.RoundedLabel();
+            this.buttonSuaKhoa = new HM.GUI.Component.RoundedLabel();
+            this.buttnThemKhoa = new HM.GUI.Component.RoundedLabel();
+            this.khoaPanel = new HM.GUI.Component.RoundedPanel();
             this.tabPageNhanVien = new System.Windows.Forms.TabPage();
             this.splitContainerNhanVien = new System.Windows.Forms.SplitContainer();
-            this.nhanVienForm = new HospitalManagerment.GUI.Component.RoundedPanel();
+            this.nhanVienForm = new HM.GUI.Component.RoundedPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.txtMaNhanVien = new LayoutTest.GUIComponents.LableTextBox();
             this.comboBoxKhoa = new LayoutTest.GUIComponents.LableComboBox();
@@ -59,17 +59,17 @@
             this.txtSoDienThoai = new LayoutTest.GUIComponents.LableTextBox();
             this.txtTenNhanVien = new LayoutTest.GUIComponents.LableTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonXacNhanNhanVien = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonHuyNhanVien = new HospitalManagerment.GUI.Component.RoundedLabel();
+            this.buttonXacNhanNhanVien = new HM.GUI.Component.RoundedLabel();
+            this.buttonHuyNhanVien = new HM.GUI.Component.RoundedLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarNhanVien = new System.Windows.Forms.TextBox();
-            this.buttonXoaNhanVien = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonSuaNhanVien = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.buttonThemNhanVien = new HospitalManagerment.GUI.Component.RoundedLabel();
-            this.nhanVienPanel = new HospitalManagerment.GUI.Component.RoundedPanel();
-            this.tabControlDesign1 = new HospitalManagerment.GUI.Components.TabControlDesign();
+            this.buttonXoaNhanVien = new HM.GUI.Component.RoundedLabel();
+            this.buttonSuaNhanVien = new HM.GUI.Component.RoundedLabel();
+            this.buttonThemNhanVien = new HM.GUI.Component.RoundedLabel();
+            this.nhanVienPanel = new HM.GUI.Component.RoundedPanel();
+            this.tabControlDesign1 = new HM.GUI.Components.TabControlDesign();
             this.tabPageKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();

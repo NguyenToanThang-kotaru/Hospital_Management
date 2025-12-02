@@ -1,4 +1,4 @@
-﻿namespace HospitalManagerment.GUI.Pages.Statistics
+﻿namespace HM.GUI.Pages.Statistics
 {
     partial class StatisticPage
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControlThongKe = new HospitalManagerment.GUI.Components.TabControlDesign();
+            this.tabControlThongKe = new HM.GUI.Components.TabControlDesign();
             this.tabPageThongKe = new System.Windows.Forms.TabPage();
             this.tabControlThongKe.SuspendLayout();
             this.SuspendLayout();

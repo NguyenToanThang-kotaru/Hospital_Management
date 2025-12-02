@@ -1,10 +1,10 @@
-﻿using HospitalManagerment.Utils;
+﻿using HM.Utils;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace HospitalManagerment.GUI.Components
+namespace HM.GUI.Components
 {
     internal class SidebarItem : Label
     {
