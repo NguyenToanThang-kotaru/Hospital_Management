@@ -18,5 +18,10 @@ namespace HM.GUI.Pages.Statistics
             InitializeComponent();
             this.employeeId = employeeId;
         }
+
+        private void buttonThongKeClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
