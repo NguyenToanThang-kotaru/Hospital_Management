@@ -65,7 +65,7 @@
             this.comboBoxHinhThucThanhToan = new LayoutTest.GUIComponents.LableComboBox();
             this.comboBoxTranhThaiDangKi = new LayoutTest.GUIComponents.LableComboBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.dichVuDangKyPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -730,7 +730,7 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.dichVuDangKyPanel, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(536, 166);
@@ -743,15 +743,15 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(656, 334);
             this.tableLayoutPanel7.TabIndex = 10;
             // 
-            // panel2
+            // dichVuDangKyPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 40);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(656, 264);
-            this.panel2.TabIndex = 1;
+            this.dichVuDangKyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dichVuDangKyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dichVuDangKyPanel.Location = new System.Drawing.Point(0, 40);
+            this.dichVuDangKyPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.dichVuDangKyPanel.Name = "dichVuDangKyPanel";
+            this.dichVuDangKyPanel.Size = new System.Drawing.Size(656, 264);
+            this.dichVuDangKyPanel.TabIndex = 1;
             // 
             // tableLayoutPanel6
             // 
@@ -1270,7 +1270,7 @@
         private Component.RoundedLabel buttonHuyDangKyDichVu;
         private Component.RoundedLabel buttonXacNhanDangKyDichVu;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel dichVuDangKyPanel;
         private LayoutTest.GUIComponents.LableTextBox txtSoCCCD;
         private LayoutTest.GUIComponents.LableTextBox txtNgaySinh;
         private LayoutTest.GUIComponents.LableTextBox txtHoVaTen;

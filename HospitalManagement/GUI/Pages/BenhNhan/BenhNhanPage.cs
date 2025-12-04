@@ -3,7 +3,6 @@ using HM.DTO;
 using HM.GUI.Component;
 using HM.GUI.Component.TableDataGridView;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
@@ -16,14 +15,13 @@ namespace HM.GUI.Pages.BenhNhan
     {
         private string employeeId;
         private TableDataGridView tablePatient;
+        private TableDataGridView tableServiceRegistration;
+        private TableDataGridView tableServiceOfServiceRegistration;
         private EmployeeBUS employeeBUS;
         private PatientBUS patientBUS;
         private HealthInsuranceBUS healthInsuranceBUS;
         private ServiceRegistrationBUS serviceRegistrationBUS;
         private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
-        private string oldSoCCCD = "";
-        private TableDataGridView tableServiceSelected;
-        private List<ServiceDTO> listServiceSelected;
         private ServiceBUS serviceBUS;
 
         public BenhNhanPage(string employeeId)
@@ -32,6 +30,9 @@ namespace HM.GUI.Pages.BenhNhan
             this.employeeId = employeeId;
 
             tablePatient = new TableDataGridView();
+            tableServiceRegistration = new TableDataGridView();
+            tableServiceOfServiceRegistration = new TableDataGridView();
+            tableServiceOfServiceRegistration.CellClick += TableServiceOfServiceRegistrationCellClick;
 
             employeeBUS = new EmployeeBUS();
             patientBUS = new PatientBUS();
@@ -39,15 +40,13 @@ namespace HM.GUI.Pages.BenhNhan
             serviceRegistrationBUS = new ServiceRegistrationBUS();
             serviceRegistrationDetailBUS = new ServiceRegistrationDetailBUS();
             serviceBUS = new ServiceBUS();
-
-            listServiceSelected = new List<ServiceDTO>();
-
         }
 
         private void BenhNhanPage_Load(object sender, EventArgs e)
         {
             LoadPatientToTable();
-            LoadServiceSelectedToPanel();
+            LoadServiceRegistrationToTable();
+            LoadServiceOfServiceRegistrationToTable();
 
             checkBoxCoBHYTCheckedChanged(checkBoxCoBHYT, EventArgs.Empty);
             txtMaDKDV.SetReadOnly(true);
@@ -66,10 +65,7 @@ namespace HM.GUI.Pages.BenhNhan
             {
                 txtSoCCCDBenhNhan.txt.TextChanged -= layTenBenhNhanTuCCCD;
                 txtSoCCCDBenhNhan.txt.TextChanged += layTenBenhNhanTuCCCD;
-                ;
             }
-
-
         }
 
         private void LoadPatientToTable()
@@ -90,6 +86,54 @@ namespace HM.GUI.Pages.BenhNhan
             tablePatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tablePatient.DataSource = table;
             benhNhanPanel.Controls.Add(tablePatient);
+        }
+
+        private void LoadServiceRegistrationToTable()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Đăng Ký", typeof(string));
+            table.Columns.Add("Bệnh Nhân", typeof(string));
+            table.Columns.Add("Tổng Chi Phí", typeof(string));
+            table.Columns.Add("HÌnh Thức Thanh Toán", typeof(string));
+            table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
+
+            foreach (var serviceRegistration in serviceRegistrationBUS.GetAllServiceRegistration())
+            {
+                table.Rows.Add(serviceRegistration.MaDKDV, patientBUS.GetPatientById(serviceRegistration.SoCCCD).TenBN , serviceRegistration.TongChiPhi, serviceRegistration.HinhThucThanhToan, serviceRegistration.TrangThaiDangKy);
+            }
+
+            tableServiceRegistration.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableServiceRegistration.DataSource = table;
+            dangKyDichVuPanel.Controls.Add(tableServiceRegistration);
+        }
+
+        private void LoadServiceOfServiceRegistrationToTable()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã", typeof(string));
+            table.Columns.Add("Tên Dịch Vụ", typeof(string));
+            table.Columns.Add("Giá", typeof(string));
+
+            tableServiceOfServiceRegistration.AutoGenerateColumns = false;
+            tableServiceOfServiceRegistration.Columns.Clear();
+
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+            btnDelete.Name = "btnDelete";
+            btnDelete.HeaderText = "Xóa";
+            btnDelete.Text = "Xóa";
+            btnDelete.UseColumnTextForButtonValue = true;
+            tableServiceOfServiceRegistration.Columns.Add(btnDelete);
+
+            tableServiceOfServiceRegistration.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Mã", DataPropertyName = "Mã" });
+            tableServiceOfServiceRegistration.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Tên Dịch Vụ", DataPropertyName = "Tên Dịch Vụ" });
+            tableServiceOfServiceRegistration.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Giá", DataPropertyName = "Giá" });
+
+            tableServiceOfServiceRegistration.DataSource = table;
+            tableServiceOfServiceRegistration.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            btnDelete.DisplayIndex = tableServiceOfServiceRegistration.Columns.Count - 1;
+
+            dichVuDangKyPanel.Controls.Add(tableServiceOfServiceRegistration);
         }
 
 
@@ -242,9 +286,9 @@ namespace HM.GUI.Pages.BenhNhan
             if (tablePatient.SelectedRows.Count > 0)
             {
                 var row = tablePatient.SelectedRows[0];
-                oldSoCCCD = row.Cells["Số CCCD"].Value?.ToString();
+                string soCCCD = row.Cells["Số CCCD"].Value?.ToString();
 
-                var patient = patientBUS.GetPatientById(oldSoCCCD);
+                var patient = patientBUS.GetPatientById(soCCCD);
                 if (patient != null)
                 {
                     // Đổ dữ liệu vào form
@@ -338,77 +382,9 @@ namespace HM.GUI.Pages.BenhNhan
             txtTongChiPhi.TextValue = "";
             comboBoxHinhThucThanhToan.GetComboBox().SelectedIndex = -1;
             comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
-
-            listServiceSelected.Clear();
-            UpdateServiceSelectedTable();
-
+            LoadServiceOfServiceRegistrationToTable();
+            // CalculateTotalCost(); // để check 
         } 
-        private void UpdateServiceSelectedTable()
-        {
-            if (tableServiceSelected == null) return;
-
-            var dt = new DataTable();
-            dt.Columns.Add("Mã Dịch Vụ");
-            dt.Columns.Add("Tên Dịch Vụ");
-            dt.Columns.Add("Giá");
-
-            foreach (var service in listServiceSelected)
-            {
-                dt.Rows.Add(service.MaDV, service.TenDV, service.GiaDV);
-            }
-
-            tableServiceSelected.DataSource = dt;
-
-            if (tableServiceSelected.Columns["btnDelete"] == null)
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "btnDelete";
-                btnDelete.HeaderText = "Thao tác";
-                btnDelete.Text = "Xóa";
-                btnDelete.UseColumnTextForButtonValue = true;
-                btnDelete.Width = 80;
-                tableServiceSelected.Columns.Add(btnDelete);
-            }
-
-            decimal tongChiPhiCuoiCung = 0;
-            decimal phanTramBHYTChiTra = 0;
-
-            string soCCCD = txtSoCCCDBenhNhan.TextValue.Trim();
-
-            if (!string.IsNullOrEmpty(soCCCD))
-            {
-                var patient = patientBUS.GetPatientByIdOrNull(soCCCD);
-                if (patient != null && !string.IsNullOrEmpty(patient.SoBHYT))
-                {
-                    string strMucHuong = GetMucHuongFromBHYT(patient.SoBHYT); 
-
-                    if (!string.IsNullOrEmpty(strMucHuong) && strMucHuong.Contains("%"))
-                    {
-                        decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra);
-                        phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
-                    }
-                }
-            }
-
-            foreach (var service in listServiceSelected)
-            {
-                if (decimal.TryParse(service.GiaDV, out decimal giaGoc))
-                {
-                    if (service.BHYTTra == "1")
-                    {
-                        decimal tienPhaiTra = giaGoc * (1 - phanTramBHYTChiTra);
-                        tongChiPhiCuoiCung += tienPhaiTra;
-                    }
-                    else
-                    {
-                        tongChiPhiCuoiCung += giaGoc;
-                    }
-                }
-            }
-
-            txtTongChiPhi.TextValue = tongChiPhiCuoiCung.ToString("N0");
-        }
-
 
         private void buttonChonDichVuClick(object sender, EventArgs e)
         {
@@ -416,6 +392,7 @@ namespace HM.GUI.Pages.BenhNhan
             popup.Text = "Chọn dịch vụ";
             popup.Size = new Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
+
             DataTable table = new DataTable();
             table.Columns.Add("Mã Dịch Vụ", typeof(string));
             table.Columns.Add("Tên Dịch Vụ", typeof(string));
@@ -423,9 +400,7 @@ namespace HM.GUI.Pages.BenhNhan
             table.Columns.Add("Bảo hiểm chi trả", typeof(string));
 
             foreach (var service in serviceBUS.GetAllService())
-            {
                 table.Rows.Add(service.MaDV, service.TenDV, service.GiaDV, service.BHYTTra);
-            }
 
             TableDataGridView dgv = new TableDataGridView();
             dgv.DataSource = table;
@@ -453,22 +428,36 @@ namespace HM.GUI.Pages.BenhNhan
             btnClose.Size = new Size(100, 35);
             btnClose.BackColor = Color.White;
             btnClose.PanelColor = Color.FromArgb(255, 90, 93);
-          
+
 
             btnAdd.Click += (s, args) =>
             {
-                string maDV = dgv.SelectedRows[0].Cells["Mã Dịch Vụ"].Value.ToString();
-                var service = serviceBUS.GetServiceById(maDV);
+                if (dgv.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn dịch vụ!");
+                    return;
+                }
 
-                if (!listServiceSelected.Any(x => x.MaDV == maDV))
+                string maDV = dgv.SelectedRows[0].Cells["Mã Dịch Vụ"].Value.ToString();
+                string tenDV = dgv.SelectedRows[0].Cells["Tên Dịch Vụ"].Value.ToString();
+                string giaDV = dgv.SelectedRows[0].Cells["Giá Dịch Vụ"].Value.ToString();
+                string bhytTra = dgv.SelectedRows[0].Cells["Bảo hiểm chi trả"].Value.ToString();
+
+                // Kiểm tra xem dịch vụ đã được chọn chưa
+                DataTable currentTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
+                foreach (DataRow row in currentTable.Rows)
                 {
-                    listServiceSelected.Add(service);
-                    UpdateServiceSelectedTable();
+                    if (row["Mã"].ToString() == maDV)
+                    {
+                        MessageBox.Show("Dịch vụ đã được chọn rồi!");
+                        return;
+                    }
                 }
-                else
-                {
-                      MessageBox.Show("Dịch vụ đã được chọn rồi!");
-                }
+
+                currentTable.Rows.Add(maDV, tenDV, giaDV);
+                CalculateTotalCost();
+
+                popup.Close();
             };
 
             btnClose.Click += (s, args) => popup.Close();
@@ -480,6 +469,64 @@ namespace HM.GUI.Pages.BenhNhan
             popup.ShowDialog();
         }
 
+        private void CalculateTotalCost()
+        {
+            DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
+            decimal tongChiPhiCuoiCung = 0;
+            decimal phanTramBHYTChiTra = 0;
+
+            string soCCCD = txtSoCCCDBenhNhan.TextValue.Trim();
+
+            // Lấy tỷ lệ BHYT chi trả nếu có
+            if (!string.IsNullOrEmpty(soCCCD))
+            {
+                var patient = patientBUS.GetPatientByIdOrNull(soCCCD);
+                if (patient != null && !string.IsNullOrEmpty(patient.SoBHYT))
+                {
+                    string strMucHuong = GetMucHuongFromBHYT(patient.SoBHYT);
+
+                    if (!string.IsNullOrEmpty(strMucHuong) && strMucHuong.Contains("%"))
+                    {
+                        decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra);
+                        phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
+                    }
+                }
+            }
+
+            // Tính tổng chi phí từ DataTable
+            foreach (DataRow row in serviceTable.Rows)
+            {
+                if (decimal.TryParse(row["Giá"].ToString(), out decimal giaGoc))
+                {
+                    // Cần lấy thông tin BHYTTra từ serviceBUS để biết dịch vụ này BHYT có chi trả không
+                    string maDV = row["Mã"].ToString();
+                    var serviceInfo = serviceBUS.GetServiceById(maDV);
+
+                    if (serviceInfo != null && serviceInfo.BHYTTra == "1" && phanTramBHYTChiTra > 0)
+                    {
+                        decimal tienPhaiTra = giaGoc * (1 - phanTramBHYTChiTra);
+                        tongChiPhiCuoiCung += tienPhaiTra;
+                    }
+                    else
+                    {
+                        tongChiPhiCuoiCung += giaGoc;
+                    }
+                }
+            }
+
+            txtTongChiPhi.TextValue = tongChiPhiCuoiCung.ToString("N0");
+        }
+        private void TableServiceOfServiceRegistrationCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && tableServiceOfServiceRegistration.Columns[e.ColumnIndex].Name == "btnDelete")
+            {
+                DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
+                serviceTable.Rows.RemoveAt(e.RowIndex);
+
+                CalculateTotalCost();
+            }
+        }
+
         private void buttonXacNhanDangKyDichVuClick(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtSoCCCDBenhNhan.TextValue))
@@ -488,7 +535,8 @@ namespace HM.GUI.Pages.BenhNhan
                 return;
             }
 
-            if (listServiceSelected.Count == 0)
+            DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
+            if (serviceTable.Rows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn dịch vụ!");
                 return;
@@ -502,50 +550,29 @@ namespace HM.GUI.Pages.BenhNhan
                 TongChiPhi = txtTongChiPhi.TextValue,
                 HinhThucThanhToan = comboBoxHinhThucThanhToan.GetComboBox().SelectedItem?.ToString(),
                 TrangThaiDangKy = comboBoxTranhThaiDangKi.GetComboBox().SelectedItem?.ToString(),
-                MaNV = employeeId   
-
+                MaNV = employeeId
             };
 
             if (serviceRegistrationBUS.AddServiceRegistration(registration))
             {
-                foreach (var service in listServiceSelected)
+                foreach (DataRow row in serviceTable.Rows)
                 {
+                    string maDV = row["Mã"].ToString();
                     serviceRegistrationDetailBUS.AddServiceRegistrationDetail(
-                        new ServiceRegistrationDetailDTO(txtMaDKDV.TextValue, service.MaDV)
+                        new ServiceRegistrationDetailDTO(txtMaDKDV.TextValue, maDV)
                     );
                 }
+
                 MessageBox.Show("Đăng ký dịch vụ thành công!");
-
                 buttonHuyDangKyDichVuClick(null, null);
+                LoadServiceRegistrationToTable(); 
             }
-        }
-
-        private void LoadServiceSelectedToPanel()
-        {
-            if (tableServiceSelected == null)
+            else
             {
-                tableServiceSelected = new TableDataGridView();
-                tableServiceSelected.Dock = DockStyle.Fill;
-                tableServiceSelected.Height = 150;
-                tableServiceSelected.ReadOnly = true;
-                tableServiceSelected.AllowUserToAddRows = false;
-                tableServiceSelected.AllowUserToDeleteRows = false;
-                tableServiceSelected.RowHeadersVisible = false;
-                tableServiceSelected.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                tableServiceSelected.MultiSelect = false;
-                tableServiceSelected.CellContentClick += TableServiceSelected_CellContentClick;
-                panel2.Controls.Add(tableServiceSelected);
+                MessageBox.Show("Đăng ký dịch vụ thất bại!");
             }
-
-            var dt = new DataTable();
-            dt.Columns.Add("Mã Dịch Vụ");
-            dt.Columns.Add("Tên Dịch Vụ");
-            dt.Columns.Add("Giá");
-            dt.Columns.Add("Xóa");
-
-            tableServiceSelected.DataSource = dt;
-            txtTongChiPhi.TextValue = "0";
         }
+
 
         private void layTenBenhNhanTuCCCD(object sender, EventArgs e)
         {
@@ -567,48 +594,158 @@ namespace HM.GUI.Pages.BenhNhan
             {
                 txtTenBenhNhan.TextValue = "";
             }
-
-            UpdateServiceSelectedTable();
+            CalculateTotalCost();
         }
 
-        private void TableServiceSelected_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && tableServiceSelected.Columns[e.ColumnIndex].Name == "btnDelete")
-            {
-                string maDV = tableServiceSelected.Rows[e.RowIndex].Cells["Mã Dịch Vụ"].Value.ToString();
-
-                var itemToRemove = listServiceSelected.FirstOrDefault(x => x.MaDV == maDV);
-                if (itemToRemove != null)
-                {
-                    listServiceSelected.Remove(itemToRemove);
-
-                    UpdateServiceSelectedTable();
-                }
-            }
-        }
 
 
         // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
         // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
         private void searchBarDangKyDichVuTextChanged(object sender, EventArgs e)
         {
+            string keyword = searchBarDangKyDichVu.Text.Trim();
+            var serviceRegistration = serviceRegistrationBUS.SearchServiceRegistrationByName(keyword);
 
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Đăng Ký", typeof(string));
+            table.Columns.Add("Bệnh Nhân", typeof(string));
+            table.Columns.Add("Tổng Chi Phí", typeof(string));
+            table.Columns.Add("HÌnh Thức Thanh Toán", typeof(string));
+            table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
+
+            foreach (var sr in serviceRegistration)
+            {
+                table.Rows.Add(sr.MaDKDV, patientBUS.GetPatientById(sr.SoCCCD).TenBN , sr.TongChiPhi, sr.HinhThucThanhToan, sr.TrangThaiDangKy);
+            }
+
+            tableServiceRegistration.DataSource = table;
         }
 
         private void buttonThemDangKyDichVuClick(object sender, EventArgs e)
         {
-
+            tabControlBenhNhan.SelectedTab = tabPageDangKyDichVu;
+            buttonHuyDangKyDichVuClick(null, null);
         }
 
         private void buttonSuaDangKyDichVuClick(object sender, EventArgs e)
         {
+            if (tableServiceRegistration.SelectedRows.Count > 0)
+            {
+                var row = tableServiceRegistration.SelectedRows[0];
+                string maDKDV = row.Cells["Mã Đăng Ký"].Value?.ToString();
 
+                var serviceRegistration = serviceRegistrationBUS.GetServiceRegistrationById(maDKDV);
+                if (serviceRegistration != null)
+                {
+                    var patient = patientBUS.GetPatientById(serviceRegistration.SoCCCD);
+                    if (patient != null)
+                    {
+                        // Đổ dữ liệu vào form
+                        txtMaDKDV.TextValue = serviceRegistration.MaDKDV;
+                        txtSoCCCDBenhNhan.TextValue = serviceRegistration.SoCCCD;
+                        txtTenBenhNhan.TextValue = patient.TenBN;
+                        txtNgayGioTaoPhieu.TextValue = serviceRegistration.NgayGioTaoPhieu;
+                        txtTongChiPhi.TextValue = serviceRegistration.TongChiPhi;
+
+                        ComboBox cbHinhThuc = comboBoxHinhThucThanhToan.GetComboBox();
+                        int hinhThucIndex = cbHinhThuc.Items.IndexOf(serviceRegistration.HinhThucThanhToan);
+                        if (hinhThucIndex >= 0)
+                        {
+                            cbHinhThuc.SelectedIndex = hinhThucIndex;
+                        }
+
+                        ComboBox cbTrangThai = comboBoxTranhThaiDangKi.GetComboBox();
+                        int trangThaiIndex = cbTrangThai.Items.IndexOf(serviceRegistration.TrangThaiDangKy);
+                        if (trangThaiIndex >= 0)
+                        {
+                            cbTrangThai.SelectedIndex = trangThaiIndex;
+                        }
+
+                        // Load danh sách dịch vụ đã chọn
+                        DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
+                        serviceTable.Rows.Clear();
+
+                        var serviceDetails = serviceRegistrationDetailBUS.GetServiceRegistrationDetailByServiceRegistrationId(maDKDV);
+                        foreach (var detail in serviceDetails)
+                        {
+                            var service = serviceBUS.GetServiceById(detail.MaDV);
+                            if (service != null)
+                            {
+                                serviceTable.Rows.Add(service.MaDV, service.TenDV, service.GiaDV);
+                            }
+                        }
+
+                        tabControlBenhNhan.SelectedTab = tabPageDangKyDichVu;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy thông tin bệnh nhân!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy đăng ký dịch vụ!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đăng ký dịch vụ cần sửa!");
+            }
         }
 
         private void buttonXoaDangKyDichVuClick(object sender, EventArgs e)
         {
+            if (tableServiceRegistration.SelectedRows.Count > 0)
+            {
+                string maDKDV = tableServiceRegistration.SelectedRows[0].Cells["Mã Đăng Ký"].Value?.ToString();
 
+                if (string.IsNullOrEmpty(maDKDV))
+                {
+                    MessageBox.Show("Không tìm thấy mã đăng ký dịch vụ!");
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn xóa đăng ký dịch vụ {maDKDV}?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bool success = serviceRegistrationBUS.DeleteServiceRegistration(maDKDV);
+
+                        if (success)
+                        {
+                            MessageBox.Show("Xóa đăng ký dịch vụ thành công!");
+                            LoadServiceRegistrationToTable();
+
+                            if (tabControlBenhNhan.SelectedTab == tabPageDangKyDichVu &&
+                                txtMaDKDV.TextValue == maDKDV)
+                            {
+                                buttonHuyDangKyDichVuClick(null, null);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa đăng ký dịch vụ thất bại!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi khi xóa đăng ký dịch vụ: {ex.Message}",
+                            "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đăng ký dịch vụ cần xóa!");
+            }
         }
+
     }
 
 

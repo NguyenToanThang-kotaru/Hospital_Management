@@ -991,6 +991,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
         }
 
+        // Search 
         private void searchBarHoSoBenhAnTextChanged(object sender, EventArgs e)
         {
             string keyword = searchBarHoSoBenhAn.Text.Trim();
