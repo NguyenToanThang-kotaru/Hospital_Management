@@ -204,17 +204,22 @@ namespace HM.DAO
             return "DKDV000001";
         }
 
-        public List<ServiceRegistrationDTO> SearchServiceRegistrationByName(string maDKDV)
+        public List<ServiceRegistrationDTO> SearchServiceRegistration(string keyword)
         {
             List<ServiceRegistrationDTO> list = new List<ServiceRegistrationDTO>();
-            string sql = "SELECT * FROM dangkydichvu WHERE MaDKDV LIKE CONCAT('%', @MaDKDV, '%') AND TrangThaiXoa = 0";
+            string sql = @"SELECT * FROM dangkydichvu 
+                   WHERE (MaDKDV LIKE CONCAT('%', @Keyword, '%') 
+                          OR SoCCCD LIKE CONCAT('%', @Keyword, '%'))
+                   AND TrangThaiXoa = 0
+                   ORDER BY MaDKDV";
+
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MaDKDV", maDKDV);
+                        cmd.Parameters.AddWithValue("@Keyword", keyword);
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {

@@ -33,9 +33,9 @@ namespace HM.BUS
             return listDTO;
         }
 
-        public ServiceRegistrationDetailDTO GetServiceRegistrationDetailById(string maDKDV)
+        public List<ServiceRegistrationDetailDTO> GetServiceRegistrationDetailByServiceRegistrationId(string maDKDV)
         {
-            return listDTO.FirstOrDefault(x => x.MaDKDV == maDKDV);
+            return serviceregistrationdetaildao.GetServiceRegistrationDetailByServiceRegistrationId(maDKDV);
         }
 
         public bool AddServiceRegistrationDetail(ServiceRegistrationDetailDTO obj)
@@ -96,30 +96,6 @@ namespace HM.BUS
         //    return false;
         //}
 
-        public List<ServiceRegistrationDetailDTO> SearchServiceRegistrationDetailByName(string keyword)
-        {
-            try
-            {
-                return serviceregistrationdetaildao.SearchServiceRegistrationDetailByName(keyword);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm chi tiết đăng ký dịch vụ: " + ex.Message);
-                return new List<ServiceRegistrationDetailDTO>();
-            }
-        }
 
-        public string GetNextServiceRegistrationDetailId()
-        {
-            try
-            {
-                return serviceregistrationdetaildao.GetNextServiceRegistrationDetailId();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy mã đăng ký dịch vụ tiếp theo: " + ex.Message);
-                return null;
-            }
-        }
     }
 }

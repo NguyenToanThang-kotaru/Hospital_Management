@@ -100,11 +100,11 @@ namespace HM.BUS
         {
             try
             {
-                return serviceregistrationdao.SearchServiceRegistrationByName(keyword);
+                return serviceregistrationdao.SearchServiceRegistration(keyword);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm đăng ký dịch vụ: " + ex.Message);
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message);
                 return new List<ServiceRegistrationDTO>();
             }
         }
