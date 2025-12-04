@@ -153,6 +153,7 @@ namespace HM.GUI.Pages.BenhNhan
             if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Đã hoàn thành");
+                cb.Items.Add("Đã hoàn thành");
                 cb.Items.Add("Đã hủy");     
             }
         }
