@@ -77,24 +77,10 @@ namespace HM.BUS
             return false;
         }
 
-        //public bool DeleteServiceRegistrationDetail(string maDKDV)
-        //{
-        //    try
-        //    {
-        //        if (serviceregistraiondetaildao.DeleteServiceRegistrationDetail(maDKDV) > 0)
-        //        {
-        //            var existing = listDTO.FirstOrDefault(x => x.MaDKDV == maDKDV);
-        //            if (existing != null)
-        //                listDTO.Remove(existing);
-        //            return true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi khi xóa chi tiết đăng ký dịch vụ: " + ex.Message);
-        //    }
-        //    return false;
-        //}
+        public bool DeleteAllServiceRegistrationDetailByRegistrationId(string maDKDV)
+        {
+            return serviceregistrationdetaildao.DeleteAllServiceRegistrationDetailByRegistrationId(maDKDV);
+        }
 
 
     }

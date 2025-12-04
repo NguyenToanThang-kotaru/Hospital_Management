@@ -11,15 +11,19 @@ namespace HM.DTO
     {
         private string maDKDV;
         private string maDV;
+        private string tienDV;
         public ServiceRegistrationDetailDTO()
         {
             this.maDKDV = string.Empty;
             this.maDV = string.Empty;
+            this.tienDV = string.Empty;
         }
-        public ServiceRegistrationDetailDTO(string maDKDV, string maDV)
+        public ServiceRegistrationDetailDTO(string maDKDV, string maDV, string tienDV)
         {
             this.maDKDV = maDKDV;
-            this.maDV = maDV;        }
+            this.maDV = maDV;       
+            this.tienDV = tienDV;
+        }
 
         public string MaDKDV
         {
@@ -30,6 +34,12 @@ namespace HM.DTO
         {
             get => maDV;
             set { maDV = value; }
+        }
+
+        public string TienDV
+        {
+            get => tienDV;
+            set { tienDV = value; }
         }
     }
 }
