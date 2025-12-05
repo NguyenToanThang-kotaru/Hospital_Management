@@ -10,8 +10,8 @@ namespace HM.DAO
     {
         public int AddServiceRegistrationDetail(ServiceRegistrationDetailDTO obj)
         {
-            string sql = "INSERT INTO chitietdangky (MaDKDV, MaDV) " +
-                           "VALUES (@MaDKDV, @MaDV)";
+            string sql = "INSERT INTO chitietdangky (MaDKDV, MaDV, TienDV) " +
+                           "VALUES (@MaDKDV, @MaDV, @TienDV)";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -20,6 +20,7 @@ namespace HM.DAO
                     {
                         cmd.Parameters.AddWithValue("@MaDKDV", obj.MaDKDV);
                         cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
+                        cmd.Parameters.AddWithValue("@TienDV", obj.TienDV);
                         conn.Open();
                         return cmd.ExecuteNonQuery();
                     }
@@ -50,7 +51,8 @@ namespace HM.DAO
                                 list.Add(new ServiceRegistrationDetailDTO
                                 {
                                     MaDKDV = reader.GetString("MaDKDV"),
-                                    MaDV = reader.GetString("MaDV")
+                                    MaDV = reader.GetString("MaDV"),
+                                    TienDV = reader.GetString("TienDV")
                                 });
                             }
                         }
@@ -79,12 +81,13 @@ namespace HM.DAO
                         conn.Open();
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            while (reader.Read()) 
+                            while (reader.Read())
                             {
                                 details.Add(new ServiceRegistrationDetailDTO
                                 {
                                     MaDKDV = reader.GetString("MaDKDV"),
-                                    MaDV = reader.GetString("MaDV")
+                                    MaDV = reader.GetString("MaDV"),
+                                    TienDV = reader.GetString("TienDV")
                                 });
                             }
                         }
@@ -100,7 +103,7 @@ namespace HM.DAO
 
         public int UpdateServiceRegistrationDetail(ServiceRegistrationDetailDTO obj)
         {
-            string sql = "UPDATE chitietdangky SET MaDV = @MaDV" +
+            string sql = "UPDATE chitietdangky SET MaDV = @MaDV, TienDV = @TienDV " +
                          "WHERE MaDKDV = @MaDKDV";
             try
             {
@@ -110,6 +113,7 @@ namespace HM.DAO
                     {
                         cmd.Parameters.AddWithValue("@MaDKDV", obj.MaDKDV);
                         cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
+                        cmd.Parameters.AddWithValue("@TienDV", obj.TienDV);
                         conn.Open();
                         return cmd.ExecuteNonQuery();
                     }
@@ -120,6 +124,52 @@ namespace HM.DAO
                 MessageBox.Show("Lỗi khi cập nhật chi tiết đăng ký dịch vụ: " + ex.Message);
             }
             return 0;
+        }
+
+        public int DeleteServiceRegistrationDetail(string maDKDV, string maDV)
+        {
+            string sql = "DELETE FROM chitietdangky WHERE MaDKDV = @MaDKDV AND MaDV = @MaDV";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDKDV", maDKDV);
+                        cmd.Parameters.AddWithValue("@MaDV", maDV);
+                        conn.Open();
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa chi tiết đăng ký dịch vụ: " + ex.Message);
+            }
+            return 0;
+        }
+
+        public bool DeleteAllServiceRegistrationDetailByRegistrationId(string maDKDV)
+        {
+            try
+            {
+                string sql = "DELETE FROM chitietdangky WHERE MaDKDV = @MaDKDV";
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDKDV", maDKDV);
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected >= 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa chi tiết đăng ký dịch vụ: " + ex.Message);
+                return false;
+            }
         }
     }
 }

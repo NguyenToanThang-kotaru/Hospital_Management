@@ -121,5 +121,10 @@ namespace HM.BUS
                 return null;
             }
         }
+
+        public bool ExistsServiceRegistrationId(string maDKDV)
+        {
+            return GetAllServiceRegistration().Any(sv => sv.MaDKDV == maDKDV);
+        }
     }
 }

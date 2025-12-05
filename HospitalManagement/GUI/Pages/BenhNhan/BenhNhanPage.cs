@@ -153,7 +153,7 @@ namespace HM.GUI.Pages.BenhNhan
             if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Đã hoàn thành");
-                cb.Items.Add("Đã hoàn thành");
+                cb.Items.Add("Chưa hoàn thành");
                 cb.Items.Add("Đã hủy");     
             }
         }
@@ -385,7 +385,7 @@ namespace HM.GUI.Pages.BenhNhan
             comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
             LoadServiceOfServiceRegistrationToTable();
             // CalculateTotalCost(); // để check 
-        } 
+        }
 
         private void buttonChonDichVuClick(object sender, EventArgs e)
         {
@@ -430,7 +430,6 @@ namespace HM.GUI.Pages.BenhNhan
             btnClose.BackColor = Color.White;
             btnClose.PanelColor = Color.FromArgb(255, 90, 93);
 
-
             btnAdd.Click += (s, args) =>
             {
                 if (dgv.SelectedRows.Count == 0)
@@ -455,10 +454,24 @@ namespace HM.GUI.Pages.BenhNhan
                     }
                 }
 
-                currentTable.Rows.Add(maDV, tenDV, giaDV);
-                CalculateTotalCost();
+                // Tính giá đã được tính theo BHYT
+                decimal giaGoc;
+                if (decimal.TryParse(giaDV, out giaGoc))
+                {
+                    decimal giaDaTinh = CalculateServicePrice(giaGoc, bhytTra == "1", maDV);
 
-                popup.Close();
+                    // Hiển thị giá đã được tính trong bảng
+                    currentTable.Rows.Add(maDV, tenDV, giaDaTinh.ToString("N0"));
+
+                    // Tính lại tổng chi phí
+                    CalculateTotalCost();
+
+                    popup.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Giá dịch vụ không hợp lệ!");
+                }
             };
 
             btnClose.Click += (s, args) => popup.Close();
@@ -470,16 +483,12 @@ namespace HM.GUI.Pages.BenhNhan
             popup.ShowDialog();
         }
 
-        private void CalculateTotalCost()
+        private decimal CalculateServicePrice(decimal giaGoc, bool bhytChiTra, string maDV)
         {
-            DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
-            decimal tongChiPhiCuoiCung = 0;
-            decimal phanTramBHYTChiTra = 0;
-
+            // Kiểm tra BHYT của bệnh nhân
             string soCCCD = txtSoCCCDBenhNhan.TextValue.Trim();
 
-            // Lấy tỷ lệ BHYT chi trả nếu có
-            if (!string.IsNullOrEmpty(soCCCD))
+            if (!string.IsNullOrEmpty(soCCCD) && bhytChiTra)
             {
                 var patient = patientBUS.GetPatientByIdOrNull(soCCCD);
                 if (patient != null && !string.IsNullOrEmpty(patient.SoBHYT))
@@ -488,30 +497,41 @@ namespace HM.GUI.Pages.BenhNhan
 
                     if (!string.IsNullOrEmpty(strMucHuong) && strMucHuong.Contains("%"))
                     {
-                        decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra);
-                        phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
+                        decimal phanTramBHYTChiTra;
+                        if (decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra))
+                        {
+                            phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
+
+                            // Nếu BHYT chi trả 100% thì giá là 0
+                            if (phanTramBHYTChiTra >= 1)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                // Tính giá sau khi được BHYT chi trả
+                                return giaGoc * (1 - phanTramBHYTChiTra);
+                            }
+                        }
                     }
                 }
             }
 
-            // Tính tổng chi phí từ DataTable
+            // Trả về giá gốc nếu không có BHYT hoặc dịch vụ không được BHYT chi trả
+            return giaGoc;
+        }
+
+        private void CalculateTotalCost()
+        {
+            DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
+            decimal tongChiPhiCuoiCung = 0;
+
+            // Tính tổng chi phí từ DataTable (giá đã được tính theo BHYT)
             foreach (DataRow row in serviceTable.Rows)
             {
-                if (decimal.TryParse(row["Giá"].ToString(), out decimal giaGoc))
+                if (decimal.TryParse(row["Giá"].ToString().Replace(",", "").Replace(".", ""), out decimal giaDaTinh))
                 {
-                    // Cần lấy thông tin BHYTTra từ serviceBUS để biết dịch vụ này BHYT có chi trả không
-                    string maDV = row["Mã"].ToString();
-                    var serviceInfo = serviceBUS.GetServiceById(maDV);
-
-                    if (serviceInfo != null && serviceInfo.BHYTTra == "1" && phanTramBHYTChiTra > 0)
-                    {
-                        decimal tienPhaiTra = giaGoc * (1 - phanTramBHYTChiTra);
-                        tongChiPhiCuoiCung += tienPhaiTra;
-                    }
-                    else
-                    {
-                        tongChiPhiCuoiCung += giaGoc;
-                    }
+                    tongChiPhiCuoiCung += giaDaTinh;
                 }
             }
 
@@ -554,23 +574,68 @@ namespace HM.GUI.Pages.BenhNhan
                 MaNV = employeeId
             };
 
-            if (serviceRegistrationBUS.AddServiceRegistration(registration))
+            if (!serviceRegistrationBUS.ExistsServiceRegistrationId(registration.MaDKDV))
             {
-                foreach (DataRow row in serviceTable.Rows)
+                // Trường hợp 1: Mã chưa tồn tại - Thêm mới
+                if (serviceRegistrationBUS.AddServiceRegistration(registration))
                 {
-                    string maDV = row["Mã"].ToString();
-                    serviceRegistrationDetailBUS.AddServiceRegistrationDetail(
-                        new ServiceRegistrationDetailDTO(txtMaDKDV.TextValue, maDV)
-                    );
-                }
+                    foreach (DataRow row in serviceTable.Rows)
+                    {
+                        string maDV = row["Mã"].ToString();
+                        string tienDV = row["Giá"].ToString();
+                        serviceRegistrationDetailBUS.AddServiceRegistrationDetail(
+                            new ServiceRegistrationDetailDTO(txtMaDKDV.TextValue, maDV, tienDV)
+                        );
+                    }
 
-                MessageBox.Show("Đăng ký dịch vụ thành công!");
-                buttonHuyDangKyDichVuClick(null, null);
-                LoadServiceRegistrationToTable(); 
+                    MessageBox.Show("Đăng ký dịch vụ thành công!");
+                    buttonHuyDangKyDichVuClick(null, null);
+                    LoadServiceRegistrationToTable();
+                }
+                else
+                {
+                    MessageBox.Show("Đăng ký dịch vụ thất bại!");
+                }
             }
             else
             {
-                MessageBox.Show("Đăng ký dịch vụ thất bại!");
+                DialogResult result = MessageBox.Show(
+                    $"Mã đăng ký dịch vụ {registration.MaDKDV} đã tồn tại!\nBạn có muốn cập nhật thông tin không?",
+                    "Xác nhận cập nhật",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Cập nhật đăng ký dịch vụ
+                    if (serviceRegistrationBUS.UpdateServiceRegistration(registration))
+                    {
+                        // Xóa tất cả chi tiết dịch vụ cũ
+                        serviceRegistrationDetailBUS.DeleteAllServiceRegistrationDetailByRegistrationId(registration.MaDKDV);
+
+                        // Thêm lại chi tiết dịch vụ mới
+                        foreach (DataRow row in serviceTable.Rows)
+                        {
+                            string maDV = row["Mã"].ToString();
+                            string tienDV = row["Giá"].ToString();
+                            serviceRegistrationDetailBUS.AddServiceRegistrationDetail(
+                                new ServiceRegistrationDetailDTO(txtMaDKDV.TextValue, maDV, tienDV)
+                            );
+                        }
+
+                        MessageBox.Show("Cập nhật đăng ký dịch vụ thành công!");
+                        buttonHuyDangKyDichVuClick(null, null);
+                        LoadServiceRegistrationToTable();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật đăng ký dịch vụ thất bại!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập mã đăng ký khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
