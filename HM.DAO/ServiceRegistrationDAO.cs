@@ -43,7 +43,7 @@ namespace HM.DAO
 
         public int UpdateServiceRegistration(ServiceRegistrationDTO obj)
         {
-            string sql = "UPDATE dangkydichvu SET SoCCCD = @SoCCCD, NgayGioTaoPhieu = @NgayGioTaoPhieu, TrangThaiDangKy = @TrangThaiDangKy, TongChiPhi = @TongChiPhi, HinhThucThanhToan = @HinhThucThanhToan, MaNV = @MaNV" +
+            string sql = "UPDATE dangkydichvu SET SoCCCD = @SoCCCD, NgayGioTaoPhieu = @NgayGioTaoPhieu, TrangThaiDangKy = @TrangThaiDangKy, TongChiPhi = @TongChiPhi, HinhThucThanhToan = @HinhThucThanhToan, MaNV = @MaNV " +
                          "WHERE MaDKDV = @MaDKDV AND TrangThaiXoa = 0";
             try
             {

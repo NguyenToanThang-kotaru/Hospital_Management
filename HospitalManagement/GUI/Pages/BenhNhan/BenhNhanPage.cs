@@ -66,6 +66,10 @@ namespace HM.GUI.Pages.BenhNhan
                 txtSoCCCDBenhNhan.txt.TextChanged -= layTenBenhNhanTuCCCD;
                 txtSoCCCDBenhNhan.txt.TextChanged += layTenBenhNhanTuCCCD;
             }
+
+            comboBoxGioiTinhLoad(null, null);
+            comboBoxHinhThucThanhToanLoad(null, null);
+            comboBoxTrangThaiDangKyLoad(null, null);
         }
 
         private void LoadPatientToTable()
@@ -94,7 +98,7 @@ namespace HM.GUI.Pages.BenhNhan
             table.Columns.Add("Mã Đăng Ký", typeof(string));
             table.Columns.Add("Bệnh Nhân", typeof(string));
             table.Columns.Add("Tổng Chi Phí", typeof(string));
-            table.Columns.Add("HÌnh Thức Thanh Toán", typeof(string));
+            table.Columns.Add("Hình Thức Thanh Toán", typeof(string));
             table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
 
             foreach (var serviceRegistration in serviceRegistrationBUS.GetAllServiceRegistration())
@@ -149,11 +153,10 @@ namespace HM.GUI.Pages.BenhNhan
         private void comboBoxTrangThaiDangKyLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxTranhThaiDangKi.GetComboBox();
-
             if (cb.Items.Count == 0)
             {
-                cb.Items.Add("Đã hoàn thành");
                 cb.Items.Add("Chưa hoàn thành");
+                cb.Items.Add("Đã hoàn thành");
                 cb.Items.Add("Đã hủy");     
             }
         }
@@ -161,7 +164,6 @@ namespace HM.GUI.Pages.BenhNhan
         private void comboBoxHinhThucThanhToanLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxHinhThucThanhToan.GetComboBox();
-
             if (cb.Items.Count == 0)
             {
                 cb.Items.Add("Tiền mặt");
@@ -384,7 +386,6 @@ namespace HM.GUI.Pages.BenhNhan
             comboBoxHinhThucThanhToan.GetComboBox().SelectedIndex = -1;
             comboBoxTranhThaiDangKi.GetComboBox().SelectedIndex = -1;
             LoadServiceOfServiceRegistrationToTable();
-            // CalculateTotalCost(); // để check 
         }
 
         private void buttonChonDichVuClick(object sender, EventArgs e)
@@ -459,10 +460,8 @@ namespace HM.GUI.Pages.BenhNhan
                 if (decimal.TryParse(giaDV, out giaGoc))
                 {
                     decimal giaDaTinh = CalculateServicePrice(giaGoc, bhytTra == "1", maDV);
-
                     // Hiển thị giá đã được tính trong bảng
-                    currentTable.Rows.Add(maDV, tenDV, giaDaTinh.ToString("N0"));
-
+                    currentTable.Rows.Add(maDV, tenDV, giaDaTinh.ToString("0"));
                     // Tính lại tổng chi phí
                     CalculateTotalCost();
 
@@ -529,13 +528,14 @@ namespace HM.GUI.Pages.BenhNhan
             // Tính tổng chi phí từ DataTable (giá đã được tính theo BHYT)
             foreach (DataRow row in serviceTable.Rows)
             {
-                if (decimal.TryParse(row["Giá"].ToString().Replace(",", "").Replace(".", ""), out decimal giaDaTinh))
+                if (decimal.TryParse(row["Giá"].ToString(), out decimal giaDaTinh)
+)
                 {
                     tongChiPhiCuoiCung += giaDaTinh;
                 }
             }
 
-            txtTongChiPhi.TextValue = tongChiPhiCuoiCung.ToString("N0");
+            txtTongChiPhi.TextValue = tongChiPhiCuoiCung.ToString();
         }
         private void TableServiceOfServiceRegistrationCellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -632,10 +632,6 @@ namespace HM.GUI.Pages.BenhNhan
                         MessageBox.Show("Cập nhật đăng ký dịch vụ thất bại!");
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Vui lòng nhập mã đăng ký khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
             }
         }
 
@@ -713,19 +709,8 @@ namespace HM.GUI.Pages.BenhNhan
                         txtNgayGioTaoPhieu.TextValue = serviceRegistration.NgayGioTaoPhieu;
                         txtTongChiPhi.TextValue = serviceRegistration.TongChiPhi;
 
-                        ComboBox cbHinhThuc = comboBoxHinhThucThanhToan.GetComboBox();
-                        int hinhThucIndex = cbHinhThuc.Items.IndexOf(serviceRegistration.HinhThucThanhToan);
-                        if (hinhThucIndex >= 0)
-                        {
-                            cbHinhThuc.SelectedIndex = hinhThucIndex;
-                        }
-
-                        ComboBox cbTrangThai = comboBoxTranhThaiDangKi.GetComboBox();
-                        int trangThaiIndex = cbTrangThai.Items.IndexOf(serviceRegistration.TrangThaiDangKy);
-                        if (trangThaiIndex >= 0)
-                        {
-                            cbTrangThai.SelectedIndex = trangThaiIndex;
-                        }
+                        comboBoxHinhThucThanhToan.GetComboBox().Text = serviceRegistration.HinhThucThanhToan;
+                        comboBoxTranhThaiDangKi.GetComboBox().Text = serviceRegistration.TrangThaiDangKy;
 
                         // Load danh sách dịch vụ đã chọn
                         DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
@@ -737,10 +722,9 @@ namespace HM.GUI.Pages.BenhNhan
                             var service = serviceBUS.GetServiceById(detail.MaDV);
                             if (service != null)
                             {
-                                serviceTable.Rows.Add(service.MaDV, service.TenDV, service.GiaDV);
+                                serviceTable.Rows.Add(detail.MaDV, service.TenDV, detail.TienDV);
                             }
                         }
-
                         tabControlBenhNhan.SelectedTab = tabPageDangKyDichVu;
                     }
                     else
