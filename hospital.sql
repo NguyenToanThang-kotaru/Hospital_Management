@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 06, 2025 at 11:56 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 04, 2025 lúc 10:47 AM
+-- Phiên bản máy phục vụ: 10.4.32-MariaDB
+-- Phiên bản PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,432 +18,584 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hospital`
+-- Cơ sở dữ liệu: `hospital`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bao_hiem_y_te`
+-- Cấu trúc bảng cho bảng `baohiemyte`
 --
 
-CREATE TABLE `bao_hiem_y_te` (
-  `SoBHYT` varchar(15) NOT NULL,
-  `NgayCap` varchar(256) NOT NULL,
-  `NgayHetHan` varchar(256) NOT NULL,
+CREATE TABLE `baohiemyte` (
+  `SoBHYT` varchar(10) NOT NULL,
+  `NgayCap` varchar(100) NOT NULL,
+  `NgayHetHan` varchar(100) NOT NULL,
   `MucHuong` varchar(100) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `bao_hiem_y_te`
+-- Đang đổ dữ liệu cho bảng `baohiemyte`
 --
 
-INSERT INTO `bao_hiem_y_te` (`SoBHYT`, `NgayCap`, `NgayHetHan`, `MucHuong`, `TrangThaiXoa`) VALUES
-('DN19512345', '2023-01-01', '2028-01-01', '95%', 0),
-('SV38098765', '2022-05-12', '2027-05-12', '80%', 0),
-('HC11024680', '2021-09-10', '2026-09-10', '100%', 0),
-('DN47567890', '2020-03-20', '2025-03-20', '100%', 0),
-('SV39524681', '2024-07-15', '2029-07-15', '95%', 0);
+INSERT INTO `baohiemyte` (`SoBHYT`, `NgayCap`, `NgayHetHan`, `MucHuong`, `TrangThaiXoa`) VALUES
+('SV30986745', '01-01-2025', '31-12-2026', '80%', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `benh`
+-- Cấu trúc bảng cho bảng `benh`
 --
 
 CREATE TABLE `benh` (
   `MaBenh` varchar(10) NOT NULL,
-  `TenBanh` varchar(100) NOT NULL,
-  `MTaBenh` varchar(256) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TenBenh` varchar(100) NOT NULL,
+  `MoTaBenh` varchar(200) DEFAULT NULL,
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `benh`
+-- Đang đổ dữ liệu cho bảng `benh`
 --
 
-INSERT INTO `benh` (`MaBenh`, `TenBanh`, `MTaBenh`, `TrangThaiXoa`) VALUES
-('BENH0001', 'Thiếu máu', 'Thiếu sắt, tan máu, thiếu vitamin B12/folate', 0),
-('BENH0002', 'Đái tháo đường', 'Glucose máu, HbA1c cao', 0),
-('BENH0003', 'Suy thận', 'Viêm cầu thận, sỏi thận', 0),
-('BENH0004', 'Viêm gan', 'Viêm gan virus, xơ gan', 0),
-('BENH0005', 'Viêm phổi', 'Nhiễm khuẩn phổi cấp tính', 0);
+INSERT INTO `benh` (`MaBenh`, `TenBenh`, `MoTaBenh`, `TrangThaiXoa`) VALUES
+('BENH0001', 'Thiếu máu thiếu sắt', 'Thiếu máu do thiếu sắt', '0'),
+('BENH0002', 'Thiếu máu tan máu', 'Thiếu máu do tan máu', '0'),
+('BENH0003', 'Thiếu máu thiếu vitamin B12', 'Thiếu máu do thiếu vitamin B12/folate', '0'),
+('BENH0004', 'Ung thư máu - bạch cầu', 'Bệnh lý tủy xương - ung thư máu bạch cầu', '0'),
+('BENH0005', 'Lymphoma', 'Bệnh lý tủy xương - lymphoma', '0'),
+('BENH0006', 'Đa u tủy', 'Bệnh lý tủy xương - đa u tủy', '0'),
+('BENH0007', 'Hemophilia', 'Rối loạn đông máu - Hemophilia', '0'),
+('BENH0008', 'DIC', 'Rối loạn đông máu - DIC (đông máu rải rác trong lòng mạch)', '0'),
+('BENH0009', 'Xuất huyết giảm tiểu cầu miễn dịch', 'Rối loạn đông máu - xuất huyết giảm tiểu cầu miễn dịch', '0'),
+('BENH0010', 'Nhiễm trùng cấp tính', 'Nhiễm trùng cấp tính - tăng bạch cầu, CRP tăng', '0'),
+('BENH0011', 'Nhiễm trùng mạn tính', 'Nhiễm trùng mạn tính - tăng bạch cầu, CRP tăng', '0'),
+('BENH0012', 'Đái tháo đường', 'Đái tháo đường - Glucose máu, HbA1c', '0'),
+('BENH0013', 'Suy thận', 'Suy thận - Creatinine, Ure, điện giải', '0'),
+('BENH0014', 'Viêm cầu thận', 'Viêm cầu thận - Creatinine, Ure, điện giải', '0'),
+('BENH0015', 'Sỏi thận', 'Sỏi thận - Creatinine, Ure, điện giải', '0'),
+('BENH0016', 'Viêm gan', 'Bệnh gan - viêm gan: ALT, AST, Bilirubin', '0'),
+('BENH0017', 'Xơ gan', 'Bệnh gan - xơ gan: ALT, AST, Bilirubin', '0'),
+('BENH0018', 'Suy gan', 'Bệnh gan - suy gan: ALT, AST, Bilirubin', '0'),
+('BENH0019', 'Rối loạn mỡ máu', 'Rối loạn mỡ máu - tăng Cholesterol, LDL, Triglycerid, nguy cơ tim mạch', '0'),
+('BENH0020', 'Cường giáp', 'Rối loạn nội tiết - cường giáp', '0'),
+('BENH0021', 'Suy giáp', 'Rối loạn nội tiết - suy giáp', '0'),
+('BENH0022', 'Hội chứng Cushing', 'Rối loạn nội tiết - hội chứng Cushing', '0'),
+('BENH0023', 'Viêm phổi', 'Nhiễm khuẩn - viêm phổi', '0'),
+('BENH0024', 'Nhiễm trùng tiểu', 'Nhiễm khuẩn - nhiễm trùng tiểu', '0'),
+('BENH0025', 'Viêm màng não', 'Nhiễm khuẩn - viêm màng não', '0'),
+('BENH0026', 'Lao', 'Nhiễm khuẩn - lao', '0'),
+('BENH0027', 'Nhiễm nấm Candida', 'Nhiễm nấm - Candida', '0'),
+('BENH0028', 'Nhiễm nấm Aspergillus', 'Nhiễm nấm - Aspergillus', '0'),
+('BENH0029', 'Nhiễm amip', 'Nhiễm ký sinh trùng - amip', '0'),
+('BENH0030', 'Nhiễm giun', 'Nhiễm ký sinh trùng - giun', '0'),
+('BENH0031', 'Sốt rét', 'Nhiễm ký sinh trùng - sốt rét', '0'),
+('BENH0032', 'HIV/AIDS', 'Bệnh truyền nhiễm - HIV', '0'),
+('BENH0033', 'Viêm gan B', 'Bệnh truyền nhiễm - viêm gan B', '0'),
+('BENH0034', 'Viêm gan C', 'Bệnh truyền nhiễm - viêm gan C', '0'),
+('BENH0035', 'Giang mai', 'Bệnh truyền nhiễm - giang mai', '0'),
+('BENH0036', 'Sốt xuất huyết', 'Bệnh truyền nhiễm - sốt xuất huyết', '0'),
+('BENH0037', 'COVID-19', 'Bệnh truyền nhiễm - Covid-19', '0'),
+('BENH0038', 'Lupus ban đỏ', 'Bệnh tự miễn - Lupus ban đỏ hệ thống', '0'),
+('BENH0039', 'Viêm khớp dạng thấp', 'Bệnh tự miễn - viêm khớp dạng thấp (RF, anti-CCP, ANA)', '0'),
+('BENH0040', 'Ung thư gan', 'Ung thư - marker khối u AFP', '0'),
+('BENH0041', 'Ung thư tuyến tiền liệt', 'Ung thư - marker khối u PSA', '0'),
+('BENH0042', 'Ung thư buồng trứng', 'Ung thư - marker khối u CA-125', '0'),
+('BENH0043', 'Suy thượng thận', 'Bệnh lý nội tiết - suy thượng thận', '0'),
+('BENH0044', 'Tiểu đường type 1', 'Bệnh lý nội tiết - tiểu đường type 1', '0'),
+('BENH0045', 'Viêm đường tiết niệu', 'Viêm đường tiết niệu - nhiều bạch cầu, vi khuẩn trong nước tiểu', '0'),
+('BENH0046', 'Protein niệu', 'Bệnh thận - protein niệu', '0'),
+('BENH0047', 'Hồng cầu niệu', 'Bệnh thận - hồng cầu niệu', '0'),
+('BENH0048', 'Glucose niệu', 'Tiểu đường - glucose niệu', '0'),
+('BENH0049', 'Ketone niệu', 'Tiểu đường - ketone niệu', '0'),
+('BENH0050', 'Ngộ độc ma túy', 'Ngộ độc, nghiện ma túy - test morphin, methamphetamine, cần sa', '0'),
+('BENH0051', 'Hội chứng Down', 'Bệnh di truyền bẩm sinh - hội chứng Down', '0'),
+('BENH0052', 'Thalassemia', 'Bệnh di truyền bẩm sinh - Thalassemia', '0'),
+('BENH0053', 'Bệnh chuyển hóa bẩm sinh', 'Bệnh di truyền bẩm sinh - bệnh chuyển hóa', '0'),
+('BENH0054', 'Đột biến gen BRCA1', 'Đột biến gen ung thư - BRCA1', '0'),
+('BENH0055', 'Đột biến gen BRCA2', 'Đột biến gen ung thư - BRCA2', '0'),
+('BENH0056', 'Đột biến gen KRAS', 'Đột biến gen ung thư - KRAS', '0'),
+('BENH0057', 'HIV PCR', 'Bệnh truyền nhiễm bằng PCR - HIV', '0'),
+('BENH0058', 'HBV PCR', 'Bệnh truyền nhiễm bằng PCR - HBV', '0'),
+('BENH0059', 'SARS-CoV-2 PCR', 'Bệnh truyền nhiễm bằng PCR - SARS-CoV-2', '0'),
+('BENH0060', 'Lao kháng thuốc PCR', 'Bệnh truyền nhiễm bằng PCR - lao kháng thuốc', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `benh_an`
+-- Cấu trúc bảng cho bảng `benhan`
 --
 
-CREATE TABLE `benh_an` (
+CREATE TABLE `benhan` (
   `MaBA` varchar(10) NOT NULL,
   `SoCCCD` varchar(12) NOT NULL,
   `MaNV` varchar(10) NOT NULL,
   `NgayTao` varchar(256) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `benh_an`
---
-
-INSERT INTO `benh_an` (`MaBA`, `SoCCCD`, `MaNV`, `NgayTao`, `TrangThaiXoa`) VALUES
-('BA0001', '001234567890', 'NV0001', '2023-09-10', 0),
-('BA0002', '002345678901', 'NV0001', '2023-09-12', 0),
-('BA0003', '003456789012', 'NV0001', '2023-09-15', 0),
-('BA0004', '004567890123', 'NV0001', '2023-09-20', 0),
-('BA0005', '005678901234', 'NV0001', '2023-09-25', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `benh_nhan`
+-- Cấu trúc bảng cho bảng `benhnhan`
 --
 
-CREATE TABLE `benh_nhan` (
+CREATE TABLE `benhnhan` (
   `SoCCCD` varchar(12) NOT NULL,
   `TenBN` varchar(100) NOT NULL,
-  `SoBHYT` varchar(15) NOT NULL,
+  `SoBHYT` varchar(10) NOT NULL,
   `NgaySinh` varchar(256) NOT NULL,
   `GioiTinh` varchar(5) NOT NULL,
   `SdtBN` varchar(10) NOT NULL,
   `DiaChi` varchar(100) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `benh_nhan`
+-- Đang đổ dữ liệu cho bảng `benhnhan`
 --
 
-INSERT INTO `benh_nhan` (`SoCCCD`, `TenBN`, `SoBHYT`, `NgaySinh`, `GioiTinh`, `SdtBN`, `DiaChi`, `TrangThaiXoa`) VALUES
-('001234567890', 'Nguyen Van A', 'DN19512345', '1990-05-10', 'Nam', '0912345678', 'Ha Noi', 0),
-('002345678901', 'Tran Thi B', 'SV38098765', '1995-11-20', 'Nu', '0909876543', 'Hai Phong', 0),
-('003456789012', 'Le Van C', 'HC11024680', '1980-02-15', 'Nam', '0934567890', 'Da Nang', 0),
-('004567890123', 'Pham Thi D', 'DN47567890', '2000-07-25', 'Nu', '0961234567', 'HCM', 0),
-('005678901234', 'Hoang Van E', 'SV39524681', '1988-09-30', 'Nam', '0987654321', 'Hue', 0);
+INSERT INTO `benhnhan` (`SoCCCD`, `TenBN`, `SoBHYT`, `NgaySinh`, `GioiTinh`, `SdtBN`, `DiaChi`, `TrangThaiXoa`) VALUES
+('079205001749', 'Phạm Đình Duy Thái', 'SV30986745', '22-04-2005', 'Nam', '0368035171', 'Hóc Môn', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chan_doan`
+-- Cấu trúc bảng cho bảng `chandoan`
 --
 
-CREATE TABLE `chan_doan` (
+CREATE TABLE `chandoan` (
   `MaBA` varchar(10) NOT NULL,
   `MaBenh` varchar(10) NOT NULL,
-  `NgayChuanDoan` varchar(256) NOT NULL,
-  `KQuaDieuTri` varchar(100) NOT NULL
+  `NgayChanDoan` varchar(100) NOT NULL,
+  `KetQuaDieuTri` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `chan_doan`
---
-
-INSERT INTO `chan_doan` (`MaBA`, `MaBenh`, `NgayChuanDoan`, `KQuaDieuTri`) VALUES
-('BA0001', 'BENH0001', '2023-09-11', 'Đang điều trị'),
-('BA0002', 'BENH0002', '2023-09-13', 'Ổn định'),
-('BA0003', 'BENH0003', '2023-09-16', 'Cần theo dõi'),
-('BA0004', 'BENH0004', '2023-09-21', 'Khỏi'),
-('BA0005', 'BENH0005', '2023-09-26', 'Đang điều trị');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chi_tiet_dang_ky`
+-- Cấu trúc bảng cho bảng `chitietdangky`
 --
 
-CREATE TABLE `chi_tiet_dang_ky` (
+CREATE TABLE `chitietdangky` (
   `MaDKDV` varchar(10) NOT NULL,
-  `MaDV` varchar(10) NOT NULL
+  `MaDV` varchar(10) NOT NULL,
+  `TienDV` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `chi_tiet_dang_ky`
+-- Đang đổ dữ liệu cho bảng `chitietdangky`
 --
 
-INSERT INTO `chi_tiet_dang_ky` (`MaDKDV`, `MaDV`) VALUES
-('DK0001', 'DV000001'),
-('DK0002', 'DV000001'),
-('DK0003', 'DV000001'),
-('DK0004', 'DV000001'),
-('DK0005', 'DV000001'),
-('DK0001', 'DV000002'),
-('DK0002', 'DV000002'),
-('DK0003', 'DV000002'),
-('DK0004', 'DV000002'),
-('DK0005', 'DV000002');
+INSERT INTO `chitietdangky` (`MaDKDV`, `MaDV`, `TienDV`) VALUES
+('DKDV000001', 'DV000001', '200000'),
+('DKDV000001', 'DV000002', '250000'),
+('DKDV000001', 'DV000003', '1150000'),
+('DKDV000002', 'DV000001', '40,000'),
+('DKDV000002', 'DV000002', '50,000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chi_tiet_dich_vu`
+-- Cấu trúc bảng cho bảng `chitietdichvu`
 --
 
-CREATE TABLE `chi_tiet_dich_vu` (
+CREATE TABLE `chitietdichvu` (
   `MaDV` varchar(10) NOT NULL,
   `MaBA` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `chi_tiet_dich_vu`
---
-
-INSERT INTO `chi_tiet_dich_vu` (`MaDV`, `MaBA`) VALUES
-('DV000001', 'BA0001'),
-('DV000001', 'BA0002'),
-('DV000001', 'BA0003'),
-('DV000001', 'BA0004'),
-('DV000001', 'BA0005'),
-('DV000002', 'BA0001'),
-('DV000002', 'BA0002'),
-('DV000002', 'BA0003'),
-('DV000002', 'BA0004'),
-('DV000002', 'BA0005');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chi_tiet_quyen`
+-- Cấu trúc bảng cho bảng `chitietquyen`
 --
 
-CREATE TABLE `chi_tiet_quyen` (
+CREATE TABLE `chitietquyen` (
   `MaQuyen` varchar(10) NOT NULL,
   `MaHD` varchar(10) NOT NULL,
   `MaCN` varchar(10) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiKichHoat` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `chi_tiet_quyen`
+-- Đang đổ dữ liệu cho bảng `chitietquyen`
 --
 
-INSERT INTO `chi_tiet_quyen` (`MaQuyen`, `MaHD`, `MaCN`, `TrangThaiXoa`) VALUES
-('QUYEN0001', 'HD01', 'CN0001', 1),
-('QUYEN0001', 'HD04', 'CN0002', 1),
-('QUYEN0002', 'HD04', 'CN0002', 1),
-('QUYEN0004', 'HD04', 'CN0003', 1),
-('QUYEN0005', 'HD01', 'CN0005', 1);
+INSERT INTO `chitietquyen` (`MaQuyen`, `MaHD`, `MaCN`, `TrangThaiKichHoat`) VALUES
+('QUYEN0001', 'add', 'CN0001', '1'),
+('QUYEN0001', 'add', 'CN0002', '1'),
+('QUYEN0001', 'add', 'CN0003', '1'),
+('QUYEN0001', 'add', 'CN0004', '1'),
+('QUYEN0001', 'add', 'CN0005', '1'),
+('QUYEN0001', 'add', 'CN0006', '1'),
+('QUYEN0001', 'delete', 'CN0001', '1'),
+('QUYEN0001', 'delete', 'CN0002', '1'),
+('QUYEN0001', 'delete', 'CN0003', '1'),
+('QUYEN0001', 'delete', 'CN0004', '1'),
+('QUYEN0001', 'delete', 'CN0005', '1'),
+('QUYEN0001', 'delete', 'CN0006', '1'),
+('QUYEN0001', 'edit', 'CN0001', '1'),
+('QUYEN0001', 'edit', 'CN0002', '1'),
+('QUYEN0001', 'edit', 'CN0003', '1'),
+('QUYEN0001', 'edit', 'CN0004', '1'),
+('QUYEN0001', 'edit', 'CN0005', '1'),
+('QUYEN0001', 'edit', 'CN0006', '1'),
+('QUYEN0001', 'view', 'CN0001', '1'),
+('QUYEN0001', 'view', 'CN0002', '1'),
+('QUYEN0001', 'view', 'CN0003', '1'),
+('QUYEN0001', 'view', 'CN0004', '1'),
+('QUYEN0001', 'view', 'CN0005', '1'),
+('QUYEN0001', 'view', 'CN0006', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chuc_nang`
+-- Cấu trúc bảng cho bảng `chucnang`
 --
 
-CREATE TABLE `chuc_nang` (
+CREATE TABLE `chucnang` (
   `MaCN` varchar(10) NOT NULL,
   `TenCN` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `chuc_nang`
+-- Đang đổ dữ liệu cho bảng `chucnang`
 --
 
-INSERT INTO `chuc_nang` (`MaCN`, `TenCN`) VALUES
-('CN0001', 'Quan ly benh nhan'),
-('CN0002', 'Quan ly benh an'),
-('CN0003', 'Quan ly hoa don'),
-('CN0004', 'Thong ke'),
-('CN0005', 'Quan ly nhan vien');
+INSERT INTO `chucnang` (`MaCN`, `TenCN`) VALUES
+('CN0001', 'Thống kê'),
+('CN0002', 'Quản lý bệnh nhân'),
+('CN0003', 'Quản lý hồ sơ bệnh án'),
+('CN0004', 'Quản lý dịch vụ'),
+('CN0005', 'Quản lý nhân viên'),
+('CN0006', 'Quản lý phân quyền');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dich_vu`
+-- Cấu trúc bảng cho bảng `dangkydichvu`
 --
 
-CREATE TABLE `dich_vu` (
+CREATE TABLE `dangkydichvu` (
+  `MaDKDV` varchar(10) NOT NULL,
+  `SoCCCD` varchar(12) NOT NULL,
+  `NgayGioTaoPhieu` varchar(100) NOT NULL,
+  `TrangThaiDangKy` varchar(100) NOT NULL,
+  `TongChiPhi` varchar(100) NOT NULL,
+  `HinhThucThanhToan` varchar(100) DEFAULT NULL,
+  `MaNV` varchar(10) NOT NULL,
+  `TrangThaiXoa` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `dangkydichvu`
+--
+
+INSERT INTO `dangkydichvu` (`MaDKDV`, `SoCCCD`, `NgayGioTaoPhieu`, `TrangThaiDangKy`, `TongChiPhi`, `HinhThucThanhToan`, `MaNV`, `TrangThaiXoa`) VALUES
+('DKDV000001', '079205001749', '04-12-2025 15:27:32', 'Chưa hoàn thành', '1,240,000', 'Tiền mặt', 'NV000001', '0'),
+('DKDV000002', '079205001749', '04-12-2025 15:36:53', 'Chưa hoàn thành', '90,000', 'Tiền mặt', 'NV000001', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `dichvu`
+--
+
+CREATE TABLE `dichvu` (
   `MaDV` varchar(10) NOT NULL,
   `TenDV` varchar(100) NOT NULL,
   `GiaDV` varchar(100) NOT NULL,
-  `BHYTtra` varchar(1) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `DuocBHYTChiTra` varchar(1) NOT NULL,
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `dich_vu`
+-- Đang đổ dữ liệu cho bảng `dichvu`
 --
 
-INSERT INTO `dich_vu` (`MaDV`, `TenDV`, `GiaDV`, `BHYTtra`, `TrangThaiXoa`) VALUES
-('DV000001', 'Chụp X-Quang', '250000', '0', 0),
-('DV000002', 'Chụp CT Scan', '1150000', '0', 0),
-('DV000003', 'Chụp MRI toàn thân', '10000000', '0', 0),
-('DV000004', 'Siêu âm', '150000', '0', 0),
-('DV000005', 'Xét nghiệm HbA1c', '130000', '0', 0);
+INSERT INTO `dichvu` (`MaDV`, `TenDV`, `GiaDV`, `DuocBHYTChiTra`, `TrangThaiXoa`) VALUES
+('DV000001', 'Khám bệnh', '200000', '1', '0'),
+('DV000002', 'Chụp X-Quang', '250000', '1', '0'),
+('DV000003', 'Chụp CT Scan', '1150000', '0', '0'),
+('DV000004', 'Chụp MRI 1 bộ phận không thuốc tương phản', '3000000', '0', '0'),
+('DV000005', 'Chụp MRI 1 bộ phận có thuốc tương phản', '4700000', '0', '0'),
+('DV000006', 'Chụp MRI toàn thân', '10000000', '0', '0'),
+('DV000007', 'Siêu âm', '150000', '1', '0'),
+('DV000008', 'Xét nghiệm huyết học', '70000', '1', '0'),
+('DV000009', 'Xét nghiệm HbA1c', '130000', '0', '0'),
+('DV000010', 'Xét nghiệm đường huyết', '60000', '1', '0'),
+('DV000011', 'Xét nghiệm sinh hóa', '150000', '1', '0'),
+('DV000012', 'Xét nghiệm vi sinh', '900000', '0', '0'),
+('DV000013', 'Xét nghiệm ký sinh trùng', '120000', '1', '0'),
+('DV000014', 'Xét nghiệm nước tiểu', '80000', '1', '0'),
+('DV000015', 'Xét nghiệm di truyền', '1200000', '0', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `don_thuoc`
+-- Cấu trúc bảng cho bảng `donthuoc`
 --
 
-CREATE TABLE `don_thuoc` (
+CREATE TABLE `donthuoc` (
   `MaBA` varchar(10) NOT NULL,
-  `MaDP` varchar(100) NOT NULL,
-  `SLuongDP` varchar(100) NOT NULL,
-  `DviDP` varchar(10) NOT NULL
+  `MaDP` varchar(10) NOT NULL,
+  `SoLuongDP` varchar(10) NOT NULL,
+  `DonViDP` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `don_thuoc`
---
-
-INSERT INTO `don_thuoc` (`MaBA`, `MaDP`, `SLuongDP`, `DviDP`) VALUES
-('BA0001', 'DP000001', '10', 'vien'),
-('BA0002', 'DP000005', '20', 'vien'),
-('BA0003', 'DP000003', '15', 'vien'),
-('BA0004', 'DP000002', '30', 'vien'),
-('BA0005', 'DP000004', '5', 'vien');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hanh_dong`
+-- Cấu trúc bảng cho bảng `duocpham`
 --
 
-CREATE TABLE `hanh_dong` (
+CREATE TABLE `duocpham` (
+  `MaDP` varchar(10) NOT NULL,
+  `TenDP` varchar(100) NOT NULL,
+  `LoaiDP` varchar(100) NOT NULL,
+  `TrangThaiXoa` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `duocpham`
+--
+
+INSERT INTO `duocpham` (`MaDP`, `TenDP`, `LoaiDP`, `TrangThaiXoa`) VALUES
+('DP000001', 'Paracetamol', 'Thuốc giảm đau - hạ sốt - kháng viêm', '0'),
+('DP000002', 'Ibuprofen', 'Thuốc giảm đau - hạ sốt - kháng viêm', '0'),
+('DP000003', 'Diclofenac', 'Thuốc giảm đau - hạ sốt - kháng viêm', '0'),
+('DP000004', 'Naproxen', 'Thuốc giảm đau - hạ sốt - kháng viêm', '0'),
+('DP000005', 'Aspirin', 'Thuốc giảm đau - hạ sốt - kháng viêm', '0'),
+('DP000006', 'Penicillin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000007', 'Amoxicillin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000008', 'Ampicillin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000009', 'Ceftriaxone', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000010', 'Cefotaxime', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000011', 'Azithromycin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000012', 'Clarithromycin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000013', 'Ciprofloxacin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000014', 'Levofloxacin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000015', 'Gentamicin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000016', 'Amikacin', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000017', 'Metronidazole', 'Thuốc kháng sinh - chống nhiễm khuẩn', '0'),
+('DP000018', 'Captopril', 'Thuốc tim mạch', '0'),
+('DP000019', 'Enalapril', 'Thuốc tim mạch', '0'),
+('DP000020', 'Lisinopril', 'Thuốc tim mạch', '0'),
+('DP000021', 'Amlodipine', 'Thuốc tim mạch', '0'),
+('DP000022', 'Nifedipine', 'Thuốc tim mạch', '0'),
+('DP000023', 'Atenolol', 'Thuốc tim mạch', '0'),
+('DP000024', 'Metoprolol', 'Thuốc tim mạch', '0'),
+('DP000025', 'Propranolol', 'Thuốc tim mạch', '0'),
+('DP000026', 'Furosemide', 'Thuốc tim mạch', '0'),
+('DP000027', 'Spironolactone', 'Thuốc tim mạch', '0'),
+('DP000028', 'Atorvastatin', 'Thuốc tim mạch', '0'),
+('DP000029', 'Simvastatin', 'Thuốc tim mạch', '0'),
+('DP000030', 'Clopidogrel', 'Thuốc tim mạch', '0'),
+('DP000031', 'Salbutamol', 'Thuốc hô hấp', '0'),
+('DP000032', 'Budesonide', 'Thuốc hô hấp', '0'),
+('DP000033', 'Fluticasone', 'Thuốc hô hấp', '0'),
+('DP000034', 'Acetylcysteine', 'Thuốc hô hấp', '0'),
+('DP000035', 'Ambroxol', 'Thuốc hô hấp', '0'),
+('DP000036', 'Omeprazole', 'Thuốc tiêu hóa', '0'),
+('DP000037', 'Esomeprazole', 'Thuốc tiêu hóa', '0'),
+('DP000038', 'Pantoprazole', 'Thuốc tiêu hóa', '0'),
+('DP000039', 'Ranitidine', 'Thuốc tiêu hóa', '0'),
+('DP000040', 'Famotidine', 'Thuốc tiêu hóa', '0'),
+('DP000041', 'Domperidone', 'Thuốc tiêu hóa', '0'),
+('DP000042', 'Metoclopramide', 'Thuốc tiêu hóa', '0'),
+('DP000043', 'Loperamide', 'Thuốc tiêu hóa', '0'),
+('DP000044', 'ORS (Oresol)', 'Thuốc tiêu hóa', '0'),
+('DP000045', 'Diazepam', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000046', 'Lorazepam', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000047', 'Haloperidol', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000048', 'Risperidone', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000049', 'Amitriptyline', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000050', 'Fluoxetine', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000051', 'Sertraline', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000052', 'Carbamazepine', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000053', 'Valproate', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000054', 'Phenytoin', 'Thuốc thần kinh - tâm thần', '0'),
+('DP000055', 'Insulin', 'Thuốc nội tiết - chuyển hóa', '0'),
+('DP000056', 'Metformin', 'Thuốc nội tiết - chuyển hóa', '0'),
+('DP000057', 'Gliclazide', 'Thuốc nội tiết - chuyển hóa', '0'),
+('DP000058', 'Levothyroxine', 'Thuốc nội tiết - chuyển hóa', '0'),
+('DP000059', 'Prednisolone', 'Thuốc nội tiết - chuyển hóa', '0'),
+('DP000060', 'Dexamethasone', 'Thuốc nội tiết - chuyển hóa', '0'),
+('DP000061', 'Vitamin A', 'Vitamin', '0'),
+('DP000062', 'Vitamin B', 'Vitamin', '0'),
+('DP000063', 'Vitamin C', 'Vitamin', '0'),
+('DP000064', 'Vitamin D', 'Vitamin', '0'),
+('DP000065', 'Vitamin E', 'Vitamin', '0'),
+('DP000066', 'Vitamin K', 'Vitamin', '0'),
+('DP000067', 'Ethinylestradiol', 'Thuốc tránh thai', '0'),
+('DP000068', 'Levonorgestrel', 'Thuốc tránh thai', '0'),
+('DP000069', 'Oseltamivir', 'Thuốc kháng virus', '0'),
+('DP000070', 'Tenofovir', 'Thuốc kháng virus', '0'),
+('DP000071', 'Lamivudine', 'Thuốc kháng virus', '0'),
+('DP000072', 'Cisplatin', 'Thuốc chống ung thư', '0'),
+('DP000073', 'Doxorubicin', 'Thuốc chống ung thư', '0'),
+('DP000074', 'Methotrexate', 'Thuốc chống ung thư', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `hanhdong`
+--
+
+CREATE TABLE `hanhdong` (
   `MaHD` varchar(10) NOT NULL,
   `TenHD` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `hanh_dong`
+-- Đang đổ dữ liệu cho bảng `hanhdong`
 --
 
-INSERT INTO `hanh_dong` (`MaHD`, `TenHD`) VALUES
-('HD01', 'them'),
-('HD02', 'xoa'),
-('HD03', 'sua'),
-('HD04', 'xem'),
-('HD05', 'in');
+INSERT INTO `hanhdong` (`MaHD`, `TenHD`) VALUES
+('add', 'Thêm'),
+('delete', 'Xóa'),
+('edit', 'Sửa'),
+('view', 'Xem');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `khoa`
+-- Cấu trúc bảng cho bảng `khoa`
 --
 
 CREATE TABLE `khoa` (
   `MaKhoa` varchar(10) NOT NULL,
   `TenKhoa` varchar(100) NOT NULL,
   `SoLuong` varchar(10) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `khoa`
+-- Đang đổ dữ liệu cho bảng `khoa`
 --
 
 INSERT INTO `khoa` (`MaKhoa`, `TenKhoa`, `SoLuong`, `TrangThaiXoa`) VALUES
-('KHOA0001', 'Hanh chinh', '0', 0),
-('KHOA0002', 'Kham benh', '0', 0),
-('KHOA0003', 'Noi', '0', 0),
-('KHOA0004', 'Ngoai', '0', 0),
-('KHOA0005', 'Nhi', '0', 0);
+('KHOA0001', 'Khoa hành chính', '5', '0'),
+('KHOA0002', 'Khoa khám bệnh', '2', '0'),
+('KHOA0003', 'Khoa nội', '2', '0'),
+('KHOA0004', 'Khoa ngoại', '2', '0'),
+('KHOA0005', 'Khoa nhi', '4', '0'),
+('KHOA0006', 'Khoa sản', '4', '0'),
+('KHOA0007', 'Khoa truyền nhiễm', '3', '0'),
+('KHOA0008', 'Khoa cận lâm sàng', '3', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nhan_vien`
+-- Cấu trúc bảng cho bảng `nhanvien`
 --
 
-CREATE TABLE `nhan_vien` (
+CREATE TABLE `nhanvien` (
   `MaNV` varchar(10) NOT NULL,
   `TenNV` varchar(100) NOT NULL,
   `SdtNV` varchar(10) NOT NULL,
   `ChucVu` varchar(100) NOT NULL,
   `VaiTro` varchar(100) NOT NULL,
   `MaKhoa` varchar(10) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `nhan_vien`
+-- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhan_vien` (`MaNV`, `TenNV`, `SdtNV`, `ChucVu`, `VaiTro`, `MaKhoa`, `TrangThaiXoa`) VALUES
-('NV0001', 'Nguyen Van Bac', '0911122233', 'Bac si', 'Bac si', 'KHOA0002', 0),
-('NV0002', 'Tran Thi Lan', '0922233344', 'Dieu duong', 'Dieu duong', 'KHOA0003', 0),
-('NV0003', 'Le Van Hung', '0933344455', 'Truong khoa', 'Quan tri vien', 'KHOA0001', 0),
-('NV0004', 'Pham Thi Hoa', '0944455566', 'Noi tru', 'Nhan vien quay', 'KHOA0005', 0),
-('NV0005', 'Hoang Van Nam', '0955566677', 'Ke toan', 'Ke toan', 'KHOA0001', 0);
+INSERT INTO `nhanvien` (`MaNV`, `TenNV`, `SdtNV`, `ChucVu`, `VaiTro`, `MaKhoa`, `TrangThaiXoa`) VALUES
+('NV000001', 'Nguyễn Thanh Sang', '0912345678', 'Trưởng khoa', 'Quản trị viên', 'KHOA0001', '0'),
+('NV000002', 'Nguyễn Toàn Thắng', '0912345677', 'Phó khoa', 'Kế toán', 'KHOA0001', '0'),
+('NV000003', 'Tăng Huỳnh Quốc Khánh', '0912345676', 'Phó khoa', 'Quản lý', 'KHOA0001', '0'),
+('NV000004', 'Hồ Minh Tiến', '0912345675', 'Nội trú', 'Nhân viên quầy', 'KHOA0001', '0'),
+('NV000005', 'Phạm Đình Duy Thái', '0912345674', 'Trưởng khoa', 'Bác sĩ', 'KHOA0002', '0'),
+('NV000006', 'Lê Văn Nhất', '0912345673', 'Phó khoa', 'Bác sĩ', 'KHOA0002', '0'),
+('NV000007', 'Nguyễn Thanh Sáng', '0912345672', 'Trưởng khoa', 'Bác sĩ', 'KHOA0003', '0'),
+('NV000008', 'Nguyễn Hoàng Thanh', '0912345671', 'Phó khoa', 'Bác sĩ', 'KHOA0003', '0'),
+('NV000009', 'Cao Thành Phát', '0912345670', 'Trưởng khoa', 'Bác sĩ', 'KHOA0004', '0'),
+('NV000010', 'Nguyễn Văn Tài', '0912345601', 'Phó khoa', 'Bác sĩ', 'KHOA0004', '0'),
+('NV000011', 'Nguyễn Phát Tín', '0912345602', 'Trưởng khoa', 'Bác sĩ', 'KHOA0005', '0'),
+('NV000012', 'Mai Thành Trung', '0912345603', 'Phó khoa', 'Bác sĩ', 'KHOA0005', '0'),
+('NV000013', 'Dương Tùng Thiện', '0912345604', 'Trưởng khoa', 'Bác sĩ', 'KHOA0006', '0'),
+('NV000014', 'Nguyễn Hoàng', '0912345605', 'Phó khoa', 'Bác sĩ', 'KHOA0006', '0'),
+('NV000015', 'Quyền Chí Long', '0912345606', 'Trưởng khoa', 'Bác sĩ', 'KHOA0007', '0'),
+('NV000016', 'Nguyễn Thị Ngọc', '0912345605', 'Phó khoa', 'Bác sĩ', 'KHOA0007', '0'),
+('NV000017', 'Lê Thanh Minh', '0912345606', 'Trưởng khoa', 'Bác sĩ', 'KHOA0008', '0'),
+('NV000018', 'Nguyễn Thành Luân', '0912345605', 'Phó khoa', 'Bác sĩ', 'KHOA0008', '0'),
+('NV000019', 'Hồ Gia Bảo', '0912345606', 'Nội trú', 'Nhân viên quầy', 'KHOA0001', '0'),
+('NV000020', 'Lê Văn Nhật', '0912345607', 'Điều trị', 'Điều dưỡng', 'KHOA0005', '0'),
+('NV000021', 'Lê Nguyễn Ngọc', '0912345608', 'Điều trị', 'Điều dưỡng', 'KHOA0005', '0'),
+('NV000022', 'Nguyễn Thành', '0912345609', 'Điều trị', 'Điều dưỡng', 'KHOA0006', '0'),
+('NV000023', 'Đặng Thái Tú', '0912345610', 'Điều trị', 'Điều dưỡng', 'KHOA0006', '0'),
+('NV000024', 'Nguyễn Thiện Hòa', '0912345611', 'Điều trị', 'Điều dưỡng', 'KHOA0007', '0'),
+('NV000025', 'Nguyễn Thiên Phú', '0912345612', 'Điều trị', 'Điều dưỡng', 'KHOA0008', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `phieu_dang_ky_dich_vu`
+-- Cấu trúc bảng cho bảng `phieuchidinh`
 --
 
-CREATE TABLE `phieu_dang_ky_dich_vu` (
-  `MaDKDV` varchar(10) NOT NULL,
+CREATE TABLE `phieuchidinh` (
+  `MaPCD` varchar(10) NOT NULL,
   `SoCCCD` varchar(12) NOT NULL,
-  `NgayTao` varchar(256) NOT NULL,
-  `TTDangKy` varchar(100) NOT NULL,
-  `TongChiPhi` varchar(100) NOT NULL,
-  `HinhThucThanhToan` varchar(100) NOT NULL,
   `MaNV` varchar(10) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `MaDV` varchar(10) NOT NULL,
+  `NgayGioTaoPhieu` varchar(100) NOT NULL,
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `phieu_dang_ky_dich_vu`
---
-
-INSERT INTO `phieu_dang_ky_dich_vu` (`MaDKDV`, `SoCCCD`, `NgayTao`, `TTDangKy`, `TongChiPhi`, `HinhThucThanhToan`, `MaNV`, `TrangThaiXoa`) VALUES
-('DK0001', '001234567890', '2023-09-11', 'Hoàn thành', '500000', 'Tien mat', 'NV0005', 0),
-('DK0002', '002345678901', '2023-09-13', 'Hoàn thành', '2000000', 'Chuyen khoan', 'NV0005', 0),
-('DK0003', '003456789012', '2023-09-16', 'Hoàn thành', '1000000', 'Tien mat', 'NV0005', 0),
-('DK0004', '004567890123', '2023-09-21', 'Hoàn thành', '3000000', 'The', 'NV0005', 0),
-('DK0005', '005678901234', '2023-09-26', 'Hoàn thành', '700000', 'Tien mat', 'NV0005', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quyen`
+-- Cấu trúc bảng cho bảng `quyen`
 --
 
 CREATE TABLE `quyen` (
   `MaQuyen` varchar(10) NOT NULL,
   `TenQuyen` varchar(100) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `quyen`
+-- Đang đổ dữ liệu cho bảng `quyen`
 --
 
 INSERT INTO `quyen` (`MaQuyen`, `TenQuyen`, `TrangThaiXoa`) VALUES
-('QUYEN0001', 'Admin', 0),
-('QUYEN0002', 'Bac si', 0),
-('QUYEN0003', 'Dieu duong', 0),
-('QUYEN0004', 'Ke toan', 0),
-('QUYEN0005', 'Nhan vien quay', 0);
+('QUYEN0001', 'Quyền quản trị viên', '0'),
+('QUYEN0002', 'Quyền quản lý', '0'),
+('QUYEN0003', 'Quyền bác sĩ', '0'),
+('QUYEN0004', 'Quyền nhân viên quầy', '0'),
+('QUYEN0005', 'Quyền kế toán', '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tai_khoan`
+-- Cấu trúc bảng cho bảng `taikhoan`
 --
 
-CREATE TABLE `tai_khoan` (
+CREATE TABLE `taikhoan` (
   `TenDangNhap` varchar(100) NOT NULL,
   `MatKhau` varchar(100) NOT NULL,
   `MaQuyen` varchar(10) NOT NULL,
   `MaNV` varchar(10) NOT NULL,
-  `TrangThaiXoa` tinyint(4) NOT NULL
+  `TrangThaiXoa` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tai_khoan`
+-- Đang đổ dữ liệu cho bảng `taikhoan`
 --
 
-INSERT INTO `tai_khoan` (`TenDangNhap`, `MatKhau`, `MaQuyen`, `MaNV`, `TrangThaiXoa`) VALUES
-('admin', '123456', 'QUYEN0001', 'NV0003', 0),
-('bs1', '123456', 'QUYEN0002', 'NV0001', 0),
-('dd1', '123456', 'QUYEN0003', 'NV0002', 0),
-('kt1', '123456', 'QUYEN0004', 'NV0005', 0),
-('nvq1', '123456', 'QUYEN0005', 'NV0004', 0);
+INSERT INTO `taikhoan` (`TenDangNhap`, `MatKhau`, `MaQuyen`, `MaNV`, `TrangThaiXoa`) VALUES
+('admin', '123456', 'QUYEN0001', 'NV000001', '0'),
+('quanly01', '123456', 'QUYEN0005', 'NV000002', '0'),
+('quanly02', '123456', 'QUYEN0002', 'NV000003', '0'),
+('nhanvienquay01', '123456', 'QUYEN0004', 'NV000004', '0'),
+('bacsi01', '123456', 'QUYEN0003', 'NV000005', '0'),
+('bacsi02', '123456', 'QUYEN0003', 'NV000006', '0');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

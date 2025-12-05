@@ -99,8 +99,9 @@
             this.tabPageKhoa.BackColor = System.Drawing.Color.White;
             this.tabPageKhoa.Controls.Add(this.splitContainer1);
             this.tabPageKhoa.Location = new System.Drawing.Point(4, 49);
+            this.tabPageKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageKhoa.Name = "tabPageKhoa";
-            this.tabPageKhoa.Size = new System.Drawing.Size(1392, 767);
+            this.tabPageKhoa.Size = new System.Drawing.Size(1567, 972);
             this.tabPageKhoa.TabIndex = 1;
             this.tabPageKhoa.Text = "Khoa";
             // 
@@ -114,14 +115,14 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.khoaForm);
-            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.splitContainer1.Panel1.Padding = new System.Windows.Forms.Padding(56, 62, 56, 62);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainer1.Size = new System.Drawing.Size(1392, 767);
-            this.splitContainer1.SplitterDistance = 550;
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(56, 62, 56, 62);
+            this.splitContainer1.Size = new System.Drawing.Size(1567, 972);
+            this.splitContainer1.SplitterDistance = 619;
             this.splitContainer1.TabIndex = 0;
             // 
             // khoaForm
@@ -130,15 +131,16 @@
             this.khoaForm.BorderRadius = 40;
             this.khoaForm.Controls.Add(this.tableLayoutPanel4);
             this.khoaForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khoaForm.Location = new System.Drawing.Point(50, 50);
+            this.khoaForm.Location = new System.Drawing.Point(56, 62);
+            this.khoaForm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.khoaForm.MarginBottom = 0;
             this.khoaForm.MarginLeft = 0;
             this.khoaForm.MarginRight = 0;
             this.khoaForm.MarginTop = 0;
             this.khoaForm.Name = "khoaForm";
-            this.khoaForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.khoaForm.Padding = new System.Windows.Forms.Padding(56, 0, 56, 0);
             this.khoaForm.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.khoaForm.Size = new System.Drawing.Size(450, 667);
+            this.khoaForm.Size = new System.Drawing.Size(507, 848);
             this.khoaForm.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -152,7 +154,8 @@
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel1, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(50, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(56, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 8;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -163,7 +166,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(350, 667);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(395, 848);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // txtMaKhoa
@@ -172,12 +175,12 @@
             this.txtMaKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMaKhoa.IsPassword = false;
             this.txtMaKhoa.LabelText = "Mã khoa";
-            this.txtMaKhoa.Location = new System.Drawing.Point(0, 83);
+            this.txtMaKhoa.Location = new System.Drawing.Point(0, 106);
             this.txtMaKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.txtMaKhoa.Name = "txtMaKhoa";
             this.txtMaKhoa.PanelHeight = 60;
             this.txtMaKhoa.PanelWidth = 200;
-            this.txtMaKhoa.Size = new System.Drawing.Size(350, 83);
+            this.txtMaKhoa.Size = new System.Drawing.Size(395, 106);
             this.txtMaKhoa.TabIndex = 6;
             this.txtMaKhoa.TextValue = "";
             // 
@@ -188,14 +191,14 @@
             this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.nhanVienKhoaPanel, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 249);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 318);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel4.SetRowSpan(this.tableLayoutPanel5, 4);
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(350, 332);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(395, 424);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
             // label3
@@ -203,12 +206,12 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Roboto", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(350, 40);
+            this.label3.Size = new System.Drawing.Size(395, 50);
             this.label3.TabIndex = 1;
             this.label3.Text = "Các nhân viên thuộc khoa";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -217,10 +220,10 @@
             // 
             this.nhanVienKhoaPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.nhanVienKhoaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nhanVienKhoaPanel.Location = new System.Drawing.Point(0, 40);
-            this.nhanVienKhoaPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 40);
+            this.nhanVienKhoaPanel.Location = new System.Drawing.Point(0, 50);
+            this.nhanVienKhoaPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 50);
             this.nhanVienKhoaPanel.Name = "nhanVienKhoaPanel";
-            this.nhanVienKhoaPanel.Size = new System.Drawing.Size(350, 252);
+            this.nhanVienKhoaPanel.Size = new System.Drawing.Size(395, 324);
             this.nhanVienKhoaPanel.TabIndex = 2;
             // 
             // txtTenKhoa
@@ -229,12 +232,12 @@
             this.txtTenKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTenKhoa.IsPassword = false;
             this.txtTenKhoa.LabelText = "Tên khoa";
-            this.txtTenKhoa.Location = new System.Drawing.Point(0, 166);
+            this.txtTenKhoa.Location = new System.Drawing.Point(0, 212);
             this.txtTenKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.txtTenKhoa.Name = "txtTenKhoa";
             this.txtTenKhoa.PanelHeight = 60;
             this.txtTenKhoa.PanelWidth = 200;
-            this.txtTenKhoa.Size = new System.Drawing.Size(350, 83);
+            this.txtTenKhoa.Size = new System.Drawing.Size(395, 106);
             this.txtTenKhoa.TabIndex = 4;
             this.txtTenKhoa.TextValue = "";
             // 
@@ -245,22 +248,22 @@
             this.flowLayoutPanel1.Controls.Add(this.buttonHuyKhoa);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 581);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 742);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(350, 86);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(395, 106);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // buttonXacNhanKhoa
             // 
             this.buttonXacNhanKhoa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonXacNhanKhoa.BorderRadius = 20;
-            this.buttonXacNhanKhoa.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXacNhanKhoa.ForeColor = System.Drawing.Color.White;
-            this.buttonXacNhanKhoa.Location = new System.Drawing.Point(210, 10);
-            this.buttonXacNhanKhoa.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonXacNhanKhoa.Location = new System.Drawing.Point(237, 12);
+            this.buttonXacNhanKhoa.Margin = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonXacNhanKhoa.MarginBottom = 0;
             this.buttonXacNhanKhoa.MarginLeft = 0;
             this.buttonXacNhanKhoa.MarginRight = 0;
@@ -269,7 +272,7 @@
             this.buttonXacNhanKhoa.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonXacNhanKhoa.PanelHeight = 50;
             this.buttonXacNhanKhoa.PanelWidth = 180;
-            this.buttonXacNhanKhoa.Size = new System.Drawing.Size(140, 45);
+            this.buttonXacNhanKhoa.Size = new System.Drawing.Size(158, 56);
             this.buttonXacNhanKhoa.TabIndex = 1;
             this.buttonXacNhanKhoa.Text = "Xác nhận";
             this.buttonXacNhanKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -279,10 +282,10 @@
             // 
             this.buttonHuyKhoa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonHuyKhoa.BorderRadius = 20;
-            this.buttonHuyKhoa.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonHuyKhoa.ForeColor = System.Drawing.Color.White;
-            this.buttonHuyKhoa.Location = new System.Drawing.Point(50, 10);
-            this.buttonHuyKhoa.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.buttonHuyKhoa.Location = new System.Drawing.Point(57, 12);
+            this.buttonHuyKhoa.Margin = new System.Windows.Forms.Padding(0, 0, 11, 0);
             this.buttonHuyKhoa.MarginBottom = 0;
             this.buttonHuyKhoa.MarginLeft = 0;
             this.buttonHuyKhoa.MarginRight = 0;
@@ -291,7 +294,7 @@
             this.buttonHuyKhoa.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
             this.buttonHuyKhoa.PanelHeight = 50;
             this.buttonHuyKhoa.PanelWidth = 180;
-            this.buttonHuyKhoa.Size = new System.Drawing.Size(140, 45);
+            this.buttonHuyKhoa.Size = new System.Drawing.Size(158, 56);
             this.buttonHuyKhoa.TabIndex = 0;
             this.buttonHuyKhoa.Text = "Hủy";
             this.buttonHuyKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -307,7 +310,7 @@
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(350, 83);
+            this.label2.Size = new System.Drawing.Size(395, 106);
             this.label2.TabIndex = 0;
             this.label2.Text = "Khoa";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,26 +322,27 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.khoaPanel, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 50);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(56, 62);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(738, 667);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(832, 848);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 7;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel7.Controls.Add(this.searchBarKhoa, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.buttonXoaKhoa, 6, 0);
             this.tableLayoutPanel7.Controls.Add(this.buttonSuaKhoa, 4, 0);
@@ -347,10 +351,10 @@
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 38);
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(738, 66);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(832, 84);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // searchBarKhoa
@@ -361,7 +365,7 @@
             this.searchBarKhoa.Location = new System.Drawing.Point(0, 0);
             this.searchBarKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.searchBarKhoa.Name = "searchBarKhoa";
-            this.searchBarKhoa.Size = new System.Drawing.Size(328, 35);
+            this.searchBarKhoa.Size = new System.Drawing.Size(371, 41);
             this.searchBarKhoa.TabIndex = 6;
             this.searchBarKhoa.TextChanged += new System.EventHandler(this.searchBarKhoaTextChanged);
             // 
@@ -370,9 +374,9 @@
             this.buttonXoaKhoa.BackColor = System.Drawing.Color.White;
             this.buttonXoaKhoa.BorderRadius = 20;
             this.buttonXoaKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonXoaKhoa.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXoaKhoa.ForeColor = System.Drawing.Color.White;
-            this.buttonXoaKhoa.Location = new System.Drawing.Point(618, 0);
+            this.buttonXoaKhoa.Location = new System.Drawing.Point(697, 0);
             this.buttonXoaKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.buttonXoaKhoa.MarginBottom = 0;
             this.buttonXoaKhoa.MarginLeft = 0;
@@ -382,7 +386,7 @@
             this.buttonXoaKhoa.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonXoaKhoa.PanelHeight = 45;
             this.buttonXoaKhoa.PanelWidth = 160;
-            this.buttonXoaKhoa.Size = new System.Drawing.Size(120, 36);
+            this.buttonXoaKhoa.Size = new System.Drawing.Size(135, 46);
             this.buttonXoaKhoa.TabIndex = 4;
             this.buttonXoaKhoa.Text = "XÓA";
             this.buttonXoaKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -393,9 +397,9 @@
             this.buttonSuaKhoa.BackColor = System.Drawing.Color.White;
             this.buttonSuaKhoa.BorderRadius = 20;
             this.buttonSuaKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSuaKhoa.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSuaKhoa.ForeColor = System.Drawing.Color.White;
-            this.buttonSuaKhoa.Location = new System.Drawing.Point(488, 0);
+            this.buttonSuaKhoa.Location = new System.Drawing.Point(551, 0);
             this.buttonSuaKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSuaKhoa.MarginBottom = 0;
             this.buttonSuaKhoa.MarginLeft = 0;
@@ -405,7 +409,7 @@
             this.buttonSuaKhoa.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonSuaKhoa.PanelHeight = 45;
             this.buttonSuaKhoa.PanelWidth = 160;
-            this.buttonSuaKhoa.Size = new System.Drawing.Size(120, 36);
+            this.buttonSuaKhoa.Size = new System.Drawing.Size(135, 46);
             this.buttonSuaKhoa.TabIndex = 3;
             this.buttonSuaKhoa.Text = "SỬA";
             this.buttonSuaKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -416,9 +420,9 @@
             this.buttnThemKhoa.BackColor = System.Drawing.Color.White;
             this.buttnThemKhoa.BorderRadius = 20;
             this.buttnThemKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttnThemKhoa.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttnThemKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttnThemKhoa.ForeColor = System.Drawing.Color.White;
-            this.buttnThemKhoa.Location = new System.Drawing.Point(358, 0);
+            this.buttnThemKhoa.Location = new System.Drawing.Point(405, 0);
             this.buttnThemKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.buttnThemKhoa.MarginBottom = 0;
             this.buttnThemKhoa.MarginLeft = 0;
@@ -428,7 +432,7 @@
             this.buttnThemKhoa.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttnThemKhoa.PanelHeight = 45;
             this.buttnThemKhoa.PanelWidth = 160;
-            this.buttnThemKhoa.Size = new System.Drawing.Size(120, 36);
+            this.buttnThemKhoa.Size = new System.Drawing.Size(135, 46);
             this.buttnThemKhoa.TabIndex = 2;
             this.buttnThemKhoa.Text = "THÊM";
             this.buttnThemKhoa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -439,7 +443,7 @@
             this.khoaPanel.BackColor = System.Drawing.Color.White;
             this.khoaPanel.BorderRadius = 40;
             this.khoaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.khoaPanel.Location = new System.Drawing.Point(0, 66);
+            this.khoaPanel.Location = new System.Drawing.Point(0, 84);
             this.khoaPanel.Margin = new System.Windows.Forms.Padding(0);
             this.khoaPanel.MarginBottom = 0;
             this.khoaPanel.MarginLeft = 0;
@@ -447,7 +451,7 @@
             this.khoaPanel.MarginTop = 30;
             this.khoaPanel.Name = "khoaPanel";
             this.khoaPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.khoaPanel.Size = new System.Drawing.Size(738, 601);
+            this.khoaPanel.Size = new System.Drawing.Size(832, 764);
             this.khoaPanel.TabIndex = 1;
             // 
             // tabPageNhanVien
@@ -455,8 +459,9 @@
             this.tabPageNhanVien.BackColor = System.Drawing.Color.White;
             this.tabPageNhanVien.Controls.Add(this.splitContainerNhanVien);
             this.tabPageNhanVien.Location = new System.Drawing.Point(4, 49);
+            this.tabPageNhanVien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPageNhanVien.Name = "tabPageNhanVien";
-            this.tabPageNhanVien.Size = new System.Drawing.Size(1392, 767);
+            this.tabPageNhanVien.Size = new System.Drawing.Size(1567, 972);
             this.tabPageNhanVien.TabIndex = 0;
             this.tabPageNhanVien.Text = "Nhân viên";
             // 
@@ -470,14 +475,14 @@
             // splitContainerNhanVien.Panel1
             // 
             this.splitContainerNhanVien.Panel1.Controls.Add(this.nhanVienForm);
-            this.splitContainerNhanVien.Panel1.Padding = new System.Windows.Forms.Padding(50);
+            this.splitContainerNhanVien.Panel1.Padding = new System.Windows.Forms.Padding(56, 62, 56, 62);
             // 
             // splitContainerNhanVien.Panel2
             // 
             this.splitContainerNhanVien.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainerNhanVien.Panel2.Padding = new System.Windows.Forms.Padding(50);
-            this.splitContainerNhanVien.Size = new System.Drawing.Size(1392, 767);
-            this.splitContainerNhanVien.SplitterDistance = 550;
+            this.splitContainerNhanVien.Panel2.Padding = new System.Windows.Forms.Padding(56, 62, 56, 62);
+            this.splitContainerNhanVien.Size = new System.Drawing.Size(1567, 972);
+            this.splitContainerNhanVien.SplitterDistance = 619;
             this.splitContainerNhanVien.TabIndex = 0;
             // 
             // nhanVienForm
@@ -486,16 +491,16 @@
             this.nhanVienForm.BorderRadius = 40;
             this.nhanVienForm.Controls.Add(this.tableLayoutPanel3);
             this.nhanVienForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nhanVienForm.Location = new System.Drawing.Point(50, 50);
+            this.nhanVienForm.Location = new System.Drawing.Point(56, 62);
             this.nhanVienForm.Margin = new System.Windows.Forms.Padding(0);
             this.nhanVienForm.MarginBottom = 0;
             this.nhanVienForm.MarginLeft = 0;
             this.nhanVienForm.MarginRight = 0;
             this.nhanVienForm.MarginTop = 0;
             this.nhanVienForm.Name = "nhanVienForm";
-            this.nhanVienForm.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.nhanVienForm.Padding = new System.Windows.Forms.Padding(56, 0, 56, 0);
             this.nhanVienForm.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.nhanVienForm.Size = new System.Drawing.Size(450, 667);
+            this.nhanVienForm.Size = new System.Drawing.Size(507, 848);
             this.nhanVienForm.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -512,7 +517,7 @@
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(50, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(56, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 8;
@@ -524,7 +529,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(350, 667);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(395, 848);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // txtMaNhanVien
@@ -533,12 +538,12 @@
             this.txtMaNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMaNhanVien.IsPassword = false;
             this.txtMaNhanVien.LabelText = "Mã nhân viên";
-            this.txtMaNhanVien.Location = new System.Drawing.Point(0, 83);
+            this.txtMaNhanVien.Location = new System.Drawing.Point(0, 106);
             this.txtMaNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.PanelHeight = 60;
             this.txtMaNhanVien.PanelWidth = 200;
-            this.txtMaNhanVien.Size = new System.Drawing.Size(350, 83);
+            this.txtMaNhanVien.Size = new System.Drawing.Size(395, 106);
             this.txtMaNhanVien.TabIndex = 9;
             this.txtMaNhanVien.TextValue = "";
             // 
@@ -547,12 +552,12 @@
             this.comboBoxKhoa.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxKhoa.LabelText = "Khoa";
-            this.comboBoxKhoa.Location = new System.Drawing.Point(0, 498);
+            this.comboBoxKhoa.Location = new System.Drawing.Point(0, 636);
             this.comboBoxKhoa.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxKhoa.Name = "comboBoxKhoa";
             this.comboBoxKhoa.PanelHeight = 100;
             this.comboBoxKhoa.PanelWidth = 200;
-            this.comboBoxKhoa.Size = new System.Drawing.Size(350, 83);
+            this.comboBoxKhoa.Size = new System.Drawing.Size(395, 106);
             this.comboBoxKhoa.TabIndex = 8;
             this.comboBoxKhoa.TextValue = "";
             this.comboBoxKhoa.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxKhoaLoad);
@@ -562,12 +567,12 @@
             this.comboBoxVaiTro.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxVaiTro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxVaiTro.LabelText = "Vai trò";
-            this.comboBoxVaiTro.Location = new System.Drawing.Point(0, 415);
+            this.comboBoxVaiTro.Location = new System.Drawing.Point(0, 530);
             this.comboBoxVaiTro.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxVaiTro.Name = "comboBoxVaiTro";
             this.comboBoxVaiTro.PanelHeight = 100;
             this.comboBoxVaiTro.PanelWidth = 200;
-            this.comboBoxVaiTro.Size = new System.Drawing.Size(350, 83);
+            this.comboBoxVaiTro.Size = new System.Drawing.Size(395, 106);
             this.comboBoxVaiTro.TabIndex = 7;
             this.comboBoxVaiTro.TextValue = "";
             this.comboBoxVaiTro.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxVaiTroLoad);
@@ -578,12 +583,12 @@
             this.comboBoxChucVu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxChucVu.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBoxChucVu.LabelText = "Chức vụ";
-            this.comboBoxChucVu.Location = new System.Drawing.Point(0, 332);
+            this.comboBoxChucVu.Location = new System.Drawing.Point(0, 424);
             this.comboBoxChucVu.Margin = new System.Windows.Forms.Padding(0);
             this.comboBoxChucVu.Name = "comboBoxChucVu";
             this.comboBoxChucVu.PanelHeight = 100;
             this.comboBoxChucVu.PanelWidth = 200;
-            this.comboBoxChucVu.Size = new System.Drawing.Size(350, 83);
+            this.comboBoxChucVu.Size = new System.Drawing.Size(395, 106);
             this.comboBoxChucVu.TabIndex = 6;
             this.comboBoxChucVu.TextValue = "";
             this.comboBoxChucVu.Paint += new System.Windows.Forms.PaintEventHandler(this.comboBoxChucVuLoad);
@@ -594,12 +599,12 @@
             this.txtSoDienThoai.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSoDienThoai.IsPassword = false;
             this.txtSoDienThoai.LabelText = "Số điện thoại";
-            this.txtSoDienThoai.Location = new System.Drawing.Point(0, 249);
+            this.txtSoDienThoai.Location = new System.Drawing.Point(0, 318);
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(0);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.PanelHeight = 60;
             this.txtSoDienThoai.PanelWidth = 200;
-            this.txtSoDienThoai.Size = new System.Drawing.Size(350, 83);
+            this.txtSoDienThoai.Size = new System.Drawing.Size(395, 106);
             this.txtSoDienThoai.TabIndex = 5;
             this.txtSoDienThoai.TextValue = "";
             // 
@@ -609,12 +614,12 @@
             this.txtTenNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTenNhanVien.IsPassword = false;
             this.txtTenNhanVien.LabelText = "Tên nhân viên";
-            this.txtTenNhanVien.Location = new System.Drawing.Point(0, 166);
+            this.txtTenNhanVien.Location = new System.Drawing.Point(0, 212);
             this.txtTenNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.PanelHeight = 60;
             this.txtTenNhanVien.PanelWidth = 200;
-            this.txtTenNhanVien.Size = new System.Drawing.Size(350, 83);
+            this.txtTenNhanVien.Size = new System.Drawing.Size(395, 106);
             this.txtTenNhanVien.TabIndex = 4;
             this.txtTenNhanVien.TextValue = "";
             // 
@@ -624,22 +629,22 @@
             this.flowLayoutPanel2.Controls.Add(this.buttonHuyNhanVien);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 581);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 742);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.flowLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(350, 86);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(395, 106);
             this.flowLayoutPanel2.TabIndex = 3;
             // 
             // buttonXacNhanNhanVien
             // 
             this.buttonXacNhanNhanVien.BackColor = System.Drawing.Color.Transparent;
             this.buttonXacNhanNhanVien.BorderRadius = 20;
-            this.buttonXacNhanNhanVien.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXacNhanNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXacNhanNhanVien.ForeColor = System.Drawing.Color.White;
-            this.buttonXacNhanNhanVien.Location = new System.Drawing.Point(210, 10);
-            this.buttonXacNhanNhanVien.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonXacNhanNhanVien.Location = new System.Drawing.Point(237, 12);
+            this.buttonXacNhanNhanVien.Margin = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonXacNhanNhanVien.MarginBottom = 0;
             this.buttonXacNhanNhanVien.MarginLeft = 0;
             this.buttonXacNhanNhanVien.MarginRight = 0;
@@ -648,7 +653,7 @@
             this.buttonXacNhanNhanVien.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonXacNhanNhanVien.PanelHeight = 50;
             this.buttonXacNhanNhanVien.PanelWidth = 180;
-            this.buttonXacNhanNhanVien.Size = new System.Drawing.Size(140, 45);
+            this.buttonXacNhanNhanVien.Size = new System.Drawing.Size(158, 56);
             this.buttonXacNhanNhanVien.TabIndex = 1;
             this.buttonXacNhanNhanVien.Text = "Xác nhận";
             this.buttonXacNhanNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -658,10 +663,10 @@
             // 
             this.buttonHuyNhanVien.BackColor = System.Drawing.Color.Transparent;
             this.buttonHuyNhanVien.BorderRadius = 20;
-            this.buttonHuyNhanVien.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonHuyNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonHuyNhanVien.ForeColor = System.Drawing.Color.White;
-            this.buttonHuyNhanVien.Location = new System.Drawing.Point(50, 10);
-            this.buttonHuyNhanVien.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.buttonHuyNhanVien.Location = new System.Drawing.Point(57, 12);
+            this.buttonHuyNhanVien.Margin = new System.Windows.Forms.Padding(0, 0, 11, 0);
             this.buttonHuyNhanVien.MarginBottom = 0;
             this.buttonHuyNhanVien.MarginLeft = 0;
             this.buttonHuyNhanVien.MarginRight = 0;
@@ -670,7 +675,7 @@
             this.buttonHuyNhanVien.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(90)))), ((int)(((byte)(93)))));
             this.buttonHuyNhanVien.PanelHeight = 50;
             this.buttonHuyNhanVien.PanelWidth = 180;
-            this.buttonHuyNhanVien.Size = new System.Drawing.Size(140, 45);
+            this.buttonHuyNhanVien.Size = new System.Drawing.Size(158, 56);
             this.buttonHuyNhanVien.TabIndex = 0;
             this.buttonHuyNhanVien.Text = "Hủy";
             this.buttonHuyNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -680,12 +685,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Roboto", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 83);
+            this.label1.Size = new System.Drawing.Size(395, 106);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nhân viên";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -697,26 +702,27 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.nhanVienPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(56, 62);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(738, 667);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(832, 848);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 7;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel6.Controls.Add(this.searchBarNhanVien, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonXoaNhanVien, 6, 0);
             this.tableLayoutPanel6.Controls.Add(this.buttonSuaNhanVien, 4, 0);
@@ -725,10 +731,10 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 38);
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(738, 66);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(832, 84);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // searchBarNhanVien
@@ -739,7 +745,7 @@
             this.searchBarNhanVien.Location = new System.Drawing.Point(0, 0);
             this.searchBarNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.searchBarNhanVien.Name = "searchBarNhanVien";
-            this.searchBarNhanVien.Size = new System.Drawing.Size(328, 35);
+            this.searchBarNhanVien.Size = new System.Drawing.Size(371, 41);
             this.searchBarNhanVien.TabIndex = 6;
             this.searchBarNhanVien.TextChanged += new System.EventHandler(this.searchBarNhanVienTextChanged);
             // 
@@ -748,9 +754,9 @@
             this.buttonXoaNhanVien.BackColor = System.Drawing.Color.White;
             this.buttonXoaNhanVien.BorderRadius = 20;
             this.buttonXoaNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonXoaNhanVien.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonXoaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonXoaNhanVien.ForeColor = System.Drawing.Color.White;
-            this.buttonXoaNhanVien.Location = new System.Drawing.Point(618, 0);
+            this.buttonXoaNhanVien.Location = new System.Drawing.Point(697, 0);
             this.buttonXoaNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.buttonXoaNhanVien.MarginBottom = 0;
             this.buttonXoaNhanVien.MarginLeft = 0;
@@ -760,7 +766,7 @@
             this.buttonXoaNhanVien.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonXoaNhanVien.PanelHeight = 45;
             this.buttonXoaNhanVien.PanelWidth = 160;
-            this.buttonXoaNhanVien.Size = new System.Drawing.Size(120, 36);
+            this.buttonXoaNhanVien.Size = new System.Drawing.Size(135, 46);
             this.buttonXoaNhanVien.TabIndex = 4;
             this.buttonXoaNhanVien.Text = "XÓA";
             this.buttonXoaNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -771,9 +777,9 @@
             this.buttonSuaNhanVien.BackColor = System.Drawing.Color.White;
             this.buttonSuaNhanVien.BorderRadius = 20;
             this.buttonSuaNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSuaNhanVien.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSuaNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonSuaNhanVien.ForeColor = System.Drawing.Color.White;
-            this.buttonSuaNhanVien.Location = new System.Drawing.Point(488, 0);
+            this.buttonSuaNhanVien.Location = new System.Drawing.Point(551, 0);
             this.buttonSuaNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSuaNhanVien.MarginBottom = 0;
             this.buttonSuaNhanVien.MarginLeft = 0;
@@ -783,7 +789,7 @@
             this.buttonSuaNhanVien.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonSuaNhanVien.PanelHeight = 45;
             this.buttonSuaNhanVien.PanelWidth = 160;
-            this.buttonSuaNhanVien.Size = new System.Drawing.Size(120, 36);
+            this.buttonSuaNhanVien.Size = new System.Drawing.Size(135, 46);
             this.buttonSuaNhanVien.TabIndex = 3;
             this.buttonSuaNhanVien.Text = "SỬA";
             this.buttonSuaNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -794,9 +800,9 @@
             this.buttonThemNhanVien.BackColor = System.Drawing.Color.White;
             this.buttonThemNhanVien.BorderRadius = 20;
             this.buttonThemNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonThemNhanVien.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.buttonThemNhanVien.ForeColor = System.Drawing.Color.White;
-            this.buttonThemNhanVien.Location = new System.Drawing.Point(358, 0);
+            this.buttonThemNhanVien.Location = new System.Drawing.Point(405, 0);
             this.buttonThemNhanVien.Margin = new System.Windows.Forms.Padding(0);
             this.buttonThemNhanVien.MarginBottom = 0;
             this.buttonThemNhanVien.MarginLeft = 0;
@@ -806,7 +812,7 @@
             this.buttonThemNhanVien.PanelColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(211)))), ((int)(((byte)(153)))));
             this.buttonThemNhanVien.PanelHeight = 45;
             this.buttonThemNhanVien.PanelWidth = 160;
-            this.buttonThemNhanVien.Size = new System.Drawing.Size(120, 36);
+            this.buttonThemNhanVien.Size = new System.Drawing.Size(135, 46);
             this.buttonThemNhanVien.TabIndex = 2;
             this.buttonThemNhanVien.Text = "THÊM";
             this.buttonThemNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -817,7 +823,7 @@
             this.nhanVienPanel.BackColor = System.Drawing.Color.White;
             this.nhanVienPanel.BorderRadius = 40;
             this.nhanVienPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nhanVienPanel.Location = new System.Drawing.Point(0, 66);
+            this.nhanVienPanel.Location = new System.Drawing.Point(0, 84);
             this.nhanVienPanel.Margin = new System.Windows.Forms.Padding(0);
             this.nhanVienPanel.MarginBottom = 0;
             this.nhanVienPanel.MarginLeft = 0;
@@ -825,7 +831,7 @@
             this.nhanVienPanel.MarginTop = 30;
             this.nhanVienPanel.Name = "nhanVienPanel";
             this.nhanVienPanel.PanelColor = System.Drawing.Color.WhiteSmoke;
-            this.nhanVienPanel.Size = new System.Drawing.Size(738, 601);
+            this.nhanVienPanel.Size = new System.Drawing.Size(832, 764);
             this.nhanVienPanel.TabIndex = 1;
             // 
             // tabControlDesign1
@@ -840,19 +846,19 @@
             this.tabControlDesign1.Name = "tabControlDesign1";
             this.tabControlDesign1.Padding = new System.Drawing.Point(0, 0);
             this.tabControlDesign1.SelectedIndex = 0;
-            this.tabControlDesign1.Size = new System.Drawing.Size(1400, 820);
+            this.tabControlDesign1.Size = new System.Drawing.Size(1575, 1025);
             this.tabControlDesign1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlDesign1.TabIndex = 0;
             // 
             // NhanVienPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.tabControlDesign1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NhanVienPage";
-            this.Size = new System.Drawing.Size(1400, 820);
+            this.Size = new System.Drawing.Size(1575, 1025);
             this.Load += new System.EventHandler(this.NhanVienPage_Load);
             this.tabPageKhoa.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);

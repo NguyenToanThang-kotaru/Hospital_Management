@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AccountDTO.cs" />
     <Compile Include="ActionDTO.cs" />
+    <Compile Include="StatisticDTO.cs" />
     <Compile Include="DepartmentDTO.cs" />
     <Compile Include="DiagnoseDTO.cs" />
     <Compile Include="DiseaseDTO.cs" />

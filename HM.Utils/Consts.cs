@@ -40,6 +40,11 @@ namespace HM.Utils
 
     public static class Helpers
     {
+        public static string MoneyFormater(decimal money)
+        {
+            return money.ToString("#,##0");
+
+        }
         public static void ClearTextBoxes(Control parent)
         {
             foreach (Control c in parent.Controls)

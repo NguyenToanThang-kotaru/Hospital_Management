@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="AccountDAO.cs" />
     <Compile Include="ActionDAO.cs" />
+    <Compile Include="StatisticsDAO.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="DepartmentDAO.cs" />
