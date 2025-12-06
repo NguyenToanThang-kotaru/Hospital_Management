@@ -65,6 +65,10 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
             txtMaQuyen.SetReadOnly(true);
             txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
+
+            MessageBox.Show($"Số hành động từ DB: {actionBUS.GetAllAction()?.Count}\n" +
+                   $"Số hành động trong mảng: {hanhDongArr.Length}",
+                   "Test GetAllAction");
         }
 
         private void LoadAccountToTable()
