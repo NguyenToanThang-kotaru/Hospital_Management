@@ -11,14 +11,13 @@ namespace HM.DAO
         {
             using (var context = new DatabaseContext())
             {
-                var functions = (from cn in context.ChucNangs
-                                 select new FunctionDTO
-                                 {
-                                     MaCN = cn.MaCN,        
-                                     TenCN = cn.TenCN      
-                                 }).ToList();
-
-                return functions;
+                return context.ChucNangs
+                             .Select(a => new FunctionDTO
+                             {
+                                 MaCN = a.MaCN,
+                                 TenCN = a.TenCN
+                             })
+                             .ToList();
             }
         }
     }

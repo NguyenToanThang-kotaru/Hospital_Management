@@ -11,14 +11,13 @@ namespace HM.DAO
         {
             using (var context = new DatabaseContext())
             {
-                var actions = (from a in context.HanhDongs
-                               select new ActionDTO
-                               {
-                                   MaHD = a.MaHD, 
-                                   TenHD = a.TenHD 
-                               }).ToList();
-
-                return actions;
+                return context.HanhDongs
+                             .Select(a => new ActionDTO
+                             {
+                                 MaHD = a.MaHD,
+                                 TenHD = a.TenHD
+                             })
+                             .ToList();
             }
         }
     }
