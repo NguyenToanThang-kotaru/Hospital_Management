@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using HM.DTO;
+﻿using HM.DTO;
+using System.Data.SqlClient;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace HM.DAO

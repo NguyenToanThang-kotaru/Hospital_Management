@@ -1,9 +1,9 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HM.DAO
 {
@@ -284,7 +284,7 @@ namespace HM.DAO
                         {
                             while (reader.Read())
                             {
-                                listMaCN.Add(reader.GetString("MaCN"));
+                                listMaCN.Add(reader["MaCN"].ToString());
                             }
                         }
                     }

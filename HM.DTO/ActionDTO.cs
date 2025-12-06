@@ -4,6 +4,9 @@ namespace HM.DTO
 {
     public class ActionDTO
     {
+        [Key]
+        public string MaHD { get; set; }
+        public string TenHD { get; set; }
 
         public ActionDTO() { }
 
@@ -13,8 +16,6 @@ namespace HM.DTO
             this.TenHD = tenHD;
         }
 
-        [Key]
-        public string MaHD { get; set; }
-        public string TenHD { get; set; }
+        
     }
 }

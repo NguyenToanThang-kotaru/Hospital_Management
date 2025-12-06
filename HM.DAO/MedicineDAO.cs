@@ -1,8 +1,9 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace HM.DAO
 {
@@ -97,9 +98,9 @@ namespace HM.DAO
                             {
                                 MedicineDTO medicine = new MedicineDTO
                                 {
-                                    MaDP = reader.GetString("MaDP"),
-                                    TenDP = reader.GetString("TenDP"),
-                                    LoaiDP = reader.GetString("LoaiDP")
+                                    MaDP = reader["MaDP"].ToString(),
+                                    TenDP = reader["TenDP"].ToString(),
+                                    LoaiDP = reader["LoaiDP"].ToString()
                                 };
                                 medicines.Add(medicine);
                             }
@@ -131,9 +132,9 @@ namespace HM.DAO
                             {
                                 return new MedicineDTO
                                 {
-                                    MaDP = reader.GetString("MaDP"),
-                                    TenDP = reader.GetString("TenDP"),
-                                    LoaiDP = reader.GetString("LoaiDP")
+                                    MaDP = reader["MaDP"].ToString(),
+                                    TenDP = reader["TenDP"].ToString(),
+                                    LoaiDP = reader["LoaiDP"].ToString()
                                 };
                             }
                         }
@@ -197,9 +198,9 @@ namespace HM.DAO
                             {
                                 MedicineDTO medicine = new MedicineDTO
                                 {
-                                    MaDP = reader.GetString("MaDP"),
-                                    TenDP = reader.GetString("TenDP"),
-                                    LoaiDP = reader.GetString("LoaiDP")
+                                    MaDP = reader["MaDP"].ToString(),
+                                    TenDP = reader["TenDP"].ToString(),
+                                    LoaiDP = reader["LoaiDP"].ToString()
                                 };
                                 medicines.Add(medicine);
                             }

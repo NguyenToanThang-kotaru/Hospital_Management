@@ -98,7 +98,7 @@ namespace HM.GUI.Pages.BenhNhan
             table.Columns.Add("Mã Đăng Ký", typeof(string));
             table.Columns.Add("Bệnh Nhân", typeof(string));
             table.Columns.Add("Tổng Chi Phí", typeof(string));
-            table.Columns.Add("Hình Thức Thanh Toán", typeof(string));
+            table.Columns.Add("Hìnhgi Thức Thanh Toán", typeof(string));
             table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
 
             foreach (var serviceRegistration in serviceRegistrationBUS.GetAllServiceRegistration())

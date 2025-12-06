@@ -15,7 +15,6 @@ namespace HM.GUI.Pages.Statistics
         private StatisticsBUS statisticsBUS;
         private decimal totalNum;
         private string employeeId;
-        //private List<>
 
         public StatisticPage(string employeeId)
         {
@@ -34,7 +33,7 @@ namespace HM.GUI.Pages.Statistics
             DataTable table = new DataTable();
             table.Columns.Add("Số thứ tự", typeof(String));
             table.Columns.Add("Tên dịch vụ", typeof(String));
-            table.Columns.Add("Số lượng", typeof(String));
+            table.Columns.Add("Số lần sử dụng", typeof(String));
             table.Columns.Add("Tổng tiền", typeof(String));
 
             tableStatistics.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -43,10 +42,7 @@ namespace HM.GUI.Pages.Statistics
         }
         private void AddStatisticRow(string stt, string tenDichVu, string soLuong, string tongTien)
         {
-            // Lấy lại DataTable đang liên kết
             DataTable table = (DataTable)tableStatistics.DataSource;
-
-            // Thêm dòng mới
             table.Rows.Add(stt, tenDichVu, soLuong, tongTien);
         }
 
@@ -74,8 +70,6 @@ namespace HM.GUI.Pages.Statistics
                 txtTongTien.Text = Helpers.MoneyFormater(totalNum); 
 
             }
-
-            //AddStatisticRow("1", dateStarStr, dateEndStr, dateEndStr);
         }
     }
 }

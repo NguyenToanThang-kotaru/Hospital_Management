@@ -1,12 +1,9 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
+using System.Data.SqlClient;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace HM.DAO
 {
@@ -109,14 +106,13 @@ namespace HM.DAO
                             {
                                 list.Add(new ServiceRegistrationDTO
                                 {
-                                    MaDKDV = reader.GetString("MaDKDV"),
-                                    SoCCCD = reader.GetString("SoCCCD"),
-                                    NgayGioTaoPhieu = reader.GetString("NgayGioTaoPhieu"),
-                                    TrangThaiDangKy = reader.GetString("TrangThaiDangKy"),
-                                    TongChiPhi = reader.GetString("TongChiPhi"),
-                                    HinhThucThanhToan = reader.GetString("HinhThucThanhToan"),
-                                    MaNV = reader.GetString("MaNV")
-
+                                    MaDKDV = reader["MaDKDV"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
+                                    TrangThaiDangKy = reader["TrangThaiDangKy"].ToString(),
+                                    TongChiPhi = reader["TongChiPhi"].ToString(),
+                                    HinhThucThanhToan = reader["HinhThucThanhToan"].ToString(),
+                                    MaNV = reader["MaNV"].ToString()
                                 });
                             }
                         }
@@ -147,13 +143,13 @@ namespace HM.DAO
                             {
                                 return new ServiceRegistrationDTO
                                 {
-                                    MaDKDV = reader.GetString("MaDKDV"),
-                                    SoCCCD = reader.GetString("SoCCCD"),
-                                    NgayGioTaoPhieu = reader.GetString("NgayGioTaoPhieu"),
-                                    TrangThaiDangKy = reader.GetString("TrangThaiDangKy"),
-                                    TongChiPhi = reader.GetString("TongChiPhi"),
-                                    HinhThucThanhToan = reader.GetString("HinhThucThanhToan"),
-                                    MaNV = reader.GetString("MaNV")
+                                    MaDKDV = reader["MaDKDV"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
+                                    TrangThaiDangKy = reader["TrangThaiDangKy"].ToString(),
+                                    TongChiPhi = reader["TongChiPhi"].ToString(),
+                                    HinhThucThanhToan = reader["HinhThucThanhToan"].ToString(),
+                                    MaNV = reader["MaNV"].ToString()
                                 };
                             }
                         }
@@ -227,13 +223,13 @@ namespace HM.DAO
                             {
                                 list.Add(new ServiceRegistrationDTO
                                 {
-                                    MaDKDV = reader.GetString("MaDKDV"),
-                                    SoCCCD = reader.GetString("SoCCCD"),
-                                    NgayGioTaoPhieu = reader.GetString("NgayGioTaoPhieu"),
-                                    TrangThaiDangKy = reader.GetString("TrangThaiDangKy"),
-                                    TongChiPhi = reader.GetString("TongChiPhi"),
-                                    HinhThucThanhToan = reader.GetString("HinhThucThanhToan"),
-                                    MaNV = reader.GetString("MaNV")
+                                    MaDKDV = reader["MaDKDV"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
+                                    TrangThaiDangKy = reader["TrangThaiDangKy"].ToString(),
+                                    TongChiPhi = reader["TongChiPhi"].ToString(),
+                                    HinhThucThanhToan = reader["HinhThucThanhToan"].ToString(),
+                                    MaNV = reader["MaNV"].ToString()
                                 });
                             }
                         }

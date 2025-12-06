@@ -4,6 +4,9 @@ namespace HM.DTO
 {
     public class FunctionDTO
     {
+        [Key]
+        public string MaCN { get; set; }
+        public string TenCN { get; set; }
         public FunctionDTO() { }
 
         public FunctionDTO(string maCN, string tenCN)
@@ -11,9 +14,5 @@ namespace HM.DTO
             MaCN = maCN;
             TenCN = tenCN;
         }
-
-        [Key]
-        public string MaCN { get; set; }
-        public string TenCN { get; set; }
     }
 }

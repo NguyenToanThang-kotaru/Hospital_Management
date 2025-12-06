@@ -1,8 +1,9 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace HM.DAO
 {
@@ -100,10 +101,10 @@ namespace HM.DAO
                             {
                                 ServiceDTO service = new ServiceDTO
                                 {
-                                    MaDV = reader.GetString("MaDV"),
-                                    TenDV = reader.GetString("TenDV"),
-                                    GiaDV = reader.GetString("GiaDV"),
-                                    BHYTTra = reader.GetString("DuocBHYTChiTra")
+                                    MaDV = reader["MaDV"].ToString(),
+                                    TenDV = reader["TenDV"].ToString(),
+                                    GiaDV = reader["GiaDV"].ToString(),
+                                    BHYTTra = reader["DuocBHYTChiTra"].ToString()
                                 };
                                 services.Add(service);
                             }
@@ -135,10 +136,10 @@ namespace HM.DAO
                             {
                                 return new ServiceDTO
                                 {
-                                    MaDV = reader.GetString("MaDV"),
-                                    TenDV= reader.GetString("TenDV"),
-                                    GiaDV = reader.GetString("GiaDV"),
-                                    BHYTTra = reader.GetString("DuocBHYTChiTra")
+                                    MaDV = reader["MaDV"].ToString(),
+                                    TenDV = reader["TenDV"].ToString(),
+                                    GiaDV = reader["GiaDV"].ToString(),
+                                    BHYTTra = reader["DuocBHYTChiTra"].ToString()
                                 };
                             }
                         }
@@ -202,10 +203,10 @@ namespace HM.DAO
                             {
                                 ServiceDTO service = new ServiceDTO
                                 {
-                                    MaDV = reader.GetString("MaDV"),
-                                    TenDV = reader.GetString("TenDV"),
-                                    GiaDV = reader.GetString("GiaDV"),
-                                    BHYTTra = reader.GetString("DuocBHYTChiTra")
+                                    MaDV = reader["MaDV"].ToString(),
+                                    TenDV = reader["TenDV"].ToString(),
+                                    GiaDV = reader["GiaDV"].ToString(),
+                                    BHYTTra = reader["DuocBHYTChiTra"].ToString()
                                 };
                                 services.Add(service);
                             }

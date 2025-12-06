@@ -1,21 +1,29 @@
-﻿using System.Data.Entity;
-using HM.DTO;
+﻿using HM.DTO;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
+using System;
 
 namespace HM.DAO
 {
-    internal class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public DatabaseContext() : base("HospitalConnectionString")
-        {
-        }
         public DbSet<ActionDTO> HanhDongs { get; set; }
         public DbSet<FunctionDTO> ChucNangs { get; set; }
-        
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<FunctionDTO>().ToTable("chucnang");
-            modelBuilder.Entity<ActionDTO>().ToTable("hanhdong");
 
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                var connectionString = "server=localhost;port=3306;database=hospital;uid=root;password=;";
+                optionsBuilder.UseMySql(connectionString, mySqlOptions => mySqlOptions.ServerVersion(ServerVersion.AutoDetect(connectionString)));
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<ActionDTO>().Property(S => S.);
+            
             base.OnModelCreating(modelBuilder);
         }
     }

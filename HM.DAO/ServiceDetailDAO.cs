@@ -1,13 +1,10 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
+using System.Data.SqlClient;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
 namespace HM.DAO
 {
     public class ServiceDetailDAO
@@ -52,8 +49,8 @@ namespace HM.DAO
                             {
                                 list.Add(new ServiceDetailDTO
                                 {
-                                    MaDV = reader.GetString("MaDV"),
-                                    MaBA = reader.GetString("MaBA")
+                                    MaDV = reader["MaDV"].ToString(),
+                                    MaBA = reader["MaBA"].ToString(),
                                 });
                             }
                         }

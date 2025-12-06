@@ -1,8 +1,9 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace HM.DAO
 {
@@ -50,9 +51,9 @@ namespace HM.DAO
                             {
                                 list.Add(new ServiceRegistrationDetailDTO
                                 {
-                                    MaDKDV = reader.GetString("MaDKDV"),
-                                    MaDV = reader.GetString("MaDV"),
-                                    TienDV = reader.GetString("TienDV")
+                                    MaDKDV = reader["MaDKDV"].ToString(),
+                                    MaDV = reader["MaDV"].ToString(),
+                                    TienDV = reader["TienDV"].ToString()
                                 });
                             }
                         }
@@ -85,9 +86,9 @@ namespace HM.DAO
                             {
                                 details.Add(new ServiceRegistrationDetailDTO
                                 {
-                                    MaDKDV = reader.GetString("MaDKDV"),
-                                    MaDV = reader.GetString("MaDV"),
-                                    TienDV = reader.GetString("TienDV")
+                                    MaDKDV = reader["MaDKDV"].ToString(),
+                                    MaDV = reader["MaDV"].ToString(),
+                                    TienDV = reader["TienDV"].ToString()
                                 });
                             }
                         }

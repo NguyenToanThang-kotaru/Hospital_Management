@@ -1,8 +1,9 @@
 ﻿using HM.DTO;
-using MySql.Data.MySqlClient;
 using System;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace HM.DAO
 {
@@ -77,11 +78,10 @@ namespace HM.DAO
                             {
                                 list.Add(new PrescriptionDTO()
                                 {
-                                    MaBA = reader.GetString("MaBA"),
-                                    MaDP = reader.GetString("MaDP"),
-                                    SoLuongDP = reader.GetString("SoLuongDP"),
-                                    DonViDP = reader.GetString("DonViDP")
-
+                                    MaBA = reader["MaBA"].ToString(),
+                                    MaDP = reader["MaDP"].ToString(),
+                                    SoLuongDP = reader["SoLuongDP"].ToString(),
+                                    DonViDP = reader["DonViDP"].ToString()
                                 });
                             }
                         }
@@ -115,10 +115,10 @@ namespace HM.DAO
                             {
                                 list.Add(new PrescriptionDTO
                                 {
-                                    MaBA = reader.GetString("MaBA"),
-                                    MaDP = reader.GetString("MaDP"),
-                                    SoLuongDP = reader.GetString("SoLuongDP"),
-                                    DonViDP = reader.GetString("DonViDP")
+                                    MaBA = reader["MaBA"].ToString(),
+                                    MaDP = reader["MaDP"].ToString(),
+                                    SoLuongDP = reader["SoLuongDP"].ToString(),
+                                    DonViDP = reader["DonViDP"].ToString()
                                 });
                             }
                         }
@@ -150,10 +150,10 @@ namespace HM.DAO
                             {
                                 PrescriptionDTO prescription = new PrescriptionDTO
                                 {
-                                    MaDP = reader.GetString("MaDP"),
-                                    MaBA = reader.GetString("MaBA"),
-                                    SoLuongDP = reader.GetString("SoLuongDP"),
-                                    DonViDP = reader.GetString("DonViDP")
+                                    MaBA = reader["MaBA"].ToString(),
+                                    MaDP = reader["MaDP"].ToString(),
+                                    SoLuongDP = reader["SoLuongDP"].ToString(),
+                                    DonViDP = reader["DonViDP"].ToString()
                                 };
                                 prescriptions.Add(prescription);
                             }
