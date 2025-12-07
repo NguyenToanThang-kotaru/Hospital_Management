@@ -2,7 +2,6 @@
 using HM.DTO;
 using HM.GUI.Component.TableDataGridView;
 using HM.Utils;
-using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,31 +22,14 @@ namespace HM.GUI.Pages.HoSoBenhAn
         private EmployeeBUS employeeBUS;
         private ActionBUS actionBUS;
         private FunctionBUS functionBUS;
-
-        private readonly dynamic[] hanhDongArr = new[]
-        {
-            new { MaHD = "add", TenHD = "Thêm" },
-            new { MaHD = "delete", TenHD = "Xóa" },
-            new { MaHD = "edit", TenHD = "Sửa" },
-            new { MaHD = "view", TenHD = "Xem" }
-        };
-
-        private readonly dynamic[] chucNangArr = new[]
-        {
-            new { MaCN = "CN0001", TenCN = "Thống kê" },
-            new { MaCN = "CN0002", TenCN = "Quản lý bệnh nhân" },
-            new { MaCN = "CN0003", TenCN = "Quản lý hồ sơ bệnh án" },
-            new { MaCN = "CN0004", TenCN = "Quản lý dịch vụ" },
-            new { MaCN = "CN0005", TenCN = "Quản lý nhân viên" },
-            new { MaCN = "CN0006", TenCN = "Quản lý phân quyền" }
-        };
-
+        
         public QuyenPage(string employeeId)
         {
             InitializeComponent();
             this.employeeId = employeeId;
             tableAccounts = new TableDataGridView();
             tablePermission = new TableDataGridView();
+
             accountBUS = new AccountBUS();
             permissionBUS = new PermissionBUS();
             permissionDetailBUS = new PermissionDetailBUS();
@@ -65,10 +47,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
             txtMaQuyen.SetReadOnly(true);
             txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
-
-            MessageBox.Show($"Số hành động từ DB: {actionBUS.GetAllAction()?.Count}\n" +
-                   $"Số hành động trong mảng: {hanhDongArr.Length}",
-                   "Test GetAllAction");
         }
 
         private void LoadAccountToTable()
@@ -79,9 +57,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             table.Columns.Add("Nhân Viên", typeof(string));
 
             foreach (var account in accountBUS.GetAllAccount())
-            {
                 table.Rows.Add(account.TenDangNhap, permissionBUS.GetPermissionById(account.MaQuyen).TenQuyen, employeeBUS.GetEmployeeById(account.MaNV).TenNV);
-            }
 
             tableAccounts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tableAccounts.DataSource = table;
@@ -96,9 +72,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             table.Columns.Add("Tên Quyền", typeof(string));
 
             foreach (var permission in permissionBUS.GetAllPermissions())
-            {
                 table.Rows.Add(permission.MaQuyen, permission.TenQuyen);
-            }
 
             tablePermission.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tablePermission.DataSource = table;
@@ -108,10 +82,14 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
         private TableLayoutPanel CreatePermissionTable()
         {
+            // Lấy danh sách hành động và chức năng từ database
+            var hanhDongList = actionBUS.GetAllAction();
+            var chucNangList = functionBUS.GetAllFunction();
+
             var table = new TableLayoutPanel
             {
-                RowCount = chucNangArr.Length + 1,
-                ColumnCount = hanhDongArr.Length + 1,
+                RowCount = chucNangList.Count + 1,
+                ColumnCount = hanhDongList.Count + 1,
                 Dock = DockStyle.Fill,
                 AutoSize = true,
                 CellBorderStyle = TableLayoutPanelCellBorderStyle.Single,
@@ -120,19 +98,20 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
             table.ColumnStyles.Clear();
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
-            for (int j = 0; j < hanhDongArr.Length; j++)
-                table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / hanhDongArr.Length));
+            for (int j = 0; j < hanhDongList.Count; j++)
+                table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / hanhDongList.Count));
 
             table.RowStyles.Clear();
             table.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            for (int i = 0; i < chucNangArr.Length; i++)
+            for (int i = 0; i < chucNangList.Count; i++)
                 table.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
 
-            for (int j = 0; j < hanhDongArr.Length; j++)
+            // Header cho các hành động
+            for (int j = 0; j < hanhDongList.Count; j++)
             {
                 table.Controls.Add(new Label
                 {
-                    Text = hanhDongArr[j].TenHD,
+                    Text = hanhDongList[j].TenHD,
                     TextAlign = ContentAlignment.MiddleCenter,
                     Dock = DockStyle.Fill,
                     Font = new Font("Roboto", 11, FontStyle.Bold),
@@ -140,28 +119,32 @@ namespace HM.GUI.Pages.HoSoBenhAn
                 }, j + 1, 0);
             }
 
-            for (int i = 0; i < chucNangArr.Length; i++)
+            // Các chức năng và checkbox tương ứng
+            for (int i = 0; i < chucNangList.Count; i++)
             {
+                // Label tên chức năng
                 table.Controls.Add(new Label
                 {
-                    Text = chucNangArr[i].TenCN,
+                    Text = chucNangList[i].TenCN,
                     TextAlign = ContentAlignment.MiddleLeft,
                     Dock = DockStyle.Fill,
                     Font = new Font("Roboto", 11, FontStyle.Bold),
                     ForeColor = Consts.FontColorA
                 }, 0, i + 1);
 
-                // Các checkbox
-                for (int j = 0; j < hanhDongArr.Length; j++)
+                // Checkbox cho từng hành động
+                for (int j = 0; j < hanhDongList.Count; j++)
                 {
                     var panel = new Panel
                     {
                         Dock = DockStyle.Fill,
+                        Tag = new { MaCN = chucNangList[i].MaCN, MaHD = hanhDongList[j].MaHD }
                     };
 
                     var ckb = new CheckBox
                     {
                         AutoSize = true,
+                        Tag = new { MaCN = chucNangList[i].MaCN, MaHD = hanhDongList[j].MaHD }
                     };
 
                     panel.Controls.Add(ckb);
@@ -279,7 +262,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
                             list.Add(emp);
                     }
 
-                    // Gán lại DataSource
                     cbNhanVien.DataSource = null;
                     cbNhanVien.DataSource = list;
                     cbNhanVien.DisplayMember = "TenNV";
@@ -323,24 +305,31 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
         }
 
-        // sự kiện tabPageQuyen
+        // sự kiện tabPageQuyen =================================================================================================================
+        // sự kiện tabPageQuyen =================================================================================================================
         private void buttonHuyQuyenClick(object sender, EventArgs e)
         {
             txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
             txtTenQuyen.TextValue = "";
-            TableLayoutPanel table = quyenPanelForCheckbox.Controls[0] as TableLayoutPanel;
-
-            for (int i = 0; i < chucNangArr.Length; i++)
+            
+            if (quyenPanelForCheckbox.Controls.Count > 0 && quyenPanelForCheckbox.Controls[0] is TableLayoutPanel table)
             {
-                for (int j = 0; j < hanhDongArr.Length; j++)
+                var hanhDongList = actionBUS.GetAllAction();
+                var chucNangList = functionBUS.GetAllFunction();
+                
+               
+                for (int i = 1; i < table.RowCount; i++) 
                 {
-                    Panel panel = table.GetControlFromPosition(j + 1, i + 1) as Panel;
-                    if (panel != null && panel.Controls.Count > 0)
+                    for (int j = 1; j < table.ColumnCount; j++) 
                     {
-                        CheckBox ckb = panel.Controls[0] as CheckBox;
-                        if (ckb != null)
+                        Panel panel = table.GetControlFromPosition(j, i) as Panel;
+                        if (panel != null && panel.Controls.Count > 0)
                         {
-                            ckb.Checked = false;
+                            CheckBox ckb = panel.Controls[0] as CheckBox;
+                            if (ckb != null)
+                            {
+                                ckb.Checked = false;
+                            }
                         }
                     }
                 }
@@ -368,25 +357,32 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     TableLayoutPanel table = quyenPanelForCheckbox.Controls[0] as TableLayoutPanel;
                     bool hasAnyPermission = false;
 
-                    for (int i = 0; i < chucNangArr.Length; i++)
+                    var hanhDongList = actionBUS.GetAllAction();
+                    var chucNangList = functionBUS.GetAllFunction();
+
+                    for (int i = 1; i < table.RowCount; i++) 
                     {
-                        for (int j = 0; j < hanhDongArr.Length; j++)
+                        for (int j = 1; j < table.ColumnCount; j++) 
                         {
-                            Panel panel = table.GetControlFromPosition(j + 1, i + 1) as Panel;
+                            Panel panel = table.GetControlFromPosition(j, i) as Panel;
                             if (panel != null && panel.Controls.Count > 0)
                             {
                                 CheckBox ckb = panel.Controls[0] as CheckBox;
                                 if (ckb != null && ckb.Checked)
                                 {
-                                    hasAnyPermission = true;
-                                    PermissionDetailDTO permissionDetail = new PermissionDetailDTO()
+                                    var tag = ckb.Tag as dynamic;
+                                    if (tag != null)
                                     {
-                                        MaCN = chucNangArr[i].MaCN,
-                                        MaQuyen = permission.MaQuyen,
-                                        MaHD = hanhDongArr[j].MaHD
-                                    };
+                                        hasAnyPermission = true;
+                                        PermissionDetailDTO permissionDetail = new PermissionDetailDTO()
+                                        {
+                                            MaCN = tag.MaCN,
+                                            MaQuyen = permission.MaQuyen,
+                                            MaHD = tag.MaHD
+                                        };
 
-                                    permissionDetailBUS.AddPermissionDetail(permissionDetail);
+                                        permissionDetailBUS.AddPermissionDetail(permissionDetail);
+                                    }
                                 }
                             }
                         }
@@ -412,34 +408,38 @@ namespace HM.GUI.Pages.HoSoBenhAn
                 {
                     TableLayoutPanel table = quyenPanelForCheckbox.Controls[0] as TableLayoutPanel;
 
-                    for (int i = 0; i < chucNangArr.Length; i++)
+                    for (int i = 1; i < table.RowCount; i++)
                     {
-                        for (int j = 0; j < hanhDongArr.Length; j++)
+                        for (int j = 1; j < table.ColumnCount; j++)
                         {
-                            Panel panel = table.GetControlFromPosition(j + 1, i + 1) as Panel;
+                            Panel panel = table.GetControlFromPosition(j, i) as Panel;
                             if (panel != null && panel.Controls.Count > 0)
                             {
                                 CheckBox ckb = panel.Controls[0] as CheckBox;
                                 if (ckb != null)
                                 {
-                                    string maCN = chucNangArr[i].MaCN;
-                                    string maHD = hanhDongArr[j].MaHD;
-                                    string maQuyen = permission.MaQuyen;
-                                    bool isChecked = ckb.Checked;
+                                    var tag = ckb.Tag as dynamic;
+                                    if (tag != null)
+                                    {
+                                        string maCN = tag.MaCN;
+                                        string maHD = tag.MaHD;
+                                        string maQuyen = permission.MaQuyen;
+                                        bool isChecked = ckb.Checked;
 
-                                    bool exists = permissionDetailBUS.ExistsPermissionDetail(maQuyen, maHD, maCN);
+                                        bool exists = permissionDetailBUS.ExistsPermissionDetail(maQuyen, maHD, maCN);
 
-                                    if (isChecked && exists)
-                                        permissionDetailBUS.ActivePermissionDetail(maQuyen, maHD, maCN);
-                                    else if (isChecked && !exists)
-                                        permissionDetailBUS.AddPermissionDetail(new PermissionDetailDTO()
-                                        {
-                                            MaCN = maCN,
-                                            MaQuyen = maQuyen,
-                                            MaHD = maHD
-                                        });
-                                    else if (!isChecked && exists)
-                                        permissionDetailBUS.DeletePermissionDetail(maQuyen, maHD, maCN);
+                                        if (isChecked && exists)
+                                            permissionDetailBUS.ActivePermissionDetail(maQuyen, maHD, maCN);
+                                        else if (isChecked && !exists)
+                                            permissionDetailBUS.AddPermissionDetail(new PermissionDetailDTO()
+                                            {
+                                                MaCN = maCN,
+                                                MaQuyen = maQuyen,
+                                                MaHD = maHD
+                                            });
+                                        else if (!isChecked && exists)
+                                            permissionDetailBUS.DeletePermissionDetail(maQuyen, maHD, maCN);
+                                    }
                                 }
                             }
                         }
@@ -462,19 +462,20 @@ namespace HM.GUI.Pages.HoSoBenhAn
             txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
             txtTenQuyen.TextValue = "";
 
-            TableLayoutPanel table = quyenPanelForCheckbox.Controls[0] as TableLayoutPanel;
-
-            for (int i = 0; i < chucNangArr.Length; i++)
+            if (quyenPanelForCheckbox.Controls.Count > 0 && quyenPanelForCheckbox.Controls[0] is TableLayoutPanel table)
             {
-                for (int j = 0; j < hanhDongArr.Length; j++)
+                for (int i = 1; i < table.RowCount; i++)
                 {
-                    Panel panel = table.GetControlFromPosition(j + 1, i + 1) as Panel;
-                    if (panel != null && panel.Controls.Count > 0)
+                    for (int j = 1; j < table.ColumnCount; j++)
                     {
-                        CheckBox ckb = panel.Controls[0] as CheckBox;
-                        if (ckb != null)
+                        Panel panel = table.GetControlFromPosition(j, i) as Panel;
+                        if (panel != null && panel.Controls.Count > 0)
                         {
-                            ckb.Checked = false;
+                            CheckBox ckb = panel.Controls[0] as CheckBox;
+                            if (ckb != null)
+                            {
+                                ckb.Checked = false;
+                            }
                         }
                     }
                 }
@@ -495,26 +496,32 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     txtTenQuyen.TextValue = quyen.TenQuyen?.ToString();
                     List<PermissionDetailDTO> list = permissionDetailBUS.GetPermissionDetailsByPermissionId(maQuyen);
 
-                    TableLayoutPanel table = quyenPanelForCheckbox.Controls[0] as TableLayoutPanel;
-                    for (int i = 0; i < chucNangArr.Length; i++)
+                    if (quyenPanelForCheckbox.Controls.Count > 0 && quyenPanelForCheckbox.Controls[0] is TableLayoutPanel table)
                     {
-                        for (int j = 0; j < hanhDongArr.Length; j++)
+                        for (int i = 1; i < table.RowCount; i++)
                         {
-                            Panel panel = table.GetControlFromPosition(j + 1, i + 1) as Panel;
-                            if (panel != null && panel.Controls.Count > 0)
+                            for (int j = 1; j < table.ColumnCount; j++)
                             {
-                                CheckBox ckb = panel.Controls[0] as CheckBox;
-                                if (ckb != null)
+                                Panel panel = table.GetControlFromPosition(j, i) as Panel;
+                                if (panel != null && panel.Controls.Count > 0)
                                 {
-                                    string maCN = chucNangArr[i].MaCN;
-                                    string maHD = hanhDongArr[j].MaHD;
+                                    CheckBox ckb = panel.Controls[0] as CheckBox;
+                                    if (ckb != null)
+                                    {
+                                        var tag = ckb.Tag as dynamic;
+                                        if (tag != null)
+                                        {
+                                            string maCN = tag.MaCN;
+                                            string maHD = tag.MaHD;
 
-                                    bool exists = list.Any(pd =>
-                                        pd.MaCN == maCN &&
-                                        pd.MaHD == maHD &&
-                                        pd.MaQuyen == maQuyen);
+                                            bool exists = list.Any(pd =>
+                                                pd.MaCN == maCN &&
+                                                pd.MaHD == maHD &&
+                                                pd.MaQuyen == maQuyen);
 
-                                    ckb.Checked = exists;
+                                            ckb.Checked = exists;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -555,8 +562,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
         private void searchBarTaiKhoanTextChanged(object sender, EventArgs e)
         {
             string keyword = searchBarTaiKhoan.Text.Trim();
-
-            // Gọi hàm search từ BUS
             var accounts = accountBUS.SearchAccount(keyword);
 
             DataTable table = new DataTable();

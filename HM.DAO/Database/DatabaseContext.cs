@@ -25,13 +25,13 @@ namespace HM.DAO
             // Cấu hình cho ActionDTO (HanhDong)
             modelBuilder.Entity<ActionDTO>(entity =>
             {
-                entity.ToTable("HanhDong"); // Tên bảng tiếng Việt
+                entity.ToTable("hanhdong"); // Tên bảng tiếng Việt
 
-                entity.HasKey(e => e.MaHD); // Khóa chính
+                entity.HasKey(e => e.MaHD); 
 
                 entity.Property(e => e.MaHD)
                     .IsRequired()
-                    .HasMaxLength(10) // Nên giới hạn độ dài
+                    .HasMaxLength(10)
                     .HasColumnName("MaHD");
 
                 entity.Property(e => e.TenHD)
@@ -39,7 +39,6 @@ namespace HM.DAO
                     .HasMaxLength(100)
                     .HasColumnName("TenHD");
 
-                // Tạo index cho mã để tìm kiếm nhanh
                 entity.HasIndex(e => e.MaHD)
                     .IsUnique()
                     .HasName("IX_HanhDong_MaHD");
@@ -48,9 +47,9 @@ namespace HM.DAO
             // Cấu hình cho FunctionDTO (ChucNang)
             modelBuilder.Entity<FunctionDTO>(entity =>
             {
-                entity.ToTable("ChucNang"); // Tên bảng tiếng Việt
+                entity.ToTable("chucnang"); 
 
-                entity.HasKey(e => e.MaCN); // Khóa chính
+                entity.HasKey(e => e.MaCN); 
 
                 entity.Property(e => e.MaCN)
                     .IsRequired()
