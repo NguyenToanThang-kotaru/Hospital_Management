@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
-namespace HM.DAO
+namespace HM.DAO.ADO
 {
     public class StatisticDAO
     {

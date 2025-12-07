@@ -15,8 +15,10 @@ namespace HM.GUI.Pages.NhanVien
         private TableDataGridView tableEmployee;
         private TableDataGridView tableDepartment;
         private TableDataGridView tableEmployeeOfDepartment;
+        private TableDataGridView tableRole;
         private EmployeeBUS employeeBUS;
         private DepartmentBUS departmentBUS;
+        private RoleBUS roleBUS;
 
         public NhanVienPage(string employeeId)
         {
@@ -25,8 +27,11 @@ namespace HM.GUI.Pages.NhanVien
             tableEmployee = new TableDataGridView();
             tableEmployeeOfDepartment = new TableDataGridView();
             tableDepartment = new TableDataGridView();
+            tableRole = new TableDataGridView();
+
             employeeBUS = new EmployeeBUS();
             departmentBUS = new DepartmentBUS();
+            roleBUS = new RoleBUS();
         }
 
         private void NhanVienPage_Load(object sender, EventArgs e)
@@ -34,11 +39,14 @@ namespace HM.GUI.Pages.NhanVien
             LoadEmployeeToTable();
             LoadDepartmentToTable();
             LoadEmployeeOfDepartmentToTable();
+            LoadRoleToTable();
 
             txtMaNhanVien.SetReadOnly(true);
             txtMaKhoa.SetReadOnly(true);
+            txtMaVaiTro.SetReadOnly(true);
             txtMaNhanVien.TextValue = employeeBUS.GetNextEmployeeId();
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
+            txtMaVaiTro.TextValue = roleBUS.GetNextRoleId();
         }
 
         private void LoadEmployeeToTable()
@@ -50,9 +58,8 @@ namespace HM.GUI.Pages.NhanVien
             table.Columns.Add("Khoa", typeof(string));
 
             foreach (var employee in employeeBUS.GetAllEmployees())
-            {
-                table.Rows.Add(employee.MaNV, employee.TenNV, employee.VaiTro, departmentBUS.GetDepartmentById(employee.MaKhoa).TenKhoa);
-            }
+                table.Rows.Add(employee.MaNV, employee.TenNV, roleBUS.GetRoleById(employee.VaiTro).TenVT, departmentBUS.GetDepartmentById(employee.MaKhoa).TenKhoa);
+
             tableEmployee.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tableEmployee.DataSource = table;
             nhanVienPanel.Controls.Add(tableEmployee);
@@ -65,9 +72,7 @@ namespace HM.GUI.Pages.NhanVien
             table.Columns.Add("Tên Khoa", typeof(string));
 
             foreach (var department in departmentBUS.GetAllDepartment())
-            {
                 table.Rows.Add(department.MaKhoa, department.TenKhoa);
-            }
 
             tableDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tableDepartment.DataSource = table;
@@ -83,6 +88,20 @@ namespace HM.GUI.Pages.NhanVien
             tableEmployeeOfDepartment.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             tableEmployeeOfDepartment.DataSource = table;
             nhanVienKhoaPanel.Controls.Add(tableEmployeeOfDepartment);
+        }
+
+        private void LoadRoleToTable()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Vai Trò", typeof(string));
+            table.Columns.Add("Tên Vai Trò", typeof(string));
+
+            foreach (var role in roleBUS.GetAllRoles())
+                table.Rows.Add(role.MaVT, role.TenVT);
+
+            tableRole.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            tableRole.DataSource = table;
+            vaiTroPanel.Controls.Add(tableRole);
         }
         private void comboBoxChucVuLoad(object sender, PaintEventArgs e)
         {
@@ -100,18 +119,14 @@ namespace HM.GUI.Pages.NhanVien
         private void comboBoxVaiTroLoad(object sender, PaintEventArgs e)
         {
             ComboBox cb = comboBoxVaiTro.GetComboBox();
-            if (cb.Items.Count == 0)
+            if (cb.DataSource == null)
             {
-                cb.Items.Add("Quản trị viên");
-                cb.Items.Add("Kế toán");
-                cb.Items.Add("Quản lý");
-                cb.Items.Add("Nhân viên quầy");
-                cb.Items.Add("Bác sĩ");
-                cb.Items.Add("Điều dưỡng");
-                cb.Items.Add("Bảo vệ");
+                cb.DataSource = roleBUS.GetAllRoles();
+                cb.DisplayMember = "TenVT";
+                cb.ValueMember = "MaVT";
+                cb.SelectedIndex = -1;
             }
         }
-
 
         private void comboBoxKhoaLoad(object sender, PaintEventArgs e)
         {
@@ -152,7 +167,7 @@ namespace HM.GUI.Pages.NhanVien
                 TenNV = txtTenNhanVien.TextValue.Trim(),
                 SdtNV = txtSoDienThoai.TextValue.Trim(),
                 ChucVu = comboBoxChucVu.TextValue,
-                VaiTro = comboBoxVaiTro.TextValue,
+                VaiTro = comboBoxVaiTro.GetComboBox().SelectedValue?.ToString(),
                 MaKhoa = comboBoxKhoa.GetComboBox().SelectedValue?.ToString(),
             };
 
@@ -219,7 +234,7 @@ namespace HM.GUI.Pages.NhanVien
                     txtTenNhanVien.TextValue = employee.TenNV;
                     txtSoDienThoai.TextValue = employee.SdtNV;
                     comboBoxChucVu.GetComboBox().Text = employee.ChucVu;
-                    comboBoxVaiTro.GetComboBox().Text = employee.VaiTro;
+                    comboBoxVaiTro.GetComboBox().SelectedValue = employee.VaiTro;
                     comboBoxKhoa.GetComboBox().SelectedValue = employee.MaKhoa;
                 }
                 else
@@ -260,8 +275,8 @@ namespace HM.GUI.Pages.NhanVien
         {
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
             txtTenKhoa.TextValue = "";
+            LoadEmployeeOfDepartmentToTable();
         }
-
 
         private void buttonXacNhanKhoaClick(object sender, EventArgs e)
         {
@@ -298,6 +313,7 @@ namespace HM.GUI.Pages.NhanVien
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
             txtTenKhoa.TextValue = "";
             tableDepartment.ClearSelection();
+            LoadEmployeeOfDepartmentToTable();
         }
 
         private void buttonSuaKhoaClick(object sender, EventArgs e)
@@ -356,6 +372,8 @@ namespace HM.GUI.Pages.NhanVien
                     MessageBox.Show("Xóa khoa thành công!");
                     LoadDepartmentToTable();
                     buttonHuyKhoaClick(null, null);
+                    comboBoxKhoa.GetComboBox().DataSource = null;
+                    comboBoxKhoaLoad(null, null);
                 }
             }
             else
@@ -364,6 +382,99 @@ namespace HM.GUI.Pages.NhanVien
             }
         }
 
+        // sự kiện tabPageVaiTro ============================================================================================================================================
+        // sự kiện tabPageVaiTro ============================================================================================================================================
+        private void buttonHuyVaiTroClick(object sender, EventArgs e)
+        {
+            txtMaVaiTro.TextValue = roleBUS.GetNextRoleId();
+            txtTenVaiTro.TextValue = "";
+        }
+
+        private void buttonXacNhanVaiTroClick(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTenVaiTro.TextValue))
+            {
+                MessageBox.Show("Vui lòng nhập tên vai trò!");
+                return;
+            }
+
+            RoleDTO role = new RoleDTO()
+            {
+                MaVT = txtMaVaiTro.TextValue,
+                TenVT = txtTenVaiTro.TextValue.Trim(),
+            };
+
+            if (!roleBUS.ExistsRoleId(role.MaVT))
+            {
+                roleBUS.AddRole(role);
+                MessageBox.Show("Thêm vai trò thành công!");
+            }
+            else
+            {
+                roleBUS.UpdateRole(role);
+                MessageBox.Show("Cập nhật vai trò thành công!");
+            }
+            comboBoxVaiTro.GetComboBox().DataSource = null;
+            comboBoxVaiTroLoad(null, null);
+            LoadRoleToTable();
+            buttonHuyVaiTroClick(null, null);
+        }
+
+        private void buttonThemVaiTroClick(object sender, EventArgs e)
+        {
+            txtMaVaiTro.TextValue = roleBUS.GetNextRoleId();
+            txtTenVaiTro.TextValue = "";
+        }
+
+        private void buttonSuaVaiTroClick(object sender, EventArgs e)
+        {
+            if (tableRole.SelectedRows.Count > 0)
+            {
+                var row = tableRole.SelectedRows[0];
+                string maVT = row.Cells["Mã Vai Trò"].Value?.ToString();
+
+                var role = roleBUS.GetRoleById(maVT);
+                if (role != null)
+                {
+                    txtMaVaiTro.TextValue = role.MaVT;
+                    txtTenVaiTro.TextValue = role.TenVT;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy vai trò với mã này!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn vai trò cần sửa!");
+            }
+        }
+
+        private void buttonXoaVaiTroClick(object sender, EventArgs e)
+        {
+            if (tableRole.SelectedRows.Count > 0)
+            {
+                string maVT = tableRole.SelectedRows[0].Cells["Mã Vai Trò"].Value?.ToString();
+                var result = MessageBox.Show("Bạn có chắc muốn xóa vai trò này?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    roleBUS.DeleteRole(maVT);
+                    MessageBox.Show("Xóa vai trò thành công!");
+                    LoadRoleToTable();
+                    buttonHuyVaiTroClick(null, null);
+                    comboBoxVaiTro.GetComboBox().DataSource = null;
+                    comboBoxVaiTroLoad(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn vai trò cần xóa!");
+            }
+        }
+
+
+
+        // search Bar =======================================================================================================================================================
         private void searchBarNhanVienTextChanged(object sender, EventArgs e)
         {
             string keyword = searchBarNhanVien.Text.Trim();
@@ -405,5 +516,9 @@ namespace HM.GUI.Pages.NhanVien
             tableDepartment.DataSource = table;
         }
 
+        private void searchBarVaiTroTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarVaiTro.Text.Trim();
+        }
     }
 }

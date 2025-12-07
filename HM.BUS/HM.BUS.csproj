@@ -166,6 +166,7 @@
   <ItemGroup>
     <Compile Include="AccountBUS.cs" />
     <Compile Include="ActionBUS.cs" />
+    <Compile Include="RoleBUS.cs" />
     <Compile Include="StatisticsBUS.cs" />
     <Compile Include="DepartmentBUS.cs" />
     <Compile Include="DiagnoseBUS.cs" />

@@ -1,9 +1,8 @@
 ﻿using HM.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HM.DAO
+namespace HM.DAO.LINQ
 {
     public class ActionDAO
     {

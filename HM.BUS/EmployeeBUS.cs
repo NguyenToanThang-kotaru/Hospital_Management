@@ -1,4 +1,4 @@
-﻿using HM.DAO;
+﻿using HM.DAO.ADO;
 using HM.DTO;
 using HM.Utils;
 using MySql.Data.MySqlClient;

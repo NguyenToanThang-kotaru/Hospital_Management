@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace HM.DAO
+namespace HM.DAO.ADO
 {
     public class AccountDAO
     {

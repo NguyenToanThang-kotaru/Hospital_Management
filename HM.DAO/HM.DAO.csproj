@@ -199,6 +199,7 @@
     <Compile Include="ADO\PermissionDAO.cs" />
     <Compile Include="ADO\PermissionDetailDAO.cs" />
     <Compile Include="ADO\PrescriptionDAO.cs" />
+    <Compile Include="LINQ\RoleDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ADO\ServiceDAO.cs" />
     <Compile Include="ADO\ServiceDesignationDAO.cs" />

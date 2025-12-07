@@ -1,9 +1,8 @@
 ﻿using HM.DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HM.DAO
+namespace HM.DAO.LINQ
 {
     public class FunctionDAO
     {
@@ -12,12 +11,12 @@ namespace HM.DAO
             using (var context = new DatabaseContext())
             {
                 return context.ChucNangs
-                             .Select(a => new FunctionDTO
-                             {
-                                 MaCN = a.MaCN,
-                                 TenCN = a.TenCN
-                             })
-                             .ToList();
+                .Select(a => new FunctionDTO
+                 {
+                     MaCN = a.MaCN,
+                     TenCN = a.TenCN
+                 })
+                 .ToList();
             }
         }
     }

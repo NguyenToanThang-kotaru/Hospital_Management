@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace HM.DAO
+namespace HM.DAO.ADO
 {
     public class ServiceRegistrationDAO
     {
