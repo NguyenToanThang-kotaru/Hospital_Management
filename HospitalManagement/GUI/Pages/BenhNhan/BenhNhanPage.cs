@@ -23,6 +23,7 @@ namespace HM.GUI.Pages.BenhNhan
         private ServiceRegistrationBUS serviceRegistrationBUS;
         private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
         private ServiceBUS serviceBUS;
+        private MedicalBUS medicalBUS;
 
         public BenhNhanPage(string employeeId)
         {
@@ -40,6 +41,7 @@ namespace HM.GUI.Pages.BenhNhan
             serviceRegistrationBUS = new ServiceRegistrationBUS();
             serviceRegistrationDetailBUS = new ServiceRegistrationDetailBUS();
             serviceBUS = new ServiceBUS();
+            medicalBUS = new MedicalBUS();
         }
 
         private void BenhNhanPage_Load(object sender, EventArgs e)
@@ -98,7 +100,7 @@ namespace HM.GUI.Pages.BenhNhan
             table.Columns.Add("Mã Đăng Ký", typeof(string));
             table.Columns.Add("Bệnh Nhân", typeof(string));
             table.Columns.Add("Tổng Chi Phí", typeof(string));
-            table.Columns.Add("Hìnhgi Thức Thanh Toán", typeof(string));
+            table.Columns.Add("Hình Thức Thanh Toán", typeof(string));
             table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
 
             foreach (var serviceRegistration in serviceRegistrationBUS.GetAllServiceRegistration())
@@ -194,6 +196,7 @@ namespace HM.GUI.Pages.BenhNhan
             txtNgayCap.TextValue = "";
             txtNgayHetHan.TextValue = "";
             txtTiLeChiTra.TextValue = "";
+            buttonXacNhanBenhNhan.Text = "Xác nhận";
         }
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
@@ -219,7 +222,6 @@ namespace HM.GUI.Pages.BenhNhan
                 return;
             }
 
-            // Tạo DTO bệnh nhân
             PatientDTO patient = new PatientDTO()
             {
                 SoCCCD = txtSoCCCD.TextValue.Trim(),
@@ -231,7 +233,6 @@ namespace HM.GUI.Pages.BenhNhan
                 SoBHYT = checkBoxCoBHYT.Checked ? txtSoBHYT.TextValue.Trim() : ""
             };
 
-            // Tạo DTO BHYT nếu có
             HealthInsuranceDTO bhyt = null;
             if (checkBoxCoBHYT.Checked)
             {
@@ -250,18 +251,113 @@ namespace HM.GUI.Pages.BenhNhan
                     TrangThaiXoa = "0"
                 };
             }
+
             try
             {
                 bool success;
-                if (patientBUS.ExistsPatient(patient.SoCCCD))
+
+                if (buttonXacNhanBenhNhan.Text == "Lưu")
                 {
-                    success = patientBUS.UpdatePatient(patient, bhyt, patient.SoCCCD);
-                    MessageBox.Show("Cập nhật bệnh nhân thành công!");
+                    if (tablePatient.SelectedRows.Count > 0)
+                    {
+                        var row = tablePatient.SelectedRows[0];
+                        string oldSoCCCD = row.Cells["Số CCCD"].Value?.ToString();
+
+                        if (oldSoCCCD != patient.SoCCCD)
+                        {
+                            // Buoc 1: kiem tra
+                            if (patientBUS.ExistsPatient(patient.SoCCCD))
+                            {
+                                MessageBox.Show($"Số CCCD {patient.SoCCCD} đã tồn tại! Vui lòng nhập số CCCD khác.");
+                                return;
+                            }
+                            DialogResult confirm = MessageBox.Show(
+                                $"Bạn có chắc chắn muốn đổi số CCCD từ {oldSoCCCD} sang {patient.SoCCCD}?", "Xác nhận đổi số CCCD", 
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Warning);
+
+                            if (confirm != DialogResult.Yes)
+                                return;
+
+                            //Buoc 2: kiem tra va cap nhat neu co 
+                            bool hasMedicalRecords = medicalBUS.HasMedicalRecords(oldSoCCCD);
+                            bool hasServiceRecords = serviceRegistrationBUS.HasServiceRecords(oldSoCCCD);
+                            string updateMessage = "Cập nhật bệnh nhân";
+
+                            if (hasMedicalRecords)
+                            {
+                                bool medicalUpdated = medicalBUS.UpdatePatientCCCD(oldSoCCCD, patient.SoCCCD);
+                                if (!medicalUpdated)
+                                {
+                                    MessageBox.Show("Lỗi khi cập nhật bệnh án!");
+                                    return;
+                                }
+                                updateMessage += " và bệnh án";
+                            }
+
+                            if (hasServiceRecords)
+                            {
+                                bool serviceUpdated = serviceRegistrationBUS.UpdatePatientCCCD(oldSoCCCD, patient.SoCCCD);
+                                if (!serviceUpdated)
+                                {
+                                    MessageBox.Show("Lỗi khi cập nhật đăng ký dịch vụ!");
+                                    return;
+                                }
+                                updateMessage += " và đăng ký dịch vụ";
+                            }
+
+                            // Buoc 3: cap nhat benh nhan
+                            success = patientBUS.UpdatePatient(patient, bhyt, oldSoCCCD);
+
+                            if (success)
+                            {
+                                updateMessage += " thành công!";
+                                MessageBox.Show(updateMessage);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Lỗi khi cập nhật thông tin bệnh nhân!");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            success = patientBUS.UpdatePatient(patient, bhyt, oldSoCCCD);
+                            if (success)
+                            {
+                                MessageBox.Show("Cập nhật bệnh nhân thành công!");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Lỗi khi cập nhật thông tin bệnh nhân!");
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy bệnh nhân cần cập nhật!");
+                        return;
+                    }
                 }
-                else
+                else 
                 {
+                    if (patientBUS.ExistsPatient(patient.SoCCCD))
+                    {
+                        MessageBox.Show($"Số CCCD {patient.SoCCCD} đã tồn tại! Vui lòng nhập số CCCD khác.");
+                        return;
+                    }
+
                     success = patientBUS.AddPatient(patient, bhyt);
-                    MessageBox.Show("Thêm bệnh nhân thành công!");
+                    if (success)
+                    {
+                        MessageBox.Show("Thêm bệnh nhân thành công!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lỗi khi thêm bệnh nhân!");
+                        return;
+                    }
                 }
 
                 if (success)
@@ -272,7 +368,7 @@ namespace HM.GUI.Pages.BenhNhan
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -282,6 +378,7 @@ namespace HM.GUI.Pages.BenhNhan
         {
             tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
             buttonHuyBenhNhanClick(null, null);
+            buttonXacNhanBenhNhan.Text = "Xác nhận";
         }
 
         private void buttonSuaBenhNhanClick(object sender, EventArgs e)
@@ -290,6 +387,7 @@ namespace HM.GUI.Pages.BenhNhan
             {
                 var row = tablePatient.SelectedRows[0];
                 string soCCCD = row.Cells["Số CCCD"].Value?.ToString();
+                buttonXacNhanBenhNhan.Text = "Lưu";
 
                 var patient = patientBUS.GetPatientById(soCCCD);
                 if (patient != null)

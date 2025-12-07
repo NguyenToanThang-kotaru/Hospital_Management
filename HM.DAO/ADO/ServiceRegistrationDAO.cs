@@ -242,5 +242,104 @@ namespace HM.DAO.ADO
             }
             return list;
         }
+        public List<ServiceRegistrationDTO> GetAllServiceRegistrationsByPatientId(string soCCCD)
+        {
+            List<ServiceRegistrationDTO> list = new List<ServiceRegistrationDTO>();
+            string sql = "SELECT * FROM dangkydichvu WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0 ORDER BY NgayGioTaoPhieu DESC";
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SoCCCD", soCCCD);
+
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                list.Add(new ServiceRegistrationDTO
+                                {
+                                    MaDKDV = reader["MaDKDV"].ToString(),
+                                    SoCCCD = reader["SoCCCD"].ToString(),
+                                    NgayGioTaoPhieu = reader["NgayGioTaoPhieu"].ToString(),
+                                    TrangThaiDangKy = reader["TrangThaiDangKy"].ToString(),
+                                    TongChiPhi = reader["TongChiPhi"].ToString(),
+                                    HinhThucThanhToan = reader["HinhThucThanhToan"].ToString(),
+                                    MaNV = reader["MaNV"].ToString()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lấy danh sách đăng ký dịch vụ theo bệnh nhân: {ex.Message}");
+            }
+            return list;
+        }
+
+        public bool UpdatePatientCCCD(string oldCCCD, string newCCCD)
+        {
+            string sql = "UPDATE dangkydichvu SET SoCCCD = @NewCCCD WHERE SoCCCD = @OldCCCD AND TrangThaiXoa = 0";
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@NewCCCD", newCCCD);
+                        cmd.Parameters.AddWithValue("@OldCCCD", oldCCCD);
+
+                        conn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi cập nhật số CCCD trong đăng ký dịch vụ: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool HasServiceRecords(string soCCCD)
+        {
+            string sql = "SELECT COUNT(*) FROM dangkydichvu WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0";
+
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@SoCCCD", soCCCD);
+
+                        conn.Open();
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            int count = Convert.ToInt32(result);
+                            return count > 0;
+                        }
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi kiểm tra đăng ký dịch vụ: {ex.Message}");
+                return false;
+            }
+        }
+
+        
     }
 }

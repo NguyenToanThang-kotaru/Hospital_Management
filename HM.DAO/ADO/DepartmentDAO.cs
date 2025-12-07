@@ -122,7 +122,7 @@ namespace HM.DAO.ADO
 
         public DepartmentDTO GetDepartmentById(string maKhoa)
         {
-            string sql = "SELECT * FROM khoa WHERE MaKhoa = @MaKhoa AND TrangThaiXoa = '0'";
+            string sql = "SELECT * FROM khoa WHERE MaKhoa = @MaKhoa";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

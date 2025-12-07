@@ -100,7 +100,10 @@ namespace HM.BUS
         {
             try
             {
-                return serviceregistrationdao.SearchServiceRegistration(keyword);
+                // Tìm kiếm trong list thay vì từ database
+                return listDTO.Where(x =>
+                    x.MaDKDV.Contains(keyword) ||
+                    x.SoCCCD.Contains(keyword)).ToList();
             }
             catch (Exception ex)
             {
@@ -124,7 +127,38 @@ namespace HM.BUS
 
         public bool ExistsServiceRegistrationId(string maDKDV)
         {
-            return GetAllServiceRegistration().Any(sv => sv.MaDKDV == maDKDV);
+            return listDTO.Any(sv => sv.MaDKDV == maDKDV);
+        }
+
+        public bool UpdatePatientCCCD(string oldCCCD, string newCCCD)
+        {
+            try
+            {
+                // 1. Cập nhật trong database
+                bool dbResult = serviceregistrationdao.UpdatePatientCCCD(oldCCCD, newCCCD);
+
+                if (dbResult)
+                {
+                    // 2. Cập nhật trong listDTO - QUAN TRỌNG!
+                    var itemsToUpdate = listDTO.Where(x => x.SoCCCD == oldCCCD).ToList();
+                    foreach (var item in itemsToUpdate)
+                    {
+                        item.SoCCCD = newCCCD;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi cập nhật CCCD trong đăng ký dịch vụ: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool HasServiceRecords(string soCCCD)
+        {
+            return listDTO.Any(x => x.SoCCCD == soCCCD);
         }
     }
 }

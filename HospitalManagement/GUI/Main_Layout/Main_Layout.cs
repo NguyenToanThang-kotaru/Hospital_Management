@@ -82,7 +82,7 @@ namespace HM.GUI.Main_Layout
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Lỗi khi áp quyền hiển thị sidebar: " + ex.Message);
+                Console.WriteLine("Lỗi" + ex.Message);
             }
         }
 
@@ -97,6 +97,7 @@ namespace HM.GUI.Main_Layout
         {
             if (benhNhanPage == null)
                 benhNhanPage = new BenhNhanPage(employeeId);
+            hoSoBenhAnPage = null;
             LoadPage(benhNhanPage);
         }
 

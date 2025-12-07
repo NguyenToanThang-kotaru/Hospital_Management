@@ -35,7 +35,7 @@ namespace HM.BUS
 
         public DepartmentDTO GetDepartmentById(string maKhoa)
         {
-            return listDTO.FirstOrDefault(x => x.MaKhoa == maKhoa);
+            return departmentDAO.GetDepartmentById(maKhoa);
         }
 
         public bool AddDepartment(DepartmentDTO obj)

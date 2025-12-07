@@ -303,6 +303,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             if (tableMedical.Columns[e.ColumnIndex].Name == "btnView")
             {
                 string maBA = tableMedical.Rows[e.RowIndex].Cells["Mã Bệnh Án"].Value.ToString();
+                txtMaBenhAn.TextValue = maBA;
                 LoadDiagnosesByMedicalId(maBA);
                 LoadServicesByMedicalId(maBA);
                 LoadPrescriptionsByMedicalId(maBA);
