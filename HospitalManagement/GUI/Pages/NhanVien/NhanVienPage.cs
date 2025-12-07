@@ -519,6 +519,18 @@ namespace HM.GUI.Pages.NhanVien
         private void searchBarVaiTroTextChanged(object sender, EventArgs e)
         {
             string keyword = searchBarVaiTro.Text.Trim();
+            var roles = roleBUS.SearchRoleByName(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Vai Trò", typeof(string));
+            table.Columns.Add("Tên Vai Trò", typeof(string));
+
+            foreach (var role in roles)
+            {
+                table.Rows.Add(role.MaVT, role.TenVT);
+            }
+
+            tableRole.DataSource = table;
         }
     }
 }
