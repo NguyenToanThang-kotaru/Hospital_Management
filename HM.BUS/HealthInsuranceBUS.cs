@@ -18,11 +18,11 @@ namespace HM.BUS
         public string TinhMucHuongTuSoBHYT(string soBHYT)
         {
             char kyTuThu3 = soBHYT[2];
-            if (kyTuThu3 == '1' || kyTuThu3 == '4')
+            if (kyTuThu3 == '1' || kyTuThu3 == '2')
                 return "100%";
-            else if (kyTuThu3 == '2')
-                return "95%";
             else if (kyTuThu3 == '3')
+                return "95%";
+            else if (kyTuThu3 == '4')
                 return "80%";
             else
                 return "null";
@@ -73,10 +73,15 @@ namespace HM.BUS
             return true;
         }
 
-        public bool UpdateHealthInsurance(HealthInsuranceDTO healthInsurance)
+        public bool UpdateHealthInsurance(HealthInsuranceDTO healthInsurance, string oldSoBHYT)
         {
             ValidateHealthInsurance(healthInsurance);
-            if (!healthInsuranceDAO.UpdateHealthInsurance(healthInsurance))
+
+            var oldHealthInsurance = healthInsuranceDAO.GetHealthInsuranceById(oldSoBHYT);
+            if (oldHealthInsurance == null)
+                throw new Exception("Không tìm thấy bảo hiểm y tế để cập nhật!");
+
+            if (!healthInsuranceDAO.UpdateHealthInsurance(healthInsurance, oldSoBHYT))
                 throw new Exception("Cập nhật BHYT thất bại!");
             return true;
         }
@@ -87,6 +92,13 @@ namespace HM.BUS
                 throw new Exception("Xóa BHYT thất bại!");
             return true;
         }
+
+        public bool ExistsHealthInsurance(string soBHYT)
+        {
+            var healthInsurance = healthInsuranceDAO.GetHealthInsuranceById(soBHYT);
+            return healthInsurance != null;
+        }
+
     }
 }
 

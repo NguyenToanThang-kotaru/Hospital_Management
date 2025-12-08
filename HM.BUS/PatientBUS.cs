@@ -98,7 +98,7 @@ namespace HM.BUS
             return true;
         }
 
-        public bool UpdatePatient(PatientDTO patient, HealthInsuranceDTO bhyt, string oldSoCCCD)
+        public bool UpdatePatient(PatientDTO patient, string oldSoCCCD)
         {
             ValidateUpdatePatient(patient);
 
@@ -106,22 +106,9 @@ namespace HM.BUS
             if (oldPatient == null)
                 throw new Exception("Không tìm thấy bệnh nhân để cập nhật!");
 
-            HealthInsuranceBUS bhytBUS = new HealthInsuranceBUS();
-
-            if (bhyt != null)
-            {
-                // ... giữ nguyên xử lý BHYT ...
-            }
-            else
-            {
-                patient.SoBHYT = oldPatient.SoBHYT;
-            }
-
             if (!patientDAO.UpdatePatient(patient, oldSoCCCD))
                 throw new Exception("Không tìm thấy bệnh nhân hoặc không thể cập nhật!");
 
-            // CẬP NHẬT CACHE - QUAN TRỌNG!
-            // 1. Xóa bản ghi cũ (với oldSoCCCD)
             var oldCached = listDTO.FirstOrDefault(x => x.SoCCCD == oldSoCCCD);
             if (oldCached != null)
             {

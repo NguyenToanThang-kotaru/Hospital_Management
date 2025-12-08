@@ -197,6 +197,7 @@ namespace HM.GUI.Pages.BenhNhan
             txtNgayHetHan.TextValue = "";
             txtTiLeChiTra.TextValue = "";
             buttonXacNhanBenhNhan.Text = "Xác nhận";
+            checkBoxCoBHYT.Enabled = true;
         }
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
@@ -206,25 +207,19 @@ namespace HM.GUI.Pages.BenhNhan
                 MessageBox.Show("Vui lòng nhập đầy đủ CCCD, tên bệnh nhân và ngày sinh!");
                 return;
             }
-
             if (!DateTime.TryParseExact(txtNgaySinh.TextValue, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime ngaySinh))
             {
                 MessageBox.Show("Ngày sinh không hợp lệ! Vui lòng nhập theo định dạng dd-MM-yyyy (Ví dụ: 25-12-2000)");
-                txtNgaySinh.Focus();
                 return;
             }
-
             if (ngaySinh > DateTime.Now)
             {
                 MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại!");
-                txtNgaySinh.Focus();
                 return;
             }
-
             if (!HM.Utils.Validators.IsName(txtHoVaTen.TextValue.Trim()))
             {
                 MessageBox.Show("Tên bệnh nhân không hợp lệ!");
-                txtHoVaTen.Focus();
                 return;
             }
 
@@ -268,24 +263,47 @@ namespace HM.GUI.Pages.BenhNhan
                     {
                         var row = tablePatient.SelectedRows[0];
                         string oldSoCCCD = row.Cells["Số CCCD"].Value?.ToString();
+                        string oldSoBHYT = row.Cells["Số BHYT"].Value?.ToString();
 
-                        if (oldSoCCCD != patient.SoCCCD)
+                        bool cccdChanged = (oldSoCCCD != patient.SoCCCD);
+                        bool bhytChanged = false;
+
+                        // KIỂM TRA THAY ĐỔI BHYT
+                        if (patient.SoBHYT != oldSoBHYT)
                         {
-                            // Buoc 1: kiem tra
+                            bhytChanged = true;
+
+                            // Kiểm tra BHYT mới có tồn tại chưa (trừ BHYT cũ)
+                            if (!string.IsNullOrEmpty(patient.SoBHYT) && patient.SoBHYT != oldSoBHYT && healthInsuranceBUS.ExistsHealthInsurance(patient.SoBHYT))
+                            {
+                                MessageBox.Show($"Số BHYT {patient.SoBHYT} đã tồn tại!");
+                                return;
+                            }
+                        }
+                        else if (patient.SoBHYT == oldSoBHYT && !string.IsNullOrEmpty(oldSoBHYT))
+                        {
+                            bhytChanged = true;
+                        }
+
+                        if (cccdChanged)
+                        {
+                            // Buoc 1: kiem tra CCCD mới
                             if (patientBUS.ExistsPatient(patient.SoCCCD))
                             {
                                 MessageBox.Show($"Số CCCD {patient.SoCCCD} đã tồn tại! Vui lòng nhập số CCCD khác.");
                                 return;
                             }
+
                             DialogResult confirm = MessageBox.Show(
-                                $"Bạn có chắc chắn muốn đổi số CCCD từ {oldSoCCCD} sang {patient.SoCCCD}?", "Xác nhận đổi số CCCD", 
+                                $"Bạn có chắc chắn muốn đổi số CCCD từ {oldSoCCCD} sang {patient.SoCCCD}?",
+                                "Xác nhận đổi số CCCD",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Warning);
 
                             if (confirm != DialogResult.Yes)
                                 return;
 
-                            //Buoc 2: kiem tra va cap nhat neu co 
+                            // Buoc 2: kiểm tra và cập nhật các bản ghi liên quan
                             bool hasMedicalRecords = medicalBUS.HasMedicalRecords(oldSoCCCD);
                             bool hasServiceRecords = serviceRegistrationBUS.HasServiceRecords(oldSoCCCD);
                             string updateMessage = "Cập nhật bệnh nhân";
@@ -312,8 +330,14 @@ namespace HM.GUI.Pages.BenhNhan
                                 updateMessage += " và đăng ký dịch vụ";
                             }
 
-                            // Buoc 3: cap nhat benh nhan
-                            success = patientBUS.UpdatePatient(patient, bhyt, oldSoCCCD);
+                            // Buoc 3: cập nhật bệnh nhân
+                            success = patientBUS.UpdatePatient(patient, oldSoCCCD);
+
+                            // Buoc 4: xử lý BHYT nếu có thay đổi
+                            if (success && bhytChanged)
+                            {
+                                ProcessBHYTUpdate(bhyt, oldSoBHYT, checkBoxCoBHYT.Checked);
+                            }
 
                             if (success)
                             {
@@ -328,7 +352,15 @@ namespace HM.GUI.Pages.BenhNhan
                         }
                         else
                         {
-                            success = patientBUS.UpdatePatient(patient, bhyt, oldSoCCCD);
+                            // Chỉ thay đổi thông tin khác (không đổi CCCD)
+                            success = patientBUS.UpdatePatient(patient, oldSoCCCD);
+
+                            // Xử lý BHYT nếu có thay đổi
+                            if (success && bhytChanged)
+                            {
+                                ProcessBHYTUpdate(bhyt, oldSoBHYT, checkBoxCoBHYT.Checked);
+                            }
+
                             if (success)
                             {
                                 MessageBox.Show("Cập nhật bệnh nhân thành công!");
@@ -346,12 +378,21 @@ namespace HM.GUI.Pages.BenhNhan
                         return;
                     }
                 }
-                else 
+                else // them
                 {
                     if (patientBUS.ExistsPatient(patient.SoCCCD))
                     {
-                        MessageBox.Show($"Số CCCD {patient.SoCCCD} đã tồn tại! Vui lòng nhập số CCCD khác.");
+                        MessageBox.Show($"Số CCCD {patient.SoCCCD} đã tồn tại! ");
                         return;
+                    }
+
+                    if (checkBoxCoBHYT.Checked && !string.IsNullOrEmpty(patient.SoBHYT))
+                    {
+                        if (healthInsuranceBUS.ExistsHealthInsurance(patient.SoBHYT))
+                        {
+                            MessageBox.Show($"Số BHYT {patient.SoBHYT} đã tồn tại!");
+                            return;
+                        }
                     }
 
                     success = patientBUS.AddPatient(patient, bhyt);
@@ -378,6 +419,26 @@ namespace HM.GUI.Pages.BenhNhan
             }
         }
 
+        // PHƯƠNG THỨC XỬ LÝ BHYT RIÊNG
+        private void ProcessBHYTUpdate(HealthInsuranceDTO bhyt, string oldSoBHYT, bool hasBHYT)
+        {
+            try
+            {
+                if (hasBHYT)
+                {
+                    if (string.IsNullOrEmpty(oldSoBHYT))
+                        healthInsuranceBUS.AddHealthInsurance(bhyt);
+                    else
+                        healthInsuranceBUS.UpdateHealthInsurance(bhyt, oldSoBHYT);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi xử lý BHYT: {ex.Message}", "Lỗi BHYT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
+            }
+        }
+
         // sự kiện tabPageDanhSachBenhNhan ====================================================================================================================
         // sự kiện tabPageDanhSachBenhNhan ====================================================================================================================
         private void buttonThemBenhNhanClick(object sender, EventArgs e)
@@ -385,6 +446,7 @@ namespace HM.GUI.Pages.BenhNhan
             tabControlBenhNhan.SelectedTab = tabPageBenhNhan;
             buttonHuyBenhNhanClick(null, null);
             buttonXacNhanBenhNhan.Text = "Xác nhận";
+            checkBoxCoBHYT.Enabled = true;
         }
 
         private void buttonSuaBenhNhanClick(object sender, EventArgs e)
@@ -410,6 +472,7 @@ namespace HM.GUI.Pages.BenhNhan
                     if (!string.IsNullOrEmpty(patient.SoBHYT))
                     {
                         checkBoxCoBHYT.Checked = true;
+                        checkBoxCoBHYT.Enabled = false;
 
                         var bhyt = healthInsuranceBUS.GetHealthInsuranceByID(patient.SoBHYT);
 

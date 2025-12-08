@@ -103,7 +103,7 @@ namespace HM.DAO.ADO
             }
         }
 
-        public bool UpdateHealthInsurance(HealthInsuranceDTO bhyt)
+        public bool UpdateHealthInsurance(HealthInsuranceDTO bhyt, string oldSoBHYT)
         {
             try
             {
@@ -111,17 +111,20 @@ namespace HM.DAO.ADO
                 {
                     DatabaseConnection.Open(conn);
                     string query = @"
-                    UPDATE baohiemyte
-                    SET NgayCap = @NgayCap,
-                        NgayHetHan = @NgayHetHan,
-                        MucHuong = @MucHuong
-                    WHERE SoBHYT = @SoBHYT AND TrangThaiXoa = 0;";
+                        UPDATE baohiemyte
+                        SET SoBHYT = @NewSoBHYT,
+                            NgayCap = @NgayCap,
+                            NgayHetHan = @NgayHetHan,
+                            MucHuong = @MucHuong
+                        WHERE SoBHYT = @OldSoBHYT AND TrangThaiXoa = 0;";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@SoBHYT", bhyt.SoBHYT);
+                        cmd.Parameters.AddWithValue("@NewSoBHYT", bhyt.SoBHYT);
                         cmd.Parameters.AddWithValue("@NgayCap", bhyt.NgayCap);
                         cmd.Parameters.AddWithValue("@NgayHetHan", bhyt.NgayHetHan);
                         cmd.Parameters.AddWithValue("@MucHuong", bhyt.MucHuong);
+                        cmd.Parameters.AddWithValue("@OldSoBHYT", oldSoBHYT);
+
                         int rows = cmd.ExecuteNonQuery();
                         DatabaseConnection.Close(conn);
                         return rows > 0;
