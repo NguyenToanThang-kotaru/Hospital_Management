@@ -16,6 +16,7 @@ namespace HM.GUI.Pages.BenhNhan
     public partial class BenhNhanPage : UserControl
     {
         private string employeeId;
+        private string functionId = "CN0002";
         private TableDataGridView tablePatient;
         private TableDataGridView tableServiceRegistration;
         private TableDataGridView tableServiceOfServiceRegistration;
@@ -26,7 +27,7 @@ namespace HM.GUI.Pages.BenhNhan
         private ServiceRegistrationDetailBUS serviceRegistrationDetailBUS;
         private ServiceBUS serviceBUS;
         private MedicalBUS medicalBUS;
-
+        private AccountBUS accountBUS;
         public BenhNhanPage(string employeeId)
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace HM.GUI.Pages.BenhNhan
             serviceRegistrationDetailBUS = new ServiceRegistrationDetailBUS();
             serviceBUS = new ServiceBUS();
             medicalBUS = new MedicalBUS();
+            accountBUS = new AccountBUS();
         }
 
         private void BenhNhanPage_Load(object sender, EventArgs e)
@@ -74,6 +76,47 @@ namespace HM.GUI.Pages.BenhNhan
             comboBoxGioiTinhLoad(null, null);
             comboBoxHinhThucThanhToanLoad(null, null);
             comboBoxTrangThaiDangKyLoad(null, null);
+
+            applyPermissions(accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap, functionId);
+        }
+
+        private void applyPermissions(string username, string maCN)
+        {
+            if (!accountBUS.HasPermission(username, maCN, "add"))
+            {
+                tableToolBoxBenhNhan.ColumnStyles[1].Width = 0;
+                tableToolBoxBenhNhan.ColumnStyles[2].Width = 0f;
+                tableToolBoxDangKyDichVu.ColumnStyles[1].Width = 0;
+                tableToolBoxDangKyDichVu.ColumnStyles[2].Width = 0f;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "edit"))
+            {
+                tableToolBoxBenhNhan.ColumnStyles[3].Width = 0;
+                tableToolBoxBenhNhan.ColumnStyles[4].Width = 0f;
+                tableToolBoxDangKyDichVu.ColumnStyles[3].Width = 0;
+                tableToolBoxDangKyDichVu.ColumnStyles[4].Width = 0f;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "delete"))
+            {
+                tableToolBoxBenhNhan.ColumnStyles[5].Width = 0;
+                tableToolBoxBenhNhan.ColumnStyles[6].Width = 0f;
+                tableToolBoxDangKyDichVu.ColumnStyles[5].Width = 0;
+                tableToolBoxDangKyDichVu.ColumnStyles[6].Width = 0f;
+            }
+        }
+        private bool CheckPermissionForXacNhan(bool isNewRecord)
+        {
+            string username = accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap;
+            string action = isNewRecord ? "add" : "edit";
+
+            if (!accountBUS.HasPermission(username, functionId, action))
+            {
+                string message = isNewRecord ? "thêm mới" : "sửa";
+                MessageBox.Show($"Bạn không có quyền {message}!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         private void LoadPatientToTable()
@@ -204,6 +247,12 @@ namespace HM.GUI.Pages.BenhNhan
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
         {
+            bool isNewPatient = buttonXacNhanBenhNhan.Text == "Xác nhận";
+            if (!CheckPermissionForXacNhan(isNewPatient))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtSoCCCD.TextValue) || string.IsNullOrEmpty(txtHoVaTen.TextValue) || string.IsNullOrEmpty(txtNgaySinh.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ CCCD, tên bệnh nhân và ngày sinh!");
@@ -702,6 +751,12 @@ namespace HM.GUI.Pages.BenhNhan
 
         private void buttonXacNhanDangKyDichVuClick(object sender, EventArgs e)
         {
+            bool isNewServiceRegistration = !serviceRegistrationBUS.ExistsServiceRegistrationId(txtMaDKDV.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewServiceRegistration))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtSoCCCDBenhNhan.TextValue))
             {
                 MessageBox.Show("Vui lòng chọn bệnh nhân!");

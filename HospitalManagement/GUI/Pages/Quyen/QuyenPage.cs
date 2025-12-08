@@ -14,6 +14,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
     public partial class QuyenPage : UserControl
     {
         private string employeeId;
+        private string functionId = "CN0006";
         private TableDataGridView tableAccounts;
         private TableDataGridView tablePermission;
         private PermissionBUS permissionBUS;
@@ -47,6 +48,47 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
             txtMaQuyen.SetReadOnly(true);
             txtMaQuyen.TextValue = permissionBUS.GetNextPermissionId();
+
+            applyPermissions(accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap, functionId);
+        }
+
+        private void applyPermissions(string username, string maCN)
+        {
+            if (!accountBUS.HasPermission(username, maCN, "add"))
+            {
+                tableToolBoxTaiKhoan.ColumnStyles[1].Width = 0;
+                tableToolBoxTaiKhoan.ColumnStyles[2].Width = 0f;
+                tableToolBoxQuyen.ColumnStyles[0].Width = 0;
+                tableToolBoxQuyen.ColumnStyles[1].Width = 0f;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "edit"))
+            {
+                tableToolBoxTaiKhoan.ColumnStyles[3].Width = 0;
+                tableToolBoxTaiKhoan.ColumnStyles[4].Width = 0f;
+                tableToolBoxQuyen.ColumnStyles[2].Width = 0;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "delete"))
+            {
+                tableToolBoxTaiKhoan.ColumnStyles[5].Width = 0;
+                tableToolBoxTaiKhoan.ColumnStyles[6].Width = 0f;
+                tableToolBoxQuyen.ColumnStyles[3].Width = 0f;
+                tableToolBoxQuyen.ColumnStyles[4].Width = 0;
+            }
+        }
+
+        private bool CheckPermissionForXacNhan(bool isNewRecord)
+        {
+            string username = accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap;
+            string action = isNewRecord ? "add" : "edit";
+
+            if (!accountBUS.HasPermission(username, functionId, action))
+            {
+                string message = isNewRecord ? "thêm mới" : "sửa";
+                MessageBox.Show($"Bạn không có quyền {message}!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         private void LoadAccountToTable()
@@ -106,7 +148,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             for (int i = 0; i < chucNangList.Count; i++)
                 table.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
 
-            // Header cho các hành động
+            // Header cho hanh dong
             for (int j = 0; j < hanhDongList.Count; j++)
             {
                 table.Controls.Add(new Label
@@ -119,10 +161,10 @@ namespace HM.GUI.Pages.HoSoBenhAn
                 }, j + 1, 0);
             }
 
-            // Các chức năng và checkbox tương ứng
+            // chuc nang va check bõ
             for (int i = 0; i < chucNangList.Count; i++)
             {
-                // Label tên chức năng
+                //  ten cn
                 table.Controls.Add(new Label
                 {
                     Text = chucNangList[i].TenCN,
@@ -132,7 +174,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     ForeColor = Consts.FontColorA
                 }, 0, i + 1);
 
-                // Checkbox cho từng hành động
+                // check bõx cho tung chuc nagw
                 for (int j = 0; j < hanhDongList.Count; j++)
                 {
                     var panel = new Panel
@@ -140,7 +182,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
                         Dock = DockStyle.Fill,
                         Tag = new { MaCN = chucNangList[i].MaCN, MaHD = hanhDongList[j].MaHD }
                     };
-
                     var ckb = new CheckBox
                     {
                         AutoSize = true,
@@ -150,10 +191,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     panel.Controls.Add(ckb);
                     panel.Resize += (s, e) =>
                     {
-                        ckb.Location = new Point(
-                            (panel.Width - ckb.Width) / 2,
-                            (panel.Height - ckb.Height) / 2
-                        );
+                        ckb.Location = new Point((panel.Width - ckb.Width) / 2, (panel.Height - ckb.Height) / 2 );
                     };
 
                     table.Controls.Add(panel, j + 1, i + 1);
@@ -201,6 +239,12 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
         private void buttonXacNhanTaiKhoanClick(object sender, EventArgs e)
         {
+            bool isNewAccount = buttonXacNhanTaiKhoan.Text == "Xác nhận"; 
+            if (!CheckPermissionForXacNhan(isNewAccount))
+            {
+                return; 
+            }
+
             if (string.IsNullOrEmpty(txtTenDangNhap.TextValue) || string.IsNullOrEmpty(txtMatKhau.TextValue) || string.IsNullOrEmpty(comboBoxNhanVien.TextValue) || string.IsNullOrEmpty(comboBoxQuyen.TextValue))
             {
                 MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin tài khoản!");
@@ -353,6 +397,12 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
         private void buttonXacNhanQuyenClick(object sender, EventArgs e)
         {
+            bool isNewPermission = !permissionBUS.ExistsPermissionId(txtMaQuyen.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewPermission))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtTenQuyen.TextValue))
             {
                 MessageBox.Show("Vui long nhap day du thong tin quyen");

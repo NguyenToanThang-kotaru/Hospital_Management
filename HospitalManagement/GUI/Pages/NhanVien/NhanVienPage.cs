@@ -11,7 +11,8 @@ namespace HM.GUI.Pages.NhanVien
 {
     public partial class NhanVienPage : UserControl
     {
-        private string employeeId; 
+        private string employeeId;
+        private string functionId = "CN0005";
         private TableDataGridView tableEmployee;
         private TableDataGridView tableDepartment;
         private TableDataGridView tableEmployeeOfDepartment;
@@ -19,6 +20,7 @@ namespace HM.GUI.Pages.NhanVien
         private EmployeeBUS employeeBUS;
         private DepartmentBUS departmentBUS;
         private RoleBUS roleBUS;
+        private AccountBUS accountBUS;
 
         public NhanVienPage(string employeeId)
         {
@@ -32,6 +34,7 @@ namespace HM.GUI.Pages.NhanVien
             employeeBUS = new EmployeeBUS();
             departmentBUS = new DepartmentBUS();
             roleBUS = new RoleBUS();
+            accountBUS = new AccountBUS();
         }
 
         private void NhanVienPage_Load(object sender, EventArgs e)
@@ -47,6 +50,53 @@ namespace HM.GUI.Pages.NhanVien
             txtMaNhanVien.TextValue = employeeBUS.GetNextEmployeeId();
             txtMaKhoa.TextValue = departmentBUS.GetNextDepartmentId();
             txtMaVaiTro.TextValue = roleBUS.GetNextRoleId();
+
+            applyPermissions(accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap, functionId);
+        }
+        private void applyPermissions(string username, string maCN)
+        {
+            if (!accountBUS.HasPermission(username, maCN, "add"))
+            {
+                tableToolBoxNhanVien.ColumnStyles[1].Width = 0;
+                tableToolBoxNhanVien.ColumnStyles[2].Width = 0f;
+                tableToolBoxKhoa.ColumnStyles[1].Width = 0;
+                tableToolBoxKhoa.ColumnStyles[2].Width = 0f;
+                tableToolBoxVaiTro.ColumnStyles[1].Width = 0;
+                tableToolBoxVaiTro.ColumnStyles[2].Width = 0f;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "edit"))
+            {
+                tableToolBoxNhanVien.ColumnStyles[3].Width = 0;
+                tableToolBoxNhanVien.ColumnStyles[4].Width = 0f;
+                tableToolBoxKhoa.ColumnStyles[3].Width = 0;
+                tableToolBoxKhoa.ColumnStyles[4].Width = 0f;
+                tableToolBoxVaiTro.ColumnStyles[3].Width = 0;
+                tableToolBoxVaiTro.ColumnStyles[4].Width = 0f;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "delete"))
+            {
+                tableToolBoxNhanVien.ColumnStyles[5].Width = 0;
+                tableToolBoxNhanVien.ColumnStyles[6].Width = 0f;
+                tableToolBoxKhoa.ColumnStyles[5].Width = 0;
+                tableToolBoxKhoa.ColumnStyles[6].Width = 0f;
+                tableToolBoxVaiTro.ColumnStyles[5].Width = 0;
+                tableToolBoxVaiTro.ColumnStyles[6].Width = 0f;
+            }
+        }
+
+        private bool CheckPermissionForXacNhan(bool isNewRecord)
+        {
+            string username = accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap;
+            string action = isNewRecord ? "add" : "edit";
+
+            if (!accountBUS.HasPermission(username, functionId, action))
+            {
+                string message = isNewRecord ? "thêm mới" : "sửa";
+                MessageBox.Show($"Bạn không có quyền {message}!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         private void LoadEmployeeToTable()
@@ -155,6 +205,12 @@ namespace HM.GUI.Pages.NhanVien
 
         private void buttonXacNhanNhanVienClick(object sender, EventArgs e)
         {
+            bool isNewEmpolee = !employeeBUS.ExistsEmployeeId(txtMaNhanVien.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewEmpolee))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtTenNhanVien.TextValue) || string.IsNullOrEmpty(txtSoDienThoai.TextValue) || string.IsNullOrEmpty(comboBoxChucVu.TextValue) || string.IsNullOrEmpty(comboBoxKhoa.TextValue) || string.IsNullOrEmpty(comboBoxVaiTro.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên!");
@@ -292,6 +348,12 @@ namespace HM.GUI.Pages.NhanVien
 
         private void buttonXacNhanKhoaClick(object sender, EventArgs e)
         {
+            bool isNewDepartment = !departmentBUS.ExistsDepartmentId(txtMaKhoa.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewDepartment))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtTenKhoa.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập tên khoa!");
@@ -405,6 +467,12 @@ namespace HM.GUI.Pages.NhanVien
 
         private void buttonXacNhanVaiTroClick(object sender, EventArgs e)
         {
+            bool isNewRole = !roleBUS.ExistsRoleId(txtMaVaiTro.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewRole))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtTenVaiTro.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập tên vai trò!");

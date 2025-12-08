@@ -42,7 +42,7 @@
             this.buttonHuyTaiKhoan = new HM.GUI.Component.RoundedLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableToolBoxTaiKhoan = new System.Windows.Forms.TableLayoutPanel();
             this.buttonXoaTaiKhoan = new HM.GUI.Component.RoundedLabel();
             this.buttonSuaTaiKhoan = new HM.GUI.Component.RoundedLabel();
             this.buttonThemTaiKhoan = new HM.GUI.Component.RoundedLabel();
@@ -61,7 +61,7 @@
             this.buttonHuyQuyen = new HM.GUI.Component.RoundedLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableToolBoxQuyen = new System.Windows.Forms.TableLayoutPanel();
             this.buttonXoaQuyen = new HM.GUI.Component.RoundedLabel();
             this.buttonSuaQuyen = new HM.GUI.Component.RoundedLabel();
             this.buttonThemQuyen = new HM.GUI.Component.RoundedLabel();
@@ -76,7 +76,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tableToolBoxTaiKhoan.SuspendLayout();
             this.tabPageQuyen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
+            this.tableToolBoxQuyen.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlQuyen
@@ -318,7 +318,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableToolBoxTaiKhoan, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.taiKhoanPanel, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 50);
@@ -331,29 +331,29 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(738, 667);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // tableLayoutPanel6
+            // tableToolBoxTaiKhoan
             // 
-            this.tableLayoutPanel6.ColumnCount = 7;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.Controls.Add(this.buttonXoaTaiKhoan, 6, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonSuaTaiKhoan, 4, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonThemTaiKhoan, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.searchBarTaiKhoan, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(738, 66);
-            this.tableLayoutPanel6.TabIndex = 3;
+            this.tableToolBoxTaiKhoan.ColumnCount = 7;
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxTaiKhoan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxTaiKhoan.Controls.Add(this.buttonXoaTaiKhoan, 6, 0);
+            this.tableToolBoxTaiKhoan.Controls.Add(this.buttonSuaTaiKhoan, 4, 0);
+            this.tableToolBoxTaiKhoan.Controls.Add(this.buttonThemTaiKhoan, 2, 0);
+            this.tableToolBoxTaiKhoan.Controls.Add(this.searchBarTaiKhoan, 0, 0);
+            this.tableToolBoxTaiKhoan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableToolBoxTaiKhoan.Location = new System.Drawing.Point(0, 0);
+            this.tableToolBoxTaiKhoan.Margin = new System.Windows.Forms.Padding(0);
+            this.tableToolBoxTaiKhoan.Name = "tableToolBoxTaiKhoan";
+            this.tableToolBoxTaiKhoan.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableToolBoxTaiKhoan.RowCount = 1;
+            this.tableToolBoxTaiKhoan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxTaiKhoan.Size = new System.Drawing.Size(738, 66);
+            this.tableToolBoxTaiKhoan.TabIndex = 3;
             // 
             // buttonXoaTaiKhoan
             // 
@@ -664,7 +664,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableToolBoxQuyen, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.quyenPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
@@ -677,26 +677,26 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(412, 667);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tableLayoutPanel7
+            // tableToolBoxQuyen
             // 
-            this.tableLayoutPanel7.ColumnCount = 5;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.Controls.Add(this.buttonXoaQuyen, 4, 0);
-            this.tableLayoutPanel7.Controls.Add(this.buttonSuaQuyen, 2, 0);
-            this.tableLayoutPanel7.Controls.Add(this.buttonThemQuyen, 0, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(412, 66);
-            this.tableLayoutPanel7.TabIndex = 3;
+            this.tableToolBoxQuyen.ColumnCount = 5;
+            this.tableToolBoxQuyen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxQuyen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableToolBoxQuyen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxQuyen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableToolBoxQuyen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxQuyen.Controls.Add(this.buttonXoaQuyen, 4, 0);
+            this.tableToolBoxQuyen.Controls.Add(this.buttonSuaQuyen, 2, 0);
+            this.tableToolBoxQuyen.Controls.Add(this.buttonThemQuyen, 0, 0);
+            this.tableToolBoxQuyen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableToolBoxQuyen.Location = new System.Drawing.Point(0, 0);
+            this.tableToolBoxQuyen.Margin = new System.Windows.Forms.Padding(0);
+            this.tableToolBoxQuyen.Name = "tableToolBoxQuyen";
+            this.tableToolBoxQuyen.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableToolBoxQuyen.RowCount = 1;
+            this.tableToolBoxQuyen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxQuyen.Size = new System.Drawing.Size(412, 66);
+            this.tableToolBoxQuyen.TabIndex = 3;
             // 
             // buttonXoaQuyen
             // 
@@ -803,8 +803,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tableToolBoxTaiKhoan.ResumeLayout(false);
+            this.tableToolBoxTaiKhoan.PerformLayout();
             this.tabPageQuyen.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -816,7 +816,7 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableToolBoxQuyen.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -852,11 +852,11 @@
         private LayoutTest.GUIComponents.LableTextBox txtMaQuyen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel quyenPanelForCheckbox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TableLayoutPanel tableToolBoxQuyen;
         private Component.RoundedLabel buttonXoaQuyen;
         private Component.RoundedLabel buttonSuaQuyen;
         private Component.RoundedLabel buttonThemQuyen;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tableToolBoxTaiKhoan;
         private Component.RoundedLabel buttonXoaTaiKhoan;
         private Component.RoundedLabel buttonSuaTaiKhoan;
         private Component.RoundedLabel buttonThemTaiKhoan;

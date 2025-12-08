@@ -42,7 +42,7 @@
             this.buttonHuyKhoa = new HM.GUI.Component.RoundedLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableToolBoxKhoa = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarKhoa = new System.Windows.Forms.TextBox();
             this.buttonXoaKhoa = new HM.GUI.Component.RoundedLabel();
             this.buttonSuaKhoa = new HM.GUI.Component.RoundedLabel();
@@ -63,7 +63,7 @@
             this.buttonHuyNhanVien = new HM.GUI.Component.RoundedLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableToolBoxNhanVien = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarNhanVien = new System.Windows.Forms.TextBox();
             this.buttonXoaNhanVien = new HM.GUI.Component.RoundedLabel();
             this.buttonSuaNhanVien = new HM.GUI.Component.RoundedLabel();
@@ -81,7 +81,7 @@
             this.buttonHuyVaiTro = new HM.GUI.Component.RoundedLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableToolBoxVaiTro = new System.Windows.Forms.TableLayoutPanel();
             this.searchBarVaiTro = new System.Windows.Forms.TextBox();
             this.buttonXoaVaiTro = new HM.GUI.Component.RoundedLabel();
             this.buttonSuaVaiTro = new HM.GUI.Component.RoundedLabel();
@@ -97,7 +97,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
+            this.tableToolBoxKhoa.SuspendLayout();
             this.tabPageNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerNhanVien)).BeginInit();
             this.splitContainerNhanVien.Panel1.SuspendLayout();
@@ -107,7 +107,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tableToolBoxNhanVien.SuspendLayout();
             this.tabControlDesign1.SuspendLayout();
             this.tabPageVaiTro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -118,7 +118,7 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
+            this.tableToolBoxVaiTro.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPageKhoa
@@ -343,7 +343,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableToolBoxKhoa, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.khoaPanel, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(50, 50);
@@ -356,29 +356,29 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(739, 667);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // tableLayoutPanel7
+            // tableToolBoxKhoa
             // 
-            this.tableLayoutPanel7.ColumnCount = 7;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel7.Controls.Add(this.searchBarKhoa, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.buttonXoaKhoa, 6, 0);
-            this.tableLayoutPanel7.Controls.Add(this.buttonSuaKhoa, 4, 0);
-            this.tableLayoutPanel7.Controls.Add(this.buttonThemKhoa, 2, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(739, 66);
-            this.tableLayoutPanel7.TabIndex = 3;
+            this.tableToolBoxKhoa.ColumnCount = 7;
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxKhoa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxKhoa.Controls.Add(this.searchBarKhoa, 0, 0);
+            this.tableToolBoxKhoa.Controls.Add(this.buttonXoaKhoa, 6, 0);
+            this.tableToolBoxKhoa.Controls.Add(this.buttonSuaKhoa, 4, 0);
+            this.tableToolBoxKhoa.Controls.Add(this.buttonThemKhoa, 2, 0);
+            this.tableToolBoxKhoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableToolBoxKhoa.Location = new System.Drawing.Point(0, 0);
+            this.tableToolBoxKhoa.Margin = new System.Windows.Forms.Padding(0);
+            this.tableToolBoxKhoa.Name = "tableToolBoxKhoa";
+            this.tableToolBoxKhoa.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableToolBoxKhoa.RowCount = 1;
+            this.tableToolBoxKhoa.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxKhoa.Size = new System.Drawing.Size(739, 66);
+            this.tableToolBoxKhoa.TabIndex = 3;
             // 
             // searchBarKhoa
             // 
@@ -721,7 +721,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableToolBoxNhanVien, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.nhanVienPanel, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(50, 50);
@@ -734,29 +734,29 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(739, 667);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tableLayoutPanel6
+            // tableToolBoxNhanVien
             // 
-            this.tableLayoutPanel6.ColumnCount = 7;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel6.Controls.Add(this.searchBarNhanVien, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonXoaNhanVien, 6, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonSuaNhanVien, 4, 0);
-            this.tableLayoutPanel6.Controls.Add(this.buttonThemNhanVien, 2, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(739, 66);
-            this.tableLayoutPanel6.TabIndex = 3;
+            this.tableToolBoxNhanVien.ColumnCount = 7;
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxNhanVien.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxNhanVien.Controls.Add(this.searchBarNhanVien, 0, 0);
+            this.tableToolBoxNhanVien.Controls.Add(this.buttonXoaNhanVien, 6, 0);
+            this.tableToolBoxNhanVien.Controls.Add(this.buttonSuaNhanVien, 4, 0);
+            this.tableToolBoxNhanVien.Controls.Add(this.buttonThemNhanVien, 2, 0);
+            this.tableToolBoxNhanVien.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableToolBoxNhanVien.Location = new System.Drawing.Point(0, 0);
+            this.tableToolBoxNhanVien.Margin = new System.Windows.Forms.Padding(0);
+            this.tableToolBoxNhanVien.Name = "tableToolBoxNhanVien";
+            this.tableToolBoxNhanVien.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableToolBoxNhanVien.RowCount = 1;
+            this.tableToolBoxNhanVien.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxNhanVien.Size = new System.Drawing.Size(739, 66);
+            this.tableToolBoxNhanVien.TabIndex = 3;
             // 
             // searchBarNhanVien
             // 
@@ -1051,7 +1051,7 @@
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel11, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.tableToolBoxVaiTro, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.vaiTroPanel, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(50, 50);
@@ -1064,29 +1064,29 @@
             this.tableLayoutPanel10.Size = new System.Drawing.Size(739, 667);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
-            // tableLayoutPanel11
+            // tableToolBoxVaiTro
             // 
-            this.tableLayoutPanel11.ColumnCount = 7;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel11.Controls.Add(this.searchBarVaiTro, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.buttonXoaVaiTro, 6, 0);
-            this.tableLayoutPanel11.Controls.Add(this.buttonSuaVaiTro, 4, 0);
-            this.tableLayoutPanel11.Controls.Add(this.buttonThemVaiTro, 2, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(739, 66);
-            this.tableLayoutPanel11.TabIndex = 3;
+            this.tableToolBoxVaiTro.ColumnCount = 7;
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableToolBoxVaiTro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableToolBoxVaiTro.Controls.Add(this.searchBarVaiTro, 0, 0);
+            this.tableToolBoxVaiTro.Controls.Add(this.buttonXoaVaiTro, 6, 0);
+            this.tableToolBoxVaiTro.Controls.Add(this.buttonSuaVaiTro, 4, 0);
+            this.tableToolBoxVaiTro.Controls.Add(this.buttonThemVaiTro, 2, 0);
+            this.tableToolBoxVaiTro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableToolBoxVaiTro.Location = new System.Drawing.Point(0, 0);
+            this.tableToolBoxVaiTro.Margin = new System.Windows.Forms.Padding(0);
+            this.tableToolBoxVaiTro.Name = "tableToolBoxVaiTro";
+            this.tableToolBoxVaiTro.Padding = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.tableToolBoxVaiTro.RowCount = 1;
+            this.tableToolBoxVaiTro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableToolBoxVaiTro.Size = new System.Drawing.Size(739, 66);
+            this.tableToolBoxVaiTro.TabIndex = 3;
             // 
             // searchBarVaiTro
             // 
@@ -1207,8 +1207,8 @@
             this.tableLayoutPanel5.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
+            this.tableToolBoxKhoa.ResumeLayout(false);
+            this.tableToolBoxKhoa.PerformLayout();
             this.tabPageNhanVien.ResumeLayout(false);
             this.splitContainerNhanVien.Panel1.ResumeLayout(false);
             this.splitContainerNhanVien.Panel2.ResumeLayout(false);
@@ -1219,8 +1219,8 @@
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tableToolBoxNhanVien.ResumeLayout(false);
+            this.tableToolBoxNhanVien.PerformLayout();
             this.tabControlDesign1.ResumeLayout(false);
             this.tabPageVaiTro.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -1232,8 +1232,8 @@
             this.tableLayoutPanel8.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
+            this.tableToolBoxVaiTro.ResumeLayout(false);
+            this.tableToolBoxVaiTro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1253,7 +1253,7 @@
         private Component.RoundedLabel buttonHuyKhoa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TableLayoutPanel tableToolBoxKhoa;
         private Component.RoundedLabel buttonXoaKhoa;
         private Component.RoundedLabel buttonSuaKhoa;
         private Component.RoundedLabel buttonThemKhoa;
@@ -1273,7 +1273,7 @@
         private Component.RoundedLabel buttonHuyNhanVien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tableToolBoxNhanVien;
         private Component.RoundedLabel buttonXoaNhanVien;
         private Component.RoundedLabel buttonSuaNhanVien;
         private Component.RoundedLabel buttonThemNhanVien;
@@ -1292,7 +1292,7 @@
         private Component.RoundedLabel buttonHuyVaiTro;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.TableLayoutPanel tableToolBoxVaiTro;
         private System.Windows.Forms.TextBox searchBarVaiTro;
         private Component.RoundedLabel buttonXoaVaiTro;
         private Component.RoundedLabel buttonSuaVaiTro;

@@ -10,14 +10,13 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 
 namespace HM.GUI.Pages.HoSoBenhAn
 {
     public partial class HoSoBenhAnPage : UserControl
     {
         private string employeeId;
+        private string functionId = "CN0003";
         private TableDataGridView tableMedicine;
         private TableDataGridView tableDisease;
         private TableDataGridView tablePatient;
@@ -34,6 +33,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
         private EmployeeBUS employeeBUS;
         private PatientBUS patientBUS;
         private ServiceBUS serviceBUS;
+        private AccountBUS accountBUS;
 
         public HoSoBenhAnPage(string employeeId)
         {
@@ -61,6 +61,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             employeeBUS = new EmployeeBUS();
             patientBUS = new PatientBUS();
             serviceBUS = new ServiceBUS();
+            accountBUS = new AccountBUS();
         }
 
         private void HoSoBenhAnPage_Load(object sender, EventArgs e)
@@ -84,6 +85,50 @@ namespace HM.GUI.Pages.HoSoBenhAn
             txtMaDuocPham.TextValue = medicineBUS.GetNextMedicineId();
             txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
             txtBacSiPhuTrach.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
+
+            applyPermissions(accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap, functionId);
+        }
+
+        private void applyPermissions(string username, string maCN)
+        {
+            if (!accountBUS.HasPermission(username, maCN, "add"))
+            {
+                tableToolBoxBenh.ColumnStyles[1].Width = 0;
+                tableToolBoxBenh.ColumnStyles[2].Width = 0;
+                tableToolBoxDuocPham.ColumnStyles[1].Width = 0;
+                tableToolBoxDuocPham.ColumnStyles[2].Width = 0;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "edit"))
+            {
+                tableToolBoxBenh.ColumnStyles[3].Width = 0;
+                tableToolBoxBenh.ColumnStyles[4].Width = 0;
+                tableToolBoxDuocPham.ColumnStyles[3].Width = 0;
+                tableToolBoxDuocPham.ColumnStyles[4].Width = 0;
+                tableToolBoxHoSoBenhAn.ColumnStyles[1].Width = 0;
+                tableToolBoxHoSoBenhAn.ColumnStyles[2].Width = 0;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "delete"))
+            {
+                tableToolBoxBenh.ColumnStyles[5].Width = 0;
+                tableToolBoxBenh.ColumnStyles[6].Width = 0;
+                tableToolBoxDuocPham.ColumnStyles[5].Width = 0;
+                tableToolBoxDuocPham.ColumnStyles[6].Width = 0;
+            }
+        }
+
+        private bool CheckPermissionForXacNhan(bool isNewRecord)
+        {
+            string username = accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap;
+            string action = isNewRecord ? "add" : "edit";
+
+            if (!accountBUS.HasPermission(username, functionId, action))
+            {
+                string message = isNewRecord ? "thêm mới" : "sửa";
+                MessageBox.Show($"Bạn không có quyền {message}!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         private void LoadPatientToTable()
@@ -702,6 +747,12 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
         private void buttonXacNhanBenhAnClick(object sender, EventArgs e)
         {
+            bool isNewMedical = buttonXacNhanBenhAn.Text == "Xác nhận";
+            if (!CheckPermissionForXacNhan(isNewMedical))
+            {
+                return;
+            }
+
             DataTable diagnoseTable = (DataTable)tableDiagnoseOfMedical.DataSource;
             DataTable serviceTable = (DataTable)tableServiceOfMedical.DataSource;
             DataTable prescriptionTable = (DataTable)tablePrescriptionOfMedical.DataSource;
@@ -997,6 +1048,11 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
         private void buttonXacNhanBenhClick(object sender, EventArgs e)
         {
+            bool isNewDisease = !diseaseBUS.ExistsDiseaseId(txtMaBenh.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewDisease))
+            {
+                return;
+            }
             if (string.IsNullOrEmpty(txtTenBenh.TextValue))
             {
                 MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin benh!");
@@ -1086,6 +1142,11 @@ namespace HM.GUI.Pages.HoSoBenhAn
 
         private void buttonXacNhanDuocPhamClick(object sender, EventArgs e)
         {
+            bool isNewMedinine = !medicineBUS.ExistsMedicineId(txtMaDuocPham.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewMedinine))
+            {
+                return;
+            }
             if (string.IsNullOrEmpty(txtTenDuocPham.TextValue) || string.IsNullOrEmpty(comboBoxLoaiDuocPham.TextValue))
             {
                 MessageBox.Show("Vui lòng cung cấp đầy đủ thông tin duoc pham!");

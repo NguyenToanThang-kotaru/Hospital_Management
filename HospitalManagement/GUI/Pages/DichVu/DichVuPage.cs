@@ -13,12 +13,14 @@ namespace HM.GUI.Pages.DichVu
     public partial class DichVuPage : UserControl
     {
         private string employeeId;
+        private string functionId = "CN0004";
         private TableDataGridView tableService;        
         private TableDataGridView tableServiceDesignation;
         private ServiceBUS serviceBUS;
         private ServiceDesignationBUS serviceDesignationBUS;
         private PatientBUS patientBUS;
         private EmployeeBUS employeeBUS;
+        private AccountBUS accountBUS;
         public DichVuPage(string employeeId)
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace HM.GUI.Pages.DichVu
             serviceDesignationBUS = new ServiceDesignationBUS();
             patientBUS = new PatientBUS(); 
             employeeBUS = new EmployeeBUS();
+            accountBUS = new AccountBUS();
         }
 
         private void DichVuPage_Load(object sender, EventArgs e)
@@ -45,11 +48,52 @@ namespace HM.GUI.Pages.DichVu
             txtMaChiDinhDichVu.TextValue = serviceDesignationBUS.GetNextServiceDesignationId();
             txtNhanVienTaoPhieu.TextValue = employeeBUS.GetEmployeeById(employeeId).TenNV;
 
+            applyPermissions(accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap, functionId);
+
             if (txtSoCCCDBenhNhan.txt != null)
             {
                 txtSoCCCDBenhNhan.txt.TextChanged -= GetPatientNameByCCCD;
                 txtSoCCCDBenhNhan.txt.TextChanged += GetPatientNameByCCCD;
             }
+        }
+        private void applyPermissions(string username, string maCN)
+        {
+            if (!accountBUS.HasPermission(username, maCN, "add"))
+            {
+                tableToolBoxDichVu.ColumnStyles[1].Width = 0;
+                tableToolBoxDichVu.ColumnStyles[2].Width = 0f;
+                tableToolBoxChiDinhDichVu.ColumnStyles[1].Width = 0;
+                tableToolBoxChiDinhDichVu.ColumnStyles[2].Width = 0f;
+            }
+            if (!accountBUS.HasPermission(username, maCN, "edit"))
+            {
+                tableToolBoxDichVu.ColumnStyles[3].Width = 0;
+                tableToolBoxDichVu.ColumnStyles[4].Width = 0f;
+                tableToolBoxChiDinhDichVu.ColumnStyles[3].Width = 0;
+                tableToolBoxChiDinhDichVu.ColumnStyles[4].Width = 0f;
+            }
+            if(!accountBUS.HasPermission(username, maCN, "delete"))
+            {
+                tableToolBoxDichVu.ColumnStyles[5].Width = 0;
+                tableToolBoxDichVu.ColumnStyles[6].Width = 0f;
+                tableToolBoxChiDinhDichVu.ColumnStyles[5].Width = 0;
+                tableToolBoxChiDinhDichVu.ColumnStyles[6].Width = 0f;
+            }
+        }
+
+        private bool CheckPermissionForXacNhan(bool isNewRecord)
+        {
+            string username = accountBUS.GetAccountByEmployeeId(employeeId).TenDangNhap;
+            string action = isNewRecord ? "add" : "edit";
+
+            if (!accountBUS.HasPermission(username, functionId, action))
+            {
+                string message = isNewRecord ? "thêm mới" : "sửa";
+                MessageBox.Show($"Bạn không có quyền {message}!", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         private void LoadServiceToTable()
@@ -122,6 +166,11 @@ namespace HM.GUI.Pages.DichVu
 
         private void buttonXacNhanDichVuClick(object sender, EventArgs e)
         {
+            bool isNewService = !serviceBUS.ExistsServiceId(txtMaDichVu.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewService)){
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtTenDichVu.TextValue) || string.IsNullOrEmpty(txtGiaDichVu.TextValue) || string.IsNullOrEmpty(comboBoxBaoHiemChiTra.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin dịch vụ!");
@@ -234,6 +283,12 @@ namespace HM.GUI.Pages.DichVu
 
         private void buttonXacNhanChiDinhDichVuClick(object sender, EventArgs e)
         {
+            bool isNewServiceDesignation = !serviceDesignationBUS.ExistsServiceDesignationId(txtMaChiDinhDichVu.TextValue.Trim());
+            if (!CheckPermissionForXacNhan(isNewServiceDesignation))
+            {
+                return;
+            }
+
             if (string.IsNullOrEmpty(txtSoCCCDBenhNhan.TextValue) || string.IsNullOrEmpty(txtTenBenhNhan.TextValue) || string.IsNullOrEmpty(comboBoxDichVu.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin phiếu chỉ định dịch vụ!");
