@@ -43,15 +43,7 @@ namespace HM.BUS
 
         public List<PatientDTO> SearchPatient(string keyword)
         {
-            if (Validators.IsEmpty(keyword))
-                throw new ArgumentException("Vui lòng nhập thông tin cần tìm (tên, CCCD hoặc BHYT)");
-
-            var result = patientDAO.SearchPatientBy(keyword);
-
-            if (result.Count == 0)
-                throw new Exception("Không tìm thấy bệnh nhân phù hợp");
-
-            return result;
+            return patientDAO.SearchPatientBy(keyword);
         }
 
         public List<PatientDTO> GetAllPatients()
@@ -135,8 +127,6 @@ namespace HM.BUS
             {
                 listDTO.Remove(oldCached);
             }
-
-            // 2. Thêm bản ghi mới (với CCCD mới)
             listDTO.Add(patient);
 
             return true;

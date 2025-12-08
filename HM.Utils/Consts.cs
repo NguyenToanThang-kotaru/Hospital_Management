@@ -90,7 +90,7 @@ namespace HM.Utils
 
         public static bool IsValidBHYT(string bhyt) => Regex.IsMatch(bhyt, @"^[A-Z]{2}[0-9]{8,10}$");
 
-        public static bool IsVietnameseName(string name) => Regex.IsMatch(name, @"^[\p{L}\s']+$");
+        public static bool IsName(string name) => Regex.IsMatch(name, @"^[\p{L}\s']+$");
         public static bool IsValidDate(string date)
         {
             bool isFormatValid = DateTime.TryParseExact(

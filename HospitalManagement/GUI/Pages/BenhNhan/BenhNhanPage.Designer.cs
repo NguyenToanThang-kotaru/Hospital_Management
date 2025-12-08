@@ -963,6 +963,7 @@
             this.searchBarBenhNhan.Name = "searchBarBenhNhan";
             this.searchBarBenhNhan.Size = new System.Drawing.Size(882, 35);
             this.searchBarBenhNhan.TabIndex = 7;
+            this.searchBarBenhNhan.TextChanged += new System.EventHandler(this.searchBarBenhNhanTextChanged);
             // 
             // buttonXoaBenhNhan
             // 

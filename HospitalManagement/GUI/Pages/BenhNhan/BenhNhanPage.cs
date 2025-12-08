@@ -201,24 +201,30 @@ namespace HM.GUI.Pages.BenhNhan
 
         private void buttonXacNhanBenhNhanClick(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtSoCCCD.TextValue) ||
-                string.IsNullOrEmpty(txtHoVaTen.TextValue) ||
-                string.IsNullOrEmpty(txtNgaySinh.TextValue))
+            if (string.IsNullOrEmpty(txtSoCCCD.TextValue) || string.IsNullOrEmpty(txtHoVaTen.TextValue) || string.IsNullOrEmpty(txtNgaySinh.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ CCCD, tên bệnh nhân và ngày sinh!");
                 return;
             }
 
-            if (!DateTime.TryParseExact(txtNgaySinh.TextValue, "dd-MM-yyyy",
-                CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime ngaySinh))
+            if (!DateTime.TryParseExact(txtNgaySinh.TextValue, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime ngaySinh))
             {
                 MessageBox.Show("Ngày sinh không hợp lệ! Vui lòng nhập theo định dạng dd-MM-yyyy (Ví dụ: 25-12-2000)");
+                txtNgaySinh.Focus();
                 return;
             }
 
             if (ngaySinh > DateTime.Now)
             {
                 MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại!");
+                txtNgaySinh.Focus();
+                return;
+            }
+
+            if (!HM.Utils.Validators.IsName(txtHoVaTen.TextValue.Trim()))
+            {
+                MessageBox.Show("Tên bệnh nhân không hợp lệ!");
+                txtHoVaTen.Focus();
                 return;
             }
 
@@ -466,9 +472,9 @@ namespace HM.GUI.Pages.BenhNhan
             switch (kiTuThu3)
             {
                 case '1': return "100%";
-                case '2': return "95%";
-                case '3': return "80%";
-                case '4': return "100%";
+                case '2': return "100%";
+                case '3': return "95%";
+                case '4': return "80%";
                 default: return "0%";
             }
         }
@@ -761,26 +767,6 @@ namespace HM.GUI.Pages.BenhNhan
 
         // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
         // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
-        private void searchBarDangKyDichVuTextChanged(object sender, EventArgs e)
-        {
-            string keyword = searchBarDangKyDichVu.Text.Trim();
-            var serviceRegistration = serviceRegistrationBUS.SearchServiceRegistrationByName(keyword);
-
-            DataTable table = new DataTable();
-            table.Columns.Add("Mã Đăng Ký", typeof(string));
-            table.Columns.Add("Bệnh Nhân", typeof(string));
-            table.Columns.Add("Tổng Chi Phí", typeof(string));
-            table.Columns.Add("HÌnh Thức Thanh Toán", typeof(string));
-            table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
-
-            foreach (var sr in serviceRegistration)
-            {
-                table.Rows.Add(sr.MaDKDV, patientBUS.GetPatientById(sr.SoCCCD).TenBN , sr.TongChiPhi, sr.HinhThucThanhToan, sr.TrangThaiDangKy);
-            }
-
-            tableServiceRegistration.DataSource = table;
-        }
-
         private void buttonThemDangKyDichVuClick(object sender, EventArgs e)
         {
             tabControlBenhNhan.SelectedTab = tabPageDangKyDichVu;
@@ -894,7 +880,45 @@ namespace HM.GUI.Pages.BenhNhan
             }
         }
 
+        // search ======================================================================================================================================
+        // search ======================================================================================================================================
+        private void searchBarBenhNhanTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarBenhNhan.Text.Trim();
+            var patient = patientBUS.SearchPatient(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Số CCCD", typeof(string));
+            table.Columns.Add("Tên Bệnh Nhân", typeof(string));
+            table.Columns.Add("Số BHYT", typeof(string));
+            table.Columns.Add("Ngày Sinh", typeof(string));
+            table.Columns.Add("Giới Tính", typeof(string));
+            table.Columns.Add("Số Điện Thoại", typeof(string));
+
+            foreach (var p in patient)
+            {
+                table.Rows.Add(p.SoCCCD, p.TenBN, p.SoBHYT, p.NgaySinh, p.GioiTinh, p.SdtBN);
+            }
+            tablePatient.DataSource = table;
+        }
+        private void searchBarDangKyDichVuTextChanged(object sender, EventArgs e)
+        {
+            string keyword = searchBarDangKyDichVu.Text.Trim();
+            var serviceRegistration = serviceRegistrationBUS.SearchServiceRegistrationByName(keyword);
+
+            DataTable table = new DataTable();
+            table.Columns.Add("Mã Đăng Ký", typeof(string));
+            table.Columns.Add("Bệnh Nhân", typeof(string));
+            table.Columns.Add("Tổng Chi Phí", typeof(string));
+            table.Columns.Add("Hình Thức Thanh Toán", typeof(string));
+            table.Columns.Add("Trạng Thái Đăng Ký", typeof(string));
+
+            foreach (var sr in serviceRegistration)
+            {
+                table.Rows.Add(sr.MaDKDV, patientBUS.GetPatientById(sr.SoCCCD).TenBN, sr.TongChiPhi, sr.HinhThucThanhToan, sr.TrangThaiDangKy);
+            }
+
+            tableServiceRegistration.DataSource = table;
+        }
     }
-
-
 }

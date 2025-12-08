@@ -221,7 +221,21 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
             else
             {
-                accountBUS.UpdateAccount(account);
+                if (tableAccounts.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy tài khoản cần sửa!");
+                    return;
+                }
+
+                string oldUsername = tableAccounts.SelectedRows[0].Cells["Tên Đăng Nhập"].Value?.ToString();
+
+                if (string.IsNullOrEmpty(oldUsername))
+                {
+                    MessageBox.Show("Không xác định được tài khoản cần sửa!");
+                    return;
+                }
+
+                accountBUS.UpdateAccount(account, oldUsername);
                 MessageBox.Show("Cập nhật tài khoản thành công!");
             }
             LoadAccountToTable();

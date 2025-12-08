@@ -69,9 +69,13 @@ namespace HM.BUS
             return true;
         }
 
-        public bool UpdateAccount(AccountDTO account)
+        public bool UpdateAccount(AccountDTO account, string oldUsername)
         {
-            if (!accountDAO.UpdateAccount(account))
+            var oldAccount = accountDAO.GetAccountByUsername(oldUsername);
+            if (oldAccount == null)
+                throw new Exception("Không tìm thấy tài khoản để cập nhật!");
+
+            if (!accountDAO.UpdateAccount(account, oldUsername))
                 throw new Exception("Không thể cập nhật tài khoản!");
             return true;
         }

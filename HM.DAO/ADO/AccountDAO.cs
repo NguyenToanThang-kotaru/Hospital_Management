@@ -139,23 +139,30 @@ namespace HM.DAO.ADO
             }
         }
 
-        public bool UpdateAccount(AccountDTO account)
+        public bool UpdateAccount(AccountDTO account, string oldUsername)
         {
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
-                    conn.Open();
+                    DatabaseConnection.Open(conn);
                     string query = @"UPDATE taikhoan 
-                                     SET MatKhau = @MatKhau, MaQuyen = @MaQuyen, MaNV = @MaNV
-                                     WHERE TenDangNhap = @TenDangNhap AND TrangThaiXoa = 0";
+                             SET TenDangNhap = @NewTenDangNhap,
+                                 MatKhau = @MatKhau,
+                                 MaQuyen = @MaQuyen,
+                                 MaNV = @MaNV
+                             WHERE TenDangNhap = @OldTenDangNhap AND TrangThaiXoa = 0";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
+                        cmd.Parameters.AddWithValue("@NewTenDangNhap", account.TenDangNhap);
                         cmd.Parameters.AddWithValue("@MatKhau", account.MatKhau);
                         cmd.Parameters.AddWithValue("@MaQuyen", account.MaQuyen);
                         cmd.Parameters.AddWithValue("@MaNV", account.MaNV);
-                        cmd.Parameters.AddWithValue("@TenDangNhap", account.TenDangNhap);
+                        cmd.Parameters.AddWithValue("@OldTenDangNhap", oldUsername);
+
                         int rows = cmd.ExecuteNonQuery();
+                        DatabaseConnection.Close(conn);
+
                         return rows > 0;
                     }
                 }
