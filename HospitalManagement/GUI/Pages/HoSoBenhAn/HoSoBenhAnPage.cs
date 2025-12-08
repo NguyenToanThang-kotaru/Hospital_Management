@@ -2,13 +2,16 @@
 using HM.DTO;
 using HM.GUI.Component;
 using HM.GUI.Component.TableDataGridView;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using LayoutTest.GUIComponents;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace HM.GUI.Pages.HoSoBenhAn
 {
@@ -386,7 +389,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
             Form popup = new Form();
             popup.Text = "Chọn chẩn đoán";
-            popup.Size = new Size(900, 500);
+            popup.Size = new System.Drawing.Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
 
             DataTable table = new DataTable();
@@ -405,22 +408,22 @@ namespace HM.GUI.Pages.HoSoBenhAn
             panelButtons.Height = 60;
             panelButtons.Dock = DockStyle.Bottom;
             panelButtons.Padding = new Padding(10);
-            panelButtons.BackColor = Color.White;
+            panelButtons.BackColor = System.Drawing.Color.White;
             panelButtons.FlowDirection = FlowDirection.RightToLeft;
 
             RoundedLabel btnAdd = new RoundedLabel();
             btnAdd.Text = "Chọn";
             btnAdd.AutoSize = false;
-            btnAdd.Size = new Size(100, 35);
-            btnAdd.BackColor = Color.White;
-            btnAdd.PanelColor = Color.FromArgb(52, 211, 153);
+            btnAdd.Size = new System.Drawing.Size(100, 35);
+            btnAdd.BackColor = System.Drawing.Color.White;
+            btnAdd.PanelColor = System.Drawing.Color.FromArgb(52, 211, 153);
 
             RoundedLabel btnClose = new RoundedLabel();
             btnClose.Text = "Đóng";
             btnClose.AutoSize = false;
-            btnClose.Size = new Size(100, 35);
-            btnClose.BackColor = Color.White;
-            btnClose.PanelColor = Color.FromArgb(255, 90, 93);
+            btnClose.Size = new System.Drawing.Size(100, 35);
+            btnClose.BackColor = System.Drawing.Color.White;
+            btnClose.PanelColor = System.Drawing.Color.FromArgb(255, 90, 93);
 
             btnAdd.Click += (s, args) =>
             {
@@ -478,7 +481,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
             Form popup = new Form();
             popup.Text = "Chọn dịch vụ";
-            popup.Size = new Size(900, 500);
+            popup.Size = new System.Drawing.Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
 
             DataTable table = new DataTable();
@@ -500,22 +503,22 @@ namespace HM.GUI.Pages.HoSoBenhAn
             panelButtons.Height = 60;
             panelButtons.Dock = DockStyle.Bottom;
             panelButtons.Padding = new Padding(10);
-            panelButtons.BackColor = Color.White;
+            panelButtons.BackColor = System.Drawing.Color.White;
             panelButtons.FlowDirection = FlowDirection.RightToLeft;
 
             RoundedLabel btnAdd = new RoundedLabel();
             btnAdd.Text = "Chọn";
             btnAdd.AutoSize = false;
-            btnAdd.Size = new Size(100, 35);
-            btnAdd.BackColor = Color.White;
-            btnAdd.PanelColor = Color.FromArgb(52, 211, 153);
+            btnAdd.Size = new System.Drawing.Size(100, 35);
+            btnAdd.BackColor = System.Drawing.Color.White;
+            btnAdd.PanelColor = System.Drawing.Color.FromArgb(52, 211, 153);
 
             RoundedLabel btnClose = new RoundedLabel();
             btnClose.Text = "Đóng";
             btnClose.AutoSize = false;
-            btnClose.Size = new Size(100, 35);
-            btnClose.BackColor = Color.White;
-            btnClose.PanelColor = Color.FromArgb(255, 90, 93);
+            btnClose.Size = new System.Drawing.Size(100, 35);
+            btnClose.BackColor = System.Drawing.Color.White;
+            btnClose.PanelColor = System.Drawing.Color.FromArgb(255, 90, 93);
 
             btnAdd.Click += (s, args) =>
             {
@@ -574,7 +577,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
             Form popup = new Form();
             popup.Text = "Thêm đơn thuốc";
-            popup.Size = new Size(900, 500);
+            popup.Size = new System.Drawing.Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
 
             DataTable table = new DataTable();
@@ -595,7 +598,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             pnlInputRow.Dock = DockStyle.Bottom;
             pnlInputRow.FlowDirection = FlowDirection.LeftToRight;
             pnlInputRow.Padding = new Padding(10);
-            pnlInputRow.BackColor = Color.White;
+            pnlInputRow.BackColor = System.Drawing.Color.White;
 
             LableTextBox txtSoLuong = new LableTextBox(400, 80, "Số lượng:");
             txtSoLuong.Margin = new Padding(15);
@@ -613,22 +616,22 @@ namespace HM.GUI.Pages.HoSoBenhAn
             panelButtons.Height = 60;
             panelButtons.Dock = DockStyle.Bottom;
             panelButtons.Padding = new Padding(10);
-            panelButtons.BackColor = Color.White;
+            panelButtons.BackColor = System.Drawing.Color.White;
             panelButtons.FlowDirection = FlowDirection.RightToLeft;
 
             RoundedLabel btnAdd = new RoundedLabel();
             btnAdd.Text = "Chọn";
             btnAdd.AutoSize = false;
-            btnAdd.Size = new Size(100, 35);
-            btnAdd.BackColor = Color.White;
-            btnAdd.PanelColor = Color.FromArgb(52, 211, 153);
+            btnAdd.Size = new System.Drawing.Size(100, 35);
+            btnAdd.BackColor = System.Drawing.Color.White;
+            btnAdd.PanelColor = System.Drawing.Color.FromArgb(52, 211, 153);
 
             RoundedLabel btnClose = new RoundedLabel();
             btnClose.Text = "Đóng";
             btnClose.AutoSize = false;
-            btnClose.Size = new Size(100, 35);
-            btnClose.BackColor = Color.White;
-            btnClose.PanelColor = Color.FromArgb(255, 90, 93);
+            btnClose.Size = new System.Drawing.Size(100, 35);
+            btnClose.BackColor = System.Drawing.Color.White;
+            btnClose.PanelColor = System.Drawing.Color.FromArgb(255, 90, 93);
 
             btnAdd.Click += (s, args) =>
             {
@@ -815,8 +818,172 @@ namespace HM.GUI.Pages.HoSoBenhAn
                 MessageBox.Show("Cập nhật bệnh án và các thông tin liên quan thành công!");
                 LoadMedicalTableByPatientId(txtSoCCCD.TextValue);
             }
-
             buttonHuyBenhAnClick(null, null);
+            ExportMedicalToPDF(medical);
+        }
+
+        private void ExportMedicalToPDF(MedicalDTO medical)
+        {
+            try
+            {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.Filter = "PDF file|*.pdf";
+                saveFile.FileName = $"BenhAn_{medical.MaBA}.pdf";
+
+                if (saveFile.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+
+                BaseFont baseFont = File.Exists(fontPath)
+                    ? BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+                    : BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+
+                Font titleFont = new Font(baseFont, 16);
+                Font headerFont = new Font(baseFont, 14);
+                Font contentFont = new Font(baseFont, 11);
+
+                using (var fs = new FileStream(saveFile.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    Document doc = new Document(PageSize.A4, 50, 50, 40, 40);
+                    PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                    doc.Open();
+
+                    Paragraph nationalTitle = new Paragraph("CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", contentFont);
+                    nationalTitle.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(nationalTitle);
+                    Paragraph nationalSubtitle = new Paragraph("Độc lập - Tự do - Hạnh phúc", contentFont);
+                    nationalSubtitle.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(nationalSubtitle);
+                    doc.Add(new Paragraph("\n"));
+
+                    // Tiêu đề chính
+                    Paragraph mainTitle = new Paragraph("BỆNH ÁN", titleFont);
+                    mainTitle.Alignment = Element.ALIGN_CENTER;
+                    mainTitle.SpacingAfter = 20f;
+                    doc.Add(mainTitle);
+
+                    // Phần I: HÀNH CHÍNH
+                    Paragraph section1 = new Paragraph("I. HÀNH CHÍNH", headerFont);
+                    section1.SpacingBefore = 10f;
+                    doc.Add(section1);
+
+                    var patient = patientBUS.GetPatientById(medical.SoCCCD);
+                    var employee = employeeBUS.GetEmployeeById(medical.MaNV);
+                    PdfPTable infoTable = new PdfPTable(2);
+                    infoTable.WidthPercentage = 100;
+                    infoTable.SetWidths(new float[] { 50, 50 });
+                    infoTable.SpacingBefore = 10f;
+                    infoTable.SpacingAfter = 20f;
+
+                    AddCellToTable(infoTable, "Họ và tên (In hoa):", patient?.TenBN?.ToUpper() ?? ".................", contentFont, contentFont);
+                    AddCellToTable(infoTable, "Ngày sinh:", patient?.NgaySinh ?? "....../....../......", contentFont, contentFont);
+                    AddCellToTable(infoTable, "Giới tính:", patient?.GioiTinh ?? "......", contentFont, contentFont);
+                    AddCellToTable(infoTable, "Số thẻ BHYT:", patient?.SoBHYT ?? "......", contentFont, contentFont);
+                    AddCellToTable(infoTable, "Số Căn cước/Hộ chiếu/Mã định danh cá nhân:", medical.SoCCCD, contentFont, contentFont);
+
+                    doc.Add(infoTable);
+
+                    // Phần II: CHẨN ĐOÁN
+                    Paragraph section2 = new Paragraph("II. CHẨN ĐOÁN:", headerFont);
+                    section2.SpacingBefore = 20f;
+                    section2.SpacingAfter = 10f;
+                    doc.Add(section2);
+
+                    var diagnoses = diagnoseBUS.GetDiagnosesByMedicalId(medical.MaBA);
+
+                    if (diagnoses != null && diagnoses.Count > 0)
+                    {
+                        foreach (var diag in diagnoses)
+                        {
+                            var disease = diseaseBUS.GetDiseaseById(diag.MaBenh);
+                            if (disease != null)
+                            {
+                                doc.Add(new Paragraph($"- {disease.TenBenh} - ({disease.MaBenh})", contentFont));
+                            }
+                        }
+                    }
+
+                    // Phần III: CÁC DỊCH VỤ SỬ DỤNG
+                    Paragraph section3 = new Paragraph("III. CÁC DỊCH VỤ SỬ DỤNG:", headerFont);
+                    section3.SpacingBefore = 20f;
+                    section3.SpacingAfter = 10f;
+                    doc.Add(section3);
+
+                    var services = serviceDetailBUS.GetServiceDetailByMedicalId(medical.MaBA);
+                    if (services != null && services.Count > 0)
+                    {
+                        foreach (var sv in services)
+                        {
+                            var serviceInfo = serviceBUS.GetServiceById(sv.MaDV);
+                            if (serviceInfo != null)
+                            {
+                                doc.Add(new Paragraph($"- {serviceInfo.TenDV}", contentFont));
+                            }
+                        }
+                    }
+                    // Phần IV: ĐƠN THUỐC
+                    Paragraph section4 = new Paragraph("IV. ĐƠN THUỐC:", headerFont);
+                    section4.SpacingBefore = 20f;
+                    section4.SpacingAfter = 10f;
+                    doc.Add(section4);
+
+                    var prescriptions = prescriptionBUS.GetPrescriptionsByMedicalId(medical.MaBA);
+                    if (prescriptions != null && prescriptions.Count > 0)
+                    {
+                        foreach (var pre in prescriptions)
+                        {
+                            var medicine = medicineBUS.GetMedicineById(pre.MaDP);
+                            if (medicine != null)
+                            {
+                                doc.Add(new Paragraph($"- {medicine.TenDP}: {pre.SoLuongDP} {pre.DonViDP}", contentFont));
+                            }
+                        }
+                    }
+
+                    // Phần chữ ký
+                    doc.Add(new Paragraph("\n\n\n\n"));
+
+                    PdfPTable signatureTable = new PdfPTable(2);
+                    signatureTable.WidthPercentage = 100;
+                    signatureTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    PdfPCell dateCell = new PdfPCell(new Phrase($"Ngày {DateTime.Now:dd} tháng {DateTime.Now:MM} năm {DateTime.Now:yyyy}", contentFont));
+                    dateCell.Border = PdfPCell.NO_BORDER;
+                    dateCell.HorizontalAlignment = Element.ALIGN_LEFT;
+                    signatureTable.AddCell(dateCell);
+
+                    PdfPCell doctorCell = new PdfPCell(new Phrase($"BÁC SĨ ĐIỀU TRỊ\n\n\n{employee?.TenNV ?? "................."}", contentFont));
+                    doctorCell.Border = PdfPCell.NO_BORDER;
+                    doctorCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    signatureTable.AddCell(doctorCell);
+
+                    doc.Add(signatureTable);
+
+                    doc.Close();
+                }
+
+                MessageBox.Show("Đã xuất bản tóm tắt hồ sơ bệnh án ra file PDF!", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tạo PDF: {ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AddCellToTable(PdfPTable table, string label, string value, Font labelFont, Font valueFont)
+        {
+            PdfPCell labelCell = new PdfPCell(new Phrase(label, labelFont));
+            labelCell.Padding = 5;
+            labelCell.Border = PdfPCell.NO_BORDER;
+            table.AddCell(labelCell);
+
+            PdfPCell valueCell = new PdfPCell(new Phrase(value, valueFont));
+            valueCell.Padding = 5;
+            valueCell.Border = PdfPCell.NO_BORDER;
+            table.AddCell(valueCell);
         }
 
         // sự kiện tabPageBenh ============================================================================================================================================

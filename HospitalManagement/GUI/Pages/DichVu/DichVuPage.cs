@@ -158,6 +158,7 @@ namespace HM.GUI.Pages.DichVu
             comboBoxDichVu.GetComboBox().DataSource = null;
             comboBoxDichVuLoad(null, null);
             LoadServiceToTable();
+            LoadServiceDesignationToTable();    
             buttonHuyDichVuClick(null, null);
         }
 
@@ -247,7 +248,7 @@ namespace HM.GUI.Pages.DichVu
                 NgayGioTaoPhieu = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
             };
 
-            if (!serviceDesignationBUS.ExistsServiceDesignationId(serviceDesignation.MaDV))
+            if (!serviceDesignationBUS.ExistsServiceDesignationId(serviceDesignation.MaPCD))
             {
                 serviceDesignationBUS.AddServiceDesignation(serviceDesignation);
                 MessageBox.Show("Thêm phiếu chỉ định dịch vụ thành công!");
@@ -336,60 +337,105 @@ namespace HM.GUI.Pages.DichVu
 
         private void ExportServiceDesignationToPDF(ServiceDesignationDTO dto)
         {
-            SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "PDF file|*.pdf";
-            saveFile.FileName = $"PhieuChiDinh_{dto.MaPCD}.pdf";
-
-            if (saveFile.ShowDialog() != DialogResult.OK)
-                return;
-
-            using (var fs = new FileStream(saveFile.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+            try
             {
-                Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
-                PdfWriter writer = PdfWriter.GetInstance(doc, fs);
-                doc.Open();
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.Filter = "PDF file|*.pdf";
+                saveFile.FileName = $"PhieuChiDinh_{dto.MaPCD}.pdf";
 
-                var titleFont = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 18);
-                var contentFont = FontFactory.GetFont(FontFactory.HELVETICA, 12);
+                if (saveFile.ShowDialog() != DialogResult.OK)
+                    return;
 
-                doc.Add(new Paragraph("PHIẾU CHỈ ĐỊNH DỊCH VỤ", titleFont));
-                doc.Add(new Paragraph("\n"));
+                string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
 
-                var patient = patientBUS.GetPatientById(dto.SoCCCD);
-                var employee = employeeBUS.GetEmployeeById(dto.MaNV);
-                var service = serviceBUS.GetServiceById(dto.MaDV);
+                BaseFont baseFont = File.Exists(fontPath)
+                    ? BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+                    : BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
 
-                PdfPTable table = new PdfPTable(2);
-                table.WidthPercentage = 100;
+                Font titleFont = new Font(baseFont, 18);
+                Font contentFont = new Font(baseFont, 12);
 
-                table.AddCell(new Phrase("Mã Phiếu:", contentFont));
-                table.AddCell(new Phrase(dto.MaPCD, contentFont));
+                using (var fs = new FileStream(saveFile.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    Document doc = new Document(PageSize.A4);
+                    PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                    doc.Open();
 
-                table.AddCell(new Phrase("Bệnh Nhân:", contentFont));
-                table.AddCell(new Phrase(patient.TenBN, contentFont));
+                    Paragraph header = new Paragraph("BỆNH VIỆN ĐA KHOA NHÓM 7", contentFont);
+                    header.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(header);
 
-                table.AddCell(new Phrase("Số CCCD:", contentFont));
-                table.AddCell(new Phrase(dto.SoCCCD, contentFont));
 
-                table.AddCell(new Phrase("Dịch Vụ:", contentFont));
-                table.AddCell(new Phrase(service.TenDV, contentFont));
+                    doc.Add(new Paragraph("\n"));
 
-                table.AddCell(new Phrase("Giá:", contentFont));
-                table.AddCell(new Phrase(service.GiaDV, contentFont));
+                    Paragraph title = new Paragraph("PHIẾU CHỈ ĐỊNH DỊCH VỤ", titleFont);
+                    title.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(title);
+                    doc.Add(new Paragraph("\n"));
 
-                table.AddCell(new Phrase("Nhân Viên Tạo Phiếu:", contentFont));
-                table.AddCell(new Phrase(employee.TenNV, contentFont));
+                    var patient = patientBUS.GetPatientById(dto.SoCCCD);
+                    var employee = employeeBUS.GetEmployeeById(dto.MaNV);
+                    var service = serviceBUS.GetServiceById(dto.MaDV);
 
-                table.AddCell(new Phrase("Ngày Tạo Phiếu:", contentFont));
-                table.AddCell(new Phrase(dto.NgayGioTaoPhieu, contentFont));
+                    PdfPTable table = new PdfPTable(2);
+                    table.WidthPercentage = 90;
+                    table.HorizontalAlignment = Element.ALIGN_CENTER;
+                    table.SpacingBefore = 10f;
+                    table.SpacingAfter = 20f;
 
-                doc.Add(table);
+                    AddCellToTable(table, "Mã phiếu:", dto.MaPCD, contentFont, contentFont);
+                    AddCellToTable(table, "Ngày tạo:", dto.NgayGioTaoPhieu, contentFont, contentFont);
+                    AddCellToTable(table, "Bệnh nhân:", patient?.TenBN ?? "N/A", contentFont, contentFont);
+                    AddCellToTable(table, "Số CCCD:", dto.SoCCCD, contentFont, contentFont);
+                    AddCellToTable(table, "Dịch vụ:", service?.TenDV ?? "N/A", contentFont, contentFont);
+                    AddCellToTable(table, "Giá dịch vụ:", service?.GiaDV ?? "0", contentFont, contentFont);
+                    AddCellToTable(table, "Nhân viên:", employee?.TenNV ?? "N/A", contentFont, contentFont);
+                    doc.Add(table);
 
-                doc.Close();
-                writer.Close();
+                    doc.Add(new Paragraph("\n\n\n"));
+
+                    PdfPTable signatureTable = new PdfPTable(3);
+                    signatureTable.WidthPercentage = 100;
+                    signatureTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    signatureTable.AddCell(new Phrase("", contentFont));
+
+                    PdfPCell patientCell = new PdfPCell(new Phrase("Bệnh nhân\n(Ký và ghi rõ họ tên)", contentFont));
+                    patientCell.Border = PdfPCell.NO_BORDER;
+                    patientCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    signatureTable.AddCell(patientCell);
+
+                    PdfPCell staffCell = new PdfPCell(new Phrase("Nhân viên y tế\n(Ký và ghi rõ họ tên)", contentFont));
+                    staffCell.Border = PdfPCell.NO_BORDER;
+                    staffCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    signatureTable.AddCell(staffCell);
+
+                    doc.Add(signatureTable);
+                    doc.Close();
+                }
+
+                MessageBox.Show("Đã xuất phiếu chỉ định dịch vụ ra file PDF!", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tạo PDF: {ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            MessageBox.Show("Đã xuất PDF thành công!");
+        private void AddCellToTable(PdfPTable table, string label, string value, Font labelFont, Font valueFont)
+        {
+            PdfPCell labelCell = new PdfPCell(new Phrase(label, labelFont));
+            labelCell.BorderWidth = 0.5f;
+            labelCell.Padding = 5f;
+            labelCell.BackgroundColor = new BaseColor(245, 245, 245);
+            table.AddCell(labelCell);
+
+            PdfPCell valueCell = new PdfPCell(new Phrase(value, valueFont));
+            valueCell.BorderWidth = 0.5f;
+            valueCell.Padding = 5f;
+            table.AddCell(valueCell);
         }
 
         private void searchBarDichVuTextChanged(object sender, EventArgs e)

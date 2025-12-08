@@ -2,11 +2,13 @@
 using HM.DTO;
 using HM.GUI.Component;
 using HM.GUI.Component.TableDataGridView;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
+using System.IO;
 using System.Windows.Forms;
 
 namespace HM.GUI.Pages.BenhNhan
@@ -419,7 +421,6 @@ namespace HM.GUI.Pages.BenhNhan
             }
         }
 
-        // PHƯƠNG THỨC XỬ LÝ BHYT RIÊNG
         private void ProcessBHYTUpdate(HealthInsuranceDTO bhyt, string oldSoBHYT, bool hasBHYT)
         {
             try
@@ -559,7 +560,7 @@ namespace HM.GUI.Pages.BenhNhan
         {
             Form popup = new Form();
             popup.Text = "Chọn dịch vụ";
-            popup.Size = new Size(900, 500);
+            popup.Size = new System.Drawing.Size(900, 500);
             popup.StartPosition = FormStartPosition.CenterParent;
 
             DataTable table = new DataTable();
@@ -581,22 +582,22 @@ namespace HM.GUI.Pages.BenhNhan
             panelButtons.Height = 60;
             panelButtons.Dock = DockStyle.Bottom;
             panelButtons.Padding = new Padding(10);
-            panelButtons.BackColor = Color.White;
+            panelButtons.BackColor = System.Drawing.Color.White;
             panelButtons.FlowDirection = FlowDirection.RightToLeft;
 
             RoundedLabel btnAdd = new RoundedLabel();
             btnAdd.Text = "Chọn";
             btnAdd.AutoSize = false;
-            btnAdd.Size = new Size(100, 35);
-            btnAdd.BackColor = Color.White;
-            btnAdd.PanelColor = Color.FromArgb(52, 211, 153);
+            btnAdd.Size = new System.Drawing.Size(100, 35);
+            btnAdd.BackColor = System.Drawing.Color.White;
+            btnAdd.PanelColor = System.Drawing.Color.FromArgb(52, 211, 153);
 
             RoundedLabel btnClose = new RoundedLabel();
             btnClose.Text = "Đóng";
             btnClose.AutoSize = false;
-            btnClose.Size = new Size(100, 35);
-            btnClose.BackColor = Color.White;
-            btnClose.PanelColor = Color.FromArgb(255, 90, 93);
+            btnClose.Size = new System.Drawing.Size(100, 35);
+            btnClose.BackColor = System.Drawing.Color.White;
+            btnClose.PanelColor = System.Drawing.Color.FromArgb(255, 90, 93);
 
             btnAdd.Click += (s, args) =>
             {
@@ -667,23 +668,14 @@ namespace HM.GUI.Pages.BenhNhan
                         if (decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra))
                         {
                             phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
-
-                            // Nếu BHYT chi trả 100% thì giá là 0
                             if (phanTramBHYTChiTra >= 1)
-                            {
                                 return 0;
-                            }
                             else
-                            {
-                                // Tính giá sau khi được BHYT chi trả
                                 return giaGoc * (1 - phanTramBHYTChiTra);
-                            }
                         }
                     }
                 }
             }
-
-            // Trả về giá gốc nếu không có BHYT hoặc dịch vụ không được BHYT chi trả
             return giaGoc;
         }
 
@@ -692,16 +684,9 @@ namespace HM.GUI.Pages.BenhNhan
             DataTable serviceTable = (DataTable)tableServiceOfServiceRegistration.DataSource;
             decimal tongChiPhiCuoiCung = 0;
 
-            // Tính tổng chi phí từ DataTable (giá đã được tính theo BHYT)
             foreach (DataRow row in serviceTable.Rows)
-            {
-                if (decimal.TryParse(row["Giá"].ToString(), out decimal giaDaTinh)
-)
-                {
+                if (decimal.TryParse(row["Giá"].ToString(), out decimal giaDaTinh))
                     tongChiPhiCuoiCung += giaDaTinh;
-                }
-            }
-
             txtTongChiPhi.TextValue = tongChiPhiCuoiCung.ToString();
         }
         private void TableServiceOfServiceRegistrationCellClick(object sender, DataGridViewCellEventArgs e)
@@ -743,7 +728,6 @@ namespace HM.GUI.Pages.BenhNhan
 
             if (!serviceRegistrationBUS.ExistsServiceRegistrationId(registration.MaDKDV))
             {
-                // Trường hợp 1: Mã chưa tồn tại - Thêm mới
                 if (serviceRegistrationBUS.AddServiceRegistration(registration))
                 {
                     foreach (DataRow row in serviceTable.Rows)
@@ -756,8 +740,6 @@ namespace HM.GUI.Pages.BenhNhan
                     }
 
                     MessageBox.Show("Đăng ký dịch vụ thành công!");
-                    buttonHuyDangKyDichVuClick(null, null);
-                    LoadServiceRegistrationToTable();
                 }
                 else
                 {
@@ -774,13 +756,9 @@ namespace HM.GUI.Pages.BenhNhan
 
                 if (result == DialogResult.Yes)
                 {
-                    // Cập nhật đăng ký dịch vụ
                     if (serviceRegistrationBUS.UpdateServiceRegistration(registration))
                     {
-                        // Xóa tất cả chi tiết dịch vụ cũ
                         serviceRegistrationDetailBUS.DeleteAllServiceRegistrationDetailByRegistrationId(registration.MaDKDV);
-
-                        // Thêm lại chi tiết dịch vụ mới
                         foreach (DataRow row in serviceTable.Rows)
                         {
                             string maDV = row["Mã"].ToString();
@@ -789,10 +767,7 @@ namespace HM.GUI.Pages.BenhNhan
                                 new ServiceRegistrationDetailDTO(txtMaDKDV.TextValue, maDV, tienDV)
                             );
                         }
-
                         MessageBox.Show("Cập nhật đăng ký dịch vụ thành công!");
-                        buttonHuyDangKyDichVuClick(null, null);
-                        LoadServiceRegistrationToTable();
                     }
                     else
                     {
@@ -800,8 +775,206 @@ namespace HM.GUI.Pages.BenhNhan
                     }
                 }
             }
+            buttonHuyDangKyDichVuClick(null, null);
+            LoadServiceRegistrationToTable();
+            ExportServiceRegistrationToPDF(registration);
         }
 
+        private void ExportServiceRegistrationToPDF(ServiceRegistrationDTO dto)
+        {
+            try
+            {
+                SaveFileDialog saveFile = new SaveFileDialog();
+                saveFile.Filter = "PDF file|*.pdf";
+                saveFile.FileName = $"PhieuDangKyDichVu_{dto.MaDKDV}.pdf";
+
+                if (saveFile.ShowDialog() != DialogResult.OK)
+                    return;
+
+                string fontPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+
+                BaseFont baseFont = File.Exists(fontPath)
+                    ? BaseFont.CreateFont(fontPath, BaseFont.IDENTITY_H, BaseFont.EMBEDDED)
+                    : BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+
+                Font titleFont = new Font(baseFont, 18);
+                Font headerFont = new Font(baseFont, 12);
+                Font contentFont = new Font(baseFont, 12);
+                Font smallFont = new Font(baseFont, 10);
+
+                using (var fs = new FileStream(saveFile.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
+                    PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+                    doc.Open();
+
+                    Paragraph hospitalHeader = new Paragraph("BỆNH VIỆN ĐA KHOA NHÓM 7", headerFont);
+                    hospitalHeader.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(hospitalHeader);
+
+                    doc.Add(new Paragraph("\n"));
+
+                    Paragraph title = new Paragraph("PHIẾU ĐĂNG KÝ DỊCH VỤ", titleFont);
+                    title.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(title);
+                    doc.Add(new Paragraph("\n"));
+
+                    var patient = patientBUS.GetPatientById(dto.SoCCCD);
+                    var employee = employeeBUS.GetEmployeeById(dto.MaNV);
+
+                    var serviceDetails = serviceRegistrationDetailBUS.GetServiceRegistrationDetailByServiceRegistrationId(dto.MaDKDV);
+                    var services = new List<ServiceDTO>();
+                    decimal totalAmount = 0;
+
+                    foreach (var detail in serviceDetails)
+                    {
+                        var service = serviceBUS.GetServiceById(detail.MaDV);
+                        if (service != null)
+                        {
+                            services.Add(service);
+                            if (decimal.TryParse(service.GiaDV, out decimal price))
+                            {
+                                totalAmount += price;
+                            }
+                        }
+                    }
+
+                    PdfPTable infoTable = new PdfPTable(2);
+                    infoTable.WidthPercentage = 100;
+                    infoTable.SpacingBefore = 10f;
+                    infoTable.SpacingAfter = 10f;
+
+                    AddCellToTable(infoTable, "Mã phiếu đăng ký dịch vụ:", dto.MaDKDV, headerFont, contentFont);
+                    AddCellToTable(infoTable, "Ngày tạo phiếu:", dto.NgayGioTaoPhieu, headerFont, contentFont);
+                    AddCellToTable(infoTable, "Bệnh nhân:", patient?.TenBN ?? "N/A", headerFont, contentFont);
+                    AddCellToTable(infoTable, "Số CCCD:", dto.SoCCCD, headerFont, contentFont);
+                    AddCellToTable(infoTable, "Nhân viên tạo phiếu:", employee?.TenNV ?? "N/A", headerFont, contentFont);
+                    AddCellToTable(infoTable, "Hình thức thanh toán:", dto.HinhThucThanhToan ?? "Chưa xác định", headerFont, contentFont);
+
+                    doc.Add(infoTable);
+
+                    // Bảng danh sách dịch vụ
+                    if (services.Count > 0)
+                    {
+                        doc.Add(new Paragraph("\n"));
+                        Paragraph serviceTitle = new Paragraph("DANH SÁCH DỊCH VỤ ĐÃ ĐĂNG KÝ", headerFont);
+                        serviceTitle.Alignment = Element.ALIGN_CENTER;
+                        doc.Add(serviceTitle);
+                        doc.Add(new Paragraph("\n"));
+
+                        PdfPTable serviceTable = new PdfPTable(4);
+                        serviceTable.WidthPercentage = 100;
+                        serviceTable.SpacingBefore = 10f;
+                        serviceTable.SpacingAfter = 10f;
+
+                        // Header cho bảng dịch vụ
+                        AddServiceTableHeader(serviceTable, "STT", headerFont);
+                        AddServiceTableHeader(serviceTable, "Mã dịch vụ", headerFont);
+                        AddServiceTableHeader(serviceTable, "Tên dịch vụ", headerFont);
+                        AddServiceTableHeader(serviceTable, "Đơn giá", headerFont);
+
+                        // Thêm dữ liệu dịch vụ
+                        for (int i = 0; i < services.Count; i++)
+                        {
+                            var service = services[i];
+                            AddServiceTableCell(serviceTable, (i + 1).ToString(), contentFont);
+                            AddServiceTableCell(serviceTable, service.MaDV, contentFont);
+                            AddServiceTableCell(serviceTable, service.TenDV, contentFont);
+                            AddServiceTableCell(serviceTable, FormatCurrency(service.GiaDV), contentFont);
+                        }
+
+                        AddServiceTableCell(serviceTable, "", contentFont);
+                        AddServiceTableCell(serviceTable, "", contentFont);
+                        AddServiceTableCell(serviceTable, "TỔNG CỘNG:", headerFont);
+                        AddServiceTableCell(serviceTable, FormatCurrency(totalAmount.ToString()), headerFont);
+
+                        doc.Add(serviceTable);
+                    }
+
+                    PdfPTable paymentTable = new PdfPTable(2);
+                    paymentTable.WidthPercentage = 100;
+                    paymentTable.SpacingBefore = 10f;
+
+                    AddCellToTable(paymentTable, "Tổng chi phí phải trả:", FormatCurrency(dto.TongChiPhi), headerFont, contentFont);
+
+                    doc.Add(paymentTable);
+
+
+                    // Phần chữ ký
+                    doc.Add(new Paragraph("\n\n\n"));
+
+                    PdfPTable signatureTable = new PdfPTable(3);
+                    signatureTable.WidthPercentage = 100;
+                    signatureTable.DefaultCell.Border = PdfPCell.NO_BORDER;
+
+                    signatureTable.AddCell(new Phrase("", contentFont));
+
+                    PdfPCell patientCell = new PdfPCell(new Phrase("Bệnh nhân/ Người đại diện\n(Ký và ghi rõ họ tên)", contentFont));
+                    patientCell.Border = PdfPCell.NO_BORDER;
+                    patientCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    signatureTable.AddCell(patientCell);
+
+                    PdfPCell staffCell = new PdfPCell(new Phrase("Nhân viên tiếp nhận\n(Ký và ghi rõ họ tên)", contentFont));
+                    staffCell.Border = PdfPCell.NO_BORDER;
+                    staffCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    signatureTable.AddCell(staffCell);
+
+                    doc.Add(signatureTable);
+
+                    doc.Close();
+                }
+
+                MessageBox.Show("Đã xuất phiếu đăng ký dịch vụ ra file PDF!", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tạo PDF: {ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string FormatCurrency(string amount)
+        {
+            if (decimal.TryParse(amount, out decimal value))
+            {
+                return value.ToString("N0") + " VNĐ";
+            }
+            return amount;
+        }
+
+        private void AddServiceTableHeader(PdfPTable table, string text, Font font)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(text, font));
+            cell.BorderWidth = 0.5f;
+            cell.Padding = 5f;
+            cell.BackgroundColor = new BaseColor(220, 220, 220);
+            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(cell);
+        }
+
+        private void AddServiceTableCell(PdfPTable table, string text, Font font)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(text, font));
+            cell.BorderWidth = 0.5f;
+            cell.Padding = 5f;
+            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+            table.AddCell(cell);
+        }
+
+        private void AddCellToTable(PdfPTable table, string label, string value, Font labelFont, Font valueFont)
+        {
+            PdfPCell labelCell = new PdfPCell(new Phrase(label, labelFont));
+            labelCell.BorderWidth = 0.5f;
+            labelCell.Padding = 5f;
+            labelCell.BackgroundColor = new BaseColor(245, 245, 245);
+            table.AddCell(labelCell);
+
+            PdfPCell valueCell = new PdfPCell(new Phrase(value, valueFont));
+            valueCell.BorderWidth = 0.5f;
+            valueCell.Padding = 5f;
+            table.AddCell(valueCell);
+        }
 
         private void layTenBenhNhanTuCCCD(object sender, EventArgs e)
         {

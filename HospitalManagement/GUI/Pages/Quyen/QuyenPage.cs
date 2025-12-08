@@ -466,9 +466,10 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     MessageBox.Show("Cập nhật quyền thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            LoadPermissionToTable();
             comboBoxQuyen.GetComboBox().DataSource = null;
             comboBoxQuyenLoad(null, null);
+            LoadPermissionToTable();
+            LoadAccountToTable();
             buttonHuyQuyenClick(null, null);
         }
 

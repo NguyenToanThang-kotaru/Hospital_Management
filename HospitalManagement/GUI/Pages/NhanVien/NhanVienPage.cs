@@ -161,6 +161,18 @@ namespace HM.GUI.Pages.NhanVien
                 return;
             }
 
+            if (!HM.Utils.Validators.IsName(txtTenNhanVien.TextValue.Trim()))
+            {
+                MessageBox.Show("Tên nhân viên không hợp lệ!");
+                return;
+            }
+
+            if (!HM.Utils.Validators.IsValidPhone(txtSoDienThoai.TextValue.Trim()))
+            {
+                MessageBox.Show("Số điện thoại nhân viên không hợp lệ!");
+                return;
+            }
+
             EmployeeDTO employee = new EmployeeDTO()
             {
                 MaNV = txtMaNhanVien.TextValue,
@@ -305,6 +317,7 @@ namespace HM.GUI.Pages.NhanVien
             comboBoxKhoa.GetComboBox().DataSource = null;
             comboBoxKhoaLoad(null, null);
             LoadDepartmentToTable();
+            LoadEmployeeToTable();
             buttonHuyKhoaClick(null, null);
         }
 
@@ -417,6 +430,7 @@ namespace HM.GUI.Pages.NhanVien
             comboBoxVaiTro.GetComboBox().DataSource = null;
             comboBoxVaiTroLoad(null, null);
             LoadRoleToTable();
+            LoadEmployeeToTable();
             buttonHuyVaiTroClick(null, null);
         }
 

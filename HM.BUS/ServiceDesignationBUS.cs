@@ -115,7 +115,7 @@ namespace HM.BUS
         }
         public bool ExistsServiceDesignationId(string maPCD)
         {
-            return GetAllServiceDesignation().Any(sv => sv.MaPCD == maPCD);
+            return serviceDesignationDAO.GetAllServiceDesignation().Any(sv => sv.MaPCD == maPCD);
         }
     }
 }
