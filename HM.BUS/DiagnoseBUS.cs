@@ -32,10 +32,9 @@ namespace HM.BUS
             }
             return listDTO;
         }
-
-        public DiagnoseDTO GetDiagnoseById(string maBA, string maBenh)
+        public List<DiagnoseDTO> GetDiagnosesByMedicalId(string maBA)
         {
-            return listDTO.FirstOrDefault(x => x.MaBA == maBA && x.MaBenh == maBenh);
+            return diagnoseDAO.GetDiagnoseByMedicalId(maBA);
         }
 
         public bool AddDiagnose(DiagnoseDTO obj)
@@ -77,67 +76,22 @@ namespace HM.BUS
             return false;
         }
 
-        public bool DeleteDiagnose(string maBA, string maBenh)
+        public bool DeleteDiagnoseByMedicalId(string maBA)
         {
             try
             {
-                if (diagnoseDAO.DeleteDiagnose(maBA, maBenh) > 0)
+                int affectedRows = diagnoseDAO.DeleteDiagnoseByMedicalId(maBA);
+                if (affectedRows > 0)
                 {
-                    var existing = listDTO.FirstOrDefault(x => x.MaBA == maBA && x.MaBenh == maBenh);
-                    if (existing != null)
-                        listDTO.Remove(existing);
+                    listDTO = diagnoseDAO.GetAllDiagnose();
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa chẩn đoán: " + ex.Message);
+                MessageBox.Show("Lỗi khi xóa chẩn đoán theo mã bệnh án: " + ex.Message);
             }
             return false;
-        }
-
-        public List<DiagnoseDTO> GetDiagnoseByMedicalId(string maBA)
-        {
-            try
-            {
-                return diagnoseDAO.GetDiagnoseByMedicalId(maBA);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy danh sách chẩn đoán theo bệnh án: " + ex.Message);
-            }
-            return new List<DiagnoseDTO>();
-        }
-
-        public List<DiagnoseDTO> GetDiagnoseByDiseaseId(string maBenh)
-        {
-            try
-            {
-                return diagnoseDAO.GetDiagnoseByDiseaseId(maBenh);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy danh sách chẩn đoán theo bệnh: " + ex.Message);
-            }
-            return new List<DiagnoseDTO>();
-        }
-
-        public bool IsDiagnoseExists(string maBA, string maBenh)
-        {
-            try
-            {
-                return diagnoseDAO.IsDiagnoseExists(maBA, maBenh);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi kiểm tra chẩn đoán tồn tại: " + ex.Message);
-            }
-            return false;
-        }
-
-        public List<DiagnoseDTO> GetDiagnosesByMedicalId(string maBA)
-        {
-            return diagnoseDAO.GetDiagnoseByMedicalId(maBA);
         }
     }
 

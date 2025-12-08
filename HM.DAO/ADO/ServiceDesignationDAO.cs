@@ -129,7 +129,7 @@ namespace HM.DAO.ADO
 
         public ServiceDesignationDTO GetServiceDesignationById(string maPCD)
         {
-            string sql = "SELECT * FROM phieuchidinh WHERE MaPCD = @MaPCD AND TrangThaiXoa = '0'";
+            string sql = "SELECT * FROM phieuchidinh WHERE MaPCD = @MaPCD";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

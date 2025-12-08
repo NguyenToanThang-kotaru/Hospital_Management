@@ -32,10 +32,9 @@ namespace HM.BUS
             }
             return listDTO;
         }
-
-        public PrescriptionDTO GetPrescriptionByMedicalId(string maBA)
+        public List<PrescriptionDTO> GetPrescriptionsByMedicalId(string maBA)
         {
-            return listDTO.FirstOrDefault(x => x.MaBA == maBA);
+            return prescriptiondao.GetPrescriptionsByMedicalId(maBA);
         }
 
         public bool AddPrescription(PrescriptionDTO obj)
@@ -77,54 +76,22 @@ namespace HM.BUS
             return false;
         }
 
-        //public bool DeletePrescription(string maDP)
-        //{
-        //    try
-        //    {
-        //        if (prescriptiondao.DeletePrescription(maDP) > 0)
-        //        {
-        //            var existing = listDTO.FirstOrDefault(x => x.MaDP == maDP);
-        //            if (existing != null)
-        //                listDTO.Remove(existing);
-        //            return true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi khi xóa đơn thuốc: " + ex.Message);
-        //    }
-        //    return false;
-        //}
-
-        public List<PrescriptionDTO> SearchPrescriptionByName(string keyword)
+        public bool DeletePrescriptionByMedicalId(string maBA)
         {
             try
             {
-                return prescriptiondao.SearchPrescriptionByName(keyword);
+                int affectedRows = prescriptiondao.DeletePrescriptionByMedicalId(maBA);
+                if (affectedRows > 0)
+                {
+                    listDTO = prescriptiondao.GetAllPrescription();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tìm kiếm đơn thuốc: " + ex.Message);
-                return new List<PrescriptionDTO>();
+                MessageBox.Show("Lỗi khi xóa đơn thuốc theo mã bệnh án: " + ex.Message);
             }
-        }
-
-        public string GetNextPresciptionId()
-        {
-            try
-            {
-                return prescriptiondao.GetNextPrescriptionId();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy mã đơn thuốc tiếp theo: " + ex.Message);
-                return null;
-            }
-        }
-
-        public List<PrescriptionDTO> GetPrescriptionsByMedicalId(string maBA)
-        {
-            return prescriptiondao.GetPrescriptionsByMedicalId(maBA);
+            return false;
         }
     }
 }

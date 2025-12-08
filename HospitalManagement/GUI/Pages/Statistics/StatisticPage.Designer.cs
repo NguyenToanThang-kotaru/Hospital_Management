@@ -184,6 +184,7 @@
             // fromDate
             // 
             this.fromDate.CalendarForeColor = System.Drawing.Color.Gray;
+            this.fromDate.CalendarTitleForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.fromDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fromDate.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fromDate.Location = new System.Drawing.Point(60, 0);
@@ -203,7 +204,7 @@
             this.buttonThongKe.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonThongKe.ForeColor = System.Drawing.Color.White;
             this.buttonThongKe.Location = new System.Drawing.Point(1067, 0);
-            this.buttonThongKe.MarginBottom = 5;
+            this.buttonThongKe.MarginBottom = 0;
             this.buttonThongKe.MarginLeft = 60;
             this.buttonThongKe.MarginRight = 0;
             this.buttonThongKe.MarginTop = 0;

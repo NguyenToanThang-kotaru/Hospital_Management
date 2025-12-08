@@ -32,10 +32,10 @@ namespace HM.BUS
             }
             return listDTO;
         }
-
-        public ServiceDetailDTO GetServiceDetailById(string maDV)
+        
+        public List<ServiceDetailDTO> GetServiceDetailByMedicalId(string maBA)
         {
-            return listDTO.FirstOrDefault(x => x.MaDV == maDV);
+            return servicedetaildao.GetServiceDetailByMedicalId(maBA);
         }
 
         public bool AddServiceDetail(ServiceDetailDTO obj)
@@ -77,28 +77,23 @@ namespace HM.BUS
             return false;
         }
 
-        //public bool DeleteServiceDetail(string maDV)
-        //{
-        //    try
-        //    {
-        //        if (servicedetaildao.DeleteServiceDetail(maDV) > 0)
-        //        {
-        //            var existing = listDTO.FirstOrDefault(x => x.MaDV == maDV);
-        //            if (existing != null)
-        //                listDTO.Remove(existing);
-        //            return true;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi khi xóa chi tiết dịch vụ: " + ex.Message);
-        //    }
-        //    return false;
-        //}
-
-        public List<ServiceDetailDTO> GetServiceDetailByMedicalId(string maBA)
+        public bool DeleteServiceDetailByMedicalId(string maBA)
         {
-            return servicedetaildao.GetServiceDetailByMedicalId(maBA);
+            try
+            {
+                int affectedRows = servicedetaildao.DeleteServiceDetailByMedicalId(maBA);
+                if (affectedRows > 0)
+                {
+                    listDTO = servicedetaildao.GetAllServiceDetail();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa đơn thuốc theo mã bệnh án: " + ex.Message);
+            }
+            return false;
         }
+        
     }
 }

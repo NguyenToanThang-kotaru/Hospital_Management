@@ -1,14 +1,11 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HM.Utils
@@ -93,7 +90,7 @@ namespace HM.Utils
 
         public static bool IsValidBHYT(string bhyt) => Regex.IsMatch(bhyt, @"^[A-Z]{2}[0-9]{8,10}$");
 
-
+        public static bool IsVietnameseName(string name) => Regex.IsMatch(name, @"^[\p{L}\s']+$");
         public static bool IsValidDate(string date)
         {
             bool isFormatValid = DateTime.TryParseExact(
@@ -105,13 +102,6 @@ namespace HM.Utils
             );
 
             return isFormatValid;
-        }
-
-        public static bool IsValidGender(string gender)
-        {
-            return gender.Equals("Nam", StringComparison.OrdinalIgnoreCase) ||
-                   gender.Equals("Nu", StringComparison.OrdinalIgnoreCase) ||
-                   gender.Equals("Nữ", StringComparison.OrdinalIgnoreCase);
         }
 
         public static bool CheckEmpty(string value, string fieldName, out string errorMessage, string customMessage = null)

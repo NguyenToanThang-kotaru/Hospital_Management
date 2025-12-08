@@ -116,7 +116,7 @@ namespace HM.DAO.ADO
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
                 {
                     DatabaseConnection.Open(conn);
-                    string query = "SELECT * FROM benhnhan WHERE SoCCCD = @SoCCCD AND TrangThaiXoa = 0";
+                    string query = "SELECT * FROM benhnhan WHERE SoCCCD = @SoCCCD";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@SoCCCD", soCCCD);

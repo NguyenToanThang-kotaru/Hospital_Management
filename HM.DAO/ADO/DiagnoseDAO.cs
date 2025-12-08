@@ -62,10 +62,9 @@ namespace HM.DAO.ADO
             }
             return 0;
         }
-
-        public int DeleteDiagnose(string maBA, string maBenh)
+        public int DeleteDiagnoseByMedicalId(string maBA)
         {
-            string sql = "DELETE FROM chandoan WHERE MaBA = @MaBA AND MaBenh = @MaBenh";
+            string sql = "DELETE FROM chandoan WHERE MaBA = @MaBA";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -73,7 +72,6 @@ namespace HM.DAO.ADO
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@MaBA", maBA);
-                        cmd.Parameters.AddWithValue("@MaBenh", maBenh);
 
                         conn.Open();
                         return cmd.ExecuteNonQuery();
@@ -82,7 +80,7 @@ namespace HM.DAO.ADO
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa chẩn đoán: " + ex.Message);
+                MessageBox.Show("Lỗi khi xóa chẩn đoán theo mã bệnh án: " + ex.Message);
             }
             return 0;
         }
@@ -121,42 +119,6 @@ namespace HM.DAO.ADO
             return list;
         }
 
-        public DiagnoseDTO GetDiagnoseById(string maBA, string maBenh)
-        {
-            string sql = "SELECT * FROM chandoan WHERE MaBA = @MaBA AND MaBenh = @MaBenh";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaBA", maBA);
-                        cmd.Parameters.AddWithValue("@MaBenh", maBenh);
-
-                        conn.Open();
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                return new DiagnoseDTO
-                                {
-                                    MaBA = reader["MaBA"].ToString(),
-                                    MaBenh = reader["MaBenh"].ToString(),
-                                    NgayChanDoan = reader["NgayChanDoan"].ToString(),
-                                    KetQuaDieuTri = reader["KetQuaDieuTri"].ToString()
-                                };
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy thông tin chẩn đoán: " + ex.Message);
-            }
-            return null;
-        }
-
         public List<DiagnoseDTO> GetDiagnoseByMedicalId(string maBA)
         {
             List<DiagnoseDTO> list = new List<DiagnoseDTO>();
@@ -191,67 +153,6 @@ namespace HM.DAO.ADO
                 MessageBox.Show("Lỗi khi lấy danh sách chẩn đoán theo bệnh án: " + ex.Message);
             }
             return list;
-        }
-
-        public List<DiagnoseDTO> GetDiagnoseByDiseaseId(string maBenh)
-        {
-            List<DiagnoseDTO> list = new List<DiagnoseDTO>();
-            string sql = "SELECT * FROM chandoan WHERE MaBenh = @MaBenh";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaBenh", maBenh);
-
-                        conn.Open();
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                list.Add(new DiagnoseDTO
-                                {
-                                    MaBA = reader["MaBA"].ToString(),
-                                    MaBenh = reader["MaBenh"].ToString(),
-                                    NgayChanDoan = reader["NgayChanDoan"].ToString(),
-                                    KetQuaDieuTri = reader["KetQuaDieuTri"].ToString()
-                                });
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy danh sách chẩn đoán theo bệnh: " + ex.Message);
-            }
-            return list;
-        }
-
-        public bool IsDiagnoseExists(string maBA, string maBenh)
-        {
-            string sql = "SELECT COUNT(*) FROM chandoan WHERE MaBA = @MaBA AND MaBenh = @MaBenh";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaBA", maBA);
-                        cmd.Parameters.AddWithValue("@MaBenh", maBenh);
-
-                        conn.Open();
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return count > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi kiểm tra chẩn đoán: " + ex.Message);
-            }
-            return false;
         }
     }
 }

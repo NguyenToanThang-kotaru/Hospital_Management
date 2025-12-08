@@ -11,8 +11,7 @@ namespace HM.DAO.ADO
     {
         public int AddService(ServiceDTO obj)
         {
-            string sql = "INSERT INTO dichvu (MaDV, TenDV, GiaDV, DuocBHYTChiTra, TrangThaiXoa) " +
-                           "VALUES (@MaDV, @TenDV, @GiaDV, @DuocBHYTChiTra, 0)";
+            string sql = "INSERT INTO dichvu (MaDV, TenDV, GiaDV, DuocBHYTChiTra, TrangThaiXoa) VALUES (@MaDV, @TenDV, @GiaDV, @DuocBHYTChiTra, 0)";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -38,8 +37,7 @@ namespace HM.DAO.ADO
 
         public int UpdateService(ServiceDTO obj)
         {
-            string sql = "UPDATE dichvu SET TenDV = @TenDV, GiaDV = @GiaDV, DuocBHYTChiTra = @DuocBHYTChiTra" +
-                         "WHERE MaDV = @MaDV AND TrangThaiXoa = 0";
+            string sql = "UPDATE dichvu SET TenDV = @TenDV, GiaDV = @GiaDV, DuocBHYTChiTra = @DuocBHYTChiTra WHERE MaDV = @MaDV AND TrangThaiXoa = 0";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

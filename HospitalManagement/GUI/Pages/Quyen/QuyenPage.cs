@@ -192,6 +192,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
         {
             txtTenDangNhap.TextValue = "";
             txtMatKhau.TextValue = "";
+            buttonXacNhanTaiKhoan.Text = "Xác nhận";
             comboBoxNhanVien.GetComboBox().DataSource = null;
             comboBoxNhanVienLoad(null,null);
             comboBoxNhanVien.GetComboBox().SelectedIndex = -1;
@@ -213,7 +214,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
                 MaQuyen = comboBoxQuyen?.GetComboBox().SelectedValue?.ToString(),
             };
 
-            if (!accountBUS.ExistsAccountUsername(account.TenDangNhap))
+            if (buttonXacNhanTaiKhoan.Text == "Xác nhận")
             {
                 accountBUS.AddAccount(account);
                 MessageBox.Show("Thêm tài khoản thành công!");
@@ -235,12 +236,14 @@ namespace HM.GUI.Pages.HoSoBenhAn
             txtMatKhau.TextValue = "";
             comboBoxNhanVien.GetComboBox().SelectedIndex = -1;
             comboBoxQuyen.GetComboBox().SelectedIndex = -1;
+            buttonXacNhanTaiKhoan.Text = "Xác nhận";
         }
 
         private void buttonSuaTaiKhoanClick(object sender, EventArgs e)
         {
             if (tableAccounts.SelectedRows.Count > 0)
             {
+                buttonXacNhanTaiKhoan.Text = "Lưu";
                 var row = tableAccounts.SelectedRows[0];
                 string username = row.Cells["Tên Đăng Nhập"].Value?.ToString();
 
@@ -254,7 +257,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     // Lấy danh sách nhân viên hiện tại từ DataSource
                     var list = ((List<EmployeeDTO>)cbNhanVien.DataSource).ToList();
 
-                    // Kiểm tra nếu chưa có nhân viên này thì thêm
                     if (!list.Any(emp => emp.MaNV == taikhoan.MaNV))
                     {
                         var emp = employeeBUS.GetEmployeeById(taikhoan.MaNV);
@@ -267,7 +269,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     cbNhanVien.DisplayMember = "TenNV";
                     cbNhanVien.ValueMember = "MaNV";
 
-                    // Chọn nhân viên đang sửa
                     cbNhanVien.SelectedValue = taikhoan.MaNV;
                     comboBoxQuyen.GetComboBox().SelectedValue = taikhoan.MaQuyen;
                 }

@@ -24,7 +24,6 @@ namespace HM.GUI.Pages.Statistics
         }
         private void StatitcPage_Load(object sender, EventArgs e)
         {
-            this.txtTongTien.Text = "10000";
             LoadStatisticToTable();
         }
         

@@ -11,8 +11,7 @@ namespace HM.DAO.ADO
     {
         public int AddServiceDetail(ServiceDetailDTO obj)
         {
-            string sql = "INSERT INTO chitietdichvu (MaDV, MaBA) " +
-                           "VALUES (@MaDV, @MaBA)";
+            string sql = "INSERT INTO chitietdichvu (MaDV, MaBA) VALUES (@MaDV, @MaBA)";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())
@@ -32,6 +31,52 @@ namespace HM.DAO.ADO
             }
             return 0;
         }
+        public int UpdateServiceDetail(ServiceDetailDTO obj)
+        {
+            string sql = "UPDATE chitietdichvu SET MaBA = @MaBa WHERE MaDV = @MaDV";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
+                        cmd.Parameters.AddWithValue("@MaBA", obj.MaBA);
+                        conn.Open();
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật chi tiết dịch vụ: " + ex.Message);
+            }
+            return 0;
+        }
+
+        public int DeleteServiceDetailByMedicalId(string maBA)
+        {
+            string sql = "DELETE FROM chitietdichvu WHERE MaBA = @MaBA";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaBA", maBA);
+
+                        conn.Open();
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa chi tiết dịch vụ theo mã bệnh án: " + ex.Message);
+            }
+            return 0;
+        }
+
         public List<ServiceDetailDTO> GetAllServiceDetail()
         {
             List<ServiceDetailDTO> list = new List<ServiceDetailDTO>();
@@ -97,30 +142,6 @@ namespace HM.DAO.ADO
                 MessageBox.Show("Lỗi khi lấy danh sách dịch vụ theo bệnh án: " + ex.Message);
             }
             return list;
-        }
-
-        public int UpdateServiceDetail(ServiceDetailDTO obj)
-        {
-            string sql = "UPDATE chitietdichvu SET MaBA = @MaBa" +
-                         "WHERE MaDV = @MaDV";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaDV", obj.MaDV);
-                        cmd.Parameters.AddWithValue("@MaBA", obj.MaBA);
-                        conn.Open();
-                        return cmd.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi cập nhật chi tiết dịch vụ: " + ex.Message);
-            }
-            return 0;
         }
     }
 }

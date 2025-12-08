@@ -80,7 +80,7 @@ namespace HM.GUI.Pages.DichVu
 
             foreach (var serviceDesignation in serviceDesignationBUS.GetAllServiceDesignation())
             {
-                table.Rows.Add(serviceDesignation.MaPCD, serviceDesignation.SoCCCD, serviceDesignation.MaDV, serviceDesignation.NgayGioTaoPhieu);
+                table.Rows.Add(serviceDesignation.MaPCD, serviceDesignation.SoCCCD, serviceBUS.GetServiceById(serviceDesignation.MaDV).TenDV, serviceDesignation.NgayGioTaoPhieu);
             }
 
             tableServiceDesignation.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -125,6 +125,15 @@ namespace HM.GUI.Pages.DichVu
             if (string.IsNullOrEmpty(txtTenDichVu.TextValue) || string.IsNullOrEmpty(txtGiaDichVu.TextValue) || string.IsNullOrEmpty(comboBoxBaoHiemChiTra.TextValue))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin dịch vụ!");
+                return;
+            }
+
+            string giaDichVu = txtGiaDichVu.TextValue.Trim();
+
+            if (!HM.Utils.Validators.IsNumber(giaDichVu) || (decimal.TryParse(giaDichVu, out decimal gia) && gia < 0))
+            {
+                MessageBox.Show("Giá dịch vụ phải là số nguyên dương");
+                txtGiaDichVu.Focus();
                 return;
             }
 
@@ -198,6 +207,8 @@ namespace HM.GUI.Pages.DichVu
                 {
                     serviceBUS.DeleteService(maDichVu);
                     MessageBox.Show("Xóa dịch vụ thành công!");
+                    comboBoxDichVu.GetComboBox().DataSource = null;
+                    comboBoxDichVuLoad(null, null);
                     LoadServiceToTable();
                     buttonHuyDichVuClick(null, null);
                 }

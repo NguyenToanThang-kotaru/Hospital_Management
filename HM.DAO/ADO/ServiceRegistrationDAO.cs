@@ -128,7 +128,7 @@ namespace HM.DAO.ADO
 
         public ServiceRegistrationDTO GetServiceRegistrationById(string maDKDV)
         {
-            string sql = "SELECT * FROM dangkydichvu WHERE MaDKDV = @MaDKDV AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM dangkydichvu WHERE MaDKDV = @MaDKDV";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

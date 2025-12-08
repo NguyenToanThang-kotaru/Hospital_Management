@@ -119,7 +119,7 @@ namespace HM.DAO.ADO
 
         public PermissionDTO GetPermissionById(string maQuyen)
         {
-            string sql = "SELECT * FROM quyen WHERE MaQuyen = @MaQuyen AND TrangThaiXoa = 0";
+            string sql = "SELECT * FROM quyen WHERE MaQuyen = @MaQuyen";
             try
             {
                 using (MySqlConnection conn = DatabaseConnection.GetConnection())

@@ -37,7 +37,7 @@ namespace HM.DAO.ADO
         }
         public int UpdatePrescription(PrescriptionDTO obj)
         {
-            string sql = "UPDATE donthuoc SET MaDP = @MaDP, SoLuongDP = @SoLuongDP, DonViDP = @DonViDP" +
+            string sql = "UPDATE donthuoc SET MaDP = @MaDP, SoLuongDP = @SoLuongDP, DonViDP = @DonViDP " +
                          "WHERE MaBA = @MaBA AND TrangThaiXoa = 0";
             try
             {
@@ -57,6 +57,29 @@ namespace HM.DAO.ADO
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi cập nhật đơn thuốc: " + ex.Message);
+            }
+            return 0;
+        }
+
+        public int DeletePrescriptionByMedicalId(string maBA)
+        {
+            string sql = "DELETE FROM donthuoc WHERE MaBA = @MaBA";
+            try
+            {
+                using (MySqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@MaBA", maBA);
+
+                        conn.Open();
+                        return cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa đơn thuốc theo mã bệnh án: " + ex.Message);
             }
             return 0;
         }
@@ -130,74 +153,6 @@ namespace HM.DAO.ADO
                 MessageBox.Show("Lỗi khi lấy danh sách đơn thuốc theo bệnh án: " + ex.Message);
             }
             return list;
-        }
-
-        public List<PrescriptionDTO> SearchPrescriptionByName(string maDP)
-        {
-            List<PrescriptionDTO> prescriptions = new List<PrescriptionDTO>();
-            string sql = "SELECT * FROM donthuoc WHERE MaDP LIKE CONCAT('%', @MaDP, '%')";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@MaDP", maDP);
-                        conn.Open();
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                PrescriptionDTO prescription = new PrescriptionDTO
-                                {
-                                    MaBA = reader["MaBA"].ToString(),
-                                    MaDP = reader["MaDP"].ToString(),
-                                    SoLuongDP = reader["SoLuongDP"].ToString(),
-                                    DonViDP = reader["DonViDP"].ToString()
-                                };
-                                prescriptions.Add(prescription);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi tìm kiếm đơn thuốc: " + ex.Message);
-            }
-            return prescriptions;
-        }
-
-        public string GetNextPrescriptionId()
-        {
-            string sql = "SELECT MaDP FROM donthuoc ORDER BY MaDP DESC LIMIT 1";
-            try
-            {
-                using (MySqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
-                    {
-                        conn.Open();
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            string lastId = result.ToString();
-                            int numericPart = int.Parse(lastId.Substring(2));
-                            numericPart++;
-                            return "DP" + numericPart.ToString("D6");
-                        }
-                        else
-                        {
-                            return "DP000001";
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi lấy mã đơn thuốc tiếp theo: " + ex.Message);
-            }
-            return "DP000001";
         }
     }
 }

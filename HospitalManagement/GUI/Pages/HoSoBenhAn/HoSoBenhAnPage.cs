@@ -304,6 +304,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
             {
                 string maBA = tableMedical.Rows[e.RowIndex].Cells["Mã Bệnh Án"].Value.ToString();
                 txtMaBenhAn.TextValue = maBA;
+                buttonXacNhanBenhAn.Text = "Lưu";
                 LoadDiagnosesByMedicalId(maBA);
                 LoadServicesByMedicalId(maBA);
                 LoadPrescriptionsByMedicalId(maBA);
@@ -371,6 +372,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
         private void buttonThemBenhAnClick(object sender, EventArgs e)
         {
             txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
+            buttonXacNhanBenhAn.Text = "Xác nhận";
             LoadDiagnoseOfMedicalToTable();
             LoadServiceOfMedicalToTable();
             LoadPrescriptionOfMedicalToTable();
@@ -689,6 +691,7 @@ namespace HM.GUI.Pages.HoSoBenhAn
         private void buttonHuyBenhAnClick(object sender, EventArgs e)
         {
             txtMaBenhAn.TextValue = medicalBUS.GetNextMedicalId();
+            buttonXacNhanBenhAn.Text = "Xác nhận";
             LoadDiagnoseOfMedicalToTable();
             LoadServiceOfMedicalToTable();
             LoadPrescriptionOfMedicalToTable();
@@ -723,12 +726,12 @@ namespace HM.GUI.Pages.HoSoBenhAn
                 NgayTao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
             };
 
-            if (!medicalBUS.ExistsMedicalId(medical.MaBA)) // thêm
+            if (buttonXacNhanBenhAn.Text == "Xác nhận") // thêm
             {
                 medicalBUS.AddMedical(medical);
                 MessageBox.Show("Thêm bệnh án thành công!");
 
-                // Thêm chẩn đoán
+                // them cac chi tiet
                 foreach (DataRow row in diagnoseTable.Rows)
                 {
                     DiagnoseDTO diagnose = new DiagnoseDTO()
@@ -741,7 +744,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     diagnoseBUS.AddDiagnose(diagnose);
                 }
 
-                // Thêm đơn thuốc
                 foreach (DataRow row in prescriptionTable.Rows)
                 {
                     PrescriptionDTO prescription = new PrescriptionDTO()
@@ -754,7 +756,6 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     prescriptionBUS.AddPrescription(prescription);
                 }
 
-                // Thêm chi tiết dịch vụ
                 foreach (DataRow row in serviceTable.Rows)
                 {
                     ServiceDetailDTO serviceDetail = new ServiceDetailDTO()
@@ -770,45 +771,49 @@ namespace HM.GUI.Pages.HoSoBenhAn
             }
             else // sửa
             {
-                //medicalBUS.UpdateMedical(medical);
-                //MessageBox.Show("Cập nhật bệnh án thành công!");
+                medicalBUS.UpdateMedical(medical);
+                MessageBox.Show("Cập nhật bệnh án thành công!");
 
-                //diagnoseBUS.DeleteDiagnoseByMedicalId(medical.MaBA);
-                //foreach (DataRow row in diagnoseTable.Rows)
-                //{
-                //    DiagnoseDTO diagnose = new DiagnoseDTO()
-                //    {
-                //        MaBA = medical.MaBA,
-                //        MaBenh = row["Mã"].ToString()
-                //    };
-                //    diagnoseBUS.AddDiagnose(diagnose);
-                //}
+                // xoa va them lai
+                diagnoseBUS.DeleteDiagnoseByMedicalId(medical.MaBA);
+                foreach (DataRow row in diagnoseTable.Rows)
+                {
+                    DiagnoseDTO diagnose = new DiagnoseDTO()
+                    {
+                        MaBA = medical.MaBA,
+                        MaBenh = row["Mã"].ToString(),
+                        NgayChanDoan = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        KetQuaDieuTri = "1"
+                    };
+                    diagnoseBUS.AddDiagnose(diagnose);
+                }
 
-                //prescriptionBUS.DeletePrescriptionByMedicalId(medical.MaBA);
-                //foreach (DataRow row in prescriptionTable.Rows)
-                //{
-                //    PrescriptionDTO prescription = new PrescriptionDTO()
-                //    {
-                //        MaBA = medical.MaBA,
-                //        MaDP = row["Mã"].ToString(),
-                //        SoLuong = int.Parse(row["Số lượng"].ToString()),
-                //        DonVi = row["Đơn vị"].ToString()
-                //    };
-                //    prescriptionBUS.AddPrescription(prescription);
-                //}
+                prescriptionBUS.DeletePrescriptionByMedicalId(medical.MaBA);
+                foreach (DataRow row in prescriptionTable.Rows)
+                {
+                    PrescriptionDTO prescription = new PrescriptionDTO()
+                    {
+                        MaBA = medical.MaBA,
+                        MaDP = row["Mã"].ToString(),
+                        SoLuongDP = row["Số lượng"].ToString(),
+                        DonViDP = row["Đơn vị"].ToString()
+                    };
+                    prescriptionBUS.AddPrescription(prescription);
+                }
 
-                //serviceDetailBUS.DeleteServiceDetailByMedicalId(medical.MaBA);
-                //foreach (DataRow row in serviceTable.Rows)
-                //{
-                //    ServiceDetailDTO serviceDetail = new ServiceDetailDTO()
-                //    {
-                //        MaBA = medical.MaBA,
-                //        MaDV = row["Mã"].ToString()
-                //    };
-                //    serviceDetailBUS.AddServiceDetail(serviceDetail);
-                //}
+                serviceDetailBUS.DeleteServiceDetailByMedicalId(medical.MaBA);
+                foreach (DataRow row in serviceTable.Rows)
+                {
+                    ServiceDetailDTO serviceDetail = new ServiceDetailDTO()
+                    {
+                        MaBA = medical.MaBA,
+                        MaDV = row["Mã"].ToString()
+                    };
+                    serviceDetailBUS.AddServiceDetail(serviceDetail);
+                }
 
-                //MessageBox.Show("Cập nhật bệnh án và các thông tin liên quan thành công!");
+                MessageBox.Show("Cập nhật bệnh án và các thông tin liên quan thành công!");
+                LoadMedicalTableByPatientId(txtSoCCCD.TextValue);
             }
 
             buttonHuyBenhAnClick(null, null);
