@@ -34,7 +34,7 @@ namespace HM.BUS
                 throw new ArgumentException("Số BHYT không được để trống");
 
             if (!Validators.IsValidBHYT(healthInsurance.SoBHYT))
-                throw new ArgumentException("Số BHYT không hợp lệ (VD: DN19512345)");
+                throw new ArgumentException("Số BHYT không hợp lệ sô bảo hiểm y tế phải có 10 kí tự (VD: DN19512345)");
 
             //if (healthInsuranceDAO.IsDuplicateBHYT(healthInsurance.SoBHYT))
             //    throw new ArgumentException("Số BHYT này đã tồn tại trong hệ thống");

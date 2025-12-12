@@ -185,7 +185,8 @@ namespace HM.GUI.Pages.HoSoBenhAn
                     var ckb = new CheckBox
                     {
                         AutoSize = true,
-                        Tag = new { MaCN = chucNangList[i].MaCN, MaHD = hanhDongList[j].MaHD }
+                        Tag = new { MaCN = chucNangList[i].MaCN, MaHD = hanhDongList[j].MaHD },
+                        Enabled = !(i == 0 && j < 3)
                     };
 
                     panel.Controls.Add(ckb);

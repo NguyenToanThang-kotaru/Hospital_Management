@@ -69,8 +69,13 @@ namespace HM.GUI.Pages.BenhNhan
 
             if (txtSoCCCDBenhNhan.txt != null)
             {
-                txtSoCCCDBenhNhan.txt.TextChanged -= layTenBenhNhanTuCCCD;
-                txtSoCCCDBenhNhan.txt.TextChanged += layTenBenhNhanTuCCCD;
+                txtSoCCCDBenhNhan.txt.TextChanged -= getPatientNameByCCCD;
+                txtSoCCCDBenhNhan.txt.TextChanged += getPatientNameByCCCD;
+            }
+
+            if (txtSoBHYT.txt != null) {
+                txtSoBHYT.txt.TextChanged -= getBenefitByBHYT;
+                txtSoBHYT.txt.TextChanged += getBenefitByBHYT;
             }
 
             comboBoxGioiTinhLoad(null, null);
@@ -294,6 +299,12 @@ namespace HM.GUI.Pages.BenhNhan
                     return;
                 }
 
+                if (string.IsNullOrEmpty(txtTiLeChiTra.TextValue))
+                {
+                    MessageBox.Show("Sô BHYT không hợp lệ kiểm tra lại kí tự thứ 3!");
+                    return;
+                }
+
                 bhyt = new HealthInsuranceDTO()
                 {
                     SoBHYT = txtSoBHYT.TextValue.Trim(),
@@ -488,6 +499,37 @@ namespace HM.GUI.Pages.BenhNhan
                 throw;
             }
         }
+
+        private void getBenefitByBHYT(object sender, EventArgs e)
+        {
+            string soBHYT = txtSoBHYT.TextValue.Trim();
+
+            if (!string.IsNullOrEmpty(soBHYT))
+            {
+                if (soBHYT.Length >= 3)
+                {
+                    char kyTuThuBa = soBHYT[2];
+
+                    if (kyTuThuBa == '1' || kyTuThuBa == '2')
+                        txtTiLeChiTra.TextValue = "100%";
+                    else if (kyTuThuBa == '3')
+                        txtTiLeChiTra.TextValue = "95%";
+                    else if (kyTuThuBa == '4')
+                        txtTiLeChiTra.TextValue = "85%";
+                    else
+                        txtTiLeChiTra.TextValue = "";
+                }
+                else
+                {
+                    txtTiLeChiTra.TextValue = "";
+                }
+            }
+            else
+            {
+                txtTiLeChiTra.TextValue = "";
+            }
+        }
+
 
         // sự kiện tabPageDanhSachBenhNhan ====================================================================================================================
         // sự kiện tabPageDanhSachBenhNhan ====================================================================================================================
@@ -709,20 +751,55 @@ namespace HM.GUI.Pages.BenhNhan
                 var patient = patientBUS.GetPatientByIdOrNull(soCCCD);
                 if (patient != null && !string.IsNullOrEmpty(patient.SoBHYT))
                 {
-                    string strMucHuong = GetMucHuongFromBHYT(patient.SoBHYT);
+                    // Lấy thông tin BHYT từ bảng HealthInsurance
+                    var bhytInfo = healthInsuranceBUS.GetHealthInsuranceByID(patient.SoBHYT);
 
-                    if (!string.IsNullOrEmpty(strMucHuong) && strMucHuong.Contains("%"))
+                    if (bhytInfo != null)
                     {
-                        decimal phanTramBHYTChiTra;
-                        if (decimal.TryParse(strMucHuong.Replace("%", ""), out phanTramBHYTChiTra))
+                        // KIỂM TRA BHYT CÒN HẠN KHÔNG
+                        if (!string.IsNullOrEmpty(bhytInfo.NgayHetHan))
                         {
-                            phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
-                            if (phanTramBHYTChiTra >= 1)
-                                return 0;
-                            else
-                                return giaGoc * (1 - phanTramBHYTChiTra);
+                            try
+                            {
+                                DateTime ngayHetHan = DateTime.ParseExact(bhytInfo.NgayHetHan, "dd-MM-yyyy", null);
+                                if (ngayHetHan < DateTime.Now)
+                                {
+                                    MessageBox.Show($"Bảo hiểm y tế của bệnh nhân đã hết hạn (hết hạn ngày {bhytInfo.NgayHetHan}).\nDịch vụ sẽ được tính giá gốc.",
+                                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    return giaGoc;
+                                }
+                            }
+                            catch (FormatException)
+                            {
+                                MessageBox.Show("Định dạng ngày hết hạn BHYT không hợp lệ. Vui lòng kiểm tra lại.",
+                                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return giaGoc;
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(bhytInfo.MucHuong) && bhytInfo.MucHuong.Contains("%"))
+                        {
+                            decimal phanTramBHYTChiTra;
+                            if (decimal.TryParse(bhytInfo.MucHuong.Replace("%", ""), out phanTramBHYTChiTra))
+                            {
+                                phanTramBHYTChiTra = phanTramBHYTChiTra / 100;
+                                if (phanTramBHYTChiTra >= 1)
+                                    return 0;
+                                else
+                                    return giaGoc * (1 - phanTramBHYTChiTra);
+                            }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy thông tin BHYT trong hệ thống. Dịch vụ được tính giá gốc.",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else if (patient != null && string.IsNullOrEmpty(patient.SoBHYT))
+                {
+                    MessageBox.Show("Bệnh nhân không có Bảo hiểm y tế.\nDịch vụ sẽ được tính giá gốc.",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             return giaGoc;
@@ -1031,7 +1108,7 @@ namespace HM.GUI.Pages.BenhNhan
             table.AddCell(valueCell);
         }
 
-        private void layTenBenhNhanTuCCCD(object sender, EventArgs e)
+        private void getPatientNameByCCCD(object sender, EventArgs e)
         {
             string soCCCD = txtSoCCCDBenhNhan.TextValue.Trim();
 
@@ -1053,8 +1130,6 @@ namespace HM.GUI.Pages.BenhNhan
             }
             CalculateTotalCost();
         }
-
-
 
         // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
         // sự kiện tabPageDanhSachDangKyDichVu ====================================================================================================================
